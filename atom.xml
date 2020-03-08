@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-03-04T00:30:45.684Z</updated>
+  <updated>2020-03-08T11:34:39.873Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://icewind-r.github.io/2020/03/04/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://icewind-r.github.io/2020/03/04/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/</id>
     <published>2020-03-04T00:05:15.000Z</published>
-    <updated>2020-03-04T00:30:45.684Z</updated>
+    <updated>2020-03-08T11:34:39.873Z</updated>
     
-    <content type="html"><![CDATA[<p>继续之前的PHP基础，这次为第二次基础的总结，涉及各种数据类型的介绍等。</p><a id="more"></a><h2 id="一、数据类型介绍"><a href="#一、数据类型介绍" class="headerlink" title="一、数据类型介绍"></a>一、数据类型介绍</h2><h3 id="1-1、整型"><a href="#1-1、整型" class="headerlink" title="1.1、整型"></a>1.1、整型</h3><p><strong>概念</strong>：数据是整数，但根据进制方式不同，有不同的数据格式。</p><ul><li>十进制：默认格式。</li><li>八进制：起始用0作为标识。</li><li>十六进制：起始用0x作为标记。</li><li>二进制起始使用0b作为标记。</li></ul><p>虽说有多种进制表示，但PHP<strong>默认</strong>最终输出都以十进制的标准输出。</p><p>如果想要保证原来的进制输出，就需要使用printf()函数，和C类似，但不会输出前面的进制标志。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$int1 = <span class="number">123</span>;</span><br><span class="line">$int2 = <span class="number">0123</span>;</span><br><span class="line">$int3 = <span class="number">0x123</span>;</span><br><span class="line">$int4 = <span class="number">0b101</span>;</span><br><span class="line">printf(<span class="string">'123的十进制是：%d,83的八进制是：%o,291的十六进制是：%x,5的二进制是：%b'</span>,$int1,$int2,$int3,$int4);</span><br></pre></td></tr></table></figure><p><strong>注意</strong>：整型最大的保存PHP_INT_SIZE,(即8个字节)，最大值为PHP_INT_MAX，最小值-PHP_INT_MAX-1</p><h3 id="2-2、"><a href="#2-2、" class="headerlink" title="2.2、"></a>2.2、</h3>]]></content>
+    <content type="html"><![CDATA[<p>继续之前的PHP基础，这次为第二次基础的总结，涉及各种数据类型的介绍等。</p><a id="more"></a><h2 id="一、数据类型介绍"><a href="#一、数据类型介绍" class="headerlink" title="一、数据类型介绍"></a>一、数据类型介绍</h2><h3 id="1-1、整型"><a href="#1-1、整型" class="headerlink" title="1.1、整型"></a>1.1、整型</h3><p><strong>概念</strong>：数据是整数，但根据进制方式不同，有不同的数据格式。</p><ul><li>十进制：默认格式。</li><li>八进制：起始用0作为标识。</li><li>十六进制：起始用0x作为标记。</li><li>二进制起始使用0b作为标记。</li></ul><p>虽说有多种进制表示，但PHP<strong>默认</strong>最终输出都以十进制的标准输出。</p><p>如果想要保证原来的进制输出，就需要使用printf()函数，和C类似，但不会输出前面的进制标志。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$int1 = <span class="number">123</span>;</span><br><span class="line">$int2 = <span class="number">0123</span>;</span><br><span class="line">$int3 = <span class="number">0x123</span>;</span><br><span class="line">$int4 = <span class="number">0b101</span>;</span><br><span class="line">printf(<span class="string">'123的十进制是：%d,83的八进制是：%o,291的十六进制是：%x,5的二进制是：%b'</span>,$int1,$int2,$int3,$int4);</span><br></pre></td></tr></table></figure><p><strong>注意</strong>：整型最大的保存PHP_INT_SIZE,(即8个字节)，最大值为PHP_INT_MAX，最小值-PHP_INT_MAX-1</p><h3 id="2-2、浮点型"><a href="#2-2、浮点型" class="headerlink" title="2.2、浮点型"></a>2.2、浮点型</h3><p>PHP中浮点数的精度是13~14位，PHP7中浮点数的最大值表示：1.8e308</p><p>浮点数采用8个字节存储，存储原理为：符号位+54个数值位+9个指数位</p><p><strong>注意</strong>：0.3与8.1/2.7比较，计算器不会算出相等的结果。</p><h3 id="2-3-布尔类型"><a href="#2-3-布尔类型" class="headerlink" title="2.3 布尔类型"></a>2.3 布尔类型</h3><p><code>$res = true;</code></p><p><code>$res = FALSE</code>  不区分大小写</p>]]></content>
     
     <summary type="html">
     
