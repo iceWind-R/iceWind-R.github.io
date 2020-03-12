@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-03-09T12:13:18.560Z</updated>
+  <updated>2020-03-12T00:49:55.316Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python入门小结（一）</title>
+    <link href="http://icewind-r.github.io/2020/03/12/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://icewind-r.github.io/2020/03/12/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/</id>
+    <published>2020-03-12T00:49:55.000Z</published>
+    <updated>2020-03-12T00:49:55.316Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>PHP基础知识（二）</title>
