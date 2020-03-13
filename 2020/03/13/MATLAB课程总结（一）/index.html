@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Thorine">
 <meta property="og:description" content="MATLAB的课堂总结，一周一次课，东西又多，不总结的话怕是学了就忘，这篇文章的目的也主要用于记录总结各种命令的使用方法。">
 <meta property="article:published_time" content="2020-03-13T08:23:56.000Z">
-<meta property="article:modified_time" content="2020-03-13T12:05:13.339Z">
+<meta property="article:modified_time" content="2020-03-13T12:14:16.714Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="MATLAB">
 <meta property="article:tag" content="Learning">
@@ -231,7 +231,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-13 16:23:56 / 修改时间：20:05:13" itemprop="dateCreated datePublished" datetime="2020-03-13T16:23:56+08:00">2020-03-13</time>
+              <time title="创建时间：2020-03-13 16:23:56 / 修改时间：20:14:16" itemprop="dateCreated datePublished" datetime="2020-03-13T16:23:56+08:00">2020-03-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -300,20 +300,19 @@
 <a id="more"></a>
 
 <h3 id="一、MATLAB注意事项"><a href="#一、MATLAB注意事项" class="headerlink" title="一、MATLAB注意事项"></a>一、MATLAB注意事项</h3><p>1、 MATLAB对字母的大小写是敏感的。</p>
-<p>2、按照MATLAB的变量定义规则，将所有变量都定义为数组。标量被看作（1×1）的数组，向量认为是（1×n）或</p>
-<p>（m×1）的数组,矩阵认为是（m×n）的数组。</p>
-<h3 id="二、常见的通用命令"><a href="#二、常见的通用命令" class="headerlink" title="二、常见的通用命令"></a>二、常见的通用命令</h3><p>1、<code>clc</code>清除清除窗口显示内容</p>
+<p>2、按照MATLAB的变量定义规则，将所有变量都定义为数组。标量被看作（1×1）的数组，向量认为是（1×n）或（m×1）的数组,矩阵认为是（m×n）的数组。</p>
+<h3 id="二、常见的通用命令"><a href="#二、常见的通用命令" class="headerlink" title="二、常见的通用命令"></a>二、常见的通用命令</h3><p>1、<code>clc</code>清除清除窗口显示内容。</p>
 <p>2、<code>who</code>、<code>whos</code>命令显示工作空间的变量，<code>clear</code>清除工作空间的变量。</p>
-<p>3、<code>dir</code>命令显示当前工作目录的文件和子目录清单</p>
-<p>4、<code>cd</code>命令显示或设置当前工作目录</p>
-<p>5、<code>type</code>命令显示指定m文件的内容</p>
-<p>6、<code>help</code>或doc命令获取在线帮助</p>
+<p>3、<code>dir</code>命令显示当前工作目录的文件和子目录清单。</p>
+<p>4、<code>cd</code>命令显示或设置当前工作目录。</p>
+<p>5、<code>type</code>命令显示指定m文件的内容。</p>
+<p>6、<code>help</code>或doc命令获取在线帮助。</p>
 <h3 id="三、命令行窗口"><a href="#三、命令行窗口" class="headerlink" title="三、命令行窗口"></a>三、命令行窗口</h3><p>1、<code>sin</code>命令</p>
-<p>Matalb中正弦函数sin就是常见的正弦函数。</p>
+<p>MATLAB中正弦函数sin就是常见的正弦函数。</p>
 <p>它的参数值是以“弧度”为单位的。</p>
 <p>pi也是Matalb的预定义变量。</p>
 <p>pi=3.14159…</p>
-<p>Matlab对字母大小写是敏感的。</p>
+<p>MATLAB对字母大小写是敏感的。</p>
 <p>2、开方<code>sqrt(x)</code>，指数函数<code>exp(x)</code>。</p>
 <p>3、数组的输入有两种方式：</p>
 <ul>
@@ -370,8 +369,8 @@
 <tr>
 <th><strong>运算</strong></th>
 <th><strong>数学表达式</strong></th>
-<th><strong>MATLAB**</strong>运算符**</th>
-<th><strong>MATLAB**</strong>表达式**</th>
+<th><strong>MATLAB运算符</strong></th>
+<th><strong>MATLAB表达式</strong></th>
 </tr>
 </thead>
 <tbody><tr>
@@ -389,7 +388,7 @@
 <tr>
 <td><strong>乘</strong></td>
 <td><strong>axb</strong></td>
-<td>*****</td>
+<td>*</td>
 <td><strong>a*b</strong></td>
 </tr>
 <tr>
@@ -580,7 +579,7 @@
 </ul>
 </li>
 <li><p>size、length函数</p>
-<figure class="highlight plain"><figcaption><span>matlab</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;a&#x3D;ones(4,6)*6</span><br><span class="line">&gt;&gt;m&#x3D;size(a)</span><br><span class="line">&gt;&gt;len&#x3D;length(a)</span><br><span class="line">&gt;&gt;b&#x3D;1:5;</span><br><span class="line">&gt;&gt;length(b)</span><br><span class="line">&gt;&gt;c&#x3D;b’</span><br><span class="line">&gt;&gt;length(c)</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;a=<span class="built_in">ones</span>(<span class="number">4</span>,<span class="number">6</span>)*<span class="number">6</span></span><br><span class="line">&gt;&gt;m=<span class="built_in">size</span>(a)</span><br><span class="line">&gt;&gt;len=<span class="built_in">length</span>(a)</span><br><span class="line">&gt;&gt;b=<span class="number">1</span>:<span class="number">5</span>;</span><br><span class="line">&gt;&gt;<span class="built_in">length</span>(b)</span><br><span class="line">&gt;&gt;c=b’</span><br><span class="line">&gt;&gt;<span class="built_in">length</span>(c)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>size函数返回变量的大小，即变量数组的行列数。</li>
