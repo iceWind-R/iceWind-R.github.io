@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Thorine">
 <meta property="og:description" content="MATLAB的课堂总结，一周一次课，东西又多，不总结的话怕是学了就忘，这篇文章的目的也主要用于记录总结各种命令的使用方法。">
 <meta property="article:published_time" content="2020-03-13T08:23:56.000Z">
-<meta property="article:modified_time" content="2020-03-13T11:39:42.439Z">
+<meta property="article:modified_time" content="2020-03-13T12:05:13.339Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="MATLAB">
 <meta property="article:tag" content="Learning">
@@ -231,7 +231,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-13 16:23:56 / 修改时间：19:39:42" itemprop="dateCreated datePublished" datetime="2020-03-13T16:23:56+08:00">2020-03-13</time>
+              <time title="创建时间：2020-03-13 16:23:56 / 修改时间：20:05:13" itemprop="dateCreated datePublished" datetime="2020-03-13T16:23:56+08:00">2020-03-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,7 +277,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
+              <span>3.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -553,6 +553,42 @@
 <li>a(m:n,i:j)表示第m行到第n行的第i列到第j列，即提取第m行到第n行的第i列到第j列的所有元素</li>
 <li>a(m:end,i)表示第m行到最末行的第i列，即提取第m行到最末行的第i列的元素</li>
 </ul>
+<h4 id="6、例子"><a href="#6、例子" class="headerlink" title="6、例子"></a>6、例子</h4><ol>
+<li><p>单下标的使用</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;a=<span class="built_in">zeros</span>(<span class="number">2</span>, <span class="number">5</span>);</span><br><span class="line">&gt;&gt;a(:)=<span class="number">-4</span>:<span class="number">5</span></span><br><span class="line">a =</span><br><span class="line">    <span class="number">-4</span>    <span class="number">-2</span>     <span class="number">0</span>     <span class="number">2</span>     <span class="number">4</span></span><br><span class="line">    <span class="number">-3</span>    <span class="number">-1</span>     <span class="number">1</span>     <span class="number">3</span>     <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p>注意数组的排列顺序。</p>
+</li>
+<li><p>一维数组元素与子数组的寻访与赋值</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;a=<span class="built_in">linspace</span>(<span class="number">1</span>,<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line">a =</span><br><span class="line">    <span class="number">1.0000</span>    <span class="number">3.2500</span>    <span class="number">5.5000</span>    <span class="number">7.7500</span>   <span class="number">10.0000</span></span><br><span class="line">&gt;&gt;a(<span class="number">3</span>)       <span class="comment">%寻访a的第3个元素</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">    <span class="number">5.5000</span></span><br><span class="line">&gt;&gt;a([<span class="number">1</span> <span class="number">2</span> <span class="number">5</span>])   <span class="comment">%寻访a的第1、2、5个元素组成的子数组</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">    <span class="number">1.0000</span>    <span class="number">3.2500</span>   <span class="number">10.0000</span></span><br><span class="line">&gt;&gt;a(<span class="number">1</span>:<span class="number">3</span>)   <span class="comment">%寻访前3个元素组成的子数组</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">    <span class="number">1.0000</span>    <span class="number">3.2500</span>    <span class="number">5.5000</span></span><br><span class="line">&gt;&gt;a(<span class="number">3</span>:<span class="number">-1</span>:<span class="number">1</span>)  <span class="comment">%由前3个元素倒序构成的子数组</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">    <span class="number">5.5000</span>    <span class="number">3.2500</span>    <span class="number">1.0000</span></span><br><span class="line">&gt;&gt;a(<span class="number">3</span>:<span class="keyword">end</span>)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">    <span class="number">5.5000</span>    <span class="number">7.7500</span>   <span class="number">10.0000</span></span><br><span class="line">&gt;&gt;a(<span class="number">3</span>:<span class="keyword">end</span><span class="number">-1</span>)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">    <span class="number">5.5000</span>    <span class="number">7.7500</span></span><br><span class="line">&gt;&gt;a([<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">5</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span>])  <span class="comment">% 数组元素可以被任意重复访问，构成长度大于原数组的新数组。</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">    <span class="number">1.0000</span>    <span class="number">3.2500</span>    <span class="number">5.5000</span>   <span class="number">10.0000</span>   <span class="number">10.0000</span>    <span class="number">5.5000</span>    <span class="number">3.2500</span>    <span class="number">1.0000</span></span><br><span class="line">&gt;&gt;a(<span class="number">3</span>)=<span class="number">0</span>           <span class="comment">%修改数组a的第3元素值为0</span></span><br><span class="line">a =</span><br><span class="line">    <span class="number">1.0000</span>    <span class="number">3.2500</span>    <span class="number">0</span>    <span class="number">7.7500</span>   <span class="number">10.0000</span></span><br><span class="line">&gt;&gt;a([<span class="number">2</span> <span class="number">5</span>])=[<span class="number">1</span> <span class="number">1</span>]</span><br><span class="line">a =</span><br><span class="line">    <span class="number">1.0000</span>    <span class="number">1.0000</span>    <span class="number">0</span>    <span class="number">7.7500</span>   <span class="number">1.0000</span></span><br><span class="line">&gt;&gt;a([<span class="number">2</span> <span class="number">5</span>])=[]</span><br><span class="line">a =</span><br><span class="line">  <span class="number">1.0000</span>  <span class="number">0</span>    <span class="number">7.7500</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li>可以修改指定数组元素的值</li>
+<li>一次可以修改多个数组元素的值</li>
+<li>要修改的数组元素的个数应与送入数组的元素个数相同</li>
+<li>利用方括号（[]）删除矩阵的某行列</li>
+</ul>
+</li>
+<li><p>二维数组元素与子数组的寻访与赋值</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;a_2=<span class="built_in">zeros</span>(<span class="number">2</span>, <span class="number">4</span>) <span class="comment">%创建2x4的全0数组</span></span><br><span class="line">a_2 =</span><br><span class="line">     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span></span><br><span class="line">     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span></span><br><span class="line">&gt;&gt;a_2(:)=<span class="number">1</span>:<span class="number">8</span></span><br><span class="line">a_2 =</span><br><span class="line">     <span class="number">1</span>     <span class="number">3</span>     <span class="number">5</span>     <span class="number">7</span></span><br><span class="line">     <span class="number">2</span>     <span class="number">4</span>     <span class="number">6</span>     <span class="number">8</span>            </span><br><span class="line">&gt;&gt;a_2([<span class="number">2</span> <span class="number">5</span> <span class="number">8</span>])    <span class="comment">%单下标方式寻访多个元素</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">2</span>     <span class="number">5</span>     <span class="number">8</span></span><br><span class="line">&gt;&gt; a_2([<span class="number">2</span> <span class="number">5</span> <span class="number">8</span>]) =[<span class="number">10</span> <span class="number">20</span> <span class="number">30</span>]</span><br><span class="line">a_2 =</span><br><span class="line">     <span class="number">1</span>     <span class="number">3</span>    <span class="number">20</span>     <span class="number">7</span></span><br><span class="line">    <span class="number">10</span>     <span class="number">4</span>     <span class="number">6</span>    <span class="number">30</span></span><br><span class="line">&gt;&gt;a_2(:,[<span class="number">2</span> <span class="number">3</span>])=<span class="built_in">ones</span>(<span class="number">2</span>)  <span class="comment">%双下标方式寻访并修改</span></span><br><span class="line">a_2 =</span><br><span class="line">     <span class="number">1</span>      <span class="number">1</span>     <span class="number">1</span>    <span class="number">7</span></span><br><span class="line">    <span class="number">10</span>     <span class="number">1</span>     <span class="number">1</span>    <span class="number">30</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>二维数组可以“单下标”方式或“全下标”方式访问、赋值；</li>
+<li>“单下标”方式赋值时，等号两边涉及的元素个数必须相等；</li>
+<li>“全下标”方式赋值时，等号右边数组的大小必须等于原数组中涉及元素构成的子数组的大小。</li>
+</ul>
+</li>
+<li><p>size、length函数</p>
+<figure class="highlight plain"><figcaption><span>matlab</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;a&#x3D;ones(4,6)*6</span><br><span class="line">&gt;&gt;m&#x3D;size(a)</span><br><span class="line">&gt;&gt;len&#x3D;length(a)</span><br><span class="line">&gt;&gt;b&#x3D;1:5;</span><br><span class="line">&gt;&gt;length(b)</span><br><span class="line">&gt;&gt;c&#x3D;b’</span><br><span class="line">&gt;&gt;length(c)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>size函数返回变量的大小，即变量数组的行列数。</li>
+<li>length函数返回变量数组的最大维数。</li>
+</ul>
+</li>
+</ol>
+<p>​    </p>
 
     </div>
 
@@ -662,7 +698,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、MATLAB注意事项"><span class="nav-number">1.</span> <span class="nav-text">一、MATLAB注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、常见的通用命令"><span class="nav-number">2.</span> <span class="nav-text">二、常见的通用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、命令行窗口"><span class="nav-number">3.</span> <span class="nav-text">三、命令行窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、数值表示、变量及表达式"><span class="nav-number">4.</span> <span class="nav-text">四、数值表示、变量及表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、数组与矩阵"><span class="nav-number">5.</span> <span class="nav-text">五、数组与矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、分类"><span class="nav-number">5.1.</span> <span class="nav-text">1、分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、创建一维数组"><span class="nav-number">5.2.</span> <span class="nav-text">2、创建一维数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、创建数组变量"><span class="nav-number">5.3.</span> <span class="nav-text">3、创建数组变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、创建数组变量"><span class="nav-number">5.4.</span> <span class="nav-text">4、创建数组变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、数组元素的标识与寻访"><span class="nav-number">5.5.</span> <span class="nav-text">5、数组元素的标识与寻访</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、MATLAB注意事项"><span class="nav-number">1.</span> <span class="nav-text">一、MATLAB注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、常见的通用命令"><span class="nav-number">2.</span> <span class="nav-text">二、常见的通用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、命令行窗口"><span class="nav-number">3.</span> <span class="nav-text">三、命令行窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、数值表示、变量及表达式"><span class="nav-number">4.</span> <span class="nav-text">四、数值表示、变量及表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、数组与矩阵"><span class="nav-number">5.</span> <span class="nav-text">五、数组与矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、分类"><span class="nav-number">5.1.</span> <span class="nav-text">1、分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、创建一维数组"><span class="nav-number">5.2.</span> <span class="nav-text">2、创建一维数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、创建数组变量"><span class="nav-number">5.3.</span> <span class="nav-text">3、创建数组变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、创建数组变量"><span class="nav-number">5.4.</span> <span class="nav-text">4、创建数组变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、数组元素的标识与寻访"><span class="nav-number">5.5.</span> <span class="nav-text">5、数组元素的标识与寻访</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、例子"><span class="nav-number">5.6.</span> <span class="nav-text">6、例子</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -749,7 +785,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13 分钟</span>
+    <span title="站点阅读时长">14 分钟</span>
 </div>
 
 <!--
