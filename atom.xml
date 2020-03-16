@@ -35,9 +35,9 @@
       <category term="总结" scheme="http://iceWind-R.github.io/categories/%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
-    
       <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
+    
+      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
   </entry>
   
@@ -46,9 +46,9 @@
     <link href="http://icewind-r.github.io/2020/03/12/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://icewind-r.github.io/2020/03/12/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/</id>
     <published>2020-03-12T00:49:55.000Z</published>
-    <updated>2020-03-12T06:18:40.153Z</updated>
+    <updated>2020-03-16T23:34:53.841Z</updated>
     
-    <content type="html"><![CDATA[<p>老师突如其来的爬虫测试让人心里倍生无助感，最后虽说用Java勉强完成了测试，但也乱入进了python领域。算了，python现在这么火，早晚得入门，不如就现在吧。</p><a id="more"></a><p>##</p>]]></content>
+    <content type="html"><![CDATA[<p>老师突如其来的爬虫测试让人心里倍生无助感，最后虽说用Java勉强完成了测试，但也乱入进了python领域。算了，python现在这么火，早晚得入门，不如就现在吧。</p><a id="more"></a><p>主要介绍刚刚入门的一些基础的语法知识，至于前期的环境搭建和IDE的下载，网上教程很多且大多切实可用，这里不再赘述，下面开始介绍基本的，与其他语言不一样的语法基础。</p><hr><h3 id="1、注释"><a href="#1、注释" class="headerlink" title="1、注释"></a>1、注释</h3>]]></content>
     
     <summary type="html">
     
