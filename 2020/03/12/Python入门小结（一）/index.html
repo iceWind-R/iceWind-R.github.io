@@ -28,12 +28,14 @@
 <meta property="og:url" content="http://icewind-r.github.io/2020/03/12/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="Thorine">
 <meta property="og:description" content="老师突如其来的爬虫测试让人心里倍生无助感，最后虽说用Java勉强完成了测试，但也乱入进了python领域。算了，python现在这么火，早晚得入门，不如就现在吧。">
+<meta property="og:image" content="http://icewind-r.github.io/2020/03/12/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/1.png">
 <meta property="article:published_time" content="2020-03-12T00:49:55.000Z">
-<meta property="article:modified_time" content="2020-03-16T23:34:53.841Z">
+<meta property="article:modified_time" content="2020-03-17T00:28:32.734Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="Learning">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://icewind-r.github.io/2020/03/12/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/1.png">
 
 <link rel="canonical" href="http://icewind-r.github.io/2020/03/12/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/">
 
@@ -237,7 +239,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-17 07:34:53" itemprop="dateModified" datetime="2020-03-17T07:34:53+08:00">2020-03-17</time>
+                <time title="修改时间：2020-03-17 08:28:32" itemprop="dateModified" datetime="2020-03-17T08:28:32+08:00">2020-03-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -283,7 +285,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>166</span>
+              <span>206</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -307,7 +309,26 @@
 
 <p>主要介绍刚刚入门的一些基础的语法知识，至于前期的环境搭建和IDE的下载，网上教程很多且大多切实可用，这里不再赘述，下面开始介绍基本的，与其他语言不一样的语法基础。</p>
 <hr>
-<h3 id="1、注释"><a href="#1、注释" class="headerlink" title="1、注释"></a>1、注释</h3>
+<h3 id="1、注释"><a href="#1、注释" class="headerlink" title="1、注释"></a>1、注释</h3><ol>
+<li><p>单行注释</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注释内容</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多行注释</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">	第一行注释</span></span><br><span class="line"><span class="string">	第二行注释</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">	第一行注释</span></span><br><span class="line"><span class="string">	第二行注释</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="2、变量"><a href="#2、变量" class="headerlink" title="2、变量"></a>2、变量</h3><ol>
+<li><p>定义变量，变量名自定义，满足标识符命名规则。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 变量名 = 值</span></span><br><span class="line">myData = <span class="string">'Tom'</span></span><br><span class="line">print(myData)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="3、数据类型"><a href="#3、数据类型" class="headerlink" title="3、数据类型"></a>3、数据类型</h3><img src="/2020/03/12/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/1.png" class>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="number">1</span> <span class="comment"># 整数型</span></span><br><span class="line">num2 = <span class="number">1.1</span> <span class="comment"># 浮点型</span></span><br><span class="line">str = <span class="string">'hello world'</span> <span class="comment"># 字符串型</span></span><br><span class="line">flag = <span class="literal">True</span> <span class="comment"># 布尔型</span></span><br><span class="line">lis = [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>] <span class="comment"># list列表</span></span><br><span class="line">tup = (<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>) <span class="comment"># tuple元组</span></span><br><span class="line">s = &#123;<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>&#125; <span class="comment"># set集合</span></span><br><span class="line">dic = &#123;<span class="string">'name'</span>:<span class="string">'Tom'</span>,<span class="string">'age'</span>:<span class="number">18</span>&#125; <span class="comment"># dict字典</span></span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -419,7 +440,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、注释"><span class="nav-number">1.</span> <span class="nav-text">1、注释</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、注释"><span class="nav-number">1.</span> <span class="nav-text">1、注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、变量"><span class="nav-number">2.</span> <span class="nav-text">2、变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、数据类型"><span class="nav-number">3.</span> <span class="nav-text">3、数据类型</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
