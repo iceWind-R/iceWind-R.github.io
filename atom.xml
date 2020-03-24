@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-03-24T02:10:47.403Z</updated>
+  <updated>2020-03-24T14:00:01.532Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python入门小结（三）</title>
+    <link href="http://icewind-r.github.io/2020/03/24/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>http://icewind-r.github.io/2020/03/24/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/</id>
+    <published>2020-03-24T13:58:20.000Z</published>
+    <updated>2020-03-24T14:00:01.532Z</updated>
+    
+    <content type="html"><![CDATA[<p>基于上次对选择循环结构，和字符串的基础知识介绍，这篇博客总结列表元组的使用。</p><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;基于上次对选择循环结构，和字符串的基础知识介绍，这篇博客总结列表元组的使用。&lt;/p&gt;
+&lt;hr&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://iceWind-R.github.io/categories/Python/"/>
+    
+    
+      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="Python" scheme="http://iceWind-R.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>MATLAB课程总结（三）</title>
