@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-03-23T07:19:37.668Z</updated>
+  <updated>2020-03-24T02:10:47.403Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MATLAB课程总结（三）</title>
+    <link href="http://icewind-r.github.io/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>http://icewind-r.github.io/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/</id>
+    <published>2020-03-24T00:37:32.000Z</published>
+    <updated>2020-03-24T02:10:47.403Z</updated>
+    
+    <content type="html"><![CDATA[<p>这篇总结MATLAB的图形基础。</p><a id="more"></a><hr><h1 id="一、二维曲线绘图的基本操作"><a href="#一、二维曲线绘图的基本操作" class="headerlink" title="一、二维曲线绘图的基本操作"></a>一、二维曲线绘图的基本操作</h1><h2 id="plot指令的基本调用格式"><a href="#plot指令的基本调用格式" class="headerlink" title="plot指令的基本调用格式"></a>plot指令的基本调用格式</h2><h3 id="（1）plot-x"><a href="#（1）plot-x" class="headerlink" title="（1）plot(x)"></a>（1）plot(x)</h3><p>​    ◼ x为向量时，以该元素的下标为横坐标、元素值为纵坐标绘出曲线。</p><p>​    ◼ x为实数二维数组时，则按列绘制每列元素值相对其下标的曲线，曲线数</p><p>​        等于x数组的列数。</p><p>​    ◼ x为复数二维数组时，则按列分别以数组的实部和虚部为横、纵坐标绘制多条曲线</p><h3 id="（2）plot-x-y"><a href="#（2）plot-x-y" class="headerlink" title="（2）plot(x, y)"></a>（2）plot(x, y)</h3><p>​    ◼ x、y为同维数组时，绘制以x、y元素为横纵坐标的曲线</p><p>​    ◼ x为向量，y为二维数组、且其列数或行数等于x的元素数时，绘制多条不同颜色的曲线</p><p>​    ◼ x为二维数组，y为向量时，情况与上相同，只是y仍为纵坐标。</p><h3 id="（3）plot-x1-y1-x2-y2-…"><a href="#（3）plot-x1-y1-x2-y2-…" class="headerlink" title="（3）plot(x1, y1, x2, y2, …)"></a>（3）plot(x1, y1, x2, y2, …)</h3><p>​    ◼ 绘制以x1为横坐标、y1为纵坐标的曲线1，以x2为横坐标、y2为纵坐标的曲线2，等等。</p><p>​    ◼ 其中x为横坐标，y为纵坐标，绘制y=f(x)函数曲线。</p><h3 id="例题："><a href="#例题：" class="headerlink" title="例题："></a>例题：</h3><h4 id="1、使用直角坐标系"><a href="#1、使用直角坐标系" class="headerlink" title="1、使用直角坐标系"></a>1、使用直角坐标系</h4><img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/1.png" class><h4 id="2、使用参数方程绘制曲线"><a href="#2、使用参数方程绘制曲线" class="headerlink" title="2、使用参数方程绘制曲线"></a>2、使用参数方程绘制曲线</h4><img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/2.png" class><h4 id="3、绘制复杂曲线"><a href="#3、绘制复杂曲线" class="headerlink" title="3、绘制复杂曲线"></a>3、绘制复杂曲线</h4><img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/3.png" class><p>结果：</p><img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/4.png" class><h2 id="多次叠绘"><a href="#多次叠绘" class="headerlink" title="多次叠绘"></a>多次叠绘</h2><p>◼ 多次调用plot命令在一幅图上绘制多条曲线，需要hold指令的配合。</p><p>◼ hold on 保持当前坐标轴和图形，并可以接受下一次绘制。</p><p>◼ hold off 取消当前坐标轴和图形保持，这种状态下，调用plot绘制完全新的图形，不保留以前的坐标格式、曲</p><p>线。</p><h3 id="例题1"><a href="#例题1" class="headerlink" title="例题1"></a><strong>例题1</strong></h3><img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/5.png" class><p><strong>结果</strong></p><img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/6.png" class><h3 id="例题2：利用hold绘制离散信号的波形"><a href="#例题2：利用hold绘制离散信号的波形" class="headerlink" title="例题2：利用hold绘制离散信号的波形"></a><strong>例题2：利用hold绘制离散信号的波形</strong></h3><img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/7.png" class><h2 id="双纵坐标"><a href="#双纵坐标" class="headerlink" title="双纵坐标"></a>双纵坐标</h2><p>◼ plotyy指令调用格式：</p><p>plotyy(x1, y1, x2, y2)</p><p>x1-y1曲线y轴在左， x2-y2曲线y轴在右。</p><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/7.png" class><h2 id="多子图"><a href="#多子图" class="headerlink" title="多子图"></a>多子图</h2><p> MATLAB允许在同一图形窗口布置几幅独立的子图。具体指令：</p><p>◼ subplot(m, n, k)使（mxn）幅子图中第k个子图成为当前图</p><p>◼ subplot(‘postion’, [left, bottom, width, height]) 在指定的位置上开辟子图，并成为当前图</p><p>说明：</p><p>➢ subplot(m, n, k)的含义：图形窗口包含（mxn）个子图，k为要指定的当前子图的编号。其编号原则： 左上方</p><p>为第1子图，然后向右向下依次排序。该指令按缺省值分割子图区域。</p><p>➢ subplot(‘postion’, [left, bottom, width, height])用于手工指定子图位置，指定位置的四元组采用归一化的标称</p><p>单位，即认为整个图形窗口绘图区域的高、宽的取值范围都是[0， 1]，而左下角为（0,0）坐标。</p><p>➢ 产生的子图彼此独立。所有的绘图指令均可以在子图中使用。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这篇总结MATLAB的图形基础。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
+    
+    
+      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP基础知识（三）</title>
@@ -60,9 +85,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
-    
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
     
   </entry>
   
@@ -71,18 +96,13 @@
     <link href="http://icewind-r.github.io/2020/03/17/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://icewind-r.github.io/2020/03/17/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</id>
     <published>2020-03-17T02:48:24.000Z</published>
-    <updated>2020-03-17T05:55:05.189Z</updated>
+    <updated>2020-03-23T11:33:16.378Z</updated>
     
-    <content type="html"><![CDATA[<p>基于上篇博客介绍了一些很基本的Python语法，如数据类型，输入输出，运算符等等，此篇博客继续总结。</p><hr>]]></content>
+    <content type="html"><![CDATA[<p>基于上篇博客介绍了一些很基本的Python语法，如数据类型，输入输出，运算符等等，此篇博客继续总结。</p><a id="more"></a><hr><h2 id="一、if语法"><a href="#一、if语法" class="headerlink" title="一、if语法"></a>一、if语法</h2><h3 id="1、语法"><a href="#1、语法" class="headerlink" title="1、语法"></a>1、语法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 条件:</span><br><span class="line">条件成立执行的代码<span class="number">1</span></span><br><span class="line">    条件成立执行的代码<span class="number">2</span></span><br><span class="line">    ...</span><br><span class="line">代码<span class="number">3</span></span><br></pre></td></tr></table></figure><p><strong>注意：</strong>if条件成立，执行后面带缩进的代码，而代码3则不属于if的语句块，与条件成立与否无关。</p><p><strong>案例</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># input接收用户输入的数据是字符串类型，条件是age和整型18做判断，这里要强制类型转换。</span></span><br><span class="line">age = int(input(<span class="string">'请输入您的年龄：'</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &gt;=<span class="number">18</span>:</span><br><span class="line">    print(<span class="string">f'您的年龄是<span class="subst">&#123;age&#125;</span>'</span>)</span><br><span class="line">    </span><br><span class="line">print(<span class="string">'系统关闭'</span>)</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;基于上篇博客介绍了一些很基本的Python语法，如数据类型，输入输出，运算符等等，此篇博客继续总结。&lt;/p&gt;
-&lt;hr&gt;
-
-      
+      &lt;p&gt;基于上篇博客介绍了一些很基本的Python语法，如数据类型，输入输出，运算符等等，此篇博客继续总结。&lt;/p&gt;
     
     </summary>
     
@@ -115,9 +135,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
-    
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
     
   </entry>
   
