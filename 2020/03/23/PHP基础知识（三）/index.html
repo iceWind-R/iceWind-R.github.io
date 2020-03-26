@@ -22,16 +22,16 @@
     var CONFIG = {"hostname":"icewind-r.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="这篇文章主要介绍PHP的各种运算符。">
+  <meta name="description" content="这篇文章主要介绍PHP的各种运算符，和流程控制。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP基础知识（三）">
 <meta property="og:url" content="http://icewind-r.github.io/2020/03/23/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%89%EF%BC%89/index.html">
 <meta property="og:site_name" content="Thorine">
-<meta property="og:description" content="这篇文章主要介绍PHP的各种运算符。">
+<meta property="og:description" content="这篇文章主要介绍PHP的各种运算符，和流程控制。">
 <meta property="og:image" content="http://icewind-r.github.io/2020/03/23/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%89%EF%BC%89/1.png">
 <meta property="og:image" content="http://icewind-r.github.io/2020/03/23/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%89%EF%BC%89/2.png">
 <meta property="article:published_time" content="2020-03-23T05:42:59.000Z">
-<meta property="article:modified_time" content="2020-03-23T07:19:37.668Z">
+<meta property="article:modified_time" content="2020-03-26T23:08:59.568Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="Learning">
 <meta property="article:tag" content="PHP">
@@ -232,10 +232,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-23 13:42:59 / 修改时间：15:19:37" itemprop="dateCreated datePublished" datetime="2020-03-23T13:42:59+08:00">2020-03-23</time>
+              <time title="创建时间：2020-03-23 13:42:59" itemprop="dateCreated datePublished" datetime="2020-03-23T13:42:59+08:00">2020-03-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-27 07:08:59" itemprop="dateModified" datetime="2020-03-27T07:08:59+08:00">2020-03-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -280,7 +286,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>948</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -299,10 +305,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这篇文章主要介绍PHP的各种运算符。</p>
+        <p>这篇文章主要介绍PHP的各种运算符，和流程控制。</p>
 <a id="more"></a>
 
-<hr>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><hr>
 <p>PHP中的运算符有很多种：</p>
 <ul>
 <li><p>赋值运算符：赋值操作</p>
@@ -324,17 +330,17 @@
 <li><p>自操作运算符：简化操作</p>
 </li>
 </ul>
-<h2 id="一、赋值运算符"><a href="#一、赋值运算符" class="headerlink" title="一、赋值运算符"></a>一、赋值运算符</h2><p>有以下几种：</p>
+<h3 id="一、赋值运算符"><a href="#一、赋值运算符" class="headerlink" title="一、赋值运算符"></a>一、赋值运算符</h3><p>有以下几种：</p>
 <ul>
 <li><code>=</code>：普通赋值。</li>
 <li><code>+=</code>、<code>-=</code>、<code>*=</code>、<code>/=</code>、<code>%=</code>：复合赋值运算（是将左侧和右侧的整体结果进行计算）。</li>
 <li><code>.=</code>：先将左边的符号的结果与右边的结果进行字符串连接（<code>.</code>是字符串连接），然后赋给左边。</li>
 </ul>
-<h2 id="二、算数运算符"><a href="#二、算数运算符" class="headerlink" title="二、算数运算符"></a>二、算数运算符</h2><p>除了简单的加减乘除取余等，还有其他需要格外注意的运算符。</p>
+<h3 id="二、算数运算符"><a href="#二、算数运算符" class="headerlink" title="二、算数运算符"></a>二、算数运算符</h3><p>除了简单的加减乘除取余等，还有其他需要格外注意的运算符。</p>
 <ul>
 <li><code>**</code>：幂运算，底数的指数次相乘。</li>
 </ul>
-<h2 id="三、错误抑制符"><a href="#三、错误抑制符" class="headerlink" title="三、错误抑制符"></a>三、错误抑制符</h2><p><strong>错误抑制</strong>：在可能出现错误的代码前使用错误抑制符，让错误不会报出来。</p>
+<h3 id="三、错误抑制符"><a href="#三、错误抑制符" class="headerlink" title="三、错误抑制符"></a>三、错误抑制符</h3><p><strong>错误抑制</strong>：在可能出现错误的代码前使用错误抑制符，让错误不会报出来。</p>
 <ul>
 <li><p>只需要在可能出现的错误表达式之前使用即可。</p>
 </li>
@@ -347,7 +353,7 @@
 </ul>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#正常处理</span></span><br><span class="line">$r = <span class="number">10</span>/<span class="number">0</span>;	<span class="comment">#报错，除数为0</span></span><br><span class="line"><span class="comment">#错误抑制处理</span></span><br><span class="line">$r = @<span class="number">10</span>/<span class="number">0</span>; <span class="comment">#报错，出错的位置是10/0这个过程，抑制的位置是10，无意义</span></span><br><span class="line"><span class="comment">#正确处理</span></span><br><span class="line">$r = @(<span class="number">10</span>/<span class="number">0</span>); <span class="comment">#不报错，因为是过程出错</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="四、比较运算符"><a href="#四、比较运算符" class="headerlink" title="四、比较运算符"></a>四、比较运算符</h2><p>除了熟悉的<code>&gt;,&lt;,&gt;=,&lt;=,==,!=</code>等运算符，格外介绍下面的特殊运算符。</p>
+<h3 id="四、比较运算符"><a href="#四、比较运算符" class="headerlink" title="四、比较运算符"></a>四、比较运算符</h3><p>除了熟悉的<code>&gt;,&lt;,&gt;=,&lt;=,==,!=</code>等运算符，格外介绍下面的特殊运算符。</p>
 <ul>
 <li>&lt;=&gt;：左边大于右边返回1，相等返回0，小于右边返回-1</li>
 <li>===：左边等于右边，且两边数据类型一致，返回true。</li>
@@ -358,7 +364,7 @@
 
 <img src="/2020/03/23/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%89%EF%BC%89/2.png" class>
 
-<h2 id="五、合并运算"><a href="#五、合并运算" class="headerlink" title="五、合并运算"></a>五、合并运算</h2><p><strong>概念：</strong>用于简单的数据存在型判定，不存在时给出一个设定值。</p>
+<h3 id="五、合并运算"><a href="#五、合并运算" class="headerlink" title="五、合并运算"></a>五、合并运算</h3><p><strong>概念：</strong>用于简单的数据存在型判定，不存在时给出一个设定值。</p>
 <ul>
 <li>合并运算需要一个判定：目标。</li>
 <li>合并运算需要一个设定值：目标不存在时的值。</li>
@@ -369,7 +375,7 @@
 </li>
 <li>合并运算是保证代码的逻辑完整性：即总是有一个结果（不会不存在）</li>
 </ul>
-<h2 id="六、连接运算"><a href="#六、连接运算" class="headerlink" title="六、连接运算"></a>六、连接运算</h2><p><strong>概念：</strong>专门为字符串连接操作设定的运算符。</p>
+<h3 id="六、连接运算"><a href="#六、连接运算" class="headerlink" title="六、连接运算"></a>六、连接运算</h3><p><strong>概念：</strong>专门为字符串连接操作设定的运算符。</p>
 <ul>
 <li>连接运算需要两个数据的参与。</li>
 <li>连接运算符只有一个：<code>.</code>  英文点。</li>
@@ -381,12 +387,46 @@
 <p><strong>示例</strong></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$a = <span class="string">'hello'</span>;</span><br><span class="line">$b = <span class="string">'world'</span>;</span><br><span class="line"><span class="keyword">echo</span>($a.<span class="string">' '</span>.$b); <span class="comment">#结果：hello world</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="七、三目运算"><a href="#七、三目运算" class="headerlink" title="七、三目运算"></a>七、三目运算</h2><p>和基本的编程语言一样</p>
+<h3 id="七、三目运算"><a href="#七、三目运算" class="headerlink" title="七、三目运算"></a>七、三目运算</h3><p>和基本的编程语言一样</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表达式1?表达式2:表达式3</span><br></pre></td></tr></table></figure>
 
-<h2 id="八、逻辑运算"><a href="#八、逻辑运算" class="headerlink" title="八、逻辑运算"></a>八、逻辑运算</h2><p>逻辑与或非 。</p>
+<h3 id="八、逻辑运算"><a href="#八、逻辑运算" class="headerlink" title="八、逻辑运算"></a>八、逻辑运算</h3><p>逻辑与或非 。</p>
 <p>&amp;&amp;，||，！。</p>
-<h2 id="九、自操作运算"><a href="#九、自操作运算" class="headerlink" title="九、自操作运算"></a>九、自操作运算</h2><p>自增自减。</p>
+<h3 id="九、自操作运算"><a href="#九、自操作运算" class="headerlink" title="九、自操作运算"></a>九、自操作运算</h3><p>自增自减。</p>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><h3 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h3><h4 id="If分支"><a href="#If分支" class="headerlink" title="If分支"></a>If分支</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ($a &gt; $b) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'a &gt; b'</span>;</span><br><span class="line">&#125; <span class="keyword">elseif</span> ($a == $b) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'a = b'</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> ($a &lt; $b) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'a &lt; b'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意一点elseif和else if的一点细微区别，参见博客。<a href="https://blog.csdn.net/qq_31659985/article/details/82807153" target="_blank" rel="noopener">https://blog.csdn.net/qq_31659985/article/details/82807153</a></p>
+<h4 id="Switch分支"><a href="#Switch分支" class="headerlink" title="Switch分支"></a>Switch分支</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(条件变量)&#123;</span><br><span class="line">    <span class="keyword">case</span> 值:</span><br><span class="line">        代码;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(条件表达式)&#123;</span><br><span class="line">    循环体;</span><br><span class="line">    循环条件变更;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(;;)&#123;</span><br><span class="line">    循环体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="foreach循环"><a href="#foreach循环" class="headerlink" title="foreach循环"></a>foreach循环</h4><p>PHP中专门进行数组遍历的循环</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(数组变量 <span class="keyword">as</span> [下标变量=&gt;] 值变量)&#123;</span><br><span class="line">    通过下标读取数组中每个元素的下标(可以没有)</span><br><span class="line">        通过值变量读取数组中每个元素的值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$info = [</span><br><span class="line">    <span class="string">'name'</span> =&gt; <span class="string">'tom'</span>,</span><br><span class="line">    <span class="string">'skill'</span> =&gt; <span class="string">'study'</span>,</span><br><span class="line">    <span class="string">'age'</span> =&gt; <span class="string">'20'</span></span><br><span class="line">];</span><br><span class="line"><span class="keyword">foreach</span>($info <span class="keyword">as</span> $k =&gt; $v)&#123;</span><br><span class="line">    即可依次遍历;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>foreach是根据数据指针所在的位置挨个取出元素的</p>
+<ul>
+<li>重置指针：执行一次。</li>
+<li>判断指针有效性<ul>
+<li>指针有效：取出数组元素<ul>
+<li>下标赋值给下标变量（如果提供了下标变量）</li>
+<li>值赋值给值变量</li>
+<li>指针下移</li>
+</ul>
+</li>
+<li>指针无效：循环结束</li>
+</ul>
+</li>
+<li>进入循环体</li>
+</ul>
+<p>foreach可以不获取数组元素的下标</p>
+<h4 id="do-while循环"><a href="#do-while循环" class="headerlink" title="do-while循环"></a>do-while循环</h4><p>语法基本一致。</p>
+<h4 id="break，continue"><a href="#break，continue" class="headerlink" title="break，continue"></a>break，continue</h4><p>语法基本一致。</p>
 
     </div>
 
@@ -499,7 +539,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、赋值运算符"><span class="nav-number">1.</span> <span class="nav-text">一、赋值运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、算数运算符"><span class="nav-number">2.</span> <span class="nav-text">二、算数运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、错误抑制符"><span class="nav-number">3.</span> <span class="nav-text">三、错误抑制符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、比较运算符"><span class="nav-number">4.</span> <span class="nav-text">四、比较运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、合并运算"><span class="nav-number">5.</span> <span class="nav-text">五、合并运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、连接运算"><span class="nav-number">6.</span> <span class="nav-text">六、连接运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、三目运算"><span class="nav-number">7.</span> <span class="nav-text">七、三目运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、逻辑运算"><span class="nav-number">8.</span> <span class="nav-text">八、逻辑运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、自操作运算"><span class="nav-number">9.</span> <span class="nav-text">九、自操作运算</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">1.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、赋值运算符"><span class="nav-number">1.1.</span> <span class="nav-text">一、赋值运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、算数运算符"><span class="nav-number">1.2.</span> <span class="nav-text">二、算数运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、错误抑制符"><span class="nav-number">1.3.</span> <span class="nav-text">三、错误抑制符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、比较运算符"><span class="nav-number">1.4.</span> <span class="nav-text">四、比较运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、合并运算"><span class="nav-number">1.5.</span> <span class="nav-text">五、合并运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、连接运算"><span class="nav-number">1.6.</span> <span class="nav-text">六、连接运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、三目运算"><span class="nav-number">1.7.</span> <span class="nav-text">七、三目运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、逻辑运算"><span class="nav-number">1.8.</span> <span class="nav-text">八、逻辑运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、自操作运算"><span class="nav-number">1.9.</span> <span class="nav-text">九、自操作运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-number">2.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择结构"><span class="nav-number">2.1.</span> <span class="nav-text">选择结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#If分支"><span class="nav-number">2.1.1.</span> <span class="nav-text">If分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Switch分支"><span class="nav-number">2.1.2.</span> <span class="nav-text">Switch分支</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环结构"><span class="nav-number">2.2.</span> <span class="nav-text">循环结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#while循环"><span class="nav-number">2.2.1.</span> <span class="nav-text">while循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#for循环"><span class="nav-number">2.2.2.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#foreach循环"><span class="nav-number">2.2.3.</span> <span class="nav-text">foreach循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#do-while循环"><span class="nav-number">2.2.4.</span> <span class="nav-text">do-while循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#break，continue"><span class="nav-number">2.2.5.</span> <span class="nav-text">break，continue</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -515,7 +555,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
