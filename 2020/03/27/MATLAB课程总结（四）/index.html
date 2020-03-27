@@ -28,12 +28,15 @@
 <meta property="og:url" content="http://icewind-r.github.io/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/index.html">
 <meta property="og:site_name" content="Thorine">
 <meta property="og:description" content="这篇文章总结MATLAB程序设计，主要涉及代码文件方面。">
+<meta property="og:image" content="http://icewind-r.github.io/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/1.png">
+<meta property="og:image" content="http://icewind-r.github.io/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/1.png">
 <meta property="article:published_time" content="2020-03-27T08:23:58.000Z">
-<meta property="article:modified_time" content="2020-03-27T11:09:51.098Z">
+<meta property="article:modified_time" content="2020-03-27T11:16:44.581Z">
 <meta property="article:author" content="大雪初晴丶">
-<meta property="article:tag" content="Learning">
 <meta property="article:tag" content="MATLAB">
+<meta property="article:tag" content="Learning">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://icewind-r.github.io/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/1.png">
 
 <link rel="canonical" href="http://icewind-r.github.io/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/">
 
@@ -231,7 +234,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-27 16:23:58 / 修改时间：19:09:51" itemprop="dateCreated datePublished" datetime="2020-03-27T16:23:58+08:00">2020-03-27</time>
+              <time title="创建时间：2020-03-27 16:23:58 / 修改时间：19:16:44" itemprop="dateCreated datePublished" datetime="2020-03-27T16:23:58+08:00">2020-03-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,7 +280,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -335,7 +338,14 @@
 </ol>
 <h4 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h4><p>函数调用的一般格式是：<br>[输出实参表] = 函数名(输入实参表）<br>注意：函数调用时，各实参出现的顺序、个数，应与函数定义时相同。</p>
 <h4 id="函数参数的可调性"><a href="#函数参数的可调性" class="headerlink" title="函数参数的可调性"></a>函数参数的可调性</h4><p>Matlab在函数调用上有一个与一般高级语言不同之处：<br>函数所传递参数数目的可调性，即参数的数量可以改变。<br>在调用函数时，Matlab用两个预定义变量nargin和nargout分别记录调用该函数时的输入实参和输出实参的个数。</p>
+<p><strong>例子</strong></p>
+<img src="/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/1.png" class>
 
+<h4 id="全局变量与局部变量"><a href="#全局变量与局部变量" class="headerlink" title="全局变量与局部变量"></a><strong>全局变量与局部变量</strong></h4><p>Matlab中，函数文件中的变量是局部变量。</p>
+<p>全局变量的作用域是整个Matlab的工作空间，所有函数都可以对它进行存取和修改。</p>
+<p>全局变量用global命令定义，格式为：</p>
+<p><code>global 变量名</code></p>
+<img src="/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/1.png" class>
     </div>
 
     
@@ -370,8 +380,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Learning/" rel="tag"><i class="fa fa-tag"></i> Learning</a>
               <a href="/tags/MATLAB/" rel="tag"><i class="fa fa-tag"></i> MATLAB</a>
+              <a href="/tags/Learning/" rel="tag"><i class="fa fa-tag"></i> Learning</a>
           </div>
 
         
@@ -444,7 +454,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#程序的三个结构"><span class="nav-number">1.</span> <span class="nav-text">程序的三个结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择结构"><span class="nav-number">1.1.</span> <span class="nav-text">选择结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if-else"><span class="nav-number">1.1.1.</span> <span class="nav-text">if-else</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch"><span class="nav-number">1.1.2.</span> <span class="nav-text">switch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#try"><span class="nav-number">1.1.3.</span> <span class="nav-text">try</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环结构"><span class="nav-number">1.2.</span> <span class="nav-text">循环结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#for语句"><span class="nav-number">1.2.1.</span> <span class="nav-text">for语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#while语句"><span class="nav-number">1.2.2.</span> <span class="nav-text">while语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#break语句和continue语句"><span class="nav-number">1.2.3.</span> <span class="nav-text">break语句和continue语句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#M文件的分类"><span class="nav-number">2.</span> <span class="nav-text">M文件的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令文件和函数文件的区别"><span class="nav-number">2.1.</span> <span class="nav-text">命令文件和函数文件的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数文件"><span class="nav-number">2.2.</span> <span class="nav-text">函数文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数文件的基本结构"><span class="nav-number">2.2.1.</span> <span class="nav-text">函数文件的基本结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数调用"><span class="nav-number">2.2.2.</span> <span class="nav-text">函数调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数参数的可调性"><span class="nav-number">2.2.3.</span> <span class="nav-text">函数参数的可调性</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#程序的三个结构"><span class="nav-number">1.</span> <span class="nav-text">程序的三个结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择结构"><span class="nav-number">1.1.</span> <span class="nav-text">选择结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if-else"><span class="nav-number">1.1.1.</span> <span class="nav-text">if-else</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch"><span class="nav-number">1.1.2.</span> <span class="nav-text">switch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#try"><span class="nav-number">1.1.3.</span> <span class="nav-text">try</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环结构"><span class="nav-number">1.2.</span> <span class="nav-text">循环结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#for语句"><span class="nav-number">1.2.1.</span> <span class="nav-text">for语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#while语句"><span class="nav-number">1.2.2.</span> <span class="nav-text">while语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#break语句和continue语句"><span class="nav-number">1.2.3.</span> <span class="nav-text">break语句和continue语句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#M文件的分类"><span class="nav-number">2.</span> <span class="nav-text">M文件的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令文件和函数文件的区别"><span class="nav-number">2.1.</span> <span class="nav-text">命令文件和函数文件的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数文件"><span class="nav-number">2.2.</span> <span class="nav-text">函数文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数文件的基本结构"><span class="nav-number">2.2.1.</span> <span class="nav-text">函数文件的基本结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数调用"><span class="nav-number">2.2.2.</span> <span class="nav-text">函数调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数参数的可调性"><span class="nav-number">2.2.3.</span> <span class="nav-text">函数参数的可调性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局变量与局部变量"><span class="nav-number">2.2.4.</span> <span class="nav-text">全局变量与局部变量</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
