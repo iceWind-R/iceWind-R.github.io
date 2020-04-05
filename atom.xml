@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-04-05T08:02:31.520Z</updated>
+  <updated>2020-04-05T08:05:36.321Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://icewind-r.github.io/2020/04/05/Reinvent-4-5/"/>
     <id>http://icewind-r.github.io/2020/04/05/Reinvent-4-5/</id>
     <published>2020-04-05T00:35:05.000Z</published>
-    <updated>2020-04-05T08:02:31.520Z</updated>
+    <updated>2020-04-05T08:05:36.321Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><table><thead><tr><th align="center">时间</th><th align="center">内容</th><th align="center">备注</th></tr></thead><tbody><tr><td align="center">7:20~7:47</td><td align="center">计网</td><td align="center">IP编码（第三次演变）</td></tr><tr><td align="center">7:55~8:10</td><td align="center">计网</td><td align="center">NAT（网络地址转换）</td></tr><tr><td align="center">8:15~8:35</td><td align="center">计网</td><td align="center">哈工大视频（走神严重，效率为0）</td></tr><tr><td align="center">8:35~9.20</td><td align="center">Android</td><td align="center">更新配置新版Android Studio<br>聊天、刷手机、吃苹果</td></tr><tr><td align="center">9:20~11:00</td><td align="center">Android</td><td align="center">看了一个小时左右的视频教程（效率不高）</td></tr></tbody></table><p><strong>上午总结</strong>：容易犯困，脑袋疼，效率不高。但玩的时间不多，主要是注意力不集中。继续加油，好好干。</p><table><thead><tr><th>时间</th><th>内容</th><th>备注</th></tr></thead><tbody><tr><td>11:10~1:40</td><td>吃饭午休</td><td>效率极低，大量时间浪费在玩手机上，不能边吃饭边玩手机</td></tr></tbody></table><p><strong>中午总结</strong>：没能好好休息，觉得上午干的不错就又放松了警惕。</p><table><thead><tr><th>时间</th><th>内容</th><th>备注</th></tr></thead><tbody><tr><td>1:40~4:00</td><td>Android</td><td>复习UI控件的使用，效率还可以</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table><p><strong>疑难总结</strong></p><ol><li><p>首先是strings.xml中字符串的引用，在代码中需要这样做</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String Chinese = getResources().getString(R.string.checkbox1);</span><br></pre></td></tr></table></figure><p>在theFirst工程下的ui目录，总结各种的ui控件使用和每种控件的监听器基本调用，不难，但是很杂。</p></li><li><p>ProgressBar(Horizontal)中设置indeterminate为true，可以使该水平加载条动态加载显示。</p></li></ol><p><strong>今日总结</strong>：还是没有做到稳扎稳打，中午很不对劲，结束的早，11：00开始就玩起手机，边玩边做饭还边想着学习，结果什么都没干好，直播不能再这么沉迷的看，结果中午午睡也没有睡好。</p>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><hr><table><thead><tr><th align="center">时间</th><th align="center">内容</th><th align="center">备注</th></tr></thead><tbody><tr><td align="center">7:20~7:47</td><td align="center">计网</td><td align="center">IP编码（第三次演变）</td></tr><tr><td align="center">7:55~8:10</td><td align="center">计网</td><td align="center">NAT（网络地址转换）</td></tr><tr><td align="center">8:15~8:35</td><td align="center">计网</td><td align="center">哈工大视频（走神严重，效率为0）</td></tr><tr><td align="center">8:35~9.20</td><td align="center">Android</td><td align="center">更新配置新版Android Studio<br>聊天、刷手机、吃苹果</td></tr><tr><td align="center">9:20~11:00</td><td align="center">Android</td><td align="center">看了一个小时左右的视频教程（效率不高）</td></tr></tbody></table><p><strong>上午总结</strong>：容易犯困，脑袋疼，效率不高。但玩的时间不多，主要是注意力不集中。继续加油，好好干。</p><table><thead><tr><th>时间</th><th>内容</th><th>备注</th></tr></thead><tbody><tr><td>11:10~1:40</td><td>吃饭午休</td><td>效率极低，大量时间浪费在玩手机上，不能边吃饭边玩手机</td></tr></tbody></table><p><strong>中午总结</strong>：没能好好休息，觉得上午干的不错就又放松了警惕。</p><table><thead><tr><th>时间</th><th>内容</th><th>备注</th></tr></thead><tbody><tr><td>1:40~4:00</td><td>Android</td><td>复习UI控件的使用，效率还可以</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table><p><strong>疑难总结</strong></p><ol><li><p>首先是strings.xml中字符串的引用，在代码中需要这样做</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String Chinese = getResources().getString(R.string.checkbox1);</span><br></pre></td></tr></table></figure><p>在theFirst工程下的ui目录，总结各种的ui控件使用和每种控件的监听器基本调用，不难，但是很杂。</p></li><li><p>ProgressBar(Horizontal)中设置indeterminate为true，可以使该水平加载条动态加载显示。</p></li></ol><p><strong>今日总结</strong>：还是没有做到稳扎稳打，中午很不对劲，结束的早，11：00开始就玩起手机，边玩边做饭还边想着学习，结果什么都没干好，直播不能再这么沉迷的看，结果中午午睡也没有睡好。</p>]]></content>
     
     <summary type="html">
     
@@ -31,6 +31,7 @@
       
         &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 
+&lt;hr&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -39,7 +40,6 @@
 &lt;th align=&quot;center&quot;&gt;备注&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-&lt;tbo
       
     
     </summary>
