@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-04-05T08:05:36.321Z</updated>
+  <updated>2020-04-05T13:33:03.505Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -17,30 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android Jetpack架构组件（一）</title>
+    <link href="http://icewind-r.github.io/2020/04/05/Android-1/"/>
+    <id>http://icewind-r.github.io/2020/04/05/Android-1/</id>
+    <published>2020-04-05T11:09:58.000Z</published>
+    <updated>2020-04-05T13:33:03.505Z</updated>
+    
+    <content type="html"><![CDATA[<p>开始学习Android Jetpack相关知识。</p><a id="more"></a><hr><p>首先补充一点内容。</p><h3 id="设置app的横屏和竖屏"><a href="#设置app的横屏和竖屏" class="headerlink" title="设置app的横屏和竖屏"></a>设置app的横屏和竖屏</h3><p>设置app某个界面的横屏和竖屏的不同显示方式。</p><img src="/2020/04/05/Android-1/1.png" class><p>即可创建当前页面的一个横屏副本。</p><p>app页面的横屏和竖屏转换是一个Activity的杀死重创建的过程，即界面被刷新，如果当前界面的数据没保存，则会丢失。</p><p>如果需要临时保存当前页面的数据，使其在反转后数据不丢失，则需要以下操作。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先注意onCreate(Bundle savedInstanceState)的参数，为保存当前页面的临时数据，Bundle类为key:value形式。</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        button = findViewById(R.id.button);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>)&#123;</span><br><span class="line">            String s = savedInstanceState.getString(<span class="string">"KEY"</span>);</span><br><span class="line">            textView.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">        button.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                textView.setText(R.string.button);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle outState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onSaveInstanceState(outState);</span><br><span class="line">        outState.putString(<span class="string">"KEY"</span>, textView.getText().toString());<span class="comment">//存入Bundle对象，便于onCreate方法取出</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><h2 id="Android-Jetpack"><a href="#Android-Jetpack" class="headerlink" title="Android Jetpack"></a>Android Jetpack</h2><img src="/2020/04/05/Android-1/2.png" class><p><strong>ViewModel</strong>：对象为特定的界面组件（如 Fragment 或 Activity）提供数据，并包含数据处理业务逻辑，以与模型进行通信。例如，ViewModel 可以调用其他组件来加载数据，还可以转发用户请求来修改数据。ViewModel 不了解界面组件，因此不受配置更改（如在旋转设备时重新创建 Activity）的影响。</p><p><strong>LiveData</strong>：是一种可观察的数据存储器。应用中的其他组件可以使用此存储器监控对象的更改，而无需在它们之间创建明确且严格的依赖路径。LiveData 组件还遵循应用组件（如 Activity、Fragment 和 Service）的生命周期状态，并包括清理逻辑以防止对象泄漏和过多的内存消耗。</p><p><strong>DataBinding</strong>：声明性地将可观察数据绑定到UI元素，其目的在于是为了脱离Controller与View之间的引用联系，很类似Butterknife库，使用也比较相似。</p><p><strong>Navigation</strong>：允许用户在应用程序中浏览、进入和退出不同内容的Fragment。Navigation能够实现从简单的按钮单击到更复杂的模式，如应用程序栏和导航抽屉。导航组件还通过遵循一套既定的原则来确保一致和可预测的用户体验。</p><p><strong>Lifecycles</strong>：Lifecycles是一个生命周期感知组件，当Activity或者Fragment的生命周期发生改变的时会，Lifecycles也会做出相应的生命周期状态的改变，它保存关于组件生命周期状态的信息(比如活动或片段)，并允许其他对象观察这种状态。</p><h3 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a><strong>ViewModel</strong></h3><p>刚入门，做了一个简短的案例，通过ViewModel管理UI产生的数据。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//两个按钮，实现+1，+2操作</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="comment">//用的是ViewModelProviders，可能需要引入Gradle配置</span></span><br><span class="line">        myVideModel = ViewModelProviders.of(<span class="keyword">this</span>).get(MyVideModel<span class="class">.<span class="keyword">class</span>)</span>;<span class="comment">//创建ViewModel对象</span></span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">        button1 = findViewById(R.id.button);</span><br><span class="line">        button2 = findViewById(R.id.button2);</span><br><span class="line">        button1.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                myVideModel.num ++;</span><br><span class="line">                textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        button2.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                myVideModel.num += <span class="number">2</span>;</span><br><span class="line">                textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//MyVideModel自定义的ViewModel类，需要继承自ViewModel类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyVideModel</span> <span class="keyword">extends</span> <span class="title">ViewModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;开始学习Android Jetpack相关知识。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://iceWind-R.github.io/categories/Android/"/>
+    
+    
+      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="Android" scheme="http://iceWind-R.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Reinvent(4.5)</title>
     <link href="http://icewind-r.github.io/2020/04/05/Reinvent-4-5/"/>
     <id>http://icewind-r.github.io/2020/04/05/Reinvent-4-5/</id>
     <published>2020-04-05T00:35:05.000Z</published>
-    <updated>2020-04-05T08:05:36.321Z</updated>
+    <updated>2020-04-05T13:18:57.000Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><hr><table><thead><tr><th align="center">时间</th><th align="center">内容</th><th align="center">备注</th></tr></thead><tbody><tr><td align="center">7:20~7:47</td><td align="center">计网</td><td align="center">IP编码（第三次演变）</td></tr><tr><td align="center">7:55~8:10</td><td align="center">计网</td><td align="center">NAT（网络地址转换）</td></tr><tr><td align="center">8:15~8:35</td><td align="center">计网</td><td align="center">哈工大视频（走神严重，效率为0）</td></tr><tr><td align="center">8:35~9.20</td><td align="center">Android</td><td align="center">更新配置新版Android Studio<br>聊天、刷手机、吃苹果</td></tr><tr><td align="center">9:20~11:00</td><td align="center">Android</td><td align="center">看了一个小时左右的视频教程（效率不高）</td></tr></tbody></table><p><strong>上午总结</strong>：容易犯困，脑袋疼，效率不高。但玩的时间不多，主要是注意力不集中。继续加油，好好干。</p><table><thead><tr><th>时间</th><th>内容</th><th>备注</th></tr></thead><tbody><tr><td>11:10~1:40</td><td>吃饭午休</td><td>效率极低，大量时间浪费在玩手机上，不能边吃饭边玩手机</td></tr></tbody></table><p><strong>中午总结</strong>：没能好好休息，觉得上午干的不错就又放松了警惕。</p><table><thead><tr><th>时间</th><th>内容</th><th>备注</th></tr></thead><tbody><tr><td>1:40~4:00</td><td>Android</td><td>复习UI控件的使用，效率还可以</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table><p><strong>疑难总结</strong></p><ol><li><p>首先是strings.xml中字符串的引用，在代码中需要这样做</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String Chinese = getResources().getString(R.string.checkbox1);</span><br></pre></td></tr></table></figure><p>在theFirst工程下的ui目录，总结各种的ui控件使用和每种控件的监听器基本调用，不难，但是很杂。</p></li><li><p>ProgressBar(Horizontal)中设置indeterminate为true，可以使该水平加载条动态加载显示。</p></li></ol><p><strong>今日总结</strong>：还是没有做到稳扎稳打，中午很不对劲，结束的早，11：00开始就玩起手机，边玩边做饭还边想着学习，结果什么都没干好，直播不能再这么沉迷的看，结果中午午睡也没有睡好。</p>]]></content>
+    <content type="html"><![CDATA[<p>4.5总结</p><a id="more"></a><hr><table><thead><tr><th align="center">时间</th><th align="center">内容</th><th align="center">备注</th></tr></thead><tbody><tr><td align="center">7:20~7:47</td><td align="center">计网</td><td align="center">IP编码（第三次演变）</td></tr><tr><td align="center">7:55~8:10</td><td align="center">计网</td><td align="center">NAT（网络地址转换）</td></tr><tr><td align="center">8:15~8:35</td><td align="center">计网</td><td align="center">哈工大视频（走神严重，效率为0）</td></tr><tr><td align="center">8:35~9.20</td><td align="center">Android</td><td align="center">更新配置新版Android Studio<br>聊天、刷手机、吃苹果</td></tr><tr><td align="center">9:20~11:00</td><td align="center">Android</td><td align="center">看了一个小时左右的视频教程（效率不高）</td></tr></tbody></table><p><strong>上午总结</strong>：容易犯困，脑袋疼，效率不高。但玩的时间不多，主要是注意力不集中。继续加油，好好干。</p><table><thead><tr><th>时间</th><th>内容</th><th>备注</th></tr></thead><tbody><tr><td>11:10~1:40</td><td>吃饭午休</td><td>效率极低，大量时间浪费在玩手机上，不能边吃饭边玩手机</td></tr></tbody></table><p><strong>中午总结</strong>：没能好好休息，觉得上午干的不错就又放松了警惕。</p><table><thead><tr><th>时间</th><th>内容</th><th>备注</th></tr></thead><tbody><tr><td>1:40~4:00</td><td>Android</td><td>复习UI控件的使用，效率还可以</td></tr><tr><td>7:00~9:00</td><td>Android</td><td>学习新知识，晚上，效率不大行</td></tr></tbody></table><p><strong>疑难总结</strong></p><ol><li><p>首先是strings.xml中字符串的引用，在代码中需要这样做</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String Chinese = getResources().getString(R.string.checkbox1);</span><br></pre></td></tr></table></figure><p>在theFirst工程下的ui目录，总结各种的ui控件使用和每种控件的监听器基本调用，不难，但是很杂。</p></li><li><p>ProgressBar(Horizontal)中设置indeterminate为true，可以使该水平加载条动态加载显示。</p></li><li><p>设置多语言可翻译的app，在strings.xml中添加外国语言。</p></li><li><p>设置屏幕反转，在activity标签里添加<code>&lt;activity android:screenOrientation=&quot;fullSensor&quot;&gt;</code></p></li></ol><p><strong>总学习时常</strong></p><table><thead><tr><th align="center">内容</th><th align="center">时长</th></tr></thead><tbody><tr><td align="center">计网</td><td align="center">40</td></tr><tr><td align="center">Android</td><td align="center">30+60+120+30</td></tr><tr><td align="center"><strong>总时长</strong></td><td align="center"><strong>4h40min</strong></td></tr></tbody></table><p><strong>今日总结</strong>：</p><p>还是没有做到稳扎稳打，中午很不对劲，结束的早，11：00开始就玩起手机，边玩边做饭还边想着学习，结果什么都没干好，直播不能再这么沉迷的看，结果中午午睡也没有睡好。</p><p>下午时间少，晚上效率不高，做的东西学的知识少。</p><p>还是太多分心，学习的时候好好学，玩的时候好好玩。</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;hr&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;center&quot;&gt;时间&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;内容&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;备注&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-      
+      &lt;p&gt;4.5总结&lt;/p&gt;
     
     </summary>
     
@@ -143,9 +155,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
-    
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
     
   </entry>
   
@@ -243,9 +255,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
-    
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
     
   </entry>
   
@@ -293,9 +305,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
-    
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
     
   </entry>
   
@@ -343,9 +355,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
-    
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
     
   </entry>
   
@@ -495,29 +507,6 @@
     
     
       <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最爱的BGM</title>
-    <link href="http://icewind-r.github.io/2020/02/28/%E6%9C%80%E7%88%B1%E7%9A%84BGM/"/>
-    <id>http://icewind-r.github.io/2020/02/28/%E6%9C%80%E7%88%B1%E7%9A%84BGM/</id>
-    <published>2020-02-28T13:31:53.000Z</published>
-    <updated>2020-02-29T07:40:25.913Z</updated>
-    
-    <content type="html"><![CDATA[<p>44首BGM，请君欣赏。</p><a id="more"></a><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=3222803102&auto=1&height=430"></iframe>[网易云歌单链接]: https://music.163.com/#/playlist?id=3222803102&amp;userid=42466756]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;44首BGM，请君欣赏。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="娱乐" scheme="http://iceWind-R.github.io/categories/%E5%A8%B1%E4%B9%90/"/>
-    
-    
-      <category term="music" scheme="http://iceWind-R.github.io/tags/music/"/>
     
   </entry>
   
