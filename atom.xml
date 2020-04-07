@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-04-06T03:58:18.129Z</updated>
+  <updated>2020-04-07T03:05:14.752Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -17,17 +17,48 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Reinvent(4.6)</title>
-    <link href="http://icewind-r.github.io/2020/04/06/Reinvent-4-6/"/>
-    <id>http://icewind-r.github.io/2020/04/06/Reinvent-4-6/</id>
-    <published>2020-04-06T03:58:17.000Z</published>
-    <updated>2020-04-06T03:58:18.129Z</updated>
+    <title>Reinvent(4.7)</title>
+    <link href="http://icewind-r.github.io/2020/04/07/Reinvent-4-7/"/>
+    <id>http://icewind-r.github.io/2020/04/07/Reinvent-4-7/</id>
+    <published>2020-04-07T03:02:23.000Z</published>
+    <updated>2020-04-07T03:05:14.752Z</updated>
+    
+    <content type="html"><![CDATA[<p>4.6日总结。</p><a id="more"></a><hr><p><strong>上午总结</strong></p><p>上课的同时做PPT，群内三人讨论，成果还可以。</p>]]></content>
     
     <summary type="html">
+    
+      &lt;p&gt;4.6日总结。&lt;/p&gt;
     
     </summary>
     
     
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reinvent(4.6)</title>
+    <link href="http://icewind-r.github.io/2020/04/06/Reinvent-4-6/"/>
+    <id>http://icewind-r.github.io/2020/04/06/Reinvent-4-6/</id>
+    <published>2020-04-06T03:58:17.000Z</published>
+    <updated>2020-04-07T03:04:20.256Z</updated>
+    
+    <content type="html"><![CDATA[<p>4.6日总结。</p><a id="more"></a><hr><p><strong>上午总结</strong>：7:00~12:40：打球洗澡等等。学习概率论40分钟，Android30分钟，效率不高，手机视频刷了一些。</p><p><strong>下午晚上总结</strong>：抗干扰能力真的很差，又发火了，但是我觉得是必要的，打了一晚上游戏，看直播，浑浑噩噩。</p><p>今日总结：</p><p>客观条件真的有限，希望不要真的就堕落吧，尽全力完成该完成的。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;4.6日总结。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
     
   </entry>
   
@@ -474,31 +505,6 @@
       <category term="云服务器" scheme="http://iceWind-R.github.io/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
       <category term="Linux" scheme="http://iceWind-R.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP基础知识（一）</title>
-    <link href="http://icewind-r.github.io/2020/02/29/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://icewind-r.github.io/2020/02/29/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/</id>
-    <published>2020-02-29T06:30:25.000Z</published>
-    <updated>2020-03-31T02:09:19.866Z</updated>
-    
-    <content type="html"><![CDATA[<p>PHP的入门总结，主要是PHP的基础方面。非常基础，适合入门学习。</p><a id="more"></a><h2 id="一、PHP语法规则"><a href="#一、PHP语法规则" class="headerlink" title="一、PHP语法规则"></a>一、PHP语法规则</h2><h3 id="1、PHP标记"><a href="#1、PHP标记" class="headerlink" title="1、PHP标记"></a>1、PHP标记</h3><p>PHP标记是用来帮助PHP引擎识别PHP代码的，PHP标记分为两个部分。</p><ul><li>标记开始：&lt;?php</li><li>标记结束：?&gt;</li></ul><p>在两个标记中间添加php代码，如果该文件是php文件，则建议不写结束标记  ?&gt; 。</p><h3 id="2、PHP注释"><a href="#2、PHP注释" class="headerlink" title="2、PHP注释"></a>2、PHP注释</h3><p>行注释：#或//</p><p>块注释：/*   */</p><h3 id="3、语句结束符"><a href="#3、语句结束符" class="headerlink" title="3、语句结束符"></a>3、语句结束符</h3><p>每个语句以英文分号 ; 作为结束标志。</p><h2 id="二、PHP基础知识"><a href="#二、PHP基础知识" class="headerlink" title="二、PHP基础知识"></a>二、PHP基础知识</h2><h3 id="1、变量"><a href="#1、变量" class="headerlink" title="1、变量"></a>1、变量</h3><p><strong>PHP变量</strong>：一种能够存储数据的符号，值可以改变。</p><ul><li>所有变量都是以<code>$</code>符号开始。</li><li>变量所保存的数据都可以随意改变。</li><li>变量必须先定义才能使用，否则报错。</li></ul><p>例如：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义变量</span></span><br><span class="line">$num = <span class="number">10</span>;</span><br><span class="line"><span class="comment"># 修改变量</span></span><br><span class="line">$num = <span class="string">"hello world!"</span>;</span><br><span class="line"><span class="comment"># 打印变量</span></span><br><span class="line"><span class="keyword">echo</span> $sum;</span><br><span class="line"><span class="comment">#检测变量是否设置，并且不是 NULL</span></span><br><span class="line"><span class="keyword">isset</span>($num);</span><br><span class="line"><span class="comment"># 删除变量</span></span><br><span class="line"><span class="keyword">unset</span>($num);</span><br></pre></td></tr></table></figure><p>注意：</p><ul><li><p>变量名区分大小写。</p></li><li><p>先定义再访问。</p></li><li><p>PHP是一种弱类型语音，可以存储任何数据。</p></li></ul><h3 id="2、预定义变量"><a href="#2、预定义变量" class="headerlink" title="2、预定义变量"></a>2、预定义变量</h3><p><strong>概念</strong>：PHP系统内部定义的变量，也是PHP系统自动收集的结果。</p><ul><li><p>预定义变量也是变量，符合变量规则</p></li><li><p>预定义变量都是数组</p></li><li><p>系统提供了九个预定义变量，每个变量都有自己特定的数据。</p><ul><li>$_GET：用户通过get方式提交的数据。</li><li>$_POST：用户通过post方式提交的数据。</li><li>$_REQUEST：用户通过get和post方式提交的数据。</li><li>$_SERVER：用户和服务器的基本信息数据（数据的名字不由开发者控制，系统定义好）</li><li>$_FILES：用户提交的文件数据，(文件上传 )。</li><li>$_SESSION： session数据。</li><li>$_COOKIE： cookie数据。</li><li>$GLOBALS：所有全局变量，也是唯一一个不是以下划线开始的预定义变量。</li><li>$_ENV：环境数据。</li></ul><p>举例：打印 $_SERVER 预定义变量</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预定义变量</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;pre&gt;"</span>;<span class="comment">//&lt;pre&gt; HTML标签</span></span><br><span class="line">print_r($_SERVER);<span class="comment">//打印的有一定规则</span></span><br></pre></td></tr></table></figure><p>可以查看该常量下的一些内容：</p><img src="/2020/02/29/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/1.png" class><p>如果要获取预定义变量中某个键值，可以 <code>$变量名[&#39;键名&#39;]</code>，以$_SERVER为例</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印$_SERVER的REMOTE_ADDR属性</span></span><br><span class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">'REMOTE_ADDR'</span>]</span><br></pre></td></tr></table></figure></li></ul><p><strong>小结</strong>：</p><ol><li>预定义变量是PHP系统保存的一些常用变量，方便开发者使用</li><li>预定义变量都是数组，需要以数组方式使用</li></ol><h3 id="3、变量传值"><a href="#3、变量传值" class="headerlink" title="3、变量传值"></a>3、变量传值</h3><p>分为两种，值传递和引用传递（和C类似）。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#值传递</span></span><br><span class="line">$a = <span class="number">10</span>;</span><br><span class="line">$b = $a;<span class="comment">//将$a的值10取出后赋给$b</span></span><br><span class="line"><span class="comment">#引用传递</span></span><br><span class="line">$c = <span class="number">5</span>;</span><br><span class="line">$d = &amp;$c;<span class="comment">//将$c的值的内存地址取出，赋值给$d，也为5</span></span><br></pre></td></tr></table></figure><h3 id="4、常量"><a href="#4、常量" class="headerlink" title="4、常量"></a>4、常量</h3><p><strong>概念</strong>：一种能够存储数据的符号，值不可以改变。</p><p><strong>定义变量</strong></p><ul><li>使用函数：define(‘常量名’,常量值);</li><li>使用关键字：const 常量名 = 常量值；</li></ul><p><strong>访问常量</strong></p><ul><li>直接访问：常量名</li><li>使用函数：constant(“常量名”);</li></ul><p><strong>示例</strong></p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义</span></span><br><span class="line">define(<span class="string">'VERSION'</span>,<span class="number">1.0</span>);</span><br><span class="line">define(<span class="string">'-_-'</span>,<span class="string">'smile'</span>);</span><br><span class="line"><span class="keyword">const</span> PI = <span class="number">3.14</span>;</span><br><span class="line"><span class="comment">#访问</span></span><br><span class="line"><span class="keyword">echo</span> PI;</span><br><span class="line"><span class="keyword">echo</span> constant(<span class="string">'VERSION'</span>);</span><br><span class="line"><span class="keyword">echo</span> constant(<span class="string">'-_-'</span>);</span><br></pre></td></tr></table></figure><p><strong>扩展</strong></p><p>PHP7以后允许定义数组常量（一次性定义多个常量），访问时使用数组下标访问。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MATH = <span class="keyword">array</span>(</span><br><span class="line"><span class="string">'PI'</span> =&gt;<span class="number">3.14</span>,</span><br><span class="line">    <span class="string">'E'</span> =&gt;<span class="number">2.72</span></span><br><span class="line">);<span class="comment">//定义</span></span><br><span class="line"><span class="keyword">echo</span> MATH[<span class="string">'PI'</span>];<span class="comment">//访问</span></span><br></pre></td></tr></table></figure><h3 id="5、系统常量"><a href="#5、系统常量" class="headerlink" title="5、系统常量"></a>5、系统常量</h3><p><strong>概念</strong>：系统内部定义的常量，用户可以直接访问，也只能访问。</p><ul><li>固定系统常量：值是固定的</li><li>魔术常量：值可以改变（性质确定，可以改变指的是改值在不同的情况场景下又不同的值）</li></ul><p><strong>固定系统常量</strong></p><ul><li>PHP_VERSION：PHP版本号</li><li>PHP_INT_SIZE：PHP中整数所占用的字符数。</li><li>PHP_INT_MAX：PHP中整数能表示的最大值。</li></ul><p><strong>魔术常量</strong></p><p>以双下划线开始，双下划线结束</p><ul><li>__DIR__：当前运行文件所在的绝对路径。</li><li>__FILE__：当前运行文件的绝对路径。</li><li>__LINE__：当前代码所在的行号。</li><li>__FUCTION__：函数内部使用，表示当前函数的名字。</li><li>__CLASS__：类的内部方法里使用，表示当前类名。</li><li>__METHOD__：类内部方法里使用，表示当前方法的名字（带类名）。</li><li>__NAMESPACE__：当前所属的命名空间。</li></ul><h3 id="6、数据类型"><a href="#6、数据类型" class="headerlink" title="6、数据类型"></a>6、数据类型</h3><ul><li><p>基本数据类型：整型（int/integer），浮点型（float），布尔型（bool/boolean），字符串型（string）。</p></li><li><p>复合数据类型：数组型（array），对象型（object）。</p></li><li><p>特殊数据类型：资源型（resource，数据库资源/文件资源），空型（null）。</p></li></ul><p><strong>提示</strong>：可用var_dump()查看变量的详细情况</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PHP的入门总结，主要是PHP的基础方面。非常基础，适合入门学习。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://iceWind-R.github.io/categories/PHP/"/>
-    
-    
-      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
-    
-      <category term="PHP" scheme="http://iceWind-R.github.io/tags/PHP/"/>
     
   </entry>
   
