@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-04-16T14:01:18.051Z</updated>
+  <updated>2020-04-16T14:11:09.407Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>十天时光荒废总结</title>
+    <link href="http://icewind-r.github.io/2020/04/16/%E5%8D%81%E5%A4%A9%E6%97%B6%E5%85%89%E8%8D%92%E5%BA%9F%E6%80%BB%E7%BB%93/"/>
+    <id>http://icewind-r.github.io/2020/04/16/%E5%8D%81%E5%A4%A9%E6%97%B6%E5%85%89%E8%8D%92%E5%BA%9F%E6%80%BB%E7%BB%93/</id>
+    <published>2020-04-16T14:07:24.000Z</published>
+    <updated>2020-04-16T14:11:09.407Z</updated>
+    
+    <content type="html"><![CDATA[<p>十天时光固然逝去，但万事有弊就有利，相信宝贵的时光也有被浪费的价值。</p><a id="more"></a><hr>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;十天时光固然逝去，但万事有弊就有利，相信宝贵的时光也有被浪费的价值。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
   
   <entry>
     <title>Reinvent(4.16)</title>
@@ -477,32 +500,6 @@
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
       <category term="PHP" scheme="http://iceWind-R.github.io/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>We Are All Fighters</title>
-    <link href="http://icewind-r.github.io/2020/03/03/We-Are-All-Fighters/"/>
-    <id>http://icewind-r.github.io/2020/03/03/We-Are-All-Fighters/</id>
-    <published>2020-03-03T01:16:31.000Z</published>
-    <updated>2020-03-03T05:38:19.811Z</updated>
-    
-    <content type="html"><![CDATA[<iframe src="//player.bilibili.com/player.html?aid=90376384&cid=154346256&page=1" width="100%" height="450" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>​          <p align="right"> <b>  ————To the battle we are fighting</b></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;iframe src=&quot;//player.bilibili.com/player.html?aid=90376384&amp;cid=154346256&amp;page=1&quot; width=&quot;100%&quot; height=&quot;450&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameb
-      
-    
-    </summary>
-    
-    
-      <category term="video" scheme="http://iceWind-R.github.io/categories/video/"/>
-    
-    
-      <category term="epidemic" scheme="http://iceWind-R.github.io/tags/epidemic/"/>
     
   </entry>
   
