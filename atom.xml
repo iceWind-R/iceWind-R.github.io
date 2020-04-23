@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-04-16T14:11:09.407Z</updated>
+  <updated>2020-04-23T08:52:44.492Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -17,17 +17,48 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Reinvent(4.23)</title>
+    <link href="http://icewind-r.github.io/2020/04/23/Reinvent-4-23/"/>
+    <id>http://icewind-r.github.io/2020/04/23/Reinvent-4-23/</id>
+    <published>2020-04-23T08:47:14.000Z</published>
+    <updated>2020-04-23T08:52:44.492Z</updated>
+    
+    <content type="html"><![CDATA[<p>总结从4.16~4.23这一个周。</p><hr><p>虽然写了十天时光荒废的总结，但还是没有真正的提高效率。</p><p>就强了一点每天的学习偶尔跟跟，作业写写抄抄。</p><p>别人的第一阶段十天冲刺都进行到第八九天了，而我还没开始。</p><p>想了想，问题可能还是每天没有目标吧。</p><p>我决定从现在开始，每天改变自己一点</p><p>下一天的目标前一天晚上想好，写下来</p><p>当天的目标认真落实，每天总结，要细致</p><p>一百天自我改造计划，从现在开始</p><p>一定要记住！！是现在，不是一会，更不是明天！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;总结从4.16~4.23这一个周。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;虽然写了十天时光荒废的总结，但还是没有真正的提高效率。&lt;/p&gt;
+&lt;p&gt;就强了一点每天的学习偶尔跟跟，作业写写抄抄。&lt;/p&gt;
+&lt;p&gt;别人的第一阶段十天冲刺都进行到第八九天了，而我还没开始。&lt;/p&gt;
+&lt;p&gt;想了想，问题
+      
+    
+    </summary>
+    
+    
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
+  
+  <entry>
     <title>十天时光荒废总结</title>
     <link href="http://icewind-r.github.io/2020/04/16/%E5%8D%81%E5%A4%A9%E6%97%B6%E5%85%89%E8%8D%92%E5%BA%9F%E6%80%BB%E7%BB%93/"/>
     <id>http://icewind-r.github.io/2020/04/16/%E5%8D%81%E5%A4%A9%E6%97%B6%E5%85%89%E8%8D%92%E5%BA%9F%E6%80%BB%E7%BB%93/</id>
     <published>2020-04-16T14:07:24.000Z</published>
-    <updated>2020-04-16T14:11:09.407Z</updated>
+    <updated>2020-04-17T12:22:43.253Z</updated>
     
-    <content type="html"><![CDATA[<p>十天时光固然逝去，但万事有弊就有利，相信宝贵的时光也有被浪费的价值。</p><a id="more"></a><hr>]]></content>
+    <content type="html"><![CDATA[<p>十天时光已然逝去，但万事有弊就有利，相信浪费的时光也有其宝贵的价值。</p><a id="more"></a><hr><p>这十天真是浑浑噩噩的十天，难以想象，现在回头看看，竟不能细想出干了些什么事，怕是每天都是重复，毫无收获吧。</p><p>十天状态：</p><p>1、课不好好上，就是不听，玩手机，心安理得，不像以前带着愧疚感玩。</p><p>2、没有上进，毫无作为，什么都不想干。</p><p>3、混吃等死？破罐子破摔？真是可怕。</p><p>4、张武？每天就是这么没的。</p><p>真的觉得世界都黑暗了，不知道该干什么，什么都干不好。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;十天时光固然逝去，但万事有弊就有利，相信宝贵的时光也有被浪费的价值。&lt;/p&gt;
+      &lt;p&gt;十天时光已然逝去，但万事有弊就有利，相信浪费的时光也有其宝贵的价值。&lt;/p&gt;
     
     </summary>
     
@@ -475,31 +506,6 @@
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
       <category term="Python" scheme="http://iceWind-R.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP基础知识（二）</title>
-    <link href="http://icewind-r.github.io/2020/03/04/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://icewind-r.github.io/2020/03/04/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/</id>
-    <published>2020-03-04T00:05:15.000Z</published>
-    <updated>2020-04-01T03:22:09.866Z</updated>
-    
-    <content type="html"><![CDATA[<p>继续之前的PHP基础，这次为第二次基础的总结，涉及各种数据类型的介绍等。</p><a id="more"></a><h2 id="一、整型"><a href="#一、整型" class="headerlink" title="一、整型"></a>一、整型</h2><p><strong>概念</strong>：数据是整数，但根据进制方式不同，有不同的数据格式。</p><ul><li>十进制：默认格式。</li><li>八进制：起始用0作为标识。</li><li>十六进制：起始用0x作为标记。</li><li>二进制起始使用0b作为标记。</li></ul><p>虽说有多种进制表示，但PHP<strong>默认</strong>最终输出都以十进制的标准输出。</p><p>如果想要保证原来的进制输出，就需要使用printf()函数，和C类似，但不会输出前面的进制标志。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$int1 = <span class="number">123</span>;</span><br><span class="line">$int2 = <span class="number">0123</span>;</span><br><span class="line">$int3 = <span class="number">0x123</span>;</span><br><span class="line">$int4 = <span class="number">0b101</span>;</span><br><span class="line">printf(<span class="string">'123的十进制是：%d,83的八进制是：%o,291的十六进制是：%x,5的二进制是：%b'</span>,$int1,$int2,$int3,$int4);</span><br></pre></td></tr></table></figure><p><strong>注意</strong>：整型最大的保存PHP_INT_SIZE,(即8个字节)，最大值为PHP_INT_MAX，最小值-PHP_INT_MAX-1</p><p><strong>附（类型转换函数）</strong></p><ul><li><p>十进制转二进制 decbin() 函数</p></li><li><p>十进制转八进制 decoct() 函数</p></li><li><p>十进制转十六进制 dechex() 函数</p></li><li><p>二进制转十六制进 bin2hex() 函数</p></li><li><p>二进制转十制进 bindec() 函数</p></li><li><p>八进制转十进制 octdec() 函数</p></li><li><p>十六进制转十进制 hexdec()函数</p></li><li><p><strong>任意进制转换 base_convert() 函数</strong></p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$hexadecimal = <span class="string">'A37334'</span>;</span><br><span class="line"><span class="keyword">echo</span> base_convert($hexadecimal, <span class="number">16</span>, <span class="number">2</span>);<span class="comment">//输出 101000110111001100110100</span></span><br></pre></td></tr></table></figure></li></ul><h2 id="二、浮点型"><a href="#二、浮点型" class="headerlink" title="二、浮点型"></a>二、浮点型</h2><p>PHP中浮点数的精度是13~14位，PHP7中浮点数的最大值表示：1.8e308</p><p>浮点数采用8个字节存储，存储原理为：符号位+54个数值位+9个指数位</p><p><strong>注意</strong>：0.3与8.1/2.7比较，计算器不会算出相等的结果。</p><h2 id="三、-布尔类型"><a href="#三、-布尔类型" class="headerlink" title="三、 布尔类型"></a>三、 布尔类型</h2><p><code>$res = true;</code></p><p><code>$res = FALSE</code>  不区分大小写</p><p>PHP中尽量不要直接输出bool类型的值。</p><h2 id="四、-字符串型"><a href="#四、-字符串型" class="headerlink" title="四、 字符串型"></a>四、 字符串型</h2><p><strong>定义方法</strong>：</p><ul><li><p>单引号<code>&#39;&#39;</code>包裹字符</p></li><li><p>双引号<code>&quot;&quot;</code>包裹字符</p></li><li><p>定界符包裹：使用PHP中的定界符&lt;&lt;&lt;标识符+标识符结尾形式包裹(多行字符串的一种形式)</p><ul><li><p>heredoc结构：双引号的一种多行字符串形式</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#EOT并非固定，自己取名即可</span></span><br><span class="line">$str = &lt;&lt;&lt;EOT </span><br><span class="line">这里都是字符串</span><br><span class="line">EOT;</span><br></pre></td></tr></table></figure></li><li><p>nowdoc结构：单引号的一种多行字符串形式</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#EOT并非固定，自己取名即可</span></span><br><span class="line">$str = &lt;&lt;&lt;<span class="string">'EOT'</span> </span><br><span class="line">这里都是字符串</span><br><span class="line">EOT;</span><br></pre></td></tr></table></figure></li></ul></li></ul><p><strong>区别</strong>：</p><ol><li>单引号是简单的字符串，可以解析少量转义字符：单引号(\‘)，反斜杠(\\)。</li><li>双引号功能较多：<ul><li>里面能解释较多转义符：$符号:(\$)，双引号:(\“)，反斜杠:(\\)，回车换行符:(\r\n)，TAB符:(\t)</li><li>里面如果有PHP变量，也可以被解析</li></ul></li><li>定界符中heredoc与双引号效果一致，nowdoc与单引号效果一致，唯一区别：定界符会自动保留格式：即字符串内部有换行符等自动保留。</li></ol><p><strong>注意</strong>：</p><ol><li>双引号解析变量时，系统是有规矩匹配变量的。<ul><li>变量名不要与其他字符或者数字保留在一起：”$abc”系统会自动识别为$abc，而不是$a。<ul><li>解决方案1：让变量与后面的内容之间有空格，如”$a bc”，系统则会识别为$a，但是多了一个空格。</li><li>解决方案2：使用{}将变量独立包裹起来，如${a}bc，建议使用。</li></ul></li></ul></li><li>使用定界符定义多行字符串时的规矩：<ul><li>定界符内的所有内容（包括注释）都是字符串的内容。</li><li>定界符的起始符号之后，结束符号之后不能有任何信息（包括空格，注释）。</li><li>结束符必须顶格。</li></ul></li></ol><h3 id="字符串长度"><a href="#字符串长度" class="headerlink" title="字符串长度"></a>字符串长度</h3><ul><li><p>一个英文字符，占一个字节。</p></li><li><p>一个中文gbk字符，占两个字节。</p></li><li><p>一个中文utf8字符，占三个字节。</p></li></ul><p>求php字符串的长度，有两个函数：</p><ul><li><p>strlen(字符串)：求该字符串的“字节数”，也就是占据的字节空间大小。</p></li><li><p>mb_strlen(字符串)：求该字符串的“字符”个数。</p><p>需要注意的是，该函数虽为系统函数，但不能直接调用。需要开启php.ini文件里的mbstring模块。</p><img src="/2020/03/04/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/1.png" class><p>即可。</p></li></ul><h2 id="五、数组类型"><a href="#五、数组类型" class="headerlink" title="五、数组类型"></a>五、数组类型</h2><h3 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h3><p>数组是多个元素的序列集合</p><ul><li>数组由元素组成</li><li>数组由下标key和Value组成（键值对）<ul><li>如果元素下标都是数字：索引数组</li><li>如果元素下标都是字符串：关联数组</li><li>既有数字又有字符串：混合数组</li></ul></li><li>数组元素访问通过下标实现</li><li>数组通常用来保存一组相关的数据，而不是随意搭配</li></ul><h3 id="2、使用步骤"><a href="#2、使用步骤" class="headerlink" title="2、使用步骤"></a>2、使用步骤</h3><h4 id="1）定义数组"><a href="#1）定义数组" class="headerlink" title="1）定义数组"></a>1）定义数组</h4><ul><li>空数组：值为array()或者[]</li><li>非空多元素数组：[‘张三’,’男’,30]</li><li>指定下标数组：[‘name’=&gt;’张三’,’gender’=&gt;’男’,’age’=&gt;30]</li></ul><h4 id="2）添加元素"><a href="#2）添加元素" class="headerlink" title="2）添加元素"></a>2）添加元素</h4><ul><li>使用保存数组的变量后加上[]，表示一个系统自动指定下标，然后等于某个值。</li><li>指定下标[index]，可以是字符串。</li></ul><h4 id="3）访问元素"><a href="#3）访问元素" class="headerlink" title="3）访问元素"></a><strong>3）访问元素</strong></h4><ul><li>指定元素下标</li><li>直接使用，表示访问整个数组，但不能用echo输出，数组结构复杂。</li></ul><h4 id="4）修改元素"><a href="#4）修改元素" class="headerlink" title="4）修改元素"></a><strong>4）修改元素</strong></h4><ul><li>通过下标修改即可。</li></ul><h4 id="5）删除元素"><a href="#5）删除元素" class="headerlink" title="5）删除元素"></a><strong>5）删除元素</strong></h4><ul><li>使用unset()，然后指定数组变量加上[1]，删除指定下标；或删除整个数组。</li></ul><h4 id="6）使用for循环语句遍历数组"><a href="#6）使用for循环语句遍历数组" class="headerlink" title="6）使用for循环语句遍历数组"></a>6）使用for循环语句遍历数组</h4><p>数组的指针：每一个数组内部，都有一个指针，正常情况下，指针指向数组的某个单元，起初默认位置是指向第一个单元。</p><p>php中，有如下函数，可以针对数组指针进行相应操作。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$arr = <span class="keyword">array</span>(<span class="number">18</span>,<span class="number">22</span>,<span class="number">12</span>);<span class="comment">//定义数组</span></span><br><span class="line"></span><br><span class="line">$re = current($arr);<span class="comment">//取得数组当前指针所在单元的值</span></span><br><span class="line">$re = key($arr);<span class="comment">//取得数组当前指针所在单元的键（下标）</span></span><br><span class="line">$re = next($arr);<span class="comment">//将数组的指针后移一位，并取得新位置的值</span></span><br><span class="line">$re = prev($arr);<span class="comment">//将数组的指针前移一位，并取得新位置的值</span></span><br><span class="line">$re = end($arr);<span class="comment">//将数组的指针移到最后一位，并取得新位置的值</span></span><br><span class="line">$re = reset($arr);<span class="comment">//将数组的指针移到最前一位，并取得新位置的值</span></span><br></pre></td></tr></table></figure><p><strong>示例</strong></p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$arr = <span class="keyword">array</span>(<span class="string">"a"</span>,<span class="number">2</span>=&gt;<span class="string">"b"</span>,<span class="string">"C"</span>,<span class="string">"x"</span>=&gt;<span class="string">"d"</span>,<span class="string">"e"</span>);</span><br><span class="line">$len = count($arr);</span><br><span class="line"><span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; $len; $i++)&#123;</span><br><span class="line">    $key = key($arr);</span><br><span class="line">    $value = current($arr);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"$key ----- $value\n"</span>;</span><br><span class="line">    next($arr);<span class="comment">//指针后移</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>得到结果（注意下标规则）</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> ----- a</span><br><span class="line"><span class="number">2</span> ----- b</span><br><span class="line"><span class="number">3</span> ----- C</span><br><span class="line">x ----- d</span><br><span class="line"><span class="number">4</span> ----- e</span><br></pre></td></tr></table></figure><h3 id="3、注意"><a href="#3、注意" class="headerlink" title="3、注意"></a>3、注意</h3><p>1、索引数组（纯数字下标）添加元素，默认以当前元素的最大下标开始自动加1.</p><p>2、索引数组通常都不会刻意指定下标（从0开始自增长）</p><p>3、PHP数组特点</p><ul><li>数组元素没有数量限制，数组不限定长度</li><li>数组可以动态增加元素</li><li>元素的值可以是任何数据类型</li></ul><h3 id="4、二维数组"><a href="#4、二维数组" class="headerlink" title="4、二维数组"></a>4、二维数组</h3><p><strong>概念</strong>：数组中的元素本身也是一个数组。</p><ul><li>二维数组的元素都是一个一维数组。</li><li>二维数组的第一维下标通常是索引，第二维是关联。</li></ul><p><strong>定义步骤</strong>：</p><p>1、定义一维数组，保存到变量。</p><p>2、定义一个新数组，将原来的数组保存到新数组元素中。</p><p>3、数组访问先通过一维下标找到对应的元素，然后通过二维下标找到更深的元素。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义一维数组</span></span><br><span class="line">$p1 = <span class="keyword">array</span>(<span class="string">'name'</span> =&gt; <span class="string">'鸣人'</span>,<span class="string">'skill'</span> =&gt; <span class="string">'影分身'</span>);</span><br><span class="line">$p2 = <span class="keyword">array</span>(<span class="string">'name'</span> =&gt; <span class="string">'佐助'</span>,<span class="string">'skill'</span> =&gt; <span class="string">'千鸟'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义二维数组</span></span><br><span class="line">$p = <span class="keyword">array</span>($p1,$p2);</span><br><span class="line"></span><br><span class="line"><span class="comment">#访问元素：通常是访问二维元素</span></span><br><span class="line"><span class="comment">#获取第一元素的名字</span></span><br><span class="line"><span class="keyword">echo</span> $p[<span class="number">0</span>][<span class="string">'name'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">#追加一个数组元素</span></span><br><span class="line">$p[] = <span class="keyword">array</span>(<span class="string">'name'</span> =&gt; <span class="string">'小樱'</span>,<span class="string">'skill'</span> =&gt; <span class="string">'治疗术'</span>);</span><br></pre></td></tr></table></figure><h2 id="六、类型判定和转换"><a href="#六、类型判定和转换" class="headerlink" title="六、类型判定和转换"></a>六、类型判定和转换</h2><h3 id="1、类型判定"><a href="#1、类型判定" class="headerlink" title="1、类型判定"></a>1、类型判定</h3><p><strong>概念：</strong>即对存储数据的变量（本质是数据）进行类型确定。</p><p>PHP提供了一套类型判定的函数，以供使用：</p><ul><li>函数不需死记硬背，都是is_+数据类型 组成。<ul><li>is_int：判断整型</li><li>is_float：判断浮点型</li><li>is_bool：判断布尔型</li><li>is_string：判断字符串型</li><li>is_null：判断空型</li><li>is_array：判断数组型</li><li>is_resource：判断资源型</li><li>is_object：判断对象型</li></ul></li><li>函数在操作手册中都有，输入is_即可查看所有。</li></ul><p><strong>常用的类型判定：</strong></p><ul><li>is_numeric：判断数据是否是数值，包括数值型数组，<code>$str=&#39;100&#39;</code>,为true。</li><li>is_scalar：是否是标量（基础类型）数据。</li><li>类型代表：is_int，是否为整数。</li></ul><h3 id="2、类型转换"><a href="#2、类型转换" class="headerlink" title="2、类型转换"></a>2、类型转换</h3><p>概念：即将某种不符合的类型转换为目标类型。</p><ul><li>自动转换：系统自动转换，方便。</li><li>强制转换：通过代码强制转换成目标类型，效率高。</li></ul><h4 id="强制转换实现步骤："><a href="#强制转换实现步骤：" class="headerlink" title="强制转换实现步骤："></a>强制转换实现步骤：</h4><p>1）明确所需要类型</p><p>2）强制转换为所需类型</p><ul><li>不改变原来数据：在数据前使用（目标类型），如<code>(int)$a</code>。</li><li>改变原来数据：使用settype(变量,’目标类型’)，如<code>settype($a,&#39;bool&#39;)</code>，将变量a的类型转为bool类型。</li><li>强制转换的类型：资源和NULL类型不能强制转换。</li></ul><h4 id="常见的转换逻辑："><a href="#常见的转换逻辑：" class="headerlink" title="常见的转换逻辑："></a>常见的转换逻辑：</h4><p>1）字符串转为数值</p><ul><li>纯数字字符串—&gt;相应数值：’123.1’=&gt;123.1</li><li>数值开头但有字母—&gt;保留数字部分：’12a’=&gt;12</li><li>小数点开头—&gt;保留第一个小数点及之后的连续数字：’.1.1.a’=&gt;0.1</li><li>字母开头 —&gt;0：’a123’=&gt;0</li></ul><p>2）其他类型转为布尔：极少数转换为FALSE，基本都是TRUE。以下为FALSE的情况。</p><ul><li>整数0转为布尔</li><li>浮点数0.0转为布尔</li><li>空白字符串和字符串 ‘0’ 转为布尔</li><li>空数组array()转布尔：</li><li>空类型NULL转布尔</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;继续之前的PHP基础，这次为第二次基础的总结，涉及各种数据类型的介绍等。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://iceWind-R.github.io/categories/PHP/"/>
-    
-    
-      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
-    
-      <category term="PHP" scheme="http://iceWind-R.github.io/tags/PHP/"/>
     
   </entry>
   
