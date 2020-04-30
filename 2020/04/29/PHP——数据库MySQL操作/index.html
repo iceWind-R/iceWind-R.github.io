@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Thorine">
 <meta property="og:description" content="总结PHP中操作MySQL的相关方法与命令。">
 <meta property="article:published_time" content="2020-04-29T13:18:52.000Z">
-<meta property="article:modified_time" content="2020-04-29T14:22:18.951Z">
+<meta property="article:modified_time" content="2020-04-30T00:40:38.441Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="Learning">
 <meta property="article:tag" content="PHP">
@@ -229,10 +229,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-29 21:18:52 / 修改时间：22:22:18" itemprop="dateCreated datePublished" datetime="2020-04-29T21:18:52+08:00">2020-04-29</time>
+              <time title="创建时间：2020-04-29 21:18:52" itemprop="dateCreated datePublished" datetime="2020-04-29T21:18:52+08:00">2020-04-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-30 08:40:38" itemprop="dateModified" datetime="2020-04-30T08:40:38+08:00">2020-04-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -277,7 +283,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>604</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -303,7 +309,7 @@
 <h2 id="PHP连接MySQL"><a href="#PHP连接MySQL" class="headerlink" title="PHP连接MySQL"></a>PHP连接MySQL</h2><h3 id="PHP连接MySQL服务器"><a href="#PHP连接MySQL服务器" class="headerlink" title="PHP连接MySQL服务器"></a>PHP连接MySQL服务器</h3><h4 id="mysqli-connect"><a href="#mysqli-connect" class="headerlink" title="mysqli_connect()"></a>mysqli_connect()</h4><ul>
 <li><p>描述：连接到MySQL服务器</p>
 </li>
-<li><p>语法：$link = mysqli_connect([host],[username],[password],[dbName],[port])</p>
+<li><p>语法：<code>$link = mysqli_connect([host],[username],[password],[dbName],[port])</code></p>
 </li>
 <li><p>返回值：连接成功，则返回MySQLi连接对象。如果失败，则返回FALSE。</p>
 </li>
@@ -333,8 +339,21 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!mysqli_select_db($link,$database))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"选择数据库$&#123;db_name&#125;失败"</span>;</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="设置客户端字符集"><a href="#设置客户端字符集" class="headerlink" title="设置客户端字符集"></a>设置客户端字符集</h3><p>设置默认字符编码</p>
-<p>语法：bool mysqli_set_charset(mysqli $link,string $ charset)</p>
-<h2 id="执行SQL语句"><a href="#执行SQL语句" class="headerlink" title="执行SQL语句"></a>执行SQL语句</h2>
+<p>语法：<code>bool mysqli_set_charset(mysqli $link,string $ charset)</code></p>
+<h2 id="执行SQL语句"><a href="#执行SQL语句" class="headerlink" title="执行SQL语句"></a>执行SQL语句</h2><h4 id="mysqli-query"><a href="#mysqli-query" class="headerlink" title="mysqli_query()"></a>mysqli_query()</h4><ul>
+<li>发送一条MySQL查询</li>
+<li>语法：<code>resource mysqli_query(mysqli $link,string $query)</code></li>
+<li>$query是查询的sql语句字符串</li>
+</ul>
+<p><strong>说明：</strong>mysqli_query()仅对SELECT，SHOW 或 DESCRIBE 语句返回一个mysqli_result结果集对象，如果查询不正确返回FALSE。对于其他类型的SQL语句，成功返回TRUE，失败返回FALSE。非FALSE的返回值意味着查询是合法的并能够被服务器执行。</p>
+<p>注意：查询字符串不应以分号结束，和命令行模式下有区别。</p>
+<p>mysqli_result结果集对象：结果已经查到，但必须用特殊的方法才能取出数据。</p>
+<h4 id="mysqli-free-result"><a href="#mysqli-free-result" class="headerlink" title="mysqli_free_result()"></a>mysqli_free_result()</h4><ul>
+<li>释放与结果集相关联的内存</li>
+<li>语法：<code>void mysqli_free_result(mysqli_result $result)</code></li>
+</ul>
+<p>注意：是结果集对象mysqli_result，而不是bool。</p>
+<h3 id="从结果集获取一行数据"><a href="#从结果集获取一行数据" class="headerlink" title="从结果集获取一行数据"></a>从结果集获取一行数据</h3><h4 id="mysqli-fetch-row"><a href="#mysqli-fetch-row" class="headerlink" title="mysqli_fetch_row()"></a>mysqli_fetch_row()</h4>
     </div>
 
     
@@ -443,7 +462,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP连接MySQL"><span class="nav-number">1.</span> <span class="nav-text">PHP连接MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP连接MySQL服务器"><span class="nav-number">1.1.</span> <span class="nav-text">PHP连接MySQL服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mysqli-connect"><span class="nav-number">1.1.1.</span> <span class="nav-text">mysqli_connect()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算符"><span class="nav-number">1.1.2.</span> <span class="nav-text">@运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#die-和exit"><span class="nav-number">1.1.3.</span> <span class="nav-text">die()和exit()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysqli-connect-error"><span class="nav-number">1.1.4.</span> <span class="nav-text">mysqli_connect_error()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysqli-close"><span class="nav-number">1.1.5.</span> <span class="nav-text">mysqli_close()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择当前数据库"><span class="nav-number">1.2.</span> <span class="nav-text">选择当前数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置客户端字符集"><span class="nav-number">1.3.</span> <span class="nav-text">设置客户端字符集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行SQL语句"><span class="nav-number">2.</span> <span class="nav-text">执行SQL语句</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP连接MySQL"><span class="nav-number">1.</span> <span class="nav-text">PHP连接MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP连接MySQL服务器"><span class="nav-number">1.1.</span> <span class="nav-text">PHP连接MySQL服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mysqli-connect"><span class="nav-number">1.1.1.</span> <span class="nav-text">mysqli_connect()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算符"><span class="nav-number">1.1.2.</span> <span class="nav-text">@运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#die-和exit"><span class="nav-number">1.1.3.</span> <span class="nav-text">die()和exit()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysqli-connect-error"><span class="nav-number">1.1.4.</span> <span class="nav-text">mysqli_connect_error()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysqli-close"><span class="nav-number">1.1.5.</span> <span class="nav-text">mysqli_close()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择当前数据库"><span class="nav-number">1.2.</span> <span class="nav-text">选择当前数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置客户端字符集"><span class="nav-number">1.3.</span> <span class="nav-text">设置客户端字符集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行SQL语句"><span class="nav-number">2.</span> <span class="nav-text">执行SQL语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mysqli-query"><span class="nav-number">2.0.1.</span> <span class="nav-text">mysqli_query()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysqli-free-result"><span class="nav-number">2.0.2.</span> <span class="nav-text">mysqli_free_result()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从结果集获取一行数据"><span class="nav-number">2.1.</span> <span class="nav-text">从结果集获取一行数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mysqli-fetch-row"><span class="nav-number">2.1.1.</span> <span class="nav-text">mysqli_fetch_row()</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -525,7 +544,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">39k</span>
+    <span title="站点总字数">40k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-04-29T14:22:18.951Z</updated>
+  <updated>2020-04-30T00:40:38.441Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://icewind-r.github.io/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/"/>
     <id>http://icewind-r.github.io/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/</id>
     <published>2020-04-29T13:18:52.000Z</published>
-    <updated>2020-04-29T14:22:18.951Z</updated>
+    <updated>2020-04-30T00:40:38.441Z</updated>
     
-    <content type="html"><![CDATA[<p>总结PHP中操作MySQL的相关方法与命令。</p><a id="more"></a><hr><h2 id="PHP连接MySQL"><a href="#PHP连接MySQL" class="headerlink" title="PHP连接MySQL"></a>PHP连接MySQL</h2><h3 id="PHP连接MySQL服务器"><a href="#PHP连接MySQL服务器" class="headerlink" title="PHP连接MySQL服务器"></a>PHP连接MySQL服务器</h3><h4 id="mysqli-connect"><a href="#mysqli-connect" class="headerlink" title="mysqli_connect()"></a>mysqli_connect()</h4><ul><li><p>描述：连接到MySQL服务器</p></li><li><p>语法：$link = mysqli_connect([host],[username],[password],[dbName],[port])</p></li><li><p>返回值：连接成功，则返回MySQLi连接对象。如果失败，则返回FALSE。</p></li></ul><h4 id="运算符"><a href="#运算符" class="headerlink" title="@运算符"></a>@运算符</h4><ul><li>PHP支持错误抑制运算符@。</li><li>可以把它放在<strong>变量，函数、include调用</strong>和<strong>变量</strong>等前面。</li></ul><p>在连接数据库失败的时候，往往系统给出提示信息，会暴露电脑的相关配置，可能发生信息的不安全泄露，造成隐患。我们可以使用错误抑制符@来避免数据库连接失败的错误提示。</p><p>用法：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$link = @ mysqli_connect([host],[username],[password],[dbName],[port]);</span><br></pre></td></tr></table></figure><h4 id="die-和exit"><a href="#die-和exit" class="headerlink" title="die()和exit()"></a>die()和exit()</h4><ul><li>输出一个消息并且退出当前脚本，作用等同。</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$db_host = <span class="string">"localhost"</span>;<span class="comment">//主机号</span></span><br><span class="line">$db_port = <span class="string">"3306"</span>;   <span class="comment">//端口号</span></span><br><span class="line">$db_user = <span class="string">"root"</span>;   <span class="comment">//用户名</span></span><br><span class="line">$db_password = <span class="string">"root"</span>; <span class="comment">//密码</span></span><br><span class="line">$db_name = <span class="string">"mydb"</span>;   <span class="comment">//数据库名</span></span><br><span class="line">$charset = <span class="string">"utf8"</span>;   <span class="comment">//字符集</span></span><br><span class="line"><span class="keyword">if</span>(!$link = @ mysqli_connect($db_host.<span class="string">":"</span>.$db_port,$db_user,$db_password))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"连接失败"</span>);<span class="comment">//中止程序向下运行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="mysqli-connect-error"><a href="#mysqli-connect-error" class="headerlink" title="mysqli_connect_error()"></a>mysqli_connect_error()</h4><ul><li>返回连接失败的错误信息。</li></ul><h4 id="mysqli-close"><a href="#mysqli-close" class="headerlink" title="mysqli_close()"></a>mysqli_close()</h4><ul><li>关闭先前打开的数据库连接</li><li>语法：<code>bool mysqli_close(mysqli $link);</code></li></ul><h3 id="选择当前数据库"><a href="#选择当前数据库" class="headerlink" title="选择当前数据库"></a>选择当前数据库</h3><p>一个数据库服务器包含很多的数据库，通常需要针对某个具体的数据库操作。</p><p>语法：bool mysqli_select_db(mysqli $link,string $database)</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!mysqli_select_db($link,$database))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"选择数据库$&#123;db_name&#125;失败"</span>;</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="设置客户端字符集"><a href="#设置客户端字符集" class="headerlink" title="设置客户端字符集"></a>设置客户端字符集</h3><p>设置默认字符编码</p><p>语法：bool mysqli_set_charset(mysqli $link,string $ charset)</p><h2 id="执行SQL语句"><a href="#执行SQL语句" class="headerlink" title="执行SQL语句"></a>执行SQL语句</h2>]]></content>
+    <content type="html"><![CDATA[<p>总结PHP中操作MySQL的相关方法与命令。</p><a id="more"></a><hr><h2 id="PHP连接MySQL"><a href="#PHP连接MySQL" class="headerlink" title="PHP连接MySQL"></a>PHP连接MySQL</h2><h3 id="PHP连接MySQL服务器"><a href="#PHP连接MySQL服务器" class="headerlink" title="PHP连接MySQL服务器"></a>PHP连接MySQL服务器</h3><h4 id="mysqli-connect"><a href="#mysqli-connect" class="headerlink" title="mysqli_connect()"></a>mysqli_connect()</h4><ul><li><p>描述：连接到MySQL服务器</p></li><li><p>语法：<code>$link = mysqli_connect([host],[username],[password],[dbName],[port])</code></p></li><li><p>返回值：连接成功，则返回MySQLi连接对象。如果失败，则返回FALSE。</p></li></ul><h4 id="运算符"><a href="#运算符" class="headerlink" title="@运算符"></a>@运算符</h4><ul><li>PHP支持错误抑制运算符@。</li><li>可以把它放在<strong>变量，函数、include调用</strong>和<strong>变量</strong>等前面。</li></ul><p>在连接数据库失败的时候，往往系统给出提示信息，会暴露电脑的相关配置，可能发生信息的不安全泄露，造成隐患。我们可以使用错误抑制符@来避免数据库连接失败的错误提示。</p><p>用法：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$link = @ mysqli_connect([host],[username],[password],[dbName],[port]);</span><br></pre></td></tr></table></figure><h4 id="die-和exit"><a href="#die-和exit" class="headerlink" title="die()和exit()"></a>die()和exit()</h4><ul><li>输出一个消息并且退出当前脚本，作用等同。</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$db_host = <span class="string">"localhost"</span>;<span class="comment">//主机号</span></span><br><span class="line">$db_port = <span class="string">"3306"</span>;   <span class="comment">//端口号</span></span><br><span class="line">$db_user = <span class="string">"root"</span>;   <span class="comment">//用户名</span></span><br><span class="line">$db_password = <span class="string">"root"</span>; <span class="comment">//密码</span></span><br><span class="line">$db_name = <span class="string">"mydb"</span>;   <span class="comment">//数据库名</span></span><br><span class="line">$charset = <span class="string">"utf8"</span>;   <span class="comment">//字符集</span></span><br><span class="line"><span class="keyword">if</span>(!$link = @ mysqli_connect($db_host.<span class="string">":"</span>.$db_port,$db_user,$db_password))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"连接失败"</span>);<span class="comment">//中止程序向下运行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="mysqli-connect-error"><a href="#mysqli-connect-error" class="headerlink" title="mysqli_connect_error()"></a>mysqli_connect_error()</h4><ul><li>返回连接失败的错误信息。</li></ul><h4 id="mysqli-close"><a href="#mysqli-close" class="headerlink" title="mysqli_close()"></a>mysqli_close()</h4><ul><li>关闭先前打开的数据库连接</li><li>语法：<code>bool mysqli_close(mysqli $link);</code></li></ul><h3 id="选择当前数据库"><a href="#选择当前数据库" class="headerlink" title="选择当前数据库"></a>选择当前数据库</h3><p>一个数据库服务器包含很多的数据库，通常需要针对某个具体的数据库操作。</p><p>语法：bool mysqli_select_db(mysqli $link,string $database)</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!mysqli_select_db($link,$database))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"选择数据库$&#123;db_name&#125;失败"</span>;</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="设置客户端字符集"><a href="#设置客户端字符集" class="headerlink" title="设置客户端字符集"></a>设置客户端字符集</h3><p>设置默认字符编码</p><p>语法：<code>bool mysqli_set_charset(mysqli $link,string $ charset)</code></p><h2 id="执行SQL语句"><a href="#执行SQL语句" class="headerlink" title="执行SQL语句"></a>执行SQL语句</h2><h4 id="mysqli-query"><a href="#mysqli-query" class="headerlink" title="mysqli_query()"></a>mysqli_query()</h4><ul><li>发送一条MySQL查询</li><li>语法：<code>resource mysqli_query(mysqli $link,string $query)</code></li><li>$query是查询的sql语句字符串</li></ul><p><strong>说明：</strong>mysqli_query()仅对SELECT，SHOW 或 DESCRIBE 语句返回一个mysqli_result结果集对象，如果查询不正确返回FALSE。对于其他类型的SQL语句，成功返回TRUE，失败返回FALSE。非FALSE的返回值意味着查询是合法的并能够被服务器执行。</p><p>注意：查询字符串不应以分号结束，和命令行模式下有区别。</p><p>mysqli_result结果集对象：结果已经查到，但必须用特殊的方法才能取出数据。</p><h4 id="mysqli-free-result"><a href="#mysqli-free-result" class="headerlink" title="mysqli_free_result()"></a>mysqli_free_result()</h4><ul><li>释放与结果集相关联的内存</li><li>语法：<code>void mysqli_free_result(mysqli_result $result)</code></li></ul><p>注意：是结果集对象mysqli_result，而不是bool。</p><h3 id="从结果集获取一行数据"><a href="#从结果集获取一行数据" class="headerlink" title="从结果集获取一行数据"></a>从结果集获取一行数据</h3><h4 id="mysqli-fetch-row"><a href="#mysqli-fetch-row" class="headerlink" title="mysqli_fetch_row()"></a>mysqli_fetch_row()</h4>]]></content>
     
     <summary type="html">
     
@@ -318,9 +318,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
-    
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
     
   </entry>
   
@@ -418,9 +418,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
-    
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
     
   </entry>
   
@@ -468,9 +468,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
-    
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
     
   </entry>
   
