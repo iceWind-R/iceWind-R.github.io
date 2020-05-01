@@ -35,9 +35,14 @@
 <meta property="og:image" content="http://icewind-r.github.io/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/5.png">
 <meta property="og:image" content="http://icewind-r.github.io/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/6.png">
 <meta property="og:image" content="http://icewind-r.github.io/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/7.png">
-<meta property="og:image" content="http://icewind-r.github.io/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/7.png">
+<meta property="og:image" content="http://icewind-r.github.io/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/8.png">
+<meta property="og:image" content="http://icewind-r.github.io/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/9.png">
+<meta property="og:image" content="http://icewind-r.github.io/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/10.png">
+<meta property="og:image" content="http://icewind-r.github.io/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/11.png">
+<meta property="og:image" content="http://icewind-r.github.io/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/12.png">
+<meta property="og:image" content="http://icewind-r.github.io/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/13.png">
 <meta property="article:published_time" content="2020-03-24T00:37:32.000Z">
-<meta property="article:modified_time" content="2020-03-27T08:21:55.362Z">
+<meta property="article:modified_time" content="2020-05-01T10:07:47.083Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="Learning">
 <meta property="article:tag" content="MATLAB">
@@ -246,7 +251,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-27 16:21:55" itemprop="dateModified" datetime="2020-03-27T16:21:55+08:00">2020-03-27</time>
+                <time title="修改时间：2020-05-01 18:07:47" itemprop="dateModified" datetime="2020-05-01T18:07:47+08:00">2020-05-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -292,7 +297,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>988</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -347,17 +352,107 @@
 <h2 id="双纵坐标"><a href="#双纵坐标" class="headerlink" title="双纵坐标"></a>双纵坐标</h2><p>◼ plotyy指令调用格式：</p>
 <p>plotyy(x1, y1, x2, y2)</p>
 <p>x1-y1曲线y轴在左， x2-y2曲线y轴在右。</p>
-<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/7.png" class>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/8.png" class>
 
 <h2 id="多子图"><a href="#多子图" class="headerlink" title="多子图"></a>多子图</h2><p> MATLAB允许在同一图形窗口布置几幅独立的子图。具体指令：</p>
 <p>◼ subplot(m, n, k)使（mxn）幅子图中第k个子图成为当前图</p>
 <p>◼ subplot(‘postion’, [left, bottom, width, height]) 在指定的位置上开辟子图，并成为当前图</p>
 <p>说明：</p>
-<p>➢ subplot(m, n, k)的含义：图形窗口包含（mxn）个子图，k为要指定的当前子图的编号。其编号原则： 左上方</p>
-<p>为第1子图，然后向右向下依次排序。该指令按缺省值分割子图区域。</p>
-<p>➢ subplot(‘postion’, [left, bottom, width, height])用于手工指定子图位置，指定位置的四元组采用归一化的标称</p>
-<p>单位，即认为整个图形窗口绘图区域的高、宽的取值范围都是[0， 1]，而左下角为（0,0）坐标。</p>
+<p>➢ subplot(m, n, k)的含义：图形窗口包含（mxn）个子图，k为要指定的当前子图的编号。其编号原则： 左上方为第1子图，然后向右向下依次排序。该指令按缺省值分割子图区域。</p>
+<p>➢ subplot(‘postion’, [left, bottom, width, height])用于手工指定子图位置，指定位置的四元组采用归一化的标称单位，即认为整个图形窗口绘图区域的高、宽的取值范围都是[0， 1]，而左下角为（0,0）坐标。</p>
 <p>➢ 产生的子图彼此独立。所有的绘图指令均可以在子图中使用。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">t=(<span class="built_in">pi</span>*(<span class="number">0</span>:<span class="number">1000</span>)/<span class="number">1000</span>)';</span><br><span class="line">y1=<span class="built_in">sin</span>(t);y2=<span class="built_in">sin</span>(<span class="number">10</span>*t);y12=<span class="built_in">sin</span>(t).*<span class="built_in">sin</span>(<span class="number">10</span>*t);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>),<span class="built_in">plot</span>(t,y1);axis([<span class="number">0</span>,<span class="built_in">pi</span>,<span class="number">-1</span>,<span class="number">1</span>])</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>),<span class="built_in">plot</span>(t,y2);axis([<span class="number">0</span>,<span class="built_in">pi</span>,<span class="number">-1</span>,<span class="number">1</span>])</span><br><span class="line">subplot(<span class="string">'position'</span>,[<span class="number">0.2</span>,<span class="number">0.05</span>,<span class="number">0.6</span>,<span class="number">0.45</span>])</span><br><span class="line"><span class="built_in">plot</span>(t,y12,<span class="string">'b-'</span>,t,[y1,-y1],<span class="string">'r:'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>结果</strong></p>
+<img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/9.png" class>
+
+<h2 id="绘制曲线的辅助操作"><a href="#绘制曲线的辅助操作" class="headerlink" title="绘制曲线的辅助操作"></a>绘制曲线的辅助操作</h2><p><strong>曲线线形控制符</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">-</th>
+<th align="center">：</th>
+<th align="center">-.</th>
+<th align="center">–</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">含义</td>
+<td align="center">实线</td>
+<td align="center">虚线</td>
+<td align="center">点划线</td>
+<td align="center">双划线</td>
+</tr>
+</tbody></table>
+<p><strong>曲线颜色控制符</strong></p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>b</th>
+<th>g</th>
+<th>r</th>
+<th>c</th>
+<th>m</th>
+<th>y</th>
+<th>k</th>
+<th>w</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>含义</td>
+<td>蓝</td>
+<td>绿</td>
+<td>红</td>
+<td>青</td>
+<td>品红</td>
+<td>黄</td>
+<td>黑</td>
+<td>白</td>
+</tr>
+</tbody></table>
+<p>；数据点型控制符</p>
+<img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/10.png" class>
+
+<p>➢曲线的线形控制符、颜色控制符、数据点形控制符可以组合使用</p>
+<p>➢其先后次序不影响绘图结果</p>
+<p>➢也可以单独使用</p>
+<p><strong>例如</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">t=(<span class="number">0</span>:<span class="number">15</span>)*<span class="number">2</span>*<span class="built_in">pi</span>/<span class="number">15</span>;</span><br><span class="line">y=<span class="built_in">sin</span>(t);</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>), <span class="built_in">plot</span>(t, y); title(<span class="string">'Lins style is default'</span>)</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>), <span class="built_in">plot</span>(t, y, <span class="string">'o'</span>); title(<span class="string">'Lins style is o'</span>)</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="built_in">plot</span>(t, y, <span class="string">'k:'</span>); title(<span class="string">'Lins style is k:'</span>)</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>), <span class="built_in">plot</span>(t, y, <span class="string">'k:*'</span>); title(<span class="string">'Lins style is k:*'</span>)</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">2</span>,<span class="number">5</span>), <span class="built_in">plot</span>(t, y, <span class="string">'m-d'</span>); title(<span class="string">'Lins style is m-d'</span>)</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">2</span>,<span class="number">6</span>), <span class="built_in">plot</span>(t, y, <span class="string">'r-p'</span>); title(<span class="string">'Lins style is r-p'</span>)</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/11.png" class>
+
+<h2 id="坐标、刻度和分格线控制"><a href="#坐标、刻度和分格线控制" class="headerlink" title="坐标、刻度和分格线控制"></a><strong>坐标、刻度和分格线控制</strong></h2><h3 id="axis坐标控制指令"><a href="#axis坐标控制指令" class="headerlink" title="axis坐标控制指令"></a>axis坐标控制指令</h3><p><strong>案例演示</strong></p>
+<img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/12.png" class>
+
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">t=<span class="number">0</span>:<span class="number">2</span>*<span class="built_in">pi</span>/<span class="number">99</span>:<span class="number">2</span>*<span class="built_in">pi</span>;</span><br><span class="line">x=<span class="number">1.15</span>*<span class="built_in">cos</span>(t); y=<span class="number">3.25</span>*<span class="built_in">sin</span>(t); <span class="comment">% y为长轴，x为短轴</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>); <span class="built_in">plot</span>(x, y);</span><br><span class="line">axis off</span><br><span class="line">title(<span class="string">'axis off'</span>); </span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>); <span class="built_in">plot</span>(x,y);</span><br><span class="line">axis image;</span><br><span class="line">title(<span class="string">'axis image'</span>); </span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="built_in">plot</span>(x,y);</span><br><span class="line">axis equal;</span><br><span class="line">title(<span class="string">'axis Equal'</span>); </span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>); <span class="built_in">plot</span>(x,y);</span><br><span class="line">axis square;</span><br><span class="line">title(<span class="string">'axis Square'</span>);</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/13.png" class>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
 
@@ -470,7 +565,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二维曲线绘图的基本操作"><span class="nav-number">1.</span> <span class="nav-text">二维曲线绘图的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#plot指令的基本调用格式"><span class="nav-number">1.1.</span> <span class="nav-text">plot指令的基本调用格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）plot-x"><span class="nav-number">1.1.1.</span> <span class="nav-text">（1）plot(x)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）plot-x-y"><span class="nav-number">1.1.2.</span> <span class="nav-text">（2）plot(x, y)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）plot-x1-y1-x2-y2-…"><span class="nav-number">1.1.3.</span> <span class="nav-text">（3）plot(x1, y1, x2, y2, …)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题："><span class="nav-number">1.1.4.</span> <span class="nav-text">例题：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、使用直角坐标系"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">1、使用直角坐标系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、使用参数方程绘制曲线"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">2、使用参数方程绘制曲线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、绘制复杂曲线"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">3、绘制复杂曲线</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多次叠绘"><span class="nav-number">1.2.</span> <span class="nav-text">多次叠绘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例题1"><span class="nav-number">1.2.1.</span> <span class="nav-text">例题1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题2：利用hold绘制离散信号的波形"><span class="nav-number">1.2.2.</span> <span class="nav-text">例题2：利用hold绘制离散信号的波形</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双纵坐标"><span class="nav-number">1.3.</span> <span class="nav-text">双纵坐标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例题"><span class="nav-number">1.3.1.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多子图"><span class="nav-number">1.4.</span> <span class="nav-text">多子图</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二维曲线绘图的基本操作"><span class="nav-number">1.</span> <span class="nav-text">二维曲线绘图的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#plot指令的基本调用格式"><span class="nav-number">1.1.</span> <span class="nav-text">plot指令的基本调用格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）plot-x"><span class="nav-number">1.1.1.</span> <span class="nav-text">（1）plot(x)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）plot-x-y"><span class="nav-number">1.1.2.</span> <span class="nav-text">（2）plot(x, y)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）plot-x1-y1-x2-y2-…"><span class="nav-number">1.1.3.</span> <span class="nav-text">（3）plot(x1, y1, x2, y2, …)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题："><span class="nav-number">1.1.4.</span> <span class="nav-text">例题：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、使用直角坐标系"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">1、使用直角坐标系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、使用参数方程绘制曲线"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">2、使用参数方程绘制曲线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、绘制复杂曲线"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">3、绘制复杂曲线</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多次叠绘"><span class="nav-number">1.2.</span> <span class="nav-text">多次叠绘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例题1"><span class="nav-number">1.2.1.</span> <span class="nav-text">例题1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题2：利用hold绘制离散信号的波形"><span class="nav-number">1.2.2.</span> <span class="nav-text">例题2：利用hold绘制离散信号的波形</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双纵坐标"><span class="nav-number">1.3.</span> <span class="nav-text">双纵坐标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例题"><span class="nav-number">1.3.1.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多子图"><span class="nav-number">1.4.</span> <span class="nav-text">多子图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制曲线的辅助操作"><span class="nav-number">1.5.</span> <span class="nav-text">绘制曲线的辅助操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#坐标、刻度和分格线控制"><span class="nav-number">1.6.</span> <span class="nav-text">坐标、刻度和分格线控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#axis坐标控制指令"><span class="nav-number">1.6.1.</span> <span class="nav-text">axis坐标控制指令</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
