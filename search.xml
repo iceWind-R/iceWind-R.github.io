@@ -2330,7 +2330,12 @@
 <h4 id="mysqli-affected-rows"><a href="#mysqli-affected-rows" class="headerlink" title="mysqli_affected_rows()"></a>mysqli_affected_rows()</h4><p>取得前一次MySQL操作所影响的记录行数，包括SELECT,UPDATE,INSERT或DELETE。</p>
 <p>语法：<code>int mysqli_affected_rows(mysqli $link)</code></p>
 <p><strong>注意：</strong>如果最近一次查询失败，函数返回-1。当使用UPDATE查询，MySQL不会将原值和新值一样的值更新，即此条记录不代表被修改。返回值不一定就是查询条件所符合的记录，只有修改过的记录数才会被返回。</p>
-]]></content>
+<p><strong>案例演示注意事项</strong></p>
+<p>1、首先是表单的提交，在php中判断是否提交表单，可以在表单中设置隐藏域，值为一个随机值，判断这个随机且唯一的值是否正确即可判断表单是否提交，该方法可避免其他人提交表单修改自己数据库的不安全情况。</p>
+<img src="/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/2.png" class>
+
+<p>2、然后是复选框的提交，复选框提交时会出现覆盖现象，此时在name属性后添加<code>[]</code>来表明该属性为数组属性。</p>
+<img src="/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/3.png" class>]]></content>
       <categories>
         <category>PHP</category>
       </categories>
@@ -2435,7 +2440,7 @@
 <td>晚上</td>
 <td>PHP复习</td>
 <td>60min</td>
-<td></td>
+<td>30min+</td>
 </tr>
 <tr>
 <td></td>
