@@ -2790,7 +2790,7 @@
 <td>下午</td>
 <td>概率论与数理统计复习和作业10</td>
 <td>90min</td>
-<td></td>
+<td>未完成</td>
 </tr>
 <tr>
 <td></td>
@@ -2802,19 +2802,19 @@
 <td></td>
 <td>数据库原理第六章复习</td>
 <td>30min</td>
-<td></td>
+<td>未完成</td>
 </tr>
 <tr>
 <td>晚上</td>
 <td>PHP复习</td>
 <td>60min</td>
-<td>30min+</td>
+<td>30min+30min</td>
 </tr>
 <tr>
 <td></td>
 <td>晚上的体育活动</td>
 <td>30min</td>
-<td></td>
+<td>未完成</td>
 </tr>
 </tbody></table>
 <p>今天早上6点起来做的规划，加油。</p>
@@ -2823,6 +2823,9 @@
 <p>截止9：30完成matlab的实验内容，效率不高，命令不熟悉，没学过，现学，花费时间长。</p>
 <p>第一项比计划多出一个多小时的完成时间</p>
 <p>计网任务完成不到一半用时一个小时，预计还需要一个半小时完成。</p>
+<p><strong>下午晚上</strong></p>
+<p>其实脑子蛮清醒，也不是不想干，就是不知道干什么？</p>
+<p>想做些电脑上学习的事，但是剩下的计划都是纸上书上，或者是Android这样的大项目，有点无从下手。</p>
 ]]></content>
       <categories>
         <category>Reinvent</category>
@@ -3573,6 +3576,72 @@
       <tags>
         <tag>Learning</tag>
         <tag>正则表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(5.3)</title>
+    <url>/2020/05/02/Reinvent-5-3/</url>
+    <content><![CDATA[<p>5.3日</p>
+<hr>
+<p>今日计划</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+<th>计划用时</th>
+<th>实际用时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上午</td>
+<td>篮球+休息</td>
+<td>120min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>计网3、4页PPT作业完成</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>概率论与数理统计复习和作业10</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td>下午</td>
+<td>数据库第六章复习</td>
+<td>30min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>数据库第七章作业</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td>晚上</td>
+<td>MATLAB考试</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Android学习</td>
+<td>30min+</td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
       </tags>
   </entry>
 </search>
