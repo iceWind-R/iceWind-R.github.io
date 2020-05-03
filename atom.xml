@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Thorine</title>
   
-  <subtitle>College Time</subtitle>
+  <subtitle>生活很难，但请务必坚持</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
@@ -410,9 +410,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
-    
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
     
   </entry>
   
