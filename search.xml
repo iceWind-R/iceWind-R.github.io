@@ -3239,6 +3239,13 @@
 <a id="more"></a>
 
 <hr>
+<h2 id="电脑初始化前的操作"><a href="#电脑初始化前的操作" class="headerlink" title="电脑初始化前的操作"></a>电脑初始化前的操作</h2><p>不能着急，需要把电脑中的资料提前保存，预计是百度网盘，记得开会员。要保存的资料有：</p>
+<ul>
+<li>MyBlog</li>
+<li>每个编译器存放的代码</li>
+<li>Wallpaper Engine下的壁纸</li>
+<li>下载的音乐</li>
+</ul>
 <h2 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h2><p>首先是要给系统的磁盘分好类。</p>
 <ol>
 <li>D盘（程序盘）：一级目录为application、download、server、MyBlog。</li>
@@ -3261,7 +3268,7 @@
 <h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>VM中建立自己的Linux系统。</p>
 ]]></content>
       <categories>
-        <category>Reinvent</category>
+        <category>随笔</category>
       </categories>
       <tags>
         <tag>idea</tag>
