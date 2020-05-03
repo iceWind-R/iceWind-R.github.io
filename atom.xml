@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-05-03T02:26:09.709Z</updated>
+  <updated>2020-05-03T09:14:07.666Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -17,13 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>电脑系统重装前的准备工作</title>
+    <link href="http://icewind-r.github.io/2020/05/03/%E7%94%B5%E8%84%91%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/"/>
+    <id>http://icewind-r.github.io/2020/05/03/%E7%94%B5%E8%84%91%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</id>
+    <published>2020-05-03T07:12:07.000Z</published>
+    <updated>2020-05-03T09:14:07.666Z</updated>
+    
+    <content type="html"><![CDATA[<p>总结下次电脑系统重装需要的环境软件和操作。</p><a id="more"></a><hr><h2 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h2><p>首先是要给系统的磁盘分好类。</p><ol><li>D盘（程序盘）：一级目录为application、download、server、MyBlog。</li><li>E盘（资料盘）：包括学习资料、我的工具，同时把桌面、document等等移到此盘下。</li><li>F盘（游戏盘）：每个公司一个文件夹。Steam，Wegame，uplay等。</li></ol><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Java、PHP（php_study）</p><h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><h3 id="学习类"><a href="#学习类" class="headerlink" title="学习类"></a>学习类</h3><h4 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h4><p>IDEA、PyCharm、PHPStorm、AS、CodeBlocks、Eclipse、VS、VSCode</p><p>（与Github绑定）</p><h4 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h4><p>HBulider、Notepad++、Sublime Text、RegexBuddy</p><h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>MySQL、Redis、Navicat For MySQL、SQLiteStudio、SQL server</p><h4 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h4><p>VM、Genymotion</p><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>Xftp、Xshell</p><h3 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h3><p>chrome、Firefox</p><p>WPS、Everything、印象笔记、bandzip、有道翻译、</p><p>Iris（护眼）、百度网盘、迅雷、</p><p>格式工厂、PS，PR、ScreenToGif、小蝴蝶</p><h3 id="娱乐类"><a href="#娱乐类" class="headerlink" title="娱乐类"></a>娱乐类</h3><p>微信、TIM、QQ、网易云音乐、腾讯视频、</p><p>网易加速、雷神加速、Steam（Wallpaper Engine）、WeGame、暴雪战网</p><h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>VM中建立自己的Linux系统。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;总结下次电脑系统重装需要的环境软件和操作。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Reinvent(5.3)</title>
     <link href="http://icewind-r.github.io/2020/05/02/Reinvent-5-3/"/>
     <id>http://icewind-r.github.io/2020/05/02/Reinvent-5-3/</id>
     <published>2020-05-02T13:25:08.000Z</published>
-    <updated>2020-05-03T02:26:09.709Z</updated>
+    <updated>2020-05-03T07:13:15.311Z</updated>
     
-    <content type="html"><![CDATA[<p>5.3日</p><a id="more"></a><hr><p>今日计划</p><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>篮球+休息</td><td>120min</td><td>200min</td></tr><tr><td></td><td>计网3、4页PPT作业完成</td><td>60min</td><td></td></tr><tr><td></td><td>概率论与数理统计复习和作业10</td><td>60min</td><td></td></tr><tr><td>下午</td><td>数据库第六章复习</td><td>30min</td><td></td></tr><tr><td></td><td>数据库第七章作业</td><td>60min</td><td></td></tr><tr><td>晚上</td><td>MATLAB考试</td><td>60min</td><td></td></tr><tr><td></td><td>Android学习</td><td>30min+</td><td></td></tr></tbody></table><p>今天要抓住白天的效率，主要是纸质作业学习，静下心来学习。</p>]]></content>
+    <content type="html"><![CDATA[<p>5.3日</p><a id="more"></a><hr><p>今日计划</p><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>篮球+休息</td><td>120min</td><td>200min</td></tr><tr><td></td><td>计网3、4页PPT作业完成</td><td>60min</td><td>60min</td></tr><tr><td></td><td>概率论与数理统计复习和作业10</td><td>60min</td><td></td></tr><tr><td>下午</td><td>数据库第六章复习</td><td>30min</td><td></td></tr><tr><td></td><td>数据库第七章作业</td><td>60min</td><td></td></tr><tr><td>晚上</td><td>MATLAB考试</td><td>60min</td><td></td></tr><tr><td></td><td>Android学习</td><td>30min+</td><td></td></tr></tbody></table><p>今天要抓住白天的效率，主要是纸质作业学习，静下心来学习。</p>]]></content>
     
     <summary type="html">
     
@@ -467,31 +490,6 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
     
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP基础知识（三）</title>
-    <link href="http://icewind-r.github.io/2020/03/23/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>http://icewind-r.github.io/2020/03/23/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%89%EF%BC%89/</id>
-    <published>2020-03-23T05:42:59.000Z</published>
-    <updated>2020-03-31T03:04:55.278Z</updated>
-    
-    <content type="html"><![CDATA[<p>这篇文章主要介绍PHP的各种运算符，和流程控制。</p><a id="more"></a><h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><hr><p>PHP中的运算符有很多种：</p><ul><li><p>赋值运算符：赋值操作</p></li><li><p>算术运算符：算数计算</p></li><li><p>错误抑制符：抑制错误</p></li><li><p>比较运算符：数据对比</p></li><li><p>合并运算符：真伪判定给出不同结果</p></li><li><p>逻辑运算符：逻辑结果判定</p></li><li><p>连接运算符：字符串连接</p></li><li><p>三目运算符：真伪判断给出不同结果</p></li><li><p>自操作运算符：简化操作</p></li></ul><h3 id="一、赋值运算符"><a href="#一、赋值运算符" class="headerlink" title="一、赋值运算符"></a>一、赋值运算符</h3><p>有以下几种：</p><ul><li><code>=</code>：普通赋值。</li><li><code>+=</code>、<code>-=</code>、<code>*=</code>、<code>/=</code>、<code>%=</code>：复合赋值运算（是将左侧和右侧的整体结果进行计算）。</li><li><code>.=</code>：先将左边的符号的结果与右边的结果进行字符串连接（<code>.</code>是字符串连接），然后赋给左边。</li></ul><h3 id="二、算数运算符"><a href="#二、算数运算符" class="headerlink" title="二、算数运算符"></a>二、算数运算符</h3><p>除了简单的加减乘除取余等，还有其他需要格外注意的运算符。</p><ul><li><code>**</code>：幂运算，底数的指数次运算。</li></ul><h3 id="三、错误抑制符"><a href="#三、错误抑制符" class="headerlink" title="三、错误抑制符"></a>三、错误抑制符</h3><p><strong>错误抑制</strong>：在可能出现错误的代码前使用错误抑制符，让错误不会报出来。</p><ul><li><p>只需要在可能出现的错误表达式之前使用即可。</p></li><li><p>错误抑制符只有一个：<code>@</code></p></li><li><p>错误抑制符只针对就近的目标，如果是针对结果，需要使用<code>()</code>。</p></li><li><p>只能抑制简单的错误（如notice，warning）。</p></li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#正常处理</span></span><br><span class="line">$r = <span class="number">10</span>/<span class="number">0</span>;<span class="comment">#报错，除数为0</span></span><br><span class="line"><span class="comment">#错误抑制处理</span></span><br><span class="line">$r = @<span class="number">10</span>/<span class="number">0</span>; <span class="comment">#报错，出错的位置是10/0这个过程，抑制的位置是10，无意义</span></span><br><span class="line"><span class="comment">#正确处理</span></span><br><span class="line">$r = @(<span class="number">10</span>/<span class="number">0</span>); <span class="comment">#不报错，因为是过程出错</span></span><br></pre></td></tr></table></figure><h3 id="四、比较运算符"><a href="#四、比较运算符" class="headerlink" title="四、比较运算符"></a>四、比较运算符</h3><p>除了熟悉的<code>&gt;,&lt;,&gt;=,&lt;=,==,!=</code>等运算符，格外介绍下面的特殊运算符。</p><ul><li>&lt;=&gt;：左边大于右边返回1，相等返回0，小于右边返回-1</li><li>===：左边等于右边，且两边数据类型一致，返回true。</li><li>!==：左边等于右边，且两边数据类型一致，返回false。</li></ul><p><strong>注意</strong>：在PHP中比较运算比较特殊，通常系统会自动将类型转换成相同的然后进行比较，所以在使用<strong>==</strong>和<strong>===</strong>比较的时候，如果不够确定可以参考PHP操作手册中的类型比较表。</p><img src="/2020/03/23/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%89%EF%BC%89/1.png" class><img src="/2020/03/23/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%89%EF%BC%89/2.png" class><h3 id="五、合并运算"><a href="#五、合并运算" class="headerlink" title="五、合并运算"></a>五、合并运算</h3><p><strong>概念：</strong>用于简单的数据存在型判定，不存在时给出一个设定值。</p><ul><li>合并运算需要一个判定：目标。</li><li>合并运算需要一个设定值：目标不存在时的值。</li><li>合并运算符：$a ?? B<ul><li>$a存在，整个表达式返回$a的值。</li><li>$a不存在，整个表达式返回B值。</li></ul></li><li>合并运算是保证代码的逻辑完整性：即总是有一个结果（不会不存在）</li></ul><h3 id="六、连接运算"><a href="#六、连接运算" class="headerlink" title="六、连接运算"></a>六、连接运算</h3><p><strong>概念：</strong>专门为字符串连接操作设定的运算符。</p><ul><li>连接运算需要两个数据的参与。</li><li>连接运算符只有一个：<code>.</code>  英文点。</li><li>连接运算是将两个字符串连接成一个字符串。<ul><li>如果数据不是字符串，系统会自动转变为字符串。</li></ul></li></ul><p><strong>示例</strong></p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$a = <span class="string">'hello'</span>;</span><br><span class="line">$b = <span class="string">'world'</span>;</span><br><span class="line"><span class="keyword">echo</span>($a.<span class="string">' '</span>.$b); <span class="comment">#结果：hello world</span></span><br></pre></td></tr></table></figure><h3 id="七、三目运算"><a href="#七、三目运算" class="headerlink" title="七、三目运算"></a>七、三目运算</h3><p>和基本的编程语言一样</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表达式1?表达式2:表达式3</span><br></pre></td></tr></table></figure><h3 id="八、逻辑运算"><a href="#八、逻辑运算" class="headerlink" title="八、逻辑运算"></a>八、逻辑运算</h3><p>逻辑与或非 。</p><p>&amp;&amp;，||，！。</p><h3 id="九、自操作运算"><a href="#九、自操作运算" class="headerlink" title="九、自操作运算"></a>九、自操作运算</h3><p>自增自减。</p><h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><h3 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h3><h4 id="If分支"><a href="#If分支" class="headerlink" title="If分支"></a>If分支</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ($a &gt; $b) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'a &gt; b'</span>;</span><br><span class="line">&#125; <span class="keyword">elseif</span> ($a == $b) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'a = b'</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> ($a &lt; $b) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'a &lt; b'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>需要注意一点elseif和else if的一点细微区别，参见博客。<a href="https://blog.csdn.net/qq_31659985/article/details/82807153" target="_blank" rel="noopener">https://blog.csdn.net/qq_31659985/article/details/82807153</a></p><h4 id="Switch分支"><a href="#Switch分支" class="headerlink" title="Switch分支"></a>Switch分支</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(条件变量)&#123;</span><br><span class="line">    <span class="keyword">case</span> 值:</span><br><span class="line">        代码;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(条件表达式)&#123;</span><br><span class="line">    循环体;</span><br><span class="line">    循环条件变更;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(;;)&#123;</span><br><span class="line">    循环体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="foreach循环"><a href="#foreach循环" class="headerlink" title="foreach循环"></a>foreach循环</h4><p>PHP中专门进行数组遍历的循环</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(数组变量 <span class="keyword">as</span> [下标变量=&gt;] 值变量)&#123;</span><br><span class="line">    通过下标读取数组中每个元素的下标(可以没有)</span><br><span class="line">        通过值变量读取数组中每个元素的值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>例如：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$info = [</span><br><span class="line">    <span class="string">'name'</span> =&gt; <span class="string">'tom'</span>,</span><br><span class="line">    <span class="string">'skill'</span> =&gt; <span class="string">'study'</span>,</span><br><span class="line">    <span class="string">'age'</span> =&gt; <span class="string">'20'</span></span><br><span class="line">];</span><br><span class="line"><span class="keyword">foreach</span>($info <span class="keyword">as</span> $k =&gt; $v)&#123;</span><br><span class="line">    <span class="keyword">echo</span> $k . <span class="string">"\t"</span> . $v . <span class="string">"\n"</span>;<span class="comment">#即可依次遍历;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注意：</p><p>foreach是根据数据指针所在的位置挨个取出元素的</p><ul><li>重置指针：执行一次。</li><li>判断指针有效性<ul><li>指针有效：取出数组元素<ul><li>下标赋值给下标变量（如果提供了下标变量）</li><li>值赋值给值变量</li><li>指针下移</li></ul></li><li>指针无效：循环结束</li></ul></li><li>进入循环体</li></ul><p>foreach可以不获取数组元素的下标</p><h4 id="do-while循环"><a href="#do-while循环" class="headerlink" title="do-while循环"></a>do-while循环</h4><p>语法基本一致。</p><h4 id="break，continue"><a href="#break，continue" class="headerlink" title="break，continue"></a>break，continue</h4><p>语法基本一致。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这篇文章主要介绍PHP的各种运算符，和流程控制。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://iceWind-R.github.io/categories/PHP/"/>
-    
-    
-      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
-    
-      <category term="PHP" scheme="http://iceWind-R.github.io/tags/PHP/"/>
     
   </entry>
   

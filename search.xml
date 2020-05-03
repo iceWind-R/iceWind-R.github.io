@@ -1017,6 +1017,192 @@
       </tags>
   </entry>
   <entry>
+    <title>MATLAB课程总结（四）</title>
+    <url>/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+    <content><![CDATA[<p>这篇文章总结MATLAB程序设计，主要涉及代码文件方面。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="程序的三个结构"><a href="#程序的三个结构" class="headerlink" title="程序的三个结构"></a>程序的三个结构</h2><p>顺序选择循环。</p>
+<h3 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h3><h4 id="if-else"><a href="#if-else" class="headerlink" title="if-else"></a>if-else</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> 条件<span class="number">1</span></span><br><span class="line">	语句组 <span class="number">1</span></span><br><span class="line"><span class="keyword">elseif</span> 条件<span class="number">2</span></span><br><span class="line">	语句组 <span class="number">2</span> …</span><br><span class="line"><span class="keyword">elseif</span> 条件m</span><br><span class="line">	语句组 m</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    语句组n</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> 表达式</span><br><span class="line">	<span class="keyword">case</span> 表达式<span class="number">1</span></span><br><span class="line">		语句组<span class="number">1</span></span><br><span class="line">	<span class="keyword">case</span> 表达式<span class="number">2</span></span><br><span class="line">		语句组<span class="number">2</span> …</span><br><span class="line">	<span class="keyword">case</span> 表达式m</span><br><span class="line">		语句组m</span><br><span class="line">	<span class="keyword">otherwise</span></span><br><span class="line">		语句组 n</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="try"><a href="#try" class="headerlink" title="try"></a>try</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span></span><br><span class="line">	语句组<span class="number">1</span></span><br><span class="line"><span class="keyword">catch</span></span><br><span class="line">	语句组<span class="number">2</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>try语句先试探性执行语句组1，如果在执行过程中出现错误，则将错误信息赋给保留的lasterr变量，并转去执行语句组2。</p>
+<h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><h4 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> 循环变量 =表达式<span class="number">1</span>：表达式<span class="number">2</span>：表达式<span class="number">3</span></span><br><span class="line">	循环体语句</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>条件</span><br><span class="line">	循环体语句</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="break语句和continue语句"><a href="#break语句和continue语句" class="headerlink" title="break语句和continue语句"></a>break语句和continue语句</h4><p>它们一般与if语句配合使用。<br>break语句用于终止循环的执行。<br>当在循环体内执行到该语句时，程序将跳出循环，继续执行循环语句的下一语句。<br>continue语句控制跳过循环体中的某些语句。<br>当在循环体内执行到该语句时，程序将跳过循环体中所有剩下的语句，继续下一次循环。</p>
+<h2 id="M文件的分类"><a href="#M文件的分类" class="headerlink" title="M文件的分类"></a>M文件的分类</h2><p>除了在命令窗口直接操作，我们可以创建文件（M文件）来进行调用，使程序结构简单，编程效率高。</p>
+<p>用Matlab语言编写的程序，称为M文件。</p>
+<p>是由若干Matlab命令组合在一起构成的，它可以完成某些操作，也可以实现某种算法。</p>
+<p>◼ M文件根据调用方式的不同分为两类：</p>
+<p>​    命令文件（Script File）</p>
+<p>​    函数文件（Function File） </p>
+<p>◼ 它们的扩展名都是.m</p>
+<h3 id="命令文件和函数文件的区别"><a href="#命令文件和函数文件的区别" class="headerlink" title="命令文件和函数文件的区别"></a><strong>命令文件和函数文件的区别</strong></h3><p>命令文件没有输入参数，也不返回输出参数；函数文件可以带输入参数，也可以返回输出参数。</p>
+<p>◼ 命令文件对工作空间中的变量进行操作，文件中所有命令的执行结果也返回工作空间中；函数文件中定义的变</p>
+<p>​    量为局部变量，当函数文件执行完毕时，这些变量也被清除。</p>
+<p>◼ 命令文件可以直接运行；函数文件不能直接运行，要以函数调用的方式来调用它。</p>
+<h3 id="函数文件"><a href="#函数文件" class="headerlink" title="函数文件"></a>函数文件</h3><p>函数文件是另一种形式的M文件，每一个函数文件都定义一个函数。Matlab提供的标准函数大部分是由函数文件定义的。</p>
+<h4 id="函数文件的基本结构"><a href="#函数文件的基本结构" class="headerlink" title="函数文件的基本结构"></a><strong>函数文件的基本结构</strong></h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 输出形参表 = 函数名（输入形参表）</span></span><br><span class="line">注释说明部分</span><br><span class="line">函数体语句</span><br></pre></td></tr></table></figure>
+
+<p>其中，以function开头的一行为引导行，表示该M文件是一个函数文件。当输出形参多于一个时，应该用<strong>方括号</strong>括起来。</p>
+<p><strong>注意：</strong></p>
+<ol>
+<li>关于函数文件名<br>函数文件名通常由函数名再加上扩展名.m组成。<br>当函数文件名与函数名不同时，Matlab将忽略函数名而确认文件名，因此调用时使用函数文件名。</li>
+<li>关于注释说明部分<br>注释说明包括3部分：<br>① 紧随引导行之后以%开头的第一注释行。<br>这一行一般包括大写的函数文件名和函数功能简要描述，供lookfor关键词查询和help在线帮助时使用。<br>② 第一注释行及之后连续的注释行。<br>通常包括函数输入/输出参数的含义及调用格式说明等信息，构成全部在线帮<br>③ 与在线帮助文本相隔一空行的注释行。包括函数文件编写和修改的信息，如作者和版本等。<br>3、关于return语句<br>如果在函数文件中插入了return语句，则执行到该语句就结束函数的执行，流程转至调用该函数的位置。通常也不使用return语句。</li>
+</ol>
+<h4 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h4><p>函数调用的一般格式是：<br>[输出实参表] = 函数名(输入实参表）<br>注意：函数调用时，各实参出现的顺序、个数，应与函数定义时相同。</p>
+<h4 id="函数参数的可调性"><a href="#函数参数的可调性" class="headerlink" title="函数参数的可调性"></a>函数参数的可调性</h4><p>Matlab在函数调用上有一个与一般高级语言不同之处：<br>函数所传递参数数目的可调性，即参数的数量可以改变。<br>在调用函数时，Matlab用两个预定义变量nargin和nargout分别记录调用该函数时的输入实参和输出实参的个数。</p>
+<p><strong>例子</strong></p>
+<img src="/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/1.png" class>
+
+<h4 id="全局变量与局部变量"><a href="#全局变量与局部变量" class="headerlink" title="全局变量与局部变量"></a><strong>全局变量与局部变量</strong></h4><p>Matlab中，函数文件中的变量是局部变量。</p>
+<p>全局变量的作用域是整个Matlab的工作空间，所有函数都可以对它进行存取和修改。</p>
+<p>全局变量用global命令定义，格式为：</p>
+<p><code>global 变量名</code></p>
+<img src="/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/1.png" class>]]></content>
+      <categories>
+        <category>MATLAB</category>
+      </categories>
+      <tags>
+        <tag>MATLAB</tag>
+        <tag>Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PHP基础知识（一）</title>
+    <url>/2020/02/29/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<p>PHP的入门总结，主要是PHP的基础方面。非常基础，适合入门学习。</p>
+<a id="more"></a>
+
+<h2 id="一、PHP语法规则"><a href="#一、PHP语法规则" class="headerlink" title="一、PHP语法规则"></a>一、PHP语法规则</h2><h3 id="1、PHP标记"><a href="#1、PHP标记" class="headerlink" title="1、PHP标记"></a>1、PHP标记</h3><p>PHP标记是用来帮助PHP引擎识别PHP代码的，PHP标记分为两个部分。</p>
+<ul>
+<li>标记开始：&lt;?php</li>
+<li>标记结束：?&gt;</li>
+</ul>
+<p>在两个标记中间添加php代码，如果该文件是php文件，则建议不写结束标记  ?&gt; 。</p>
+<h3 id="2、PHP注释"><a href="#2、PHP注释" class="headerlink" title="2、PHP注释"></a>2、PHP注释</h3><p>行注释：#或//</p>
+<p>块注释：/*   */</p>
+<h3 id="3、语句结束符"><a href="#3、语句结束符" class="headerlink" title="3、语句结束符"></a>3、语句结束符</h3><p>每个语句以英文分号 ; 作为结束标志。</p>
+<h2 id="二、PHP基础知识"><a href="#二、PHP基础知识" class="headerlink" title="二、PHP基础知识"></a>二、PHP基础知识</h2><h3 id="1、变量"><a href="#1、变量" class="headerlink" title="1、变量"></a>1、变量</h3><p><strong>PHP变量</strong>：一种能够存储数据的符号，值可以改变。</p>
+<ul>
+<li>所有变量都是以<code>$</code>符号开始。</li>
+<li>变量所保存的数据都可以随意改变。</li>
+<li>变量必须先定义才能使用，否则报错。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义变量</span></span><br><span class="line">$num = <span class="number">10</span>;</span><br><span class="line"><span class="comment"># 修改变量</span></span><br><span class="line">$num = <span class="string">"hello world!"</span>;</span><br><span class="line"><span class="comment"># 打印变量</span></span><br><span class="line"><span class="keyword">echo</span> $sum;</span><br><span class="line"><span class="comment">#检测变量是否设置，并且不是 NULL</span></span><br><span class="line"><span class="keyword">isset</span>($num);</span><br><span class="line"><span class="comment"># 删除变量</span></span><br><span class="line"><span class="keyword">unset</span>($num);</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li><p>变量名区分大小写。</p>
+</li>
+<li><p>先定义再访问。</p>
+</li>
+<li><p>PHP是一种弱类型语音，可以存储任何数据。</p>
+</li>
+</ul>
+<h3 id="2、预定义变量"><a href="#2、预定义变量" class="headerlink" title="2、预定义变量"></a>2、预定义变量</h3><p><strong>概念</strong>：PHP系统内部定义的变量，也是PHP系统自动收集的结果。</p>
+<ul>
+<li><p>预定义变量也是变量，符合变量规则</p>
+</li>
+<li><p>预定义变量都是数组</p>
+</li>
+<li><p>系统提供了九个预定义变量，每个变量都有自己特定的数据。</p>
+<ul>
+<li>$_GET：用户通过get方式提交的数据。</li>
+<li>$_POST：用户通过post方式提交的数据。</li>
+<li>$_REQUEST：用户通过get和post方式提交的数据。</li>
+<li>$_SERVER：用户和服务器的基本信息数据（数据的名字不由开发者控制，系统定义好）</li>
+<li>$_FILES：用户提交的文件数据，(文件上传 )。</li>
+<li>$_SESSION： session数据。</li>
+<li>$_COOKIE： cookie数据。</li>
+<li>$GLOBALS：所有全局变量，也是唯一一个不是以下划线开始的预定义变量。</li>
+<li>$_ENV：环境数据。</li>
+</ul>
+<p>举例：打印 $_SERVER 预定义变量</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 预定义变量</span></span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"&lt;pre&gt;"</span>;<span class="comment">//&lt;pre&gt; HTML标签</span></span><br><span class="line">	print_r($_SERVER);<span class="comment">//打印的有一定规则</span></span><br></pre></td></tr></table></figure>
+
+<p>可以查看该常量下的一些内容：</p>
+<img src="/2020/02/29/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/1.png" class>
+
+<p>如果要获取预定义变量中某个键值，可以 <code>$变量名[&#39;键名&#39;]</code>，以$_SERVER为例</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 打印$_SERVER的REMOTE_ADDR属性</span></span><br><span class="line">	<span class="keyword">echo</span> $_SERVER[<span class="string">'REMOTE_ADDR'</span>]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>小结</strong>：</p>
+<ol>
+<li>预定义变量是PHP系统保存的一些常用变量，方便开发者使用</li>
+<li>预定义变量都是数组，需要以数组方式使用</li>
+</ol>
+<h3 id="3、变量传值"><a href="#3、变量传值" class="headerlink" title="3、变量传值"></a>3、变量传值</h3><p>分为两种，值传递和引用传递（和C类似）。</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">#值传递</span></span><br><span class="line">$a = <span class="number">10</span>;</span><br><span class="line">$b = $a;	<span class="comment">//将$a的值10取出后赋给$b</span></span><br><span class="line"><span class="comment">#引用传递</span></span><br><span class="line">$c = <span class="number">5</span>;</span><br><span class="line">$d = &amp;$c;	<span class="comment">//将$c的值的内存地址取出，赋值给$d，也为5</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4、常量"><a href="#4、常量" class="headerlink" title="4、常量"></a>4、常量</h3><p><strong>概念</strong>：一种能够存储数据的符号，值不可以改变。</p>
+<p><strong>定义变量</strong></p>
+<ul>
+<li>使用函数：define(‘常量名’,常量值);</li>
+<li>使用关键字：const 常量名 = 常量值；</li>
+</ul>
+<p><strong>访问常量</strong></p>
+<ul>
+<li>直接访问：常量名</li>
+<li>使用函数：constant(“常量名”);</li>
+</ul>
+<p><strong>示例</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">#定义</span></span><br><span class="line">define(<span class="string">'VERSION'</span>,<span class="number">1.0</span>);</span><br><span class="line">define(<span class="string">'-_-'</span>,<span class="string">'smile'</span>);</span><br><span class="line"><span class="keyword">const</span> PI = <span class="number">3.14</span>;</span><br><span class="line"><span class="comment">#访问</span></span><br><span class="line"><span class="keyword">echo</span> PI;</span><br><span class="line"><span class="keyword">echo</span> constant(<span class="string">'VERSION'</span>);</span><br><span class="line"><span class="keyword">echo</span> constant(<span class="string">'-_-'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>扩展</strong></p>
+<p>PHP7以后允许定义数组常量（一次性定义多个常量），访问时使用数组下标访问。</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> MATH = <span class="keyword">array</span>(</span><br><span class="line">	<span class="string">'PI'</span> =&gt;<span class="number">3.14</span>,</span><br><span class="line">    <span class="string">'E'</span> =&gt;<span class="number">2.72</span></span><br><span class="line">);<span class="comment">//定义</span></span><br><span class="line"><span class="keyword">echo</span> MATH[<span class="string">'PI'</span>];<span class="comment">//访问</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5、系统常量"><a href="#5、系统常量" class="headerlink" title="5、系统常量"></a>5、系统常量</h3><p><strong>概念</strong>：系统内部定义的常量，用户可以直接访问，也只能访问。</p>
+<ul>
+<li>固定系统常量：值是固定的</li>
+<li>魔术常量：值可以改变（性质确定，可以改变指的是改值在不同的情况场景下又不同的值）</li>
+</ul>
+<p><strong>固定系统常量</strong></p>
+<ul>
+<li>PHP_VERSION：PHP版本号</li>
+<li>PHP_INT_SIZE：PHP中整数所占用的字符数。</li>
+<li>PHP_INT_MAX：PHP中整数能表示的最大值。</li>
+</ul>
+<p><strong>魔术常量</strong></p>
+<p>以双下划线开始，双下划线结束</p>
+<ul>
+<li>__DIR__：当前运行文件所在的绝对路径。</li>
+<li>__FILE__：当前运行文件的绝对路径。</li>
+<li>__LINE__：当前代码所在的行号。</li>
+<li>__FUCTION__：函数内部使用，表示当前函数的名字。</li>
+<li>__CLASS__：类的内部方法里使用，表示当前类名。</li>
+<li>__METHOD__：类内部方法里使用，表示当前方法的名字（带类名）。</li>
+<li>__NAMESPACE__：当前所属的命名空间。</li>
+</ul>
+<h3 id="6、数据类型"><a href="#6、数据类型" class="headerlink" title="6、数据类型"></a>6、数据类型</h3><ul>
+<li><p>基本数据类型：整型（int/integer），浮点型（float），布尔型（bool/boolean），字符串型（string）。</p>
+</li>
+<li><p>复合数据类型：数组型（array），对象型（object）。</p>
+</li>
+<li><p>特殊数据类型：资源型（resource，数据库资源/文件资源），空型（null）。</p>
+</li>
+</ul>
+<p><strong>提示</strong>：可用var_dump()查看变量的详细情况</p>
+]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PHP基础知识（三）</title>
     <url>/2020/03/23/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%89%EF%BC%89/</url>
     <content><![CDATA[<p>这篇文章主要介绍PHP的各种运算符，和流程控制。</p>
@@ -1151,189 +1337,60 @@
       </tags>
   </entry>
   <entry>
-    <title>PHP基础知识（一）</title>
-    <url>/2020/02/29/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<p>PHP的入门总结，主要是PHP的基础方面。非常基础，适合入门学习。</p>
+    <title>PHP基础知识（五）</title>
+    <url>/2020/03/30/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%94%EF%BC%89/</url>
+    <content><![CDATA[<p>总结展开PHP中文件加载和错误处理的具体操作。</p>
 <a id="more"></a>
 
-<h2 id="一、PHP语法规则"><a href="#一、PHP语法规则" class="headerlink" title="一、PHP语法规则"></a>一、PHP语法规则</h2><h3 id="1、PHP标记"><a href="#1、PHP标记" class="headerlink" title="1、PHP标记"></a>1、PHP标记</h3><p>PHP标记是用来帮助PHP引擎识别PHP代码的，PHP标记分为两个部分。</p>
-<ul>
-<li>标记开始：&lt;?php</li>
-<li>标记结束：?&gt;</li>
-</ul>
-<p>在两个标记中间添加php代码，如果该文件是php文件，则建议不写结束标记  ?&gt; 。</p>
-<h3 id="2、PHP注释"><a href="#2、PHP注释" class="headerlink" title="2、PHP注释"></a>2、PHP注释</h3><p>行注释：#或//</p>
-<p>块注释：/*   */</p>
-<h3 id="3、语句结束符"><a href="#3、语句结束符" class="headerlink" title="3、语句结束符"></a>3、语句结束符</h3><p>每个语句以英文分号 ; 作为结束标志。</p>
-<h2 id="二、PHP基础知识"><a href="#二、PHP基础知识" class="headerlink" title="二、PHP基础知识"></a>二、PHP基础知识</h2><h3 id="1、变量"><a href="#1、变量" class="headerlink" title="1、变量"></a>1、变量</h3><p><strong>PHP变量</strong>：一种能够存储数据的符号，值可以改变。</p>
-<ul>
-<li>所有变量都是以<code>$</code>符号开始。</li>
-<li>变量所保存的数据都可以随意改变。</li>
-<li>变量必须先定义才能使用，否则报错。</li>
-</ul>
-<p>例如：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义变量</span></span><br><span class="line">$num = <span class="number">10</span>;</span><br><span class="line"><span class="comment"># 修改变量</span></span><br><span class="line">$num = <span class="string">"hello world!"</span>;</span><br><span class="line"><span class="comment"># 打印变量</span></span><br><span class="line"><span class="keyword">echo</span> $sum;</span><br><span class="line"><span class="comment">#检测变量是否设置，并且不是 NULL</span></span><br><span class="line"><span class="keyword">isset</span>($num);</span><br><span class="line"><span class="comment"># 删除变量</span></span><br><span class="line"><span class="keyword">unset</span>($num);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="一、文件加载"><a href="#一、文件加载" class="headerlink" title="一、文件加载"></a>一、文件加载</h2><h3 id="1、文件加载的含义"><a href="#1、文件加载的含义" class="headerlink" title="1、文件加载的含义"></a>1、文件加载的含义</h3><p>将一个别的文件包含到当前文件中，成为当前文件运行过程中的一部分。通常，一些公共的代码，在多个页面都需要用到的时候，会做成一个独立的文件。然后在不同的页面需要用到的时候，直接载入进来就可以了。</p>
+<h3 id="2、文件加载的四种方式"><a href="#2、文件加载的四种方式" class="headerlink" title="2、文件加载的四种方式"></a>2、文件加载的四种方式</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">include</span> <span class="string">''</span>;</span><br><span class="line"><span class="keyword">include_once</span> <span class="string">''</span>;</span><br><span class="line"><span class="keyword">require</span> <span class="string">''</span>;</span><br><span class="line"><span class="keyword">require_once</span> <span class="string">''</span>;</span><br><span class="line"><span class="comment">#其中的参数都是加载文件的路径（相对路径或绝对路径）</span></span><br></pre></td></tr></table></figure>
 
-<p>注意：</p>
-<ul>
-<li><p>变量名区分大小写。</p>
-</li>
-<li><p>先定义再访问。</p>
-</li>
-<li><p>PHP是一种弱类型语音，可以存储任何数据。</p>
-</li>
-</ul>
-<h3 id="2、预定义变量"><a href="#2、预定义变量" class="headerlink" title="2、预定义变量"></a>2、预定义变量</h3><p><strong>概念</strong>：PHP系统内部定义的变量，也是PHP系统自动收集的结果。</p>
-<ul>
-<li><p>预定义变量也是变量，符合变量规则</p>
-</li>
-<li><p>预定义变量都是数组</p>
-</li>
-<li><p>系统提供了九个预定义变量，每个变量都有自己特定的数据。</p>
-<ul>
-<li>$_GET：用户通过get方式提交的数据。</li>
-<li>$_POST：用户通过post方式提交的数据。</li>
-<li>$_REQUEST：用户通过get和post方式提交的数据。</li>
-<li>$_SERVER：用户和服务器的基本信息数据（数据的名字不由开发者控制，系统定义好）</li>
-<li>$_FILES：用户提交的文件数据，(文件上传 )。</li>
-<li>$_SESSION： session数据。</li>
-<li>$_COOKIE： cookie数据。</li>
-<li>$GLOBALS：所有全局变量，也是唯一一个不是以下划线开始的预定义变量。</li>
-<li>$_ENV：环境数据。</li>
-</ul>
-<p>举例：打印 $_SERVER 预定义变量</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 预定义变量</span></span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"&lt;pre&gt;"</span>;<span class="comment">//&lt;pre&gt; HTML标签</span></span><br><span class="line">	print_r($_SERVER);<span class="comment">//打印的有一定规则</span></span><br></pre></td></tr></table></figure>
+<p>获取物理路径（绝对路径）的方式：</p>
+<p><code>__DIR__</code>：表示当前文件所在路径，由它可以构建出绝对路径。</p>
+<p><code>getcwd()</code>：表示当前正访问的网页路径（当前工作目录），由它也可以构建绝对路径。</p>
+<p><strong>四种载入方式</strong>：一般来说，如果被载入的文件内容，是后续代码运行的必备前提，则应该使用require载入；如果被载入的文件内容，只需要（或只允许）出现一次，则应该使用“xxx_once”载入。include错误级别低，不会阻止代码运行。</p>
+<h2 id="二、错误处理"><a href="#二、错误处理" class="headerlink" title="二、错误处理"></a>二、错误处理</h2><h3 id="错误分类"><a href="#错误分类" class="headerlink" title="错误分类"></a>错误分类</h3><p>语法错误：运行前出错。</p>
+<p>运行时错误：语法没错，执行过程中出错。</p>
+<p>逻辑错误：运行结果出错。</p>
+<h3 id="常见的错误代号"><a href="#常见的错误代号" class="headerlink" title="常见的错误代号"></a>常见的错误代号</h3><p>E_NOTICE: 提示性错误，轻微，继续执行后面程序。</p>
+<p>E_WARNING:警告，稍微严重，后面的程序继续执行。</p>
+<p>E_ERROR:严重错误/致命错误，后面程序不继续执行。</p>
+<p>E_PARSE:语法错误，直接不运行程序。</p>
+<p>E_USER_NOTICE，E_USER_WARNING，E_USER_ERROR:用户自定义的提示、警告和严重错误。</p>
+<p>E_ALL：它是一个代表“所有”错误的代号。</p>
+<p>这些代号都是系统常量。</p>
+<h3 id="错误触发"><a href="#错误触发" class="headerlink" title="错误触发"></a>错误触发</h3><p>程序本身有错时，运行时会报错提示，但如果程序没错，而不符合预期结果，就可以主动触发一个错误，也就是说主动创建一个错误，E_USER_NOTICE，E_USER_WARNING，E_USER_ERROR等，那么如何触法用户错误呢？</p>
+<p>自定义错误触发语法：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">trigger_error(<span class="string">"自定义错误提示内容"</span>,自定义错误的代号);</span><br></pre></td></tr></table></figure>
 
-<p>可以查看该常量下的一些内容：</p>
-<img src="/2020/02/29/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/1.png" class>
+<p><strong>案例演示</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reg_user</span><span class="params">($age)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>($age &gt; <span class="number">120</span> || $age &lt;<span class="number">0</span>)&#123;</span><br><span class="line">        trigger_error(<span class="string">"年龄不符合规范"</span>,E_USER_NOTICE);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"用户资料审核通过！"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">reg_user(<span class="number">150</span>);</span><br></pre></td></tr></table></figure>
 
-<p>如果要获取预定义变量中某个键值，可以 <code>$变量名[&#39;键名&#39;]</code>，以$_SERVER为例</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 打印$_SERVER的REMOTE_ADDR属性</span></span><br><span class="line">	<span class="keyword">echo</span> $_SERVER[<span class="string">'REMOTE_ADDR'</span>]</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p><strong>小结</strong>：</p>
+<h3 id="错误显示"><a href="#错误显示" class="headerlink" title="错误显示"></a>错误显示</h3><p>如果有错误发生（触发了错误），默认情况下会被显示在页面（即输出的结果页面）。</p>
 <ol>
-<li>预定义变量是PHP系统保存的一些常用变量，方便开发者使用</li>
-<li>预定义变量都是数组，需要以数组方式使用</li>
+<li><p>设置display_errors以决定是否显示错误</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">ini_set(<span class="string">'display_errors'</span>,<span class="number">1</span>或<span class="number">0</span>);<span class="comment">//1表示显示</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置error_reporting以决定显示那些错误（错误代号：E_NOTICE…）</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">ini_set(<span class="string">'error_reporting'</span>，错误代号<span class="number">1</span> | 错误代号<span class="number">2</span> ...)</span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
-<h3 id="3、变量传值"><a href="#3、变量传值" class="headerlink" title="3、变量传值"></a>3、变量传值</h3><p>分为两种，值传递和引用传递（和C类似）。</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">#值传递</span></span><br><span class="line">$a = <span class="number">10</span>;</span><br><span class="line">$b = $a;	<span class="comment">//将$a的值10取出后赋给$b</span></span><br><span class="line"><span class="comment">#引用传递</span></span><br><span class="line">$c = <span class="number">5</span>;</span><br><span class="line">$d = &amp;$c;	<span class="comment">//将$c的值的内存地址取出，赋值给$d，也为5</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4、常量"><a href="#4、常量" class="headerlink" title="4、常量"></a>4、常量</h3><p><strong>概念</strong>：一种能够存储数据的符号，值不可以改变。</p>
-<p><strong>定义变量</strong></p>
-<ul>
-<li>使用函数：define(‘常量名’,常量值);</li>
-<li>使用关键字：const 常量名 = 常量值；</li>
-</ul>
-<p><strong>访问常量</strong></p>
-<ul>
-<li>直接访问：常量名</li>
-<li>使用函数：constant(“常量名”);</li>
-</ul>
-<p><strong>示例</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">#定义</span></span><br><span class="line">define(<span class="string">'VERSION'</span>,<span class="number">1.0</span>);</span><br><span class="line">define(<span class="string">'-_-'</span>,<span class="string">'smile'</span>);</span><br><span class="line"><span class="keyword">const</span> PI = <span class="number">3.14</span>;</span><br><span class="line"><span class="comment">#访问</span></span><br><span class="line"><span class="keyword">echo</span> PI;</span><br><span class="line"><span class="keyword">echo</span> constant(<span class="string">'VERSION'</span>);</span><br><span class="line"><span class="keyword">echo</span> constant(<span class="string">'-_-'</span>);</span><br></pre></td></tr></table></figure>
-
-<p><strong>扩展</strong></p>
-<p>PHP7以后允许定义数组常量（一次性定义多个常量），访问时使用数组下标访问。</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> MATH = <span class="keyword">array</span>(</span><br><span class="line">	<span class="string">'PI'</span> =&gt;<span class="number">3.14</span>,</span><br><span class="line">    <span class="string">'E'</span> =&gt;<span class="number">2.72</span></span><br><span class="line">);<span class="comment">//定义</span></span><br><span class="line"><span class="keyword">echo</span> MATH[<span class="string">'PI'</span>];<span class="comment">//访问</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="5、系统常量"><a href="#5、系统常量" class="headerlink" title="5、系统常量"></a>5、系统常量</h3><p><strong>概念</strong>：系统内部定义的常量，用户可以直接访问，也只能访问。</p>
-<ul>
-<li>固定系统常量：值是固定的</li>
-<li>魔术常量：值可以改变（性质确定，可以改变指的是改值在不同的情况场景下又不同的值）</li>
-</ul>
-<p><strong>固定系统常量</strong></p>
-<ul>
-<li>PHP_VERSION：PHP版本号</li>
-<li>PHP_INT_SIZE：PHP中整数所占用的字符数。</li>
-<li>PHP_INT_MAX：PHP中整数能表示的最大值。</li>
-</ul>
-<p><strong>魔术常量</strong></p>
-<p>以双下划线开始，双下划线结束</p>
-<ul>
-<li>__DIR__：当前运行文件所在的绝对路径。</li>
-<li>__FILE__：当前运行文件的绝对路径。</li>
-<li>__LINE__：当前代码所在的行号。</li>
-<li>__FUCTION__：函数内部使用，表示当前函数的名字。</li>
-<li>__CLASS__：类的内部方法里使用，表示当前类名。</li>
-<li>__METHOD__：类内部方法里使用，表示当前方法的名字（带类名）。</li>
-<li>__NAMESPACE__：当前所属的命名空间。</li>
-</ul>
-<h3 id="6、数据类型"><a href="#6、数据类型" class="headerlink" title="6、数据类型"></a>6、数据类型</h3><ul>
-<li><p>基本数据类型：整型（int/integer），浮点型（float），布尔型（bool/boolean），字符串型（string）。</p>
-</li>
-<li><p>复合数据类型：数组型（array），对象型（object）。</p>
-</li>
-<li><p>特殊数据类型：资源型（resource，数据库资源/文件资源），空型（null）。</p>
-</li>
-</ul>
-<p><strong>提示</strong>：可用var_dump()查看变量的详细情况</p>
-]]></content>
+<h3 id="自定义错误处理"><a href="#自定义错误处理" class="headerlink" title="自定义错误处理"></a>自定义错误处理</h3><p>具体做法，分两步：</p>
+<ol>
+<li>声明错误发生时，由我们自己来处理——设定一个错误处理的函数名。</li>
+<li>定义该函数，在函数中详细设定错误的处理情况：怎么显示，显示什么，怎么记录，记录什么。</li>
+</ol>
+<p><strong>注意：</strong>自定义错误只能处理“非致命错误”。</p>
+<p><strong>实例</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义错误</span></span><br><span class="line"><span class="comment">//set_error_handler("自定义的处理错误的函数的名字");</span></span><br><span class="line">set_error_handler(<span class="string">"my_error_handler"</span>);</span><br><span class="line"><span class="comment">//定义该函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_error_handler</span><span class="params">($errCode,$errMsg,$errFile,$errLine)</span></span>&#123;</span><br><span class="line">    <span class="comment">//参数解释：errCode:错误代码，errMsg：错误信息，errFile：错误文件，errLine：错误行号</span></span><br><span class="line">    <span class="comment">//此形参顺序固定，而且是由系统自动调用并传入参数</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误代码：'</span>.$errCode.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误信息：'</span>.$errMsg.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误文件：'</span>.$errFile.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误行号：'</span>.$errLine.<span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"v1 = $v1"</span>;<span class="comment">//未定义的变量</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">'./no-this-file.php'</span>;<span class="comment">//打开不存在的文件</span></span><br><span class="line">l1();<span class="comment">//调用未定义的函数</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>PHP</category>
       </categories>
       <tags>
         <tag>Learning</tag>
         <tag>PHP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MATLAB课程总结（四）</title>
-    <url>/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
-    <content><![CDATA[<p>这篇文章总结MATLAB程序设计，主要涉及代码文件方面。</p>
-<a id="more"></a>
-
-<hr>
-<h2 id="程序的三个结构"><a href="#程序的三个结构" class="headerlink" title="程序的三个结构"></a>程序的三个结构</h2><p>顺序选择循环。</p>
-<h3 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h3><h4 id="if-else"><a href="#if-else" class="headerlink" title="if-else"></a>if-else</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> 条件<span class="number">1</span></span><br><span class="line">	语句组 <span class="number">1</span></span><br><span class="line"><span class="keyword">elseif</span> 条件<span class="number">2</span></span><br><span class="line">	语句组 <span class="number">2</span> …</span><br><span class="line"><span class="keyword">elseif</span> 条件m</span><br><span class="line">	语句组 m</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    语句组n</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> 表达式</span><br><span class="line">	<span class="keyword">case</span> 表达式<span class="number">1</span></span><br><span class="line">		语句组<span class="number">1</span></span><br><span class="line">	<span class="keyword">case</span> 表达式<span class="number">2</span></span><br><span class="line">		语句组<span class="number">2</span> …</span><br><span class="line">	<span class="keyword">case</span> 表达式m</span><br><span class="line">		语句组m</span><br><span class="line">	<span class="keyword">otherwise</span></span><br><span class="line">		语句组 n</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="try"><a href="#try" class="headerlink" title="try"></a>try</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span></span><br><span class="line">	语句组<span class="number">1</span></span><br><span class="line"><span class="keyword">catch</span></span><br><span class="line">	语句组<span class="number">2</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>try语句先试探性执行语句组1，如果在执行过程中出现错误，则将错误信息赋给保留的lasterr变量，并转去执行语句组2。</p>
-<h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><h4 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> 循环变量 =表达式<span class="number">1</span>：表达式<span class="number">2</span>：表达式<span class="number">3</span></span><br><span class="line">	循环体语句</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>条件</span><br><span class="line">	循环体语句</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="break语句和continue语句"><a href="#break语句和continue语句" class="headerlink" title="break语句和continue语句"></a>break语句和continue语句</h4><p>它们一般与if语句配合使用。<br>break语句用于终止循环的执行。<br>当在循环体内执行到该语句时，程序将跳出循环，继续执行循环语句的下一语句。<br>continue语句控制跳过循环体中的某些语句。<br>当在循环体内执行到该语句时，程序将跳过循环体中所有剩下的语句，继续下一次循环。</p>
-<h2 id="M文件的分类"><a href="#M文件的分类" class="headerlink" title="M文件的分类"></a>M文件的分类</h2><p>除了在命令窗口直接操作，我们可以创建文件（M文件）来进行调用，使程序结构简单，编程效率高。</p>
-<p>用Matlab语言编写的程序，称为M文件。</p>
-<p>是由若干Matlab命令组合在一起构成的，它可以完成某些操作，也可以实现某种算法。</p>
-<p>◼ M文件根据调用方式的不同分为两类：</p>
-<p>​    命令文件（Script File）</p>
-<p>​    函数文件（Function File） </p>
-<p>◼ 它们的扩展名都是.m</p>
-<h3 id="命令文件和函数文件的区别"><a href="#命令文件和函数文件的区别" class="headerlink" title="命令文件和函数文件的区别"></a><strong>命令文件和函数文件的区别</strong></h3><p>命令文件没有输入参数，也不返回输出参数；函数文件可以带输入参数，也可以返回输出参数。</p>
-<p>◼ 命令文件对工作空间中的变量进行操作，文件中所有命令的执行结果也返回工作空间中；函数文件中定义的变</p>
-<p>​    量为局部变量，当函数文件执行完毕时，这些变量也被清除。</p>
-<p>◼ 命令文件可以直接运行；函数文件不能直接运行，要以函数调用的方式来调用它。</p>
-<h3 id="函数文件"><a href="#函数文件" class="headerlink" title="函数文件"></a>函数文件</h3><p>函数文件是另一种形式的M文件，每一个函数文件都定义一个函数。Matlab提供的标准函数大部分是由函数文件定义的。</p>
-<h4 id="函数文件的基本结构"><a href="#函数文件的基本结构" class="headerlink" title="函数文件的基本结构"></a><strong>函数文件的基本结构</strong></h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 输出形参表 = 函数名（输入形参表）</span></span><br><span class="line">注释说明部分</span><br><span class="line">函数体语句</span><br></pre></td></tr></table></figure>
-
-<p>其中，以function开头的一行为引导行，表示该M文件是一个函数文件。当输出形参多于一个时，应该用<strong>方括号</strong>括起来。</p>
-<p><strong>注意：</strong></p>
-<ol>
-<li>关于函数文件名<br>函数文件名通常由函数名再加上扩展名.m组成。<br>当函数文件名与函数名不同时，Matlab将忽略函数名而确认文件名，因此调用时使用函数文件名。</li>
-<li>关于注释说明部分<br>注释说明包括3部分：<br>① 紧随引导行之后以%开头的第一注释行。<br>这一行一般包括大写的函数文件名和函数功能简要描述，供lookfor关键词查询和help在线帮助时使用。<br>② 第一注释行及之后连续的注释行。<br>通常包括函数输入/输出参数的含义及调用格式说明等信息，构成全部在线帮<br>③ 与在线帮助文本相隔一空行的注释行。包括函数文件编写和修改的信息，如作者和版本等。<br>3、关于return语句<br>如果在函数文件中插入了return语句，则执行到该语句就结束函数的执行，流程转至调用该函数的位置。通常也不使用return语句。</li>
-</ol>
-<h4 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h4><p>函数调用的一般格式是：<br>[输出实参表] = 函数名(输入实参表）<br>注意：函数调用时，各实参出现的顺序、个数，应与函数定义时相同。</p>
-<h4 id="函数参数的可调性"><a href="#函数参数的可调性" class="headerlink" title="函数参数的可调性"></a>函数参数的可调性</h4><p>Matlab在函数调用上有一个与一般高级语言不同之处：<br>函数所传递参数数目的可调性，即参数的数量可以改变。<br>在调用函数时，Matlab用两个预定义变量nargin和nargout分别记录调用该函数时的输入实参和输出实参的个数。</p>
-<p><strong>例子</strong></p>
-<img src="/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/1.png" class>
-
-<h4 id="全局变量与局部变量"><a href="#全局变量与局部变量" class="headerlink" title="全局变量与局部变量"></a><strong>全局变量与局部变量</strong></h4><p>Matlab中，函数文件中的变量是局部变量。</p>
-<p>全局变量的作用域是整个Matlab的工作空间，所有函数都可以对它进行存取和修改。</p>
-<p>全局变量用global命令定义，格式为：</p>
-<p><code>global 变量名</code></p>
-<img src="/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/1.png" class>]]></content>
-      <categories>
-        <category>MATLAB</category>
-      </categories>
-      <tags>
-        <tag>MATLAB</tag>
-        <tag>Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -1561,6 +1618,342 @@
       <tags>
         <tag>Learning</tag>
         <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python入门小结（三）</title>
+    <url>/2020/03/24/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    <content><![CDATA[<p>基于上次对选择循环结构，和字符串的基础知识介绍，这篇博客总结列表元组的使用。</p>
+<a id="more"></a>
+
+<hr>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python入门小结（二）</title>
+    <url>/2020/03/17/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<p>基于上篇博客介绍了一些很基本的Python语法，如数据类型，输入输出，运算符等等，此篇博客继续总结选择、循环等结构。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="一、if-else选择"><a href="#一、if-else选择" class="headerlink" title="一、if-else选择"></a>一、if-else选择</h2><h3 id="1、if-else语法"><a href="#1、if-else语法" class="headerlink" title="1、if-else语法"></a>1、if-else语法</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> 条件:</span><br><span class="line">	条件成立执行的代码<span class="number">1</span></span><br><span class="line">    条件成立执行的代码<span class="number">2</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> 条件:</span><br><span class="line">        此为嵌套</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">elif</span> 条件<span class="number">2</span>:</span><br><span class="line">    代码</span><br><span class="line"><span class="keyword">elif</span> 条件<span class="number">3</span>:</span><br><span class="line">    代码</span><br><span class="line">...</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    代码<span class="number">3</span></span><br><span class="line">    代码<span class="number">4</span></span><br><span class="line">代码<span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>if条件成立，执行后面带缩进的代码，而代码5则不属于if-else的语句块，与条件成立与否无关。</p>
+<p><strong>案例</strong>：猜拳</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1、出拳</span></span><br><span class="line"><span class="comment"># 玩家</span></span><br><span class="line">player = int(input(<span class="string">'请出拳(0--石头，1--剪刀，2--布):'</span>))</span><br><span class="line"><span class="comment">#电脑</span></span><br><span class="line">computer = random.randint(<span class="number">0</span>,<span class="number">2</span>)</span><br><span class="line">print(computer)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2、判断输赢</span></span><br><span class="line"><span class="comment">#获胜</span></span><br><span class="line"><span class="keyword">if</span>((player == <span class="number">0</span>) <span class="keyword">and</span> (computer == <span class="number">1</span>)) <span class="keyword">or</span> ((player == <span class="number">1</span>) <span class="keyword">and</span> (computer == <span class="number">2</span>)) <span class="keyword">or</span> ((player == <span class="number">2</span>) <span class="keyword">and</span> (computer == <span class="number">0</span>)):</span><br><span class="line">    print(<span class="string">'玩家获胜'</span>)</span><br><span class="line"><span class="comment">#平局</span></span><br><span class="line"><span class="keyword">elif</span> player == computer:</span><br><span class="line">    print(<span class="string">'平局'</span>)</span><br><span class="line"><span class="comment">#失败</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'失败'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、三目运算符"><a href="#2、三目运算符" class="headerlink" title="2、三目运算符"></a>2、三目运算符</h3><p>语法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">条件成立执行的表达式 <span class="keyword">if</span> 条件 <span class="keyword">else</span> 条件不成立的表达式</span><br><span class="line">c = a <span class="keyword">if</span> a&gt;b <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、循环"><a href="#二、循环" class="headerlink" title="二、循环"></a>二、循环</h2><p>包括while和for循环。</p>
+<h3 id="1、while循环"><a href="#1、while循环" class="headerlink" title="1、while循环"></a>1、while循环</h3><p>语法</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> 条件:</span><br><span class="line">    条件成立执行的代码</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、for循环"><a href="#2、for循环" class="headerlink" title="2、for循环"></a>2、for循环</h3><p>语法</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> 临时变量 <span class="keyword">in</span> 序列:</span><br><span class="line">    重复执行的代码</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<p>例如：循环输出字符串中的每个字符。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str = <span class="string">'hello world'</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> str:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、while…else-for…else"><a href="#3、while…else-for…else" class="headerlink" title="3、while…else/for…else"></a>3、while…else/for…else</h3><p>语法</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> 条件:</span><br><span class="line">    条件成立执行的代码</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    循环正常结束执行的代码</span><br></pre></td></tr></table></figure>
+
+<p>只有在循环正常结束时才会执行else里的内容，如果while里用break中止循环，则不会执行else里的语句。反之，continue可以执行else里的内容。</p>
+<p>for…else语法类似。</p>
+<h2 id="三、字符串"><a href="#三、字符串" class="headerlink" title="三、字符串"></a>三、字符串</h2><h3 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h3><p>有三种方法，单引、双引和三引。 在三引号里回车换行会原样显示。</p>
+<h3 id="2、下标"><a href="#2、下标" class="headerlink" title="2、下标"></a>2、下标</h3><p>在python中，可以用下标查询字符串中的相应字符。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str = <span class="string">'hello world'</span></span><br><span class="line">print(str[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、切片"><a href="#3、切片" class="headerlink" title="3、切片"></a>3、切片</h3><p>切片是指对操作的对象截取其中一部分的操作。字符串、列表和元组都支持切片操作。</p>
+<h4 id="1）语法"><a href="#1）语法" class="headerlink" title="1）语法"></a>1）语法</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">序列[开始位置下标:结束位置下标:步长]</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong></p>
+<ul>
+<li>不包含结束位置下标对应的数据，正负整数均可。</li>
+<li>步长是选取间隔，正负整数均可，默认步长为1。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str = <span class="string">'01234567'</span></span><br><span class="line">print(str[<span class="number">2</span>:<span class="number">5</span>:<span class="number">1</span>])   <span class="comment">#234</span></span><br><span class="line">print(str[<span class="number">2</span>:<span class="number">5</span>:<span class="number">2</span>])   <span class="comment">#24</span></span><br><span class="line">print(str[<span class="number">2</span>:<span class="number">5</span>])     <span class="comment">#234</span></span><br><span class="line">print(str[:<span class="number">5</span>])      <span class="comment">#01234</span></span><br><span class="line">print(str[<span class="number">2</span>:])      <span class="comment">#234567</span></span><br><span class="line">print(str[:])       <span class="comment">#01234567</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#负数测试</span></span><br><span class="line">print(str[::<span class="number">-1</span>])    <span class="comment">#76543210 如果步长为负数，表示倒叙选取</span></span><br><span class="line">print(str[<span class="number">-4</span>:<span class="number">-1</span>])   <span class="comment">#456 表示从-4到-1位置输出，即倒数第四个到倒数第1个</span></span><br><span class="line"></span><br><span class="line">print(str[<span class="number">-4</span>:<span class="number">-1</span>:<span class="number">-1</span>])<span class="comment">#不能选取出数据：从-4开始到-1结束，选取方向为从左到右，但步长为-1，代表从右向左选取</span></span><br><span class="line"><span class="comment">#如果选取方向（下标开始到结束的方向）和 步长的方向冲突，则无法选取数据。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4、字符串的常用操作方法"><a href="#4、字符串的常用操作方法" class="headerlink" title="4、字符串的常用操作方法"></a>4、字符串的常用操作方法</h3><p>主要包括查找、修改和判断三大类。</p>
+<h4 id="1）查找"><a href="#1）查找" class="headerlink" title="1）查找"></a>1）查找</h4><p>查找子串在字符串中的位置或者出现的次数。</p>
+<ul>
+<li><p>find()：检查某个子串是否包含在这个字符串中，如果存在返回这个子串开始的位置下标，否则则返回-1。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.find(子串,开始位置下标,结束位置下标)</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：开始和结束位置下标可以省略，表示在整个字符串序列中查找</p>
+</li>
+<li><p>index()：和find()用法几乎一致。唯一不同：如果字串不存在，则系统报错。</p>
+</li>
+<li><p>count()：返回对应子串出现的次数</p>
+<p><strong>语法</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.count(子串,开始位置下标,结束位置下标)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>rfind()，rindex()：用法一致，查找顺序从右边开始。</p>
+</li>
+</ul>
+<h4 id="2）修改"><a href="#2）修改" class="headerlink" title="2）修改"></a>2）修改</h4><ul>
+<li><p>replace：替换</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.replace(旧子串,新子串,替换次数)</span><br></pre></td></tr></table></figure>
+
+<p>原有字符串不会做出修改，函数返回修改后的结果。</p>
+</li>
+<li><p>split()：分割，返回一个列表，丢失分割字符。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.split(分割字符,num)</span><br></pre></td></tr></table></figure>
+
+<p>num表示的是分割字符出现的次数，即将来返回数据个数为num+1个。</p>
+</li>
+<li><p>join()：合并列表里的字符串数据为一个大字符串。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符或子串.join(多字符串组成的序列)</span><br></pre></td></tr></table></figure>
+
+<p><strong>举例</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list = [<span class="string">'11'</span>,<span class="string">'22'</span>,<span class="string">'33'</span>,<span class="string">'44'</span>]</span><br><span class="line">print(<span class="string">'_'</span>.join(list)) 	<span class="comment">#结果 11_22_33_44</span></span><br></pre></td></tr></table></figure>
+
+<p>以上三个函数重点掌握。</p>
+</li>
+<li><p><strong>转换</strong></p>
+<p>capitalize()：讲字符串第一个字符转换成大写。</p>
+<p>title()：将字符串每个单词首字母转换成大写。</p>
+<p>lower()：讲字符串中大写转小写。</p>
+<p>upper()：小写转大写。</p>
+</li>
+<li><p>删除空白</p>
+<p>lstrip()：删除字符串左侧空白字符。</p>
+<p>rstrip()：删除字符串右侧空白字符。</p>
+<p>strip()：删除字符串两侧空白字符。</p>
+</li>
+</ul>
+<h4 id="3）判断"><a href="#3）判断" class="headerlink" title="3）判断"></a>3）判断</h4><p>判断真假，返回布尔的真假。</p>
+<ul>
+<li><p>startwith()：检查字符串是否以指定子串开头，是则返回True。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.startwith(子串,开始位置下标,结束位置下标)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>endwith()：检查字符串是否以指定子串结尾，是则返回True。</p>
+</li>
+<li><p>其他函数：</p>
+<ul>
+<li><p>isalpha()：如果字符串至少有一个字符并且所有字符都是字母返回True。</p>
+</li>
+<li><p>isdigit()：如果字符串只包含数字则返回True。</p>
+</li>
+<li><p>isalnum()：如果字符串至少有一个字符并且所有字符串都是字母或数字。</p>
+</li>
+<li><p>isspace()：如果字符串只包含空白。</p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(4.23)</title>
+    <url>/2020/04/23/Reinvent-4-23/</url>
+    <content><![CDATA[<p>总结从4.16~4.23这一个周。</p>
+<a id="more"></a>
+
+<hr>
+<p>虽然写了十天时光荒废的总结，但还是没有真正的提高效率。</p>
+<p>就强了一点每天的学习偶尔跟跟，作业写写抄抄。</p>
+<p>别人的第一阶段十天冲刺都进行到第八九天了，而我还没开始。</p>
+<p>想了想，问题可能还是每天没有目标吧。</p>
+<p>我决定从现在开始，每天改变自己一点</p>
+<p>下一天的目标前一天晚上想好，写下来</p>
+<p>当天的目标认真落实，每天总结，要细致</p>
+<p>一百天自我改造计划，从现在开始</p>
+<p>一定要记住！！是现在，不是一会，更不是明天！</p>
+<p>今晚目标</p>
+<p>概率论考试完成，预习三四个超星视频</p>
+<p>看直播少于30分钟</p>
+<p>练习体育交叉步，平板支撑，马步</p>
+<p>明天目标</p>
+<p>上午，预习概率论四五个视频，上课好好听讲，不要看直播，少玩手机</p>
+<p>中午，少玩手机，认真睡觉，无聊就看看app记账本视频。</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(4.16)</title>
+    <url>/2020/04/12/Reinvent-4-16/</url>
+    <content><![CDATA[<p>4.8日~4.16总结</p>
+<a id="more"></a>
+
+<hr>
+<p><strong>4.8日~4.12日</strong></p>
+<p>周二到周天五天</p>
+<p>什么都没干</p>
+<p>一直在玩游戏混，打了5天的CF，我都不敢信。</p>
+<p>卸了卸了。</p>
+<p>中午睡得不错，争取一下，该好好干了。</p>
+<p><strong>4.13日~4.16日</strong></p>
+<p>尝试进入状态 ，但效果极差。</p>
+<p><strong>4.16晚</strong></p>
+<p>总结原因，和闺女交流，感觉很棒。</p>
+<p>聊天记录索引：时间：2020.4.16 第一句话：今天怎么样啊？</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(4.24)</title>
+    <url>/2020/04/24/Reinvent-4-24/</url>
+    <content><![CDATA[<p>4.24日</p>
+<a id="more"></a>
+
+<hr>
+<p>今天上午打球洗澡，概率论课没听，已经预习了，但是省出来的时间并没有做有意义的事情。</p>
+<p>下午晚上计划，看app记账本视频，完成基本的界面布局。</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(4.5)</title>
+    <url>/2020/04/05/Reinvent-4-5/</url>
+    <content><![CDATA[<p>4.5总结</p>
+<a id="more"></a>
+
+<hr>
+<table>
+<thead>
+<tr>
+<th align="center">时间</th>
+<th align="center">内容</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">7:20~7:47</td>
+<td align="center">计网</td>
+<td align="center">IP编码（第三次演变）</td>
+</tr>
+<tr>
+<td align="center">7:55~8:10</td>
+<td align="center">计网</td>
+<td align="center">NAT（网络地址转换）</td>
+</tr>
+<tr>
+<td align="center">8:15~8:35</td>
+<td align="center">计网</td>
+<td align="center">哈工大视频（走神严重，效率为0）</td>
+</tr>
+<tr>
+<td align="center">8:35~9.20</td>
+<td align="center">Android</td>
+<td align="center">更新配置新版Android Studio<br>聊天、刷手机、吃苹果</td>
+</tr>
+<tr>
+<td align="center">9:20~11:00</td>
+<td align="center">Android</td>
+<td align="center">看了一个小时左右的视频教程（效率不高）</td>
+</tr>
+</tbody></table>
+<p><strong>上午总结</strong>：容易犯困，脑袋疼，效率不高。但玩的时间不多，主要是注意力不集中。继续加油，好好干。</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>11:10~1:40</td>
+<td>吃饭午休</td>
+<td>效率极低，大量时间浪费在玩手机上，不能边吃饭边玩手机</td>
+</tr>
+</tbody></table>
+<p><strong>中午总结</strong>：没能好好休息，觉得上午干的不错就又放松了警惕。</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1:40~4:00</td>
+<td>Android</td>
+<td>复习UI控件的使用，效率还可以</td>
+</tr>
+<tr>
+<td>7:00~9:00</td>
+<td>Android</td>
+<td>学习新知识，晚上，效率不大行</td>
+</tr>
+</tbody></table>
+<p><strong>疑难总结</strong></p>
+<ol>
+<li><p>首先是strings.xml中字符串的引用，在代码中需要这样做</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String Chinese = getResources().getString(R.string.checkbox1);</span><br></pre></td></tr></table></figure>
+
+<p>在theFirst工程下的ui目录，总结各种的ui控件使用和每种控件的监听器基本调用，不难，但是很杂。</p>
+</li>
+<li><p>ProgressBar(Horizontal)中设置indeterminate为true，可以使该水平加载条动态加载显示。</p>
+</li>
+<li><p>设置多语言可翻译的app，在strings.xml中添加外国语言。</p>
+</li>
+<li><p>设置屏幕反转，在activity标签里添加<code>&lt;activity android:screenOrientation=&quot;fullSensor&quot;&gt;</code></p>
+</li>
+</ol>
+<p><strong>总学习时常</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">内容</th>
+<th align="center">时长</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">计网</td>
+<td align="center">40</td>
+</tr>
+<tr>
+<td align="center">Android</td>
+<td align="center">30+60+120+30</td>
+</tr>
+<tr>
+<td align="center"><strong>总时长</strong></td>
+<td align="center"><strong>4h40min</strong></td>
+</tr>
+</tbody></table>
+<p><strong>今日总结</strong>：</p>
+<p>还是没有做到稳扎稳打，中午很不对劲，结束的早，11：00开始就玩起手机，边玩边做饭还边想着学习，结果什么都没干好，直播不能再这么沉迷的看，结果中午午睡也没有睡好。</p>
+<p>下午时间少，晚上效率不高，做的东西学的知识少。</p>
+<p>还是太多分心，学习的时候好好学，玩的时候好好玩。</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
       </tags>
   </entry>
   <entry>
@@ -1841,76 +2234,571 @@
       </tags>
   </entry>
   <entry>
-    <title>PHP基础知识（五）</title>
-    <url>/2020/03/30/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%94%EF%BC%89/</url>
-    <content><![CDATA[<p>总结展开PHP中文件加载和错误处理的具体操作。</p>
+    <title>Reinvent(4.6)</title>
+    <url>/2020/04/06/Reinvent-4-6/</url>
+    <content><![CDATA[<p>4.6日总结。</p>
 <a id="more"></a>
 
 <hr>
-<h2 id="一、文件加载"><a href="#一、文件加载" class="headerlink" title="一、文件加载"></a>一、文件加载</h2><h3 id="1、文件加载的含义"><a href="#1、文件加载的含义" class="headerlink" title="1、文件加载的含义"></a>1、文件加载的含义</h3><p>将一个别的文件包含到当前文件中，成为当前文件运行过程中的一部分。通常，一些公共的代码，在多个页面都需要用到的时候，会做成一个独立的文件。然后在不同的页面需要用到的时候，直接载入进来就可以了。</p>
-<h3 id="2、文件加载的四种方式"><a href="#2、文件加载的四种方式" class="headerlink" title="2、文件加载的四种方式"></a>2、文件加载的四种方式</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">include</span> <span class="string">''</span>;</span><br><span class="line"><span class="keyword">include_once</span> <span class="string">''</span>;</span><br><span class="line"><span class="keyword">require</span> <span class="string">''</span>;</span><br><span class="line"><span class="keyword">require_once</span> <span class="string">''</span>;</span><br><span class="line"><span class="comment">#其中的参数都是加载文件的路径（相对路径或绝对路径）</span></span><br></pre></td></tr></table></figure>
+<p><strong>上午总结</strong>：7:00~12:40：打球洗澡等等。学习概率论40分钟，Android30分钟，效率不高，手机视频刷了一些。</p>
+<p><strong>下午晚上总结</strong>：抗干扰能力真的很差，又发火了，但是我觉得是必要的，打了一晚上游戏，看直播，浑浑噩噩。</p>
+<p>今日总结：</p>
+<p>客观条件真的有限，希望不要真的就堕落吧，尽全力完成该完成的。</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(5.2)</title>
+    <url>/2020/05/02/Reinvent-5-2/</url>
+    <content><![CDATA[<p>5.2日</p>
+<a id="more"></a>
 
-<p>获取物理路径（绝对路径）的方式：</p>
-<p><code>__DIR__</code>：表示当前文件所在路径，由它可以构建出绝对路径。</p>
-<p><code>getcwd()</code>：表示当前正访问的网页路径（当前工作目录），由它也可以构建绝对路径。</p>
-<p><strong>四种载入方式</strong>：一般来说，如果被载入的文件内容，是后续代码运行的必备前提，则应该使用require载入；如果被载入的文件内容，只需要（或只允许）出现一次，则应该使用“xxx_once”载入。include错误级别低，不会阻止代码运行。</p>
-<h2 id="二、错误处理"><a href="#二、错误处理" class="headerlink" title="二、错误处理"></a>二、错误处理</h2><h3 id="错误分类"><a href="#错误分类" class="headerlink" title="错误分类"></a>错误分类</h3><p>语法错误：运行前出错。</p>
-<p>运行时错误：语法没错，执行过程中出错。</p>
-<p>逻辑错误：运行结果出错。</p>
-<h3 id="常见的错误代号"><a href="#常见的错误代号" class="headerlink" title="常见的错误代号"></a>常见的错误代号</h3><p>E_NOTICE: 提示性错误，轻微，继续执行后面程序。</p>
-<p>E_WARNING:警告，稍微严重，后面的程序继续执行。</p>
-<p>E_ERROR:严重错误/致命错误，后面程序不继续执行。</p>
-<p>E_PARSE:语法错误，直接不运行程序。</p>
-<p>E_USER_NOTICE，E_USER_WARNING，E_USER_ERROR:用户自定义的提示、警告和严重错误。</p>
-<p>E_ALL：它是一个代表“所有”错误的代号。</p>
-<p>这些代号都是系统常量。</p>
-<h3 id="错误触发"><a href="#错误触发" class="headerlink" title="错误触发"></a>错误触发</h3><p>程序本身有错时，运行时会报错提示，但如果程序没错，而不符合预期结果，就可以主动触发一个错误，也就是说主动创建一个错误，E_USER_NOTICE，E_USER_WARNING，E_USER_ERROR等，那么如何触法用户错误呢？</p>
-<p>自定义错误触发语法：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">trigger_error(<span class="string">"自定义错误提示内容"</span>,自定义错误的代号);</span><br></pre></td></tr></table></figure>
+<hr>
+<p>昨天一天都在学习MATLAB，完成了实验二和实验三的一小部分，效率低下，归根结底，没有好好的为自己做计划。</p>
+<p><strong>今日计划</strong></p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+<th>计划用时</th>
+<th>实际用时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上午</td>
+<td>MATLAB实验三完成，理解各种命令。</td>
+<td>90min</td>
+<td>170min</td>
+</tr>
+<tr>
+<td></td>
+<td>计网四页PPT作业完成</td>
+<td>120min</td>
+<td>60min+？</td>
+</tr>
+<tr>
+<td></td>
+<td>上午的体育活动</td>
+<td>30min</td>
+<td>完成</td>
+</tr>
+<tr>
+<td>下午</td>
+<td>概率论与数理统计复习和作业10</td>
+<td>90min</td>
+<td>未完成</td>
+</tr>
+<tr>
+<td></td>
+<td>博客搜索功能改善</td>
+<td>30min</td>
+<td>5min</td>
+</tr>
+<tr>
+<td></td>
+<td>数据库原理第六章复习</td>
+<td>30min</td>
+<td>未完成</td>
+</tr>
+<tr>
+<td>晚上</td>
+<td>PHP复习</td>
+<td>60min</td>
+<td>30min+30min</td>
+</tr>
+<tr>
+<td></td>
+<td>晚上的体育活动</td>
+<td>30min</td>
+<td>未完成</td>
+</tr>
+</tbody></table>
+<p>今天早上6点起来做的规划，加油。</p>
+<p>我再坚持五分钟，下次我一定放弃。</p>
+<p><strong>上午总结</strong></p>
+<p>截止9：30完成matlab的实验内容，效率不高，命令不熟悉，没学过，现学，花费时间长。</p>
+<p>第一项比计划多出一个多小时的完成时间</p>
+<p>计网任务完成不到一半用时一个小时，预计还需要一个半小时完成。</p>
+<p><strong>下午晚上</strong></p>
+<p>其实脑子蛮清醒，也不是不想干，就是不知道干什么？</p>
+<p>想做些电脑上学习的事，但是剩下的计划都是纸上书上，或者是Android这样的大项目，有点无从下手。</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(4.7)</title>
+    <url>/2020/04/07/Reinvent-4-7/</url>
+    <content><![CDATA[<p>4.7日总结。</p>
+<a id="more"></a>
 
-<p><strong>案例演示</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reg_user</span><span class="params">($age)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>($age &gt; <span class="number">120</span> || $age &lt;<span class="number">0</span>)&#123;</span><br><span class="line">        trigger_error(<span class="string">"年龄不符合规范"</span>,E_USER_NOTICE);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"用户资料审核通过！"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">reg_user(<span class="number">150</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>上午总结</strong></p>
+<p>上课的同时做PPT，群内三人讨论，成果还可以。</p>
+<p><strong>下午晚上总结</strong></p>
+<p>发挥的不错进行了建民的原型展示，但是，之后的时间都废掉了，唉，不能把上完建民课就看成了万事大吉。</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(5.3)</title>
+    <url>/2020/05/02/Reinvent-5-3/</url>
+    <content><![CDATA[<p>5.3日</p>
+<a id="more"></a>
 
-<h3 id="错误显示"><a href="#错误显示" class="headerlink" title="错误显示"></a>错误显示</h3><p>如果有错误发生（触发了错误），默认情况下会被显示在页面（即输出的结果页面）。</p>
-<ol>
-<li><p>设置display_errors以决定是否显示错误</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">ini_set(<span class="string">'display_errors'</span>,<span class="number">1</span>或<span class="number">0</span>);<span class="comment">//1表示显示</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置error_reporting以决定显示那些错误（错误代号：E_NOTICE…）</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">ini_set(<span class="string">'error_reporting'</span>，错误代号<span class="number">1</span> | 错误代号<span class="number">2</span> ...)</span><br></pre></td></tr></table></figure>
+<hr>
+<p>今日计划</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+<th>计划用时</th>
+<th>实际用时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上午</td>
+<td>篮球+休息</td>
+<td>120min</td>
+<td>200min</td>
+</tr>
+<tr>
+<td></td>
+<td>计网3、4页PPT作业完成</td>
+<td>60min</td>
+<td>60min</td>
+</tr>
+<tr>
+<td></td>
+<td>概率论与数理统计复习和作业10</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td>下午</td>
+<td>数据库第六章复习</td>
+<td>30min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>数据库第七章作业</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td>晚上</td>
+<td>MATLAB考试</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Android学习</td>
+<td>30min+</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>今天要抓住白天的效率，主要是纸质作业学习，静下心来学习。</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>We Are All Fighters</title>
+    <url>/2020/03/03/We-Are-All-Fighters/</url>
+    <content><![CDATA[<iframe src="//player.bilibili.com/player.html?aid=90376384&cid=154346256&page=1" width="100%" height="450" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+​          <p align="right"> <b>  ————To the battle we are fighting</b></p>]]></content>
+      <categories>
+        <category>video</category>
+      </categories>
+      <tags>
+        <tag>epidemic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>云服务器Ubuntu的搭建</title>
+    <url>/2020/03/01/web%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<p>主要是总结这次搭建云服务器时的配置操作。</p>
+<a id="more"></a>
 
-</li>
-</ol>
-<h3 id="自定义错误处理"><a href="#自定义错误处理" class="headerlink" title="自定义错误处理"></a>自定义错误处理</h3><p>具体做法，分两步：</p>
-<ol>
-<li>声明错误发生时，由我们自己来处理——设定一个错误处理的函数名。</li>
-<li>定义该函数，在函数中详细设定错误的处理情况：怎么显示，显示什么，怎么记录，记录什么。</li>
-</ol>
-<p><strong>注意：</strong>自定义错误只能处理“非致命错误”。</p>
-<p><strong>实例</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义错误</span></span><br><span class="line"><span class="comment">//set_error_handler("自定义的处理错误的函数的名字");</span></span><br><span class="line">set_error_handler(<span class="string">"my_error_handler"</span>);</span><br><span class="line"><span class="comment">//定义该函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_error_handler</span><span class="params">($errCode,$errMsg,$errFile,$errLine)</span></span>&#123;</span><br><span class="line">    <span class="comment">//参数解释：errCode:错误代码，errMsg：错误信息，errFile：错误文件，errLine：错误行号</span></span><br><span class="line">    <span class="comment">//此形参顺序固定，而且是由系统自动调用并传入参数</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误代码：'</span>.$errCode.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误信息：'</span>.$errMsg.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误文件：'</span>.$errFile.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误行号：'</span>.$errLine.<span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"v1 = $v1"</span>;<span class="comment">//未定义的变量</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">'./no-this-file.php'</span>;<span class="comment">//打开不存在的文件</span></span><br><span class="line">l1();<span class="comment">//调用未定义的函数</span></span><br></pre></td></tr></table></figure>]]></content>
+<p>执行下列命令：</p>
+<p>1、<code>sudo apt-get update</code></p>
+<p>2、<code>apt-get install openssh-server</code></p>
+<p>3、<code>apt-get install default-jre</code></p>
+<p>4、<code>apt-get install default-jdk</code></p>
+<p>5、<code>cd /usr/local</code>该目录下一般装一些自己的软件</p>
+<p>6、<code>wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-9/v9.0.31/bin/apache-tomcat-9.0.31.tar.gz</code>   wget一般用于下载一些网络地址的资源（此处资源为Tomcat9）</p>
+<p>7、<code>ll -s</code>  查看当前文件夹的内容</p>
+<img src="/2020/03/01/web%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/1.png" class>
+
+<p>如图，蓝色代表文件夹，红色表示压缩包，浅蓝色代表快捷方式。</p>
+<p>8、<code>tar -zxvf apache-tomcat-9.0.31.tar.gz</code> 进行解压缩</p>
+<p>9、进入到apache的bin目录下，利用命令<code>./startup.sh</code> 启动。</p>
+<p>10、<code>./shutdown.sh</code> 停止服务。</p>
+<p>11、<code>cd ..   cd conf</code>进入conf目录，然后``vi server.xml<code>，使用</code>i` 命令进行编辑。</p>
+<p>将端口改为80，保存退出。</p>
+]]></content>
       <categories>
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
-        <tag>PHP</tag>
+        <tag>云服务器</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
-    <title>Python入门小结（三）</title>
-    <url>/2020/03/24/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/</url>
-    <content><![CDATA[<p>基于上次对选择循环结构，和字符串的基础知识介绍，这篇博客总结列表元组的使用。</p>
+    <title>MATLAB课程总结（二）</title>
+    <url>/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<p>本篇基于上篇文章基础，谈谈Matlab的<strong>数值运算</strong>，包括基本运算，与向量与矩阵处理的相关函数（最大值最小值，平均值，排序等）、多项式的相关函数（求根，加减乘除，导数等）等。</p>
+<a id="more"></a>
+
+<p>在Matlab中，一切数据均以矩阵的形式出现。相比其他语言，MATLAB在矩阵运算方面具有强大的功能，它提供了多种运算和函数对矩阵进行操作。MATLAB的数值运算包括两种：一种是针对整个矩阵的数学运算，称之为<strong>矩阵运算</strong>；另一种是针对矩阵的每一个元素进行运算的函数，称之为<strong>矩阵元素的运算</strong>。</p>
+<hr>
+<h2 id="一、基本运算功能"><a href="#一、基本运算功能" class="headerlink" title="一、基本运算功能"></a>一、基本运算功能</h2><h3 id="1、算术运算"><a href="#1、算术运算" class="headerlink" title="1、算术运算"></a>1、算术运算</h3><ul>
+<li><p>MATLAB数组支持线性代数中所有的矩阵运算。</p>
+</li>
+<li><p>建立特有的数组运算符，如：“.*”、“./”等。</p>
+</li>
+</ul>
+<img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/1.png" class>
+
+<h3 id="2、逻辑运算"><a href="#2、逻辑运算" class="headerlink" title="2、逻辑运算"></a>2、逻辑运算</h3><p> Matlab提供了3种逻辑运算符：&amp;（与）、|（或）、~（非）。</p>
+<p><strong>逻辑运算符的运算法则：</strong></p>
+<ol>
+<li><p>在逻辑运算中，确认非零元素为真（1），零元素为假（0）。  </p>
+</li>
+<li><p>当两个维数相等的矩阵进行比较时，其相应位置的元素按标量关系进行比较，并给出结果，形成一个维数与原来相同的0、1矩阵；</p>
+</li>
+<li><p>当一个标量与一个矩阵比较时，该标量与矩阵的各元素进行比较，结果形成一个与矩阵维数相等的0、1矩阵；</p>
+</li>
+<li><p>算术运算优先级最高，逻辑运算优先级最低。</p>
+</li>
+</ol>
+<h3 id="3、关系运算"><a href="#3、关系运算" class="headerlink" title="3、关系运算"></a>3、关系运算</h3><p>Matlab提供了6种关系运算符：&lt;、&gt;、&lt;=、&gt;=、==、~=（不等于）。</p>
+<p><strong>关系运算符的运算法则：</strong></p>
+<ol>
+<li><p>当两个标量进行比较时，直接比较两数大小。若关系成立，结果为1，否则为0。</p>
+</li>
+<li><p>当两个维数相等的矩阵进行比较时，其相应位置的元素按标量关系进行比较，并给出结果，形成一个维数与原来相同的0、1矩阵。</p>
+</li>
+<li><p>当一个标量与一个矩阵比较时，该标量与矩阵的各元素进行比较，结果形成一个与矩阵维数相等的0、1矩阵。</p>
+</li>
+</ol>
+<img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/2.png" class>
+
+<img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/3.png" class>
+
+<img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/4.png" class>
+
+<h2 id="二、向量与矩阵处理相关函数"><a href="#二、向量与矩阵处理相关函数" class="headerlink" title="二、向量与矩阵处理相关函数"></a>二、向量与矩阵处理相关函数</h2><h3 id="1、矩阵变换函数"><a href="#1、矩阵变换函数" class="headerlink" title="1、矩阵变换函数"></a>1、矩阵变换函数</h3><p>包括矩阵重排、矩阵抽取以及矩阵转向等。</p>
+<ol>
+<li><p>矩阵重排函数：<br>reshape(A,m,n)：把矩阵A中所有元素重新排列为m*n的矩阵，矩阵总元素数必须相等。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>;<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span></span><br><span class="line">     <span class="number">5</span>     <span class="number">6</span>     <span class="number">7</span>     <span class="number">8</span></span><br><span class="line">&gt;&gt; <span class="built_in">reshape</span>(a,<span class="number">4</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">1</span>     <span class="number">3</span></span><br><span class="line">     <span class="number">5</span>     <span class="number">7</span></span><br><span class="line">     <span class="number">2</span>     <span class="number">4</span></span><br><span class="line">     <span class="number">6</span>     <span class="number">8</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>矩阵抽取函数：<br>diag(A, k)：A为矩阵时，抽取矩阵A的第k条对角线。k可以为正整数也可以为负整数。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> ; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]</span><br><span class="line">A =</span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span></span><br><span class="line">     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span></span><br><span class="line">     <span class="number">7</span>     <span class="number">8</span>     <span class="number">9</span></span><br><span class="line">&gt;&gt; <span class="built_in">diag</span>(A)        <span class="comment">% 提取A的主对角线元素</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">1</span></span><br><span class="line">     <span class="number">5</span></span><br><span class="line">     <span class="number">9</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>矩阵转向函数：<br>transpose(A)：求矩阵A的转置。可以用单引号（’）直接代替transpose函数。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]</span><br><span class="line">A =</span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span></span><br><span class="line">     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span></span><br><span class="line">     <span class="number">7</span>     <span class="number">8</span>     <span class="number">9</span></span><br><span class="line">&gt;&gt; transpose(A)        <span class="comment">% 求A的转置</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">1</span>     <span class="number">4</span>     <span class="number">7</span></span><br><span class="line">     <span class="number">2</span>     <span class="number">5</span>     <span class="number">8</span></span><br><span class="line">     <span class="number">3</span>     <span class="number">6</span>     <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="2、矩阵求值函数"><a href="#2、矩阵求值函数" class="headerlink" title="2、矩阵求值函数"></a>2、矩阵求值函数</h3><ul>
+<li>inv(A)：求可逆矩阵A的逆。</li>
+<li>det(A)：求方阵A所对应的行列式的值。</li>
+<li>rank(A)：求矩阵A的秩。</li>
+<li>trace(A)：求矩阵A的迹。</li>
+<li>eig(A)：求矩阵A的特征值和特征向量。</li>
+</ul>
+<h3 id="3、数据统计与分析中的矩阵函数："><a href="#3、数据统计与分析中的矩阵函数：" class="headerlink" title="3、数据统计与分析中的矩阵函数："></a><strong>3、数据统计与分析中的矩阵函数</strong>：</h3><h4 id="1）最大值和最小值"><a href="#1）最大值和最小值" class="headerlink" title="1）最大值和最小值"></a>1）最大值和最小值</h4><p>​      MATLAB提供的求数据序列的最大值和最小值的函数分别为max和min，两个函数的调用格式和操作过程类似。</p>
+<p><strong>1、求向量的最大值和最小值</strong></p>
+<p>求一个向量X的最大值的函数有两种调用格式，分别是：</p>
+<p>(1) y=max(X)：返回向量X的最大值存入y，如果X中包含复数元素，则按模取最大值；</p>
+<p>(2)[y,I]=max(X)：返回向量X的最大值存入y，最大值的序号存入I，如果X中包含复数元素，则按模取最大值。</p>
+<p>求向量X的最小值的函数是min(X)，用法和max(X)完全相同。</p>
+  <figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt;x=[<span class="number">-43</span>,<span class="number">72</span>,<span class="number">9</span>,<span class="number">16</span>,<span class="number">23</span>,<span class="number">47</span>];</span><br><span class="line">&gt;&gt;y=<span class="built_in">max</span>(x)     <span class="comment">%求向量x中的最大值</span></span><br><span class="line">&gt;&gt;y =</span><br><span class="line">&gt;&gt;<span class="number">72</span></span><br><span class="line">&gt;&gt;[y,l]=<span class="built_in">max</span>(x) <span class="comment">%求向量x中的最大值及其该元素的位置</span></span><br><span class="line">&gt;&gt;y =</span><br><span class="line">&gt;&gt;<span class="number">72</span></span><br><span class="line">&gt;&gt;l =</span><br><span class="line">&gt;&gt;<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>2、求矩阵的最大值和最小值</strong></p>
+<p>求矩阵A的最大值的函数有3种调用格式，分别是：</p>
+<p>(1) max(A)：返回一个行向量，向量的第i个元素是矩阵A的第i列上的最大值；</p>
+<p>(2) [Y,U]=max(A)：返回行向量Y和U，Y向量记录A的每列的最大值，U向量记录每列最大值的行号；</p>
+<p>(3) max(A,[],dim)：dim取1或2。dim取1时，该函数和max(A)完全相同；dim取2时，该函数返回一个列向量，其</p>
+<p>第i个元素是A矩阵的第i行上的最大值。</p>
+<p>求最小值的函数是min，其用法和max完全相同。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt;x=[<span class="number">-43</span>,<span class="number">72</span>,<span class="number">9</span>; <span class="number">16</span>,<span class="number">23</span>,<span class="number">47</span>];</span><br><span class="line">&gt;&gt;y=<span class="built_in">max</span>(x)     <span class="comment">%求矩阵x中每列的最大值</span></span><br><span class="line">y =</span><br><span class="line">     <span class="number">16</span>  <span class="number">72</span>  <span class="number">47</span></span><br><span class="line">&gt;&gt;[y,l]=<span class="built_in">max</span>(x) <span class="comment">%求矩阵x中每列的最大值及其该元素的位置</span></span><br><span class="line">y =</span><br><span class="line">    <span class="number">16</span>  <span class="number">72</span>  <span class="number">47</span></span><br><span class="line">l =</span><br><span class="line">     <span class="number">2</span>  <span class="number">1</span>  <span class="number">2</span></span><br><span class="line">&gt;&gt;<span class="built_in">max</span>(x, [],<span class="number">1</span>), <span class="built_in">max</span>(x, [],<span class="number">2</span>) <span class="comment">%求矩阵中每行的最大值</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2）求和与求积"><a href="#2）求和与求积" class="headerlink" title="2）求和与求积"></a>2）求和与求积</h4><ul>
+<li><p>sum(X)：返回向量X各元素的和。</p>
+</li>
+<li><p>prod(X)：返回向量X各元素的乘积。</p>
+</li>
+<li><p>sum(A)：返回一个行向量，其第i个元素是A的第i列的元素和。</p>
+</li>
+<li><p>prod(A)：返回一个行向量，其第i个元素是A的第i列的元素乘积。</p>
+</li>
+<li><p>sum(A,dim)：当dim为1时，该函数等同于sum(A)；当dim为2时，返回一个列向量，其第i个元素是A的第i行</p>
+<p>的各元素之和。</p>
+</li>
+<li><p>prod(A,dim)：当dim为1时，该函数等同于prod(A)；当dim为2时，返回一个列向量，其第i个元素是A的第i行的各元素乘积。</p>
+</li>
+</ul>
+<h4 id="3）平均值与中值"><a href="#3）平均值与中值" class="headerlink" title="3）平均值与中值"></a>3）平均值与中值</h4><p>求数据序列平均值的函数是mean，求数据序列中值的函数是median。两个函数的调用格式为：</p>
+<ul>
+<li>mean(X)：返回向量X的算术平均值。</li>
+<li>median(X)：返回向量X的中值。</li>
+<li>mean(A)：返回一个行向量，其第i个元素是A的第i列的算术平均值。</li>
+<li>median(A)：返回一个行向量，其第i个元素是A的第i列的中值。</li>
+<li>mean(A,dim)：当dim为1时，该函数等同于mean(A)；当dim为2时，返回一个列向量，其第i个元素是A的第i行的算术平均值。</li>
+<li>median(A,dim)：当dim为1时，该函数等同于median(A)；当dim为2时，返回一个列向量，其第i个元素是A的第i行的中值。</li>
+</ul>
+<h3 id="4、元素排序"><a href="#4、元素排序" class="headerlink" title="4、元素排序"></a>4、元素排序</h3><p> Matlab中对向量X排序的函数是sort(X), 函数返回一个对X中的元素按升序排列的新向量。</p>
+<p>   sort函数也可以对矩阵A的各列（或行）重新排序，其调用格式为：</p>
+<p>   <code>[Y,I] = sort(A,dim)</code></p>
+<p>   dim=1,按列排序；dim=2,按行排序，Y是排序后的矩阵，I记录Y中的元素在A中的位置。</p>
+<p>命令如下：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span>,<span class="number">-8</span>,<span class="number">5</span>;<span class="number">4</span>,<span class="number">12</span>,<span class="number">6</span>;<span class="number">13</span>,<span class="number">7</span>,<span class="number">-13</span>];</span><br><span class="line"> <span class="built_in">sort</span>(A)</span><br><span class="line"> <span class="built_in">ans</span> =</span><br><span class="line"> <span class="number">1</span>    <span class="number">-8</span>   <span class="number">-13</span></span><br><span class="line"> <span class="number">4</span>     <span class="number">7</span>     <span class="number">5</span></span><br><span class="line"><span class="number">13</span>    <span class="number">12</span>     <span class="number">6</span></span><br><span class="line">-<span class="built_in">sort</span>(-A,<span class="number">2</span>)  <span class="comment">%对A的每行按降序排列</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"><span class="number">5</span>       <span class="number">1</span>    <span class="number">-8</span></span><br><span class="line"><span class="number">12</span>     <span class="number">6</span>     <span class="number">4</span></span><br><span class="line"><span class="number">13</span>     <span class="number">7</span>   <span class="number">-13</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、多项式"><a href="#三、多项式" class="headerlink" title="三、多项式"></a>三、多项式</h2><h3 id="1、多项式的MATLAB表达"><a href="#1、多项式的MATLAB表达" class="headerlink" title="1、多项式的MATLAB表达"></a><strong>1、多项式的MATLAB表达</strong></h3><p>多项式由一个行向量表示：</p>
+<ul>
+<li>该向量元素是该多项式的系数</li>
+<li>且按降幂次序排列  </li>
+</ul>
+<p>如：多项式x4－12x3＋25x＋116由行向量：</p>
+<p>​      <code>p=[1  -12  0  25  116]</code>表示。</p>
+<p><strong>注意，必须包括具有零系数的项。</strong></p>
+<h3 id="2、求解多项式的根？"><a href="#2、求解多项式的根？" class="headerlink" title="2、求解多项式的根？"></a><strong>2、求解多项式的根？</strong></h3><p>roots指令。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt;p=[<span class="number">1</span>  <span class="number">-12</span>  <span class="number">0</span>  <span class="number">25</span>  <span class="number">116</span>]</span><br><span class="line">p =</span><br><span class="line">     <span class="number">1</span>   <span class="number">-12</span>     <span class="number">0</span>    <span class="number">25</span>   <span class="number">116</span></span><br><span class="line">&gt;&gt;r=roots(p)</span><br><span class="line">r =</span><br><span class="line">  <span class="number">11.7473</span>          </span><br><span class="line">   <span class="number">2.7028</span>          </span><br><span class="line">  <span class="number">-1.2251</span> + <span class="number">1.4672</span><span class="built_in">i</span></span><br><span class="line">  <span class="number">-1.2251</span> - <span class="number">1.4672</span><span class="built_in">i</span></span><br></pre></td></tr></table></figure>
+
+<p>MATLAB按惯例规定，多项式是行向量，根是列向量。</p>
+<h3 id="3、已知多项式的根，求解多项式-？"><a href="#3、已知多项式的根，求解多项式-？" class="headerlink" title="3、已知多项式的根，求解多项式 ？"></a><strong>3、已知多项式的根，求解多项式 ？</strong></h3><p>使用ploy指令。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; pp=poly(r)</span><br><span class="line">pp =</span><br><span class="line">    <span class="number">1.0000</span>  <span class="number">-12.0000</span>   <span class="number">-0.0000</span>   <span class="number">25.0000</span>  <span class="number">116.0000</span></span><br></pre></td></tr></table></figure>
+
+<p>即：x4－12x3＋25x＋116。</p>
+<h3 id="4、多项式的乘法-conv指令"><a href="#4、多项式的乘法-conv指令" class="headerlink" title="4、多项式的乘法(conv指令)"></a><strong>4、多项式的乘法(conv指令)</strong></h3><p>举例：多项式 a(x)=x3＋2x2＋3x＋4 和 b(x)= x3＋4x2＋9x＋16 的乘积。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; a=[<span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>] ;  b=[<span class="number">1</span>  <span class="number">4</span>  <span class="number">9</span>  <span class="number">16</span>];</span><br><span class="line">c=conv(a, b)</span><br><span class="line">c =</span><br><span class="line">     <span class="number">1</span>     <span class="number">6</span>    <span class="number">20</span>    <span class="number">50</span>    <span class="number">75</span>    <span class="number">84</span>    <span class="number">64</span></span><br></pre></td></tr></table></figure>
+
+<p>两个以上的多项式的乘法需要重复使用conv. </p>
+<h3 id="5、多项式加法"><a href="#5、多项式加法" class="headerlink" title="5、多项式加法"></a><strong>5、多项式加法</strong></h3><p>MATLAB没有提供进行加法运算的函数。</p>
+<p>1）如果两个多项式向量大小相同，标准的数组加法有效。把多项式a(x)与上面给出的b(x)相加。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; d=a+b</span><br><span class="line">d =</span><br><span class="line">     <span class="number">2</span>     <span class="number">6</span>    <span class="number">12</span>    <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<p>结果: d(x)= 2x3＋6x2＋12x＋20<br>2）当两个多项式阶次不同，低阶的多项式必须用首零填补，使其与高阶多项式有同样的阶次。<br>考虑上面多项式c和d相加：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt;  e=c+[<span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>  d]</span><br><span class="line">e =</span><br><span class="line">     <span class="number">1</span>     <span class="number">6</span>    <span class="number">20</span>    <span class="number">52</span>    <span class="number">81</span>    <span class="number">96</span>    <span class="number">84</span></span><br></pre></td></tr></table></figure>
+
+<p>结果: e(x)= x6+6x5+20x4+52x3+81x2+96x+84</p>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a><strong>案例</strong></h4><p>问题：编写一个多项式加法运算的函数文件。</p>
+<p>明确需求：</p>
+<p>定义一个函数，需要有两个输入参数（比如：p1、p2），一个输出参数p_out。</p>
+<p>p1、p2表示两个待计算的多项式。</p>
+<p>p_out表示两个多项式的求和结果。</p>
+<p>函数的内部处理：</p>
+<ul>
+<li><p>若p1、p2两参数大小相等，则直接相加: p_out=p1+p2</p>
+</li>
+<li><p>若p1、p2两参数大小不等：</p>
+<ul>
+<li><p>If length(p1)&gt;length(p2)</p>
+<p>P2前面要补0元素，使p1、p2两参数大小相等</p>
+</li>
+<li><p>否则</p>
+<p>P1前面要补0元素，使p1、p2两参数大小相等</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>函数文件的编写：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">p_out</span>=<span class="title">poly_sum</span><span class="params">(p1, p2)</span></span></span><br><span class="line"><span class="comment">% calculate the sum of two polynomials </span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> <span class="built_in">length</span>(p1)==<span class="built_in">length</span>(p2)</span><br><span class="line">    p_out=p1+p2;</span><br><span class="line"><span class="keyword">elseif</span> <span class="built_in">length</span>(p1)&gt;<span class="built_in">length</span>(p2)</span><br><span class="line">    p2=[<span class="built_in">zeros</span>(<span class="number">1</span>,<span class="built_in">length</span>(p1)-<span class="built_in">length</span>(p2)), p2];</span><br><span class="line">    p_out=p1+p2;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    p1=[<span class="built_in">zeros</span>(<span class="number">1</span>,<span class="built_in">length</span>(p2)-<span class="built_in">length</span>(p1)), p1];</span><br><span class="line">    p_out=p1+p2;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6、多项式的除法-deconv"><a href="#6、多项式的除法-deconv" class="headerlink" title="6、多项式的除法(deconv)"></a>6、多项式的除法(deconv)</h3><p>举例说明：</p>
+<p>c(x)=x6＋6x5＋20x4＋50x3＋75x2＋84x＋64 除以 b(x)= x3＋4x2＋9x＋16</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; c=[<span class="number">1</span>     <span class="number">6</span>    <span class="number">20</span>    <span class="number">50</span>    <span class="number">75</span>    <span class="number">84</span>    <span class="number">64</span>];</span><br><span class="line">&gt;&gt; b=[<span class="number">1</span>  <span class="number">4</span>  <span class="number">9</span>  <span class="number">16</span>];</span><br><span class="line">&gt;&gt;  [q , r]=deconv(c , b)</span><br><span class="line">q =</span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span></span><br><span class="line">r =</span><br><span class="line">     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7、多项式的导数-polyder"><a href="#7、多项式的导数-polyder" class="headerlink" title="7、多项式的导数 (polyder)"></a>7、多项式的导数 (polyder)</h3><p>举例：求b(x)= x3＋4x2＋9x＋16的导数。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; b=[<span class="number">1</span>     <span class="number">4</span>     <span class="number">9</span>    <span class="number">16</span>];</span><br><span class="line">&gt;&gt; d=polyder(b)</span><br><span class="line">d =</span><br><span class="line">     <span class="number">3</span>     <span class="number">8</span>     <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+<p>结果为： 3x2＋8x＋9。另外两种形式为：</p>
+<ul>
+<li>p = polyder(P,Q)：求P*Q的导函数</li>
+<li>[p,q] = polyder(P,Q)：求P/Q的导函数，导数分子存入p,分母存入q</li>
+</ul>
+<h3 id="8、多项式的估值-polyval"><a href="#8、多项式的估值-polyval" class="headerlink" title="8、多项式的估值(polyval)"></a>8、多项式的估值(polyval)</h3><p>举例：绘制p(x) = x3＋4x2－7x－10在[-1, 3]段上的曲线。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">x=<span class="built_in">linspace</span>(<span class="number">-1</span>, <span class="number">3</span>);  <span class="comment">% choose 100 data points between -1and 3.</span></span><br><span class="line">p=[<span class="number">1</span>  <span class="number">4</span>  <span class="number">-7</span>  <span class="number">-10</span>]; </span><br><span class="line">v=polyval(p, x);</span><br><span class="line"> </span><br><span class="line"><span class="built_in">plot</span>(x, v);</span><br><span class="line">title(<span class="string">'x^&#123;3&#125;+4x^&#123;2&#125;-7x-10'</span>);</span><br><span class="line">xlabel(<span class="string">'x'</span>)</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/5.png" class>
+
+<h2 id="四、矩阵求逆与线性方程组求解"><a href="#四、矩阵求逆与线性方程组求解" class="headerlink" title="四、矩阵求逆与线性方程组求解"></a>四、矩阵求逆与线性方程组求解</h2><h3 id="1、矩阵的逆"><a href="#1、矩阵的逆" class="headerlink" title="1、矩阵的逆"></a>1、矩阵的逆</h3><p>对于一个方阵A，如果存在一个与其同阶的方阵B，使得：A·B=B·A=I  (I为单位矩阵）。</p>
+<p>则称B为A的逆矩阵，当然，A也是B的逆矩阵。求方阵A的逆矩阵可调用函数inv(A)。</p>
+<p>例5.18 求方阵A的逆矩阵，且验证。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span>,<span class="number">-1</span>,<span class="number">1</span>;<span class="number">5</span>,<span class="number">-4</span>,<span class="number">3</span>;<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>];</span><br><span class="line">B = inv(A);</span><br><span class="line">A*B</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">   <span class="number">1.0000</span>         <span class="number">0</span>         <span class="number">0</span></span><br><span class="line">  <span class="number">-0.0000</span>    <span class="number">1.0000</span>         <span class="number">0</span></span><br><span class="line">  <span class="number">-0.0000</span>         <span class="number">0</span>    <span class="number">1.0000</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2、用矩阵求逆方法求解线性方程组"><a href="#2、用矩阵求逆方法求解线性方程组" class="headerlink" title="2、用矩阵求逆方法求解线性方程组"></a>2、用矩阵求逆方法求解线性方程组</h3><img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/6.png" class>
+
+<p><strong>例题：</strong></p>
+<img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/7.png" class>
+
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>;<span class="number">1</span>,<span class="number">8</span>,<span class="number">27</span>];</span><br><span class="line">b = [<span class="number">5</span>,<span class="number">-2</span>,<span class="number">6</span>]’;</span><br><span class="line">x = inv(A)*b   <span class="comment">%x = A\b</span></span><br><span class="line">x =</span><br><span class="line">  <span class="number">23.0000</span></span><br><span class="line"> <span class="number">-14.5000</span></span><br><span class="line">   <span class="number">3.6667</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以运用左除运算符求解。</p>
+]]></content>
+      <categories>
+        <category>MATLAB</category>
+      </categories>
+      <tags>
+        <tag>MATLAB</tag>
+        <tag>Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Android Jetpack架构组件（一）</title>
+    <url>/2020/04/05/Android-1/</url>
+    <content><![CDATA[<p>开始学习Android Jetpack相关知识。</p>
 <a id="more"></a>
 
 <hr>
+<p>首先补充一点内容。</p>
+<h3 id="设置app的横屏和竖屏"><a href="#设置app的横屏和竖屏" class="headerlink" title="设置app的横屏和竖屏"></a>设置app的横屏和竖屏</h3><p>设置app某个界面的横屏和竖屏的不同显示方式。</p>
+<img src="/2020/04/05/Android-1/1.png" class>
+
+<p>即可创建当前页面的一个横屏副本。</p>
+<p>app页面的横屏和竖屏转换是一个Activity的杀死重创建的过程，即界面被刷新，如果当前界面的数据没保存，则会丢失。</p>
+<p>如果需要临时保存当前页面的数据，使其在反转后数据不丢失，则需要以下操作。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//首先注意onCreate(Bundle savedInstanceState)的参数，为保存当前页面的临时数据，Bundle类为key:value形式。</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        button = findViewById(R.id.button);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>)&#123;</span><br><span class="line">            String s = savedInstanceState.getString(<span class="string">"KEY"</span>);</span><br><span class="line">            textView.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">        button.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                textView.setText(R.string.button);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle outState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onSaveInstanceState(outState);</span><br><span class="line">        outState.putString(<span class="string">"KEY"</span>, textView.getText().toString());<span class="comment">//存入Bundle对象，便于onCreate方法取出</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Android-Jetpack"><a href="#Android-Jetpack" class="headerlink" title="Android Jetpack"></a>Android Jetpack</h2><img src="/2020/04/05/Android-1/2.png" class>
+
+<p><strong>ViewModel</strong>：对象为特定的界面组件（如 Fragment 或 Activity）提供数据，并包含数据处理业务逻辑，以与模型进行通信。例如，ViewModel 可以调用其他组件来加载数据，还可以转发用户请求来修改数据。ViewModel 不了解界面组件，因此不受配置更改（如在旋转设备时重新创建 Activity）的影响。</p>
+<p><strong>LiveData</strong>：是一种可观察的数据存储器。应用中的其他组件可以使用此存储器监控对象的更改，而无需在它们之间创建明确且严格的依赖路径。LiveData 组件还遵循应用组件（如 Activity、Fragment 和 Service）的生命周期状态，并包括清理逻辑以防止对象泄漏和过多的内存消耗。</p>
+<p><strong>DataBinding</strong>：声明性地将可观察数据绑定到UI元素，其目的在于是为了脱离Controller与View之间的引用联系，很类似Butterknife库，使用也比较相似。</p>
+<p><strong>Navigation</strong>：允许用户在应用程序中浏览、进入和退出不同内容的Fragment。Navigation能够实现从简单的按钮单击到更复杂的模式，如应用程序栏和导航抽屉。导航组件还通过遵循一套既定的原则来确保一致和可预测的用户体验。</p>
+<p><strong>Lifecycles</strong>：Lifecycles是一个生命周期感知组件，当Activity或者Fragment的生命周期发生改变的时会，Lifecycles也会做出相应的生命周期状态的改变，它保存关于组件生命周期状态的信息(比如活动或片段)，并允许其他对象观察这种状态。</p>
+<h3 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a><strong>ViewModel</strong></h3><p>刚入门，做了一个简短的案例，通过ViewModel管理UI产生的数据。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两个按钮，实现+1，+2操作</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="comment">//用的是ViewModelProviders，可能需要引入Gradle配置</span></span><br><span class="line">        myVideModel = ViewModelProviders.of(<span class="keyword">this</span>).get(MyVideModel<span class="class">.<span class="keyword">class</span>)</span>;<span class="comment">//创建ViewModel对象</span></span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">        button1 = findViewById(R.id.button);</span><br><span class="line">        button2 = findViewById(R.id.button2);</span><br><span class="line">        button1.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                myVideModel.num ++;</span><br><span class="line">                textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        button2.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                myVideModel.num += <span class="number">2</span>;</span><br><span class="line">                textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//MyVideModel自定义的ViewModel类，需要继承自ViewModel类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyVideModel</span> <span class="keyword">extends</span> <span class="title">ViewModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ViewModel的出现主要为了解决两个问题：<br>1.当Actvitiy销毁重建过程中的数据恢复问题，虽然原来可以使用<code>onSaveInstanceState()</code>来完成，但是只支持能被序列化的数据而且是小量数据，对于大量数据则显得有点无力。<br>2.UI控制器的工作繁忙，UI控制器主要用于处理显示，交互，其他的额外操作可以委托给其他类完成，将不应该分配给UI的任务分离出来是必要的。</p>
+<h3 id="LiveData"><a href="#LiveData" class="headerlink" title="LiveData"></a>LiveData</h3><img src="/2020/04/05/Android-1/3.png" class>
+
+<p>LiveData是配合ViewModel使用的</p>
+<p><strong>案例：</strong>实现一个点赞和踩的统计功能</p>
+<p>ViewModelWithLiveData.java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.livedata;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.MutableLiveData;</span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.ViewModel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewModelWithLiveData</span> <span class="keyword">extends</span> <span class="title">ViewModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> MutableLiveData&lt;Integer&gt; LikedNumber;<span class="comment">//创建LiveData的方式</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MutableLiveData&lt;Integer&gt; <span class="title">getLikedNumber</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (LikedNumber == <span class="keyword">null</span>)&#123;</span><br><span class="line">            LikedNumber = <span class="keyword">new</span> MutableLiveData&lt;&gt;();</span><br><span class="line">            LikedNumber.setValue(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> LikedNumber;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLikedNumber</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        LikedNumber.setValue(LikedNumber.getValue() + n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>MainActivity.java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.livedata;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageButton;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.Observer;</span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.ViewModelProvider;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ViewModelWithLiveData viewModelWithLiveData;</span><br><span class="line">    TextView textView;</span><br><span class="line">    ImageButton imageButtonLike , imageButtonDislike;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        imageButtonLike = findViewById(R.id.imageButton);</span><br><span class="line">        imageButtonDislike = findViewById(R.id.imageButton2);</span><br><span class="line"></span><br><span class="line">        viewModelWithLiveData = <span class="keyword">new</span> ViewModelProvider(<span class="keyword">this</span>).get(ViewModelWithLiveData<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        viewModelWithLiveData.getLikedNumber().observe(<span class="keyword">this</span>, <span class="keyword">new</span> Observer&lt;Integer&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChanged</span><span class="params">(Integer integer)</span> </span>&#123;</span><br><span class="line">                textView.setText(String.valueOf(integer));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        imageButtonLike.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                viewModelWithLiveData.addLikedNumber(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        imageButtonDislike.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                viewModelWithLiveData.addLikedNumber(-<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>前端</p>
+<img src="/2020/04/05/Android-1/4.png" class>
+
+<p>并使用了Android Studio中基本的矢量图创建方法。</p>
+<img src="/2020/04/05/Android-1/5.png" class>
+
+<h3 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h3><p>1、首先需要在gradle中添加DataBinding依赖，具体做法，在defaultConfig下添加</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">dataBinding &#123;</span><br><span class="line">            enabled <span class="keyword">true</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、在xml布局中引入DataBinding，点击首行代码的小灯泡即可。</p>
+<p>3、在MainActivity.java中修改代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//setContentView(R.layout.activity_main);</span></span><br><span class="line">binding = DataBindingUtil.setContentView(<span class="keyword">this</span>,R.layout.activity_main);</span><br></pre></td></tr></table></figure>
+
+<p>添加</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">binding.setData(myViewModel);</span><br><span class="line">binding.setLifecycleOwner(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+
+<p>4、xml布局文件的<code>&lt;data&gt;</code>中添加</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;data&gt;</span><br><span class="line">	&lt;variable</span><br><span class="line">		name=<span class="string">"data"</span></span><br><span class="line">		type=<span class="string">"com.thorine.databinding.MyViewModel"</span> /&gt;</span><br><span class="line">&lt;/data&gt;</span><br></pre></td></tr></table></figure>
+
+<p>textView中获取数值：<code>android:text=&quot;@{String.valueOf(data.number)}&quot;</code></p>
+<p>Button中绑定监听事件：<code>android:onClick=&quot;@{()-&gt;data.add()}&quot;</code></p>
 ]]></content>
       <categories>
-        <category>Python</category>
+        <category>Android</category>
       </categories>
       <tags>
         <tag>Learning</tag>
-        <tag>Python</tag>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>最爱的BGM</title>
+    <url>/2020/02/28/%E6%9C%80%E7%88%B1%E7%9A%84BGM/</url>
+    <content><![CDATA[<p>44首BGM，请君欣赏。</p>
+<a id="more"></a>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=3222803102&auto=1&height=430"></iframe>
+[网易云歌单链接]: https://music.163.com/#/playlist?id=3222803102&amp;userid=42466756]]></content>
+      <categories>
+        <category>娱乐</category>
+      </categories>
+      <tags>
+        <tag>music</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客搭建总结(一)</title>
+    <url>/2020/02/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="第三次尝试搭建Hexo博客"><a href="#第三次尝试搭建Hexo博客" class="headerlink" title="第三次尝试搭建Hexo博客"></a>第三次尝试搭建Hexo博客</h2><p>干掉 干掉！</p>
+<p>多尝试几次，大不了干掉重来！</p>
+<a id="more"></a>
+
+<hr>
+<p>这篇文章就作为搭建博客时出现的问题及解决方法的总结，整个搭建过程并不尽人意。多多总结，少走弯路。</p>
+<h3 id="1、hexo-d命令时-的ERROR-Deployer-not-found-git错误提示"><a href="#1、hexo-d命令时-的ERROR-Deployer-not-found-git错误提示" class="headerlink" title="1、hexo d命令时 的ERROR Deployer not found: git错误提示"></a>1、hexo d命令时 的<code>ERROR Deployer not found: git</code>错误提示</h3><p>解决方法，执行命令 <code>cnpm install --save hexo-deployer-git</code>即可解决。</p>
+<h3 id="2、hexo-d命令提交时取消弹出的输入GitHub账号密码框"><a href="#2、hexo-d命令提交时取消弹出的输入GitHub账号密码框" class="headerlink" title="2、hexo d命令提交时取消弹出的输入GitHub账号密码框"></a>2、hexo d命令提交时取消弹出的输入GitHub账号密码框</h3><p>GitHub不允许随意的提交，所以需要账号密码来确认操作。我们提交代码之前一定是需要某种授权的，而 GitHub 上一般都是基于 SSH 授权的。 </p>
+<p><strong>那么什么是 SSH 呢？</strong> 简单点说，SSH是一种网络协议，用于计算机之间的加密登录。目前 </p>
+<p>是每一台 Linux 电脑的标准配置。而大多数 Git 服务器都会选择使用 SSH 公钥来进行授权， </p>
+<p>所以想要在 GitHub 提交代码的第一步就是要先添加 SSH key 配置。</p>
+<p>首先在博客根目录下输入ssh确定安装了ssh，出现如下则代表安装成功。</p>
+<img src="/2020/02/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/1.png" class>
+
+<p>紧接着输入ssh-keygen -t rsa 命令，敲击回车。</p>
+<img src="/2020/02/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/2.png" class>
+
+<p>然后就会生成两个文件 id_rsa 和 id_rsa.pub ，而 id_rsa 是密钥，id_rsa.pub 就是公钥。</p>
+<p>然后找到 C:\Users\Administrator\.ssh 路径下的id_rsa.pub文件记事本打开，并将其中内容复制，添加到GitHub上即可。</p>
+<h3 id="3、图片加载不出来"><a href="#3、图片加载不出来" class="headerlink" title="3、图片加载不出来"></a>3、图片加载不出来</h3><p>参考博客 <a href="https://blog.csdn.net/xjm850552586/article/details/84101345" target="_blank" rel="noopener">https://blog.csdn.net/xjm850552586/article/details/84101345</a></p>
+<p>需要注意的是，博客中引用图片通过命令  完成。例如 即可完成图片显示。</p>
+<h3 id="4、将该站点配置到百度站点收录管理中"><a href="#4、将该站点配置到百度站点收录管理中" class="headerlink" title="4、将该站点配置到百度站点收录管理中"></a>4、将该站点配置到百度站点收录管理中</h3><p>需要将Hexo博客双线部署以实现百度收录。我们的博客部署在GitHub上百度是不能收录的，双线部署，可以选择码云等国内站点。</p>
+<p>首先在码云上已经部署好，并且配置了Page的静态网站。</p>
+<p>在百度上管理码云上该网站的地址域名，选择验证时用第二种方式HTML标签认证成功。</p>
+<img src="/2020/02/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/3.png" class>
+
+<ul>
+<li><p>首先第一步，在next主题配置文件中添加下面这句，值就输入你content的值即可，配置里面可能没这个字段添加即可。</p>
+<img src="/2020/02/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/4.png" class>
+</li>
+<li><p>第二步，我是在该路径下的head文件添加了百度的代码。</p>
+<img src="/2020/02/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/5.png" class>
+</li>
+<li><p>然后Hexo生成发布博客即可。</p>
+</li>
+</ul>
+<p>百度的收录需要一定的时间，现在百度的收录方式有所调整，注重高质量的网站，否则就算现在收录成功，以后的一段时间里也会收回。所以要保证网站内容的高质量化，只有一起努力，才能把自己的博客网站做到更好。</p>
+<h3 id="5、搜索功能"><a href="#5、搜索功能" class="headerlink" title="5、搜索功能"></a>5、搜索功能</h3><p>参考博客：<a href="https://www.jianshu.com/p/202c9e789c8f" target="_blank" rel="noopener">https://www.jianshu.com/p/202c9e789c8f</a></p>
+]]></content>
+      <categories>
+        <category>HEXO</category>
+      </categories>
+      <tags>
+        <tag>experience</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -2345,822 +3233,38 @@
       </tags>
   </entry>
   <entry>
-    <title>Reinvent(4.16)</title>
-    <url>/2020/04/12/Reinvent-4-16/</url>
-    <content><![CDATA[<p>4.8日~4.16总结</p>
+    <title>电脑系统重装前的准备工作</title>
+    <url>/2020/05/03/%E7%94%B5%E8%84%91%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</url>
+    <content><![CDATA[<p>总结下次电脑系统重装需要的环境软件和操作。</p>
 <a id="more"></a>
 
 <hr>
-<p><strong>4.8日~4.12日</strong></p>
-<p>周二到周天五天</p>
-<p>什么都没干</p>
-<p>一直在玩游戏混，打了5天的CF，我都不敢信。</p>
-<p>卸了卸了。</p>
-<p>中午睡得不错，争取一下，该好好干了。</p>
-<p><strong>4.13日~4.16日</strong></p>
-<p>尝试进入状态 ，但效果极差。</p>
-<p><strong>4.16晚</strong></p>
-<p>总结原因，和闺女交流，感觉很棒。</p>
-<p>聊天记录索引：时间：2020.4.16 第一句话：今天怎么样啊？</p>
-]]></content>
-      <categories>
-        <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Reinvent(4.24)</title>
-    <url>/2020/04/24/Reinvent-4-24/</url>
-    <content><![CDATA[<p>4.24日</p>
-<a id="more"></a>
-
-<hr>
-<p>今天上午打球洗澡，概率论课没听，已经预习了，但是省出来的时间并没有做有意义的事情。</p>
-<p>下午晚上计划，看app记账本视频，完成基本的界面布局。</p>
-]]></content>
-      <categories>
-        <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MATLAB课程总结（二）</title>
-    <url>/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<p>本篇基于上篇文章基础，谈谈Matlab的<strong>数值运算</strong>，包括基本运算，与向量与矩阵处理的相关函数（最大值最小值，平均值，排序等）、多项式的相关函数（求根，加减乘除，导数等）等。</p>
-<a id="more"></a>
-
-<p>在Matlab中，一切数据均以矩阵的形式出现。相比其他语言，MATLAB在矩阵运算方面具有强大的功能，它提供了多种运算和函数对矩阵进行操作。MATLAB的数值运算包括两种：一种是针对整个矩阵的数学运算，称之为<strong>矩阵运算</strong>；另一种是针对矩阵的每一个元素进行运算的函数，称之为<strong>矩阵元素的运算</strong>。</p>
-<hr>
-<h2 id="一、基本运算功能"><a href="#一、基本运算功能" class="headerlink" title="一、基本运算功能"></a>一、基本运算功能</h2><h3 id="1、算术运算"><a href="#1、算术运算" class="headerlink" title="1、算术运算"></a>1、算术运算</h3><ul>
-<li><p>MATLAB数组支持线性代数中所有的矩阵运算。</p>
-</li>
-<li><p>建立特有的数组运算符，如：“.*”、“./”等。</p>
-</li>
-</ul>
-<img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/1.png" class>
-
-<h3 id="2、逻辑运算"><a href="#2、逻辑运算" class="headerlink" title="2、逻辑运算"></a>2、逻辑运算</h3><p> Matlab提供了3种逻辑运算符：&amp;（与）、|（或）、~（非）。</p>
-<p><strong>逻辑运算符的运算法则：</strong></p>
+<h2 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h2><p>首先是要给系统的磁盘分好类。</p>
 <ol>
-<li><p>在逻辑运算中，确认非零元素为真（1），零元素为假（0）。  </p>
-</li>
-<li><p>当两个维数相等的矩阵进行比较时，其相应位置的元素按标量关系进行比较，并给出结果，形成一个维数与原来相同的0、1矩阵；</p>
-</li>
-<li><p>当一个标量与一个矩阵比较时，该标量与矩阵的各元素进行比较，结果形成一个与矩阵维数相等的0、1矩阵；</p>
-</li>
-<li><p>算术运算优先级最高，逻辑运算优先级最低。</p>
-</li>
+<li>D盘（程序盘）：一级目录为application、download、server、MyBlog。</li>
+<li>E盘（资料盘）：包括学习资料、我的工具，同时把桌面、document等等移到此盘下。</li>
+<li>F盘（游戏盘）：每个公司一个文件夹。Steam，Wegame，uplay等。</li>
 </ol>
-<h3 id="3、关系运算"><a href="#3、关系运算" class="headerlink" title="3、关系运算"></a>3、关系运算</h3><p>Matlab提供了6种关系运算符：&lt;、&gt;、&lt;=、&gt;=、==、~=（不等于）。</p>
-<p><strong>关系运算符的运算法则：</strong></p>
-<ol>
-<li><p>当两个标量进行比较时，直接比较两数大小。若关系成立，结果为1，否则为0。</p>
-</li>
-<li><p>当两个维数相等的矩阵进行比较时，其相应位置的元素按标量关系进行比较，并给出结果，形成一个维数与原来相同的0、1矩阵。</p>
-</li>
-<li><p>当一个标量与一个矩阵比较时，该标量与矩阵的各元素进行比较，结果形成一个与矩阵维数相等的0、1矩阵。</p>
-</li>
-</ol>
-<img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/2.png" class>
-
-<img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/3.png" class>
-
-<img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/4.png" class>
-
-<h2 id="二、向量与矩阵处理相关函数"><a href="#二、向量与矩阵处理相关函数" class="headerlink" title="二、向量与矩阵处理相关函数"></a>二、向量与矩阵处理相关函数</h2><h3 id="1、矩阵变换函数"><a href="#1、矩阵变换函数" class="headerlink" title="1、矩阵变换函数"></a>1、矩阵变换函数</h3><p>包括矩阵重排、矩阵抽取以及矩阵转向等。</p>
-<ol>
-<li><p>矩阵重排函数：<br>reshape(A,m,n)：把矩阵A中所有元素重新排列为m*n的矩阵，矩阵总元素数必须相等。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>;<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span></span><br><span class="line">     <span class="number">5</span>     <span class="number">6</span>     <span class="number">7</span>     <span class="number">8</span></span><br><span class="line">&gt;&gt; <span class="built_in">reshape</span>(a,<span class="number">4</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">1</span>     <span class="number">3</span></span><br><span class="line">     <span class="number">5</span>     <span class="number">7</span></span><br><span class="line">     <span class="number">2</span>     <span class="number">4</span></span><br><span class="line">     <span class="number">6</span>     <span class="number">8</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>矩阵抽取函数：<br>diag(A, k)：A为矩阵时，抽取矩阵A的第k条对角线。k可以为正整数也可以为负整数。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> ; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]</span><br><span class="line">A =</span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span></span><br><span class="line">     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span></span><br><span class="line">     <span class="number">7</span>     <span class="number">8</span>     <span class="number">9</span></span><br><span class="line">&gt;&gt; <span class="built_in">diag</span>(A)        <span class="comment">% 提取A的主对角线元素</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">1</span></span><br><span class="line">     <span class="number">5</span></span><br><span class="line">     <span class="number">9</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>矩阵转向函数：<br>transpose(A)：求矩阵A的转置。可以用单引号（’）直接代替transpose函数。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]</span><br><span class="line">A =</span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span></span><br><span class="line">     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span></span><br><span class="line">     <span class="number">7</span>     <span class="number">8</span>     <span class="number">9</span></span><br><span class="line">&gt;&gt; transpose(A)        <span class="comment">% 求A的转置</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">1</span>     <span class="number">4</span>     <span class="number">7</span></span><br><span class="line">     <span class="number">2</span>     <span class="number">5</span>     <span class="number">8</span></span><br><span class="line">     <span class="number">3</span>     <span class="number">6</span>     <span class="number">9</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="2、矩阵求值函数"><a href="#2、矩阵求值函数" class="headerlink" title="2、矩阵求值函数"></a>2、矩阵求值函数</h3><ul>
-<li>inv(A)：求可逆矩阵A的逆。</li>
-<li>det(A)：求方阵A所对应的行列式的值。</li>
-<li>rank(A)：求矩阵A的秩。</li>
-<li>trace(A)：求矩阵A的迹。</li>
-<li>eig(A)：求矩阵A的特征值和特征向量。</li>
-</ul>
-<h3 id="3、数据统计与分析中的矩阵函数："><a href="#3、数据统计与分析中的矩阵函数：" class="headerlink" title="3、数据统计与分析中的矩阵函数："></a><strong>3、数据统计与分析中的矩阵函数</strong>：</h3><h4 id="1）最大值和最小值"><a href="#1）最大值和最小值" class="headerlink" title="1）最大值和最小值"></a>1）最大值和最小值</h4><p>​      MATLAB提供的求数据序列的最大值和最小值的函数分别为max和min，两个函数的调用格式和操作过程类似。</p>
-<p><strong>1、求向量的最大值和最小值</strong></p>
-<p>求一个向量X的最大值的函数有两种调用格式，分别是：</p>
-<p>(1) y=max(X)：返回向量X的最大值存入y，如果X中包含复数元素，则按模取最大值；</p>
-<p>(2)[y,I]=max(X)：返回向量X的最大值存入y，最大值的序号存入I，如果X中包含复数元素，则按模取最大值。</p>
-<p>求向量X的最小值的函数是min(X)，用法和max(X)完全相同。</p>
-  <figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt;x=[<span class="number">-43</span>,<span class="number">72</span>,<span class="number">9</span>,<span class="number">16</span>,<span class="number">23</span>,<span class="number">47</span>];</span><br><span class="line">&gt;&gt;y=<span class="built_in">max</span>(x)     <span class="comment">%求向量x中的最大值</span></span><br><span class="line">&gt;&gt;y =</span><br><span class="line">&gt;&gt;<span class="number">72</span></span><br><span class="line">&gt;&gt;[y,l]=<span class="built_in">max</span>(x) <span class="comment">%求向量x中的最大值及其该元素的位置</span></span><br><span class="line">&gt;&gt;y =</span><br><span class="line">&gt;&gt;<span class="number">72</span></span><br><span class="line">&gt;&gt;l =</span><br><span class="line">&gt;&gt;<span class="number">2</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>2、求矩阵的最大值和最小值</strong></p>
-<p>求矩阵A的最大值的函数有3种调用格式，分别是：</p>
-<p>(1) max(A)：返回一个行向量，向量的第i个元素是矩阵A的第i列上的最大值；</p>
-<p>(2) [Y,U]=max(A)：返回行向量Y和U，Y向量记录A的每列的最大值，U向量记录每列最大值的行号；</p>
-<p>(3) max(A,[],dim)：dim取1或2。dim取1时，该函数和max(A)完全相同；dim取2时，该函数返回一个列向量，其</p>
-<p>第i个元素是A矩阵的第i行上的最大值。</p>
-<p>求最小值的函数是min，其用法和max完全相同。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt;x=[<span class="number">-43</span>,<span class="number">72</span>,<span class="number">9</span>; <span class="number">16</span>,<span class="number">23</span>,<span class="number">47</span>];</span><br><span class="line">&gt;&gt;y=<span class="built_in">max</span>(x)     <span class="comment">%求矩阵x中每列的最大值</span></span><br><span class="line">y =</span><br><span class="line">     <span class="number">16</span>  <span class="number">72</span>  <span class="number">47</span></span><br><span class="line">&gt;&gt;[y,l]=<span class="built_in">max</span>(x) <span class="comment">%求矩阵x中每列的最大值及其该元素的位置</span></span><br><span class="line">y =</span><br><span class="line">    <span class="number">16</span>  <span class="number">72</span>  <span class="number">47</span></span><br><span class="line">l =</span><br><span class="line">     <span class="number">2</span>  <span class="number">1</span>  <span class="number">2</span></span><br><span class="line">&gt;&gt;<span class="built_in">max</span>(x, [],<span class="number">1</span>), <span class="built_in">max</span>(x, [],<span class="number">2</span>) <span class="comment">%求矩阵中每行的最大值</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2）求和与求积"><a href="#2）求和与求积" class="headerlink" title="2）求和与求积"></a>2）求和与求积</h4><ul>
-<li><p>sum(X)：返回向量X各元素的和。</p>
-</li>
-<li><p>prod(X)：返回向量X各元素的乘积。</p>
-</li>
-<li><p>sum(A)：返回一个行向量，其第i个元素是A的第i列的元素和。</p>
-</li>
-<li><p>prod(A)：返回一个行向量，其第i个元素是A的第i列的元素乘积。</p>
-</li>
-<li><p>sum(A,dim)：当dim为1时，该函数等同于sum(A)；当dim为2时，返回一个列向量，其第i个元素是A的第i行</p>
-<p>的各元素之和。</p>
-</li>
-<li><p>prod(A,dim)：当dim为1时，该函数等同于prod(A)；当dim为2时，返回一个列向量，其第i个元素是A的第i行的各元素乘积。</p>
-</li>
-</ul>
-<h4 id="3）平均值与中值"><a href="#3）平均值与中值" class="headerlink" title="3）平均值与中值"></a>3）平均值与中值</h4><p>求数据序列平均值的函数是mean，求数据序列中值的函数是median。两个函数的调用格式为：</p>
-<ul>
-<li>mean(X)：返回向量X的算术平均值。</li>
-<li>median(X)：返回向量X的中值。</li>
-<li>mean(A)：返回一个行向量，其第i个元素是A的第i列的算术平均值。</li>
-<li>median(A)：返回一个行向量，其第i个元素是A的第i列的中值。</li>
-<li>mean(A,dim)：当dim为1时，该函数等同于mean(A)；当dim为2时，返回一个列向量，其第i个元素是A的第i行的算术平均值。</li>
-<li>median(A,dim)：当dim为1时，该函数等同于median(A)；当dim为2时，返回一个列向量，其第i个元素是A的第i行的中值。</li>
-</ul>
-<h3 id="4、元素排序"><a href="#4、元素排序" class="headerlink" title="4、元素排序"></a>4、元素排序</h3><p> Matlab中对向量X排序的函数是sort(X), 函数返回一个对X中的元素按升序排列的新向量。</p>
-<p>   sort函数也可以对矩阵A的各列（或行）重新排序，其调用格式为：</p>
-<p>   <code>[Y,I] = sort(A,dim)</code></p>
-<p>   dim=1,按列排序；dim=2,按行排序，Y是排序后的矩阵，I记录Y中的元素在A中的位置。</p>
-<p>命令如下：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span>,<span class="number">-8</span>,<span class="number">5</span>;<span class="number">4</span>,<span class="number">12</span>,<span class="number">6</span>;<span class="number">13</span>,<span class="number">7</span>,<span class="number">-13</span>];</span><br><span class="line"> <span class="built_in">sort</span>(A)</span><br><span class="line"> <span class="built_in">ans</span> =</span><br><span class="line"> <span class="number">1</span>    <span class="number">-8</span>   <span class="number">-13</span></span><br><span class="line"> <span class="number">4</span>     <span class="number">7</span>     <span class="number">5</span></span><br><span class="line"><span class="number">13</span>    <span class="number">12</span>     <span class="number">6</span></span><br><span class="line">-<span class="built_in">sort</span>(-A,<span class="number">2</span>)  <span class="comment">%对A的每行按降序排列</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"><span class="number">5</span>       <span class="number">1</span>    <span class="number">-8</span></span><br><span class="line"><span class="number">12</span>     <span class="number">6</span>     <span class="number">4</span></span><br><span class="line"><span class="number">13</span>     <span class="number">7</span>   <span class="number">-13</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="三、多项式"><a href="#三、多项式" class="headerlink" title="三、多项式"></a>三、多项式</h2><h3 id="1、多项式的MATLAB表达"><a href="#1、多项式的MATLAB表达" class="headerlink" title="1、多项式的MATLAB表达"></a><strong>1、多项式的MATLAB表达</strong></h3><p>多项式由一个行向量表示：</p>
-<ul>
-<li>该向量元素是该多项式的系数</li>
-<li>且按降幂次序排列  </li>
-</ul>
-<p>如：多项式x4－12x3＋25x＋116由行向量：</p>
-<p>​      <code>p=[1  -12  0  25  116]</code>表示。</p>
-<p><strong>注意，必须包括具有零系数的项。</strong></p>
-<h3 id="2、求解多项式的根？"><a href="#2、求解多项式的根？" class="headerlink" title="2、求解多项式的根？"></a><strong>2、求解多项式的根？</strong></h3><p>roots指令。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt;p=[<span class="number">1</span>  <span class="number">-12</span>  <span class="number">0</span>  <span class="number">25</span>  <span class="number">116</span>]</span><br><span class="line">p =</span><br><span class="line">     <span class="number">1</span>   <span class="number">-12</span>     <span class="number">0</span>    <span class="number">25</span>   <span class="number">116</span></span><br><span class="line">&gt;&gt;r=roots(p)</span><br><span class="line">r =</span><br><span class="line">  <span class="number">11.7473</span>          </span><br><span class="line">   <span class="number">2.7028</span>          </span><br><span class="line">  <span class="number">-1.2251</span> + <span class="number">1.4672</span><span class="built_in">i</span></span><br><span class="line">  <span class="number">-1.2251</span> - <span class="number">1.4672</span><span class="built_in">i</span></span><br></pre></td></tr></table></figure>
-
-<p>MATLAB按惯例规定，多项式是行向量，根是列向量。</p>
-<h3 id="3、已知多项式的根，求解多项式-？"><a href="#3、已知多项式的根，求解多项式-？" class="headerlink" title="3、已知多项式的根，求解多项式 ？"></a><strong>3、已知多项式的根，求解多项式 ？</strong></h3><p>使用ploy指令。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; pp=poly(r)</span><br><span class="line">pp =</span><br><span class="line">    <span class="number">1.0000</span>  <span class="number">-12.0000</span>   <span class="number">-0.0000</span>   <span class="number">25.0000</span>  <span class="number">116.0000</span></span><br></pre></td></tr></table></figure>
-
-<p>即：x4－12x3＋25x＋116。</p>
-<h3 id="4、多项式的乘法-conv指令"><a href="#4、多项式的乘法-conv指令" class="headerlink" title="4、多项式的乘法(conv指令)"></a><strong>4、多项式的乘法(conv指令)</strong></h3><p>举例：多项式 a(x)=x3＋2x2＋3x＋4 和 b(x)= x3＋4x2＋9x＋16 的乘积。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; a=[<span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>] ;  b=[<span class="number">1</span>  <span class="number">4</span>  <span class="number">9</span>  <span class="number">16</span>];</span><br><span class="line">c=conv(a, b)</span><br><span class="line">c =</span><br><span class="line">     <span class="number">1</span>     <span class="number">6</span>    <span class="number">20</span>    <span class="number">50</span>    <span class="number">75</span>    <span class="number">84</span>    <span class="number">64</span></span><br></pre></td></tr></table></figure>
-
-<p>两个以上的多项式的乘法需要重复使用conv. </p>
-<h3 id="5、多项式加法"><a href="#5、多项式加法" class="headerlink" title="5、多项式加法"></a><strong>5、多项式加法</strong></h3><p>MATLAB没有提供进行加法运算的函数。</p>
-<p>1）如果两个多项式向量大小相同，标准的数组加法有效。把多项式a(x)与上面给出的b(x)相加。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; d=a+b</span><br><span class="line">d =</span><br><span class="line">     <span class="number">2</span>     <span class="number">6</span>    <span class="number">12</span>    <span class="number">20</span></span><br></pre></td></tr></table></figure>
-
-<p>结果: d(x)= 2x3＋6x2＋12x＋20<br>2）当两个多项式阶次不同，低阶的多项式必须用首零填补，使其与高阶多项式有同样的阶次。<br>考虑上面多项式c和d相加：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt;  e=c+[<span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>  d]</span><br><span class="line">e =</span><br><span class="line">     <span class="number">1</span>     <span class="number">6</span>    <span class="number">20</span>    <span class="number">52</span>    <span class="number">81</span>    <span class="number">96</span>    <span class="number">84</span></span><br></pre></td></tr></table></figure>
-
-<p>结果: e(x)= x6+6x5+20x4+52x3+81x2+96x+84</p>
-<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a><strong>案例</strong></h4><p>问题：编写一个多项式加法运算的函数文件。</p>
-<p>明确需求：</p>
-<p>定义一个函数，需要有两个输入参数（比如：p1、p2），一个输出参数p_out。</p>
-<p>p1、p2表示两个待计算的多项式。</p>
-<p>p_out表示两个多项式的求和结果。</p>
-<p>函数的内部处理：</p>
-<ul>
-<li><p>若p1、p2两参数大小相等，则直接相加: p_out=p1+p2</p>
-</li>
-<li><p>若p1、p2两参数大小不等：</p>
-<ul>
-<li><p>If length(p1)&gt;length(p2)</p>
-<p>P2前面要补0元素，使p1、p2两参数大小相等</p>
-</li>
-<li><p>否则</p>
-<p>P1前面要补0元素，使p1、p2两参数大小相等</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>函数文件的编写：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">p_out</span>=<span class="title">poly_sum</span><span class="params">(p1, p2)</span></span></span><br><span class="line"><span class="comment">% calculate the sum of two polynomials </span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> <span class="built_in">length</span>(p1)==<span class="built_in">length</span>(p2)</span><br><span class="line">    p_out=p1+p2;</span><br><span class="line"><span class="keyword">elseif</span> <span class="built_in">length</span>(p1)&gt;<span class="built_in">length</span>(p2)</span><br><span class="line">    p2=[<span class="built_in">zeros</span>(<span class="number">1</span>,<span class="built_in">length</span>(p1)-<span class="built_in">length</span>(p2)), p2];</span><br><span class="line">    p_out=p1+p2;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    p1=[<span class="built_in">zeros</span>(<span class="number">1</span>,<span class="built_in">length</span>(p2)-<span class="built_in">length</span>(p1)), p1];</span><br><span class="line">    p_out=p1+p2;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="6、多项式的除法-deconv"><a href="#6、多项式的除法-deconv" class="headerlink" title="6、多项式的除法(deconv)"></a>6、多项式的除法(deconv)</h3><p>举例说明：</p>
-<p>c(x)=x6＋6x5＋20x4＋50x3＋75x2＋84x＋64 除以 b(x)= x3＋4x2＋9x＋16</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; c=[<span class="number">1</span>     <span class="number">6</span>    <span class="number">20</span>    <span class="number">50</span>    <span class="number">75</span>    <span class="number">84</span>    <span class="number">64</span>];</span><br><span class="line">&gt;&gt; b=[<span class="number">1</span>  <span class="number">4</span>  <span class="number">9</span>  <span class="number">16</span>];</span><br><span class="line">&gt;&gt;  [q , r]=deconv(c , b)</span><br><span class="line">q =</span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span></span><br><span class="line">r =</span><br><span class="line">     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="7、多项式的导数-polyder"><a href="#7、多项式的导数-polyder" class="headerlink" title="7、多项式的导数 (polyder)"></a>7、多项式的导数 (polyder)</h3><p>举例：求b(x)= x3＋4x2＋9x＋16的导数。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; b=[<span class="number">1</span>     <span class="number">4</span>     <span class="number">9</span>    <span class="number">16</span>];</span><br><span class="line">&gt;&gt; d=polyder(b)</span><br><span class="line">d =</span><br><span class="line">     <span class="number">3</span>     <span class="number">8</span>     <span class="number">9</span></span><br></pre></td></tr></table></figure>
-
-<p>结果为： 3x2＋8x＋9。另外两种形式为：</p>
-<ul>
-<li>p = polyder(P,Q)：求P*Q的导函数</li>
-<li>[p,q] = polyder(P,Q)：求P/Q的导函数，导数分子存入p,分母存入q</li>
-</ul>
-<h3 id="8、多项式的估值-polyval"><a href="#8、多项式的估值-polyval" class="headerlink" title="8、多项式的估值(polyval)"></a>8、多项式的估值(polyval)</h3><p>举例：绘制p(x) = x3＋4x2－7x－10在[-1, 3]段上的曲线。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">x=<span class="built_in">linspace</span>(<span class="number">-1</span>, <span class="number">3</span>);  <span class="comment">% choose 100 data points between -1and 3.</span></span><br><span class="line">p=[<span class="number">1</span>  <span class="number">4</span>  <span class="number">-7</span>  <span class="number">-10</span>]; </span><br><span class="line">v=polyval(p, x);</span><br><span class="line"> </span><br><span class="line"><span class="built_in">plot</span>(x, v);</span><br><span class="line">title(<span class="string">'x^&#123;3&#125;+4x^&#123;2&#125;-7x-10'</span>);</span><br><span class="line">xlabel(<span class="string">'x'</span>)</span><br></pre></td></tr></table></figure>
-
-<img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/5.png" class>
-
-<h2 id="四、矩阵求逆与线性方程组求解"><a href="#四、矩阵求逆与线性方程组求解" class="headerlink" title="四、矩阵求逆与线性方程组求解"></a>四、矩阵求逆与线性方程组求解</h2><h3 id="1、矩阵的逆"><a href="#1、矩阵的逆" class="headerlink" title="1、矩阵的逆"></a>1、矩阵的逆</h3><p>对于一个方阵A，如果存在一个与其同阶的方阵B，使得：A·B=B·A=I  (I为单位矩阵）。</p>
-<p>则称B为A的逆矩阵，当然，A也是B的逆矩阵。求方阵A的逆矩阵可调用函数inv(A)。</p>
-<p>例5.18 求方阵A的逆矩阵，且验证。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span>,<span class="number">-1</span>,<span class="number">1</span>;<span class="number">5</span>,<span class="number">-4</span>,<span class="number">3</span>;<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>];</span><br><span class="line">B = inv(A);</span><br><span class="line">A*B</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">   <span class="number">1.0000</span>         <span class="number">0</span>         <span class="number">0</span></span><br><span class="line">  <span class="number">-0.0000</span>    <span class="number">1.0000</span>         <span class="number">0</span></span><br><span class="line">  <span class="number">-0.0000</span>         <span class="number">0</span>    <span class="number">1.0000</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2、用矩阵求逆方法求解线性方程组"><a href="#2、用矩阵求逆方法求解线性方程组" class="headerlink" title="2、用矩阵求逆方法求解线性方程组"></a>2、用矩阵求逆方法求解线性方程组</h3><img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/6.png" class>
-
-<p><strong>例题：</strong></p>
-<img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/7.png" class>
-
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>;<span class="number">1</span>,<span class="number">8</span>,<span class="number">27</span>];</span><br><span class="line">b = [<span class="number">5</span>,<span class="number">-2</span>,<span class="number">6</span>]’;</span><br><span class="line">x = inv(A)*b   <span class="comment">%x = A\b</span></span><br><span class="line">x =</span><br><span class="line">  <span class="number">23.0000</span></span><br><span class="line"> <span class="number">-14.5000</span></span><br><span class="line">   <span class="number">3.6667</span></span><br></pre></td></tr></table></figure>
-
-<p>也可以运用左除运算符求解。</p>
-]]></content>
-      <categories>
-        <category>MATLAB</category>
-      </categories>
-      <tags>
-        <tag>MATLAB</tag>
-        <tag>Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python入门小结（二）</title>
-    <url>/2020/03/17/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<p>基于上篇博客介绍了一些很基本的Python语法，如数据类型，输入输出，运算符等等，此篇博客继续总结选择、循环等结构。</p>
-<a id="more"></a>
-
-<hr>
-<h2 id="一、if-else选择"><a href="#一、if-else选择" class="headerlink" title="一、if-else选择"></a>一、if-else选择</h2><h3 id="1、if-else语法"><a href="#1、if-else语法" class="headerlink" title="1、if-else语法"></a>1、if-else语法</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> 条件:</span><br><span class="line">	条件成立执行的代码<span class="number">1</span></span><br><span class="line">    条件成立执行的代码<span class="number">2</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> 条件:</span><br><span class="line">        此为嵌套</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">elif</span> 条件<span class="number">2</span>:</span><br><span class="line">    代码</span><br><span class="line"><span class="keyword">elif</span> 条件<span class="number">3</span>:</span><br><span class="line">    代码</span><br><span class="line">...</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    代码<span class="number">3</span></span><br><span class="line">    代码<span class="number">4</span></span><br><span class="line">代码<span class="number">5</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：</strong>if条件成立，执行后面带缩进的代码，而代码5则不属于if-else的语句块，与条件成立与否无关。</p>
-<p><strong>案例</strong>：猜拳</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1、出拳</span></span><br><span class="line"><span class="comment"># 玩家</span></span><br><span class="line">player = int(input(<span class="string">'请出拳(0--石头，1--剪刀，2--布):'</span>))</span><br><span class="line"><span class="comment">#电脑</span></span><br><span class="line">computer = random.randint(<span class="number">0</span>,<span class="number">2</span>)</span><br><span class="line">print(computer)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2、判断输赢</span></span><br><span class="line"><span class="comment">#获胜</span></span><br><span class="line"><span class="keyword">if</span>((player == <span class="number">0</span>) <span class="keyword">and</span> (computer == <span class="number">1</span>)) <span class="keyword">or</span> ((player == <span class="number">1</span>) <span class="keyword">and</span> (computer == <span class="number">2</span>)) <span class="keyword">or</span> ((player == <span class="number">2</span>) <span class="keyword">and</span> (computer == <span class="number">0</span>)):</span><br><span class="line">    print(<span class="string">'玩家获胜'</span>)</span><br><span class="line"><span class="comment">#平局</span></span><br><span class="line"><span class="keyword">elif</span> player == computer:</span><br><span class="line">    print(<span class="string">'平局'</span>)</span><br><span class="line"><span class="comment">#失败</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'失败'</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、三目运算符"><a href="#2、三目运算符" class="headerlink" title="2、三目运算符"></a>2、三目运算符</h3><p>语法：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">条件成立执行的表达式 <span class="keyword">if</span> 条件 <span class="keyword">else</span> 条件不成立的表达式</span><br><span class="line">c = a <span class="keyword">if</span> a&gt;b <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、循环"><a href="#二、循环" class="headerlink" title="二、循环"></a>二、循环</h2><p>包括while和for循环。</p>
-<h3 id="1、while循环"><a href="#1、while循环" class="headerlink" title="1、while循环"></a>1、while循环</h3><p>语法</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> 条件:</span><br><span class="line">    条件成立执行的代码</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、for循环"><a href="#2、for循环" class="headerlink" title="2、for循环"></a>2、for循环</h3><p>语法</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> 临时变量 <span class="keyword">in</span> 序列:</span><br><span class="line">    重复执行的代码</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
-
-<p>例如：循环输出字符串中的每个字符。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str = <span class="string">'hello world'</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> str:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
-
-<h3 id="3、while…else-for…else"><a href="#3、while…else-for…else" class="headerlink" title="3、while…else/for…else"></a>3、while…else/for…else</h3><p>语法</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> 条件:</span><br><span class="line">    条件成立执行的代码</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    循环正常结束执行的代码</span><br></pre></td></tr></table></figure>
-
-<p>只有在循环正常结束时才会执行else里的内容，如果while里用break中止循环，则不会执行else里的语句。反之，continue可以执行else里的内容。</p>
-<p>for…else语法类似。</p>
-<h2 id="三、字符串"><a href="#三、字符串" class="headerlink" title="三、字符串"></a>三、字符串</h2><h3 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h3><p>有三种方法，单引、双引和三引。 在三引号里回车换行会原样显示。</p>
-<h3 id="2、下标"><a href="#2、下标" class="headerlink" title="2、下标"></a>2、下标</h3><p>在python中，可以用下标查询字符串中的相应字符。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str = <span class="string">'hello world'</span></span><br><span class="line">print(str[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-
-<h3 id="3、切片"><a href="#3、切片" class="headerlink" title="3、切片"></a>3、切片</h3><p>切片是指对操作的对象截取其中一部分的操作。字符串、列表和元组都支持切片操作。</p>
-<h4 id="1）语法"><a href="#1）语法" class="headerlink" title="1）语法"></a>1）语法</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">序列[开始位置下标:结束位置下标:步长]</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：</strong></p>
-<ul>
-<li>不包含结束位置下标对应的数据，正负整数均可。</li>
-<li>步长是选取间隔，正负整数均可，默认步长为1。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str = <span class="string">'01234567'</span></span><br><span class="line">print(str[<span class="number">2</span>:<span class="number">5</span>:<span class="number">1</span>])   <span class="comment">#234</span></span><br><span class="line">print(str[<span class="number">2</span>:<span class="number">5</span>:<span class="number">2</span>])   <span class="comment">#24</span></span><br><span class="line">print(str[<span class="number">2</span>:<span class="number">5</span>])     <span class="comment">#234</span></span><br><span class="line">print(str[:<span class="number">5</span>])      <span class="comment">#01234</span></span><br><span class="line">print(str[<span class="number">2</span>:])      <span class="comment">#234567</span></span><br><span class="line">print(str[:])       <span class="comment">#01234567</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#负数测试</span></span><br><span class="line">print(str[::<span class="number">-1</span>])    <span class="comment">#76543210 如果步长为负数，表示倒叙选取</span></span><br><span class="line">print(str[<span class="number">-4</span>:<span class="number">-1</span>])   <span class="comment">#456 表示从-4到-1位置输出，即倒数第四个到倒数第1个</span></span><br><span class="line"></span><br><span class="line">print(str[<span class="number">-4</span>:<span class="number">-1</span>:<span class="number">-1</span>])<span class="comment">#不能选取出数据：从-4开始到-1结束，选取方向为从左到右，但步长为-1，代表从右向左选取</span></span><br><span class="line"><span class="comment">#如果选取方向（下标开始到结束的方向）和 步长的方向冲突，则无法选取数据。</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4、字符串的常用操作方法"><a href="#4、字符串的常用操作方法" class="headerlink" title="4、字符串的常用操作方法"></a>4、字符串的常用操作方法</h3><p>主要包括查找、修改和判断三大类。</p>
-<h4 id="1）查找"><a href="#1）查找" class="headerlink" title="1）查找"></a>1）查找</h4><p>查找子串在字符串中的位置或者出现的次数。</p>
-<ul>
-<li><p>find()：检查某个子串是否包含在这个字符串中，如果存在返回这个子串开始的位置下标，否则则返回-1。</p>
-<p><strong>语法</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.find(子串,开始位置下标,结束位置下标)</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意</strong>：开始和结束位置下标可以省略，表示在整个字符串序列中查找</p>
-</li>
-<li><p>index()：和find()用法几乎一致。唯一不同：如果字串不存在，则系统报错。</p>
-</li>
-<li><p>count()：返回对应子串出现的次数</p>
-<p><strong>语法</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.count(子串,开始位置下标,结束位置下标)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>rfind()，rindex()：用法一致，查找顺序从右边开始。</p>
-</li>
-</ul>
-<h4 id="2）修改"><a href="#2）修改" class="headerlink" title="2）修改"></a>2）修改</h4><ul>
-<li><p>replace：替换</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.replace(旧子串,新子串,替换次数)</span><br></pre></td></tr></table></figure>
-
-<p>原有字符串不会做出修改，函数返回修改后的结果。</p>
-</li>
-<li><p>split()：分割，返回一个列表，丢失分割字符。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.split(分割字符,num)</span><br></pre></td></tr></table></figure>
-
-<p>num表示的是分割字符出现的次数，即将来返回数据个数为num+1个。</p>
-</li>
-<li><p>join()：合并列表里的字符串数据为一个大字符串。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符或子串.join(多字符串组成的序列)</span><br></pre></td></tr></table></figure>
-
-<p><strong>举例</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list = [<span class="string">'11'</span>,<span class="string">'22'</span>,<span class="string">'33'</span>,<span class="string">'44'</span>]</span><br><span class="line">print(<span class="string">'_'</span>.join(list)) 	<span class="comment">#结果 11_22_33_44</span></span><br></pre></td></tr></table></figure>
-
-<p>以上三个函数重点掌握。</p>
-</li>
-<li><p><strong>转换</strong></p>
-<p>capitalize()：讲字符串第一个字符转换成大写。</p>
-<p>title()：将字符串每个单词首字母转换成大写。</p>
-<p>lower()：讲字符串中大写转小写。</p>
-<p>upper()：小写转大写。</p>
-</li>
-<li><p>删除空白</p>
-<p>lstrip()：删除字符串左侧空白字符。</p>
-<p>rstrip()：删除字符串右侧空白字符。</p>
-<p>strip()：删除字符串两侧空白字符。</p>
-</li>
-</ul>
-<h4 id="3）判断"><a href="#3）判断" class="headerlink" title="3）判断"></a>3）判断</h4><p>判断真假，返回布尔的真假。</p>
-<ul>
-<li><p>startwith()：检查字符串是否以指定子串开头，是则返回True。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.startwith(子串,开始位置下标,结束位置下标)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>endwith()：检查字符串是否以指定子串结尾，是则返回True。</p>
-</li>
-<li><p>其他函数：</p>
-<ul>
-<li><p>isalpha()：如果字符串至少有一个字符并且所有字符都是字母返回True。</p>
-</li>
-<li><p>isdigit()：如果字符串只包含数字则返回True。</p>
-</li>
-<li><p>isalnum()：如果字符串至少有一个字符并且所有字符串都是字母或数字。</p>
-</li>
-<li><p>isspace()：如果字符串只包含空白。</p>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Reinvent(4.6)</title>
-    <url>/2020/04/06/Reinvent-4-6/</url>
-    <content><![CDATA[<p>4.6日总结。</p>
-<a id="more"></a>
-
-<hr>
-<p><strong>上午总结</strong>：7:00~12:40：打球洗澡等等。学习概率论40分钟，Android30分钟，效率不高，手机视频刷了一些。</p>
-<p><strong>下午晚上总结</strong>：抗干扰能力真的很差，又发火了，但是我觉得是必要的，打了一晚上游戏，看直播，浑浑噩噩。</p>
-<p>今日总结：</p>
-<p>客观条件真的有限，希望不要真的就堕落吧，尽全力完成该完成的。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Java、PHP（php_study）</p>
+<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><h3 id="学习类"><a href="#学习类" class="headerlink" title="学习类"></a>学习类</h3><h4 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h4><p>IDEA、PyCharm、PHPStorm、AS、CodeBlocks、Eclipse、VS、VSCode</p>
+<p>（与Github绑定）</p>
+<h4 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h4><p>HBulider、Notepad++、Sublime Text、RegexBuddy</p>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>MySQL、Redis、Navicat For MySQL、SQLiteStudio、SQL server</p>
+<h4 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h4><p>VM、Genymotion</p>
+<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>Xftp、Xshell</p>
+<h3 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h3><p>chrome、Firefox</p>
+<p>WPS、Everything、印象笔记、bandzip、有道翻译、</p>
+<p>Iris（护眼）、百度网盘、迅雷、</p>
+<p>格式工厂、PS，PR、ScreenToGif、小蝴蝶</p>
+<h3 id="娱乐类"><a href="#娱乐类" class="headerlink" title="娱乐类"></a>娱乐类</h3><p>微信、TIM、QQ、网易云音乐、腾讯视频、</p>
+<p>网易加速、雷神加速、Steam（Wallpaper Engine）、WeGame、暴雪战网</p>
+<h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>VM中建立自己的Linux系统。</p>
 ]]></content>
       <categories>
         <category>Reinvent</category>
       </categories>
       <tags>
         <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Reinvent(4.7)</title>
-    <url>/2020/04/07/Reinvent-4-7/</url>
-    <content><![CDATA[<p>4.7日总结。</p>
-<a id="more"></a>
-
-<hr>
-<p><strong>上午总结</strong></p>
-<p>上课的同时做PPT，群内三人讨论，成果还可以。</p>
-<p><strong>下午晚上总结</strong></p>
-<p>发挥的不错进行了建民的原型展示，但是，之后的时间都废掉了，唉，不能把上完建民课就看成了万事大吉。</p>
-]]></content>
-      <categories>
-        <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Reinvent(5.2)</title>
-    <url>/2020/05/02/Reinvent-5-2/</url>
-    <content><![CDATA[<p>5.2日</p>
-<a id="more"></a>
-
-<hr>
-<p>昨天一天都在学习MATLAB，完成了实验二和实验三的一小部分，效率低下，归根结底，没有好好的为自己做计划。</p>
-<p><strong>今日计划</strong></p>
-<table>
-<thead>
-<tr>
-<th>时间</th>
-<th>内容</th>
-<th>计划用时</th>
-<th>实际用时</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>上午</td>
-<td>MATLAB实验三完成，理解各种命令。</td>
-<td>90min</td>
-<td>170min</td>
-</tr>
-<tr>
-<td></td>
-<td>计网四页PPT作业完成</td>
-<td>120min</td>
-<td>60min+？</td>
-</tr>
-<tr>
-<td></td>
-<td>上午的体育活动</td>
-<td>30min</td>
-<td>完成</td>
-</tr>
-<tr>
-<td>下午</td>
-<td>概率论与数理统计复习和作业10</td>
-<td>90min</td>
-<td>未完成</td>
-</tr>
-<tr>
-<td></td>
-<td>博客搜索功能改善</td>
-<td>30min</td>
-<td>5min</td>
-</tr>
-<tr>
-<td></td>
-<td>数据库原理第六章复习</td>
-<td>30min</td>
-<td>未完成</td>
-</tr>
-<tr>
-<td>晚上</td>
-<td>PHP复习</td>
-<td>60min</td>
-<td>30min+30min</td>
-</tr>
-<tr>
-<td></td>
-<td>晚上的体育活动</td>
-<td>30min</td>
-<td>未完成</td>
-</tr>
-</tbody></table>
-<p>今天早上6点起来做的规划，加油。</p>
-<p>我再坚持五分钟，下次我一定放弃。</p>
-<p><strong>上午总结</strong></p>
-<p>截止9：30完成matlab的实验内容，效率不高，命令不熟悉，没学过，现学，花费时间长。</p>
-<p>第一项比计划多出一个多小时的完成时间</p>
-<p>计网任务完成不到一半用时一个小时，预计还需要一个半小时完成。</p>
-<p><strong>下午晚上</strong></p>
-<p>其实脑子蛮清醒，也不是不想干，就是不知道干什么？</p>
-<p>想做些电脑上学习的事，但是剩下的计划都是纸上书上，或者是Android这样的大项目，有点无从下手。</p>
-]]></content>
-      <categories>
-        <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>We Are All Fighters</title>
-    <url>/2020/03/03/We-Are-All-Fighters/</url>
-    <content><![CDATA[<iframe src="//player.bilibili.com/player.html?aid=90376384&cid=154346256&page=1" width="100%" height="450" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-​          <p align="right"> <b>  ————To the battle we are fighting</b></p>]]></content>
-      <categories>
-        <category>video</category>
-      </categories>
-      <tags>
-        <tag>epidemic</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Reinvent(4.23)</title>
-    <url>/2020/04/23/Reinvent-4-23/</url>
-    <content><![CDATA[<p>总结从4.16~4.23这一个周。</p>
-<a id="more"></a>
-
-<hr>
-<p>虽然写了十天时光荒废的总结，但还是没有真正的提高效率。</p>
-<p>就强了一点每天的学习偶尔跟跟，作业写写抄抄。</p>
-<p>别人的第一阶段十天冲刺都进行到第八九天了，而我还没开始。</p>
-<p>想了想，问题可能还是每天没有目标吧。</p>
-<p>我决定从现在开始，每天改变自己一点</p>
-<p>下一天的目标前一天晚上想好，写下来</p>
-<p>当天的目标认真落实，每天总结，要细致</p>
-<p>一百天自我改造计划，从现在开始</p>
-<p>一定要记住！！是现在，不是一会，更不是明天！</p>
-<p>今晚目标</p>
-<p>概率论考试完成，预习三四个超星视频</p>
-<p>看直播少于30分钟</p>
-<p>练习体育交叉步，平板支撑，马步</p>
-<p>明天目标</p>
-<p>上午，预习概率论四五个视频，上课好好听讲，不要看直播，少玩手机</p>
-<p>中午，少玩手机，认真睡觉，无聊就看看app记账本视频。</p>
-]]></content>
-      <categories>
-        <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Reinvent(4.5)</title>
-    <url>/2020/04/05/Reinvent-4-5/</url>
-    <content><![CDATA[<p>4.5总结</p>
-<a id="more"></a>
-
-<hr>
-<table>
-<thead>
-<tr>
-<th align="center">时间</th>
-<th align="center">内容</th>
-<th align="center">备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">7:20~7:47</td>
-<td align="center">计网</td>
-<td align="center">IP编码（第三次演变）</td>
-</tr>
-<tr>
-<td align="center">7:55~8:10</td>
-<td align="center">计网</td>
-<td align="center">NAT（网络地址转换）</td>
-</tr>
-<tr>
-<td align="center">8:15~8:35</td>
-<td align="center">计网</td>
-<td align="center">哈工大视频（走神严重，效率为0）</td>
-</tr>
-<tr>
-<td align="center">8:35~9.20</td>
-<td align="center">Android</td>
-<td align="center">更新配置新版Android Studio<br>聊天、刷手机、吃苹果</td>
-</tr>
-<tr>
-<td align="center">9:20~11:00</td>
-<td align="center">Android</td>
-<td align="center">看了一个小时左右的视频教程（效率不高）</td>
-</tr>
-</tbody></table>
-<p><strong>上午总结</strong>：容易犯困，脑袋疼，效率不高。但玩的时间不多，主要是注意力不集中。继续加油，好好干。</p>
-<table>
-<thead>
-<tr>
-<th>时间</th>
-<th>内容</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>11:10~1:40</td>
-<td>吃饭午休</td>
-<td>效率极低，大量时间浪费在玩手机上，不能边吃饭边玩手机</td>
-</tr>
-</tbody></table>
-<p><strong>中午总结</strong>：没能好好休息，觉得上午干的不错就又放松了警惕。</p>
-<table>
-<thead>
-<tr>
-<th>时间</th>
-<th>内容</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1:40~4:00</td>
-<td>Android</td>
-<td>复习UI控件的使用，效率还可以</td>
-</tr>
-<tr>
-<td>7:00~9:00</td>
-<td>Android</td>
-<td>学习新知识，晚上，效率不大行</td>
-</tr>
-</tbody></table>
-<p><strong>疑难总结</strong></p>
-<ol>
-<li><p>首先是strings.xml中字符串的引用，在代码中需要这样做</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String Chinese = getResources().getString(R.string.checkbox1);</span><br></pre></td></tr></table></figure>
-
-<p>在theFirst工程下的ui目录，总结各种的ui控件使用和每种控件的监听器基本调用，不难，但是很杂。</p>
-</li>
-<li><p>ProgressBar(Horizontal)中设置indeterminate为true，可以使该水平加载条动态加载显示。</p>
-</li>
-<li><p>设置多语言可翻译的app，在strings.xml中添加外国语言。</p>
-</li>
-<li><p>设置屏幕反转，在activity标签里添加<code>&lt;activity android:screenOrientation=&quot;fullSensor&quot;&gt;</code></p>
-</li>
-</ol>
-<p><strong>总学习时常</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">内容</th>
-<th align="center">时长</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">计网</td>
-<td align="center">40</td>
-</tr>
-<tr>
-<td align="center">Android</td>
-<td align="center">30+60+120+30</td>
-</tr>
-<tr>
-<td align="center"><strong>总时长</strong></td>
-<td align="center"><strong>4h40min</strong></td>
-</tr>
-</tbody></table>
-<p><strong>今日总结</strong>：</p>
-<p>还是没有做到稳扎稳打，中午很不对劲，结束的早，11：00开始就玩起手机，边玩边做饭还边想着学习，结果什么都没干好，直播不能再这么沉迷的看，结果中午午睡也没有睡好。</p>
-<p>下午时间少，晚上效率不高，做的东西学的知识少。</p>
-<p>还是太多分心，学习的时候好好学，玩的时候好好玩。</p>
-]]></content>
-      <categories>
-        <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>云服务器Ubuntu的搭建</title>
-    <url>/2020/03/01/web%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
-    <content><![CDATA[<p>主要是总结这次搭建云服务器时的配置操作。</p>
-<a id="more"></a>
-
-<p>执行下列命令：</p>
-<p>1、<code>sudo apt-get update</code></p>
-<p>2、<code>apt-get install openssh-server</code></p>
-<p>3、<code>apt-get install default-jre</code></p>
-<p>4、<code>apt-get install default-jdk</code></p>
-<p>5、<code>cd /usr/local</code>该目录下一般装一些自己的软件</p>
-<p>6、<code>wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-9/v9.0.31/bin/apache-tomcat-9.0.31.tar.gz</code>   wget一般用于下载一些网络地址的资源（此处资源为Tomcat9）</p>
-<p>7、<code>ll -s</code>  查看当前文件夹的内容</p>
-<img src="/2020/03/01/web%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/1.png" class>
-
-<p>如图，蓝色代表文件夹，红色表示压缩包，浅蓝色代表快捷方式。</p>
-<p>8、<code>tar -zxvf apache-tomcat-9.0.31.tar.gz</code> 进行解压缩</p>
-<p>9、进入到apache的bin目录下，利用命令<code>./startup.sh</code> 启动。</p>
-<p>10、<code>./shutdown.sh</code> 停止服务。</p>
-<p>11、<code>cd ..   cd conf</code>进入conf目录，然后``vi server.xml<code>，使用</code>i` 命令进行编辑。</p>
-<p>将端口改为80，保存退出。</p>
-]]></content>
-      <categories>
-        <category>PHP</category>
-      </categories>
-      <tags>
-        <tag>云服务器</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>最爱的BGM</title>
-    <url>/2020/02/28/%E6%9C%80%E7%88%B1%E7%9A%84BGM/</url>
-    <content><![CDATA[<p>44首BGM，请君欣赏。</p>
-<a id="more"></a>
-
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=3222803102&auto=1&height=430"></iframe>
-[网易云歌单链接]: https://music.163.com/#/playlist?id=3222803102&amp;userid=42466756]]></content>
-      <categories>
-        <category>娱乐</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Android Jetpack架构组件（一）</title>
-    <url>/2020/04/05/Android-1/</url>
-    <content><![CDATA[<p>开始学习Android Jetpack相关知识。</p>
-<a id="more"></a>
-
-<hr>
-<p>首先补充一点内容。</p>
-<h3 id="设置app的横屏和竖屏"><a href="#设置app的横屏和竖屏" class="headerlink" title="设置app的横屏和竖屏"></a>设置app的横屏和竖屏</h3><p>设置app某个界面的横屏和竖屏的不同显示方式。</p>
-<img src="/2020/04/05/Android-1/1.png" class>
-
-<p>即可创建当前页面的一个横屏副本。</p>
-<p>app页面的横屏和竖屏转换是一个Activity的杀死重创建的过程，即界面被刷新，如果当前界面的数据没保存，则会丢失。</p>
-<p>如果需要临时保存当前页面的数据，使其在反转后数据不丢失，则需要以下操作。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//首先注意onCreate(Bundle savedInstanceState)的参数，为保存当前页面的临时数据，Bundle类为key:value形式。</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        button = findViewById(R.id.button);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>)&#123;</span><br><span class="line">            String s = savedInstanceState.getString(<span class="string">"KEY"</span>);</span><br><span class="line">            textView.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">        button.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                textView.setText(R.string.button);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle outState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onSaveInstanceState(outState);</span><br><span class="line">        outState.putString(<span class="string">"KEY"</span>, textView.getText().toString());<span class="comment">//存入Bundle对象，便于onCreate方法取出</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Android-Jetpack"><a href="#Android-Jetpack" class="headerlink" title="Android Jetpack"></a>Android Jetpack</h2><img src="/2020/04/05/Android-1/2.png" class>
-
-<p><strong>ViewModel</strong>：对象为特定的界面组件（如 Fragment 或 Activity）提供数据，并包含数据处理业务逻辑，以与模型进行通信。例如，ViewModel 可以调用其他组件来加载数据，还可以转发用户请求来修改数据。ViewModel 不了解界面组件，因此不受配置更改（如在旋转设备时重新创建 Activity）的影响。</p>
-<p><strong>LiveData</strong>：是一种可观察的数据存储器。应用中的其他组件可以使用此存储器监控对象的更改，而无需在它们之间创建明确且严格的依赖路径。LiveData 组件还遵循应用组件（如 Activity、Fragment 和 Service）的生命周期状态，并包括清理逻辑以防止对象泄漏和过多的内存消耗。</p>
-<p><strong>DataBinding</strong>：声明性地将可观察数据绑定到UI元素，其目的在于是为了脱离Controller与View之间的引用联系，很类似Butterknife库，使用也比较相似。</p>
-<p><strong>Navigation</strong>：允许用户在应用程序中浏览、进入和退出不同内容的Fragment。Navigation能够实现从简单的按钮单击到更复杂的模式，如应用程序栏和导航抽屉。导航组件还通过遵循一套既定的原则来确保一致和可预测的用户体验。</p>
-<p><strong>Lifecycles</strong>：Lifecycles是一个生命周期感知组件，当Activity或者Fragment的生命周期发生改变的时会，Lifecycles也会做出相应的生命周期状态的改变，它保存关于组件生命周期状态的信息(比如活动或片段)，并允许其他对象观察这种状态。</p>
-<h3 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a><strong>ViewModel</strong></h3><p>刚入门，做了一个简短的案例，通过ViewModel管理UI产生的数据。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两个按钮，实现+1，+2操作</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="comment">//用的是ViewModelProviders，可能需要引入Gradle配置</span></span><br><span class="line">        myVideModel = ViewModelProviders.of(<span class="keyword">this</span>).get(MyVideModel<span class="class">.<span class="keyword">class</span>)</span>;<span class="comment">//创建ViewModel对象</span></span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">        button1 = findViewById(R.id.button);</span><br><span class="line">        button2 = findViewById(R.id.button2);</span><br><span class="line">        button1.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                myVideModel.num ++;</span><br><span class="line">                textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        button2.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                myVideModel.num += <span class="number">2</span>;</span><br><span class="line">                textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//MyVideModel自定义的ViewModel类，需要继承自ViewModel类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyVideModel</span> <span class="keyword">extends</span> <span class="title">ViewModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>ViewModel的出现主要为了解决两个问题：<br>1.当Actvitiy销毁重建过程中的数据恢复问题，虽然原来可以使用<code>onSaveInstanceState()</code>来完成，但是只支持能被序列化的数据而且是小量数据，对于大量数据则显得有点无力。<br>2.UI控制器的工作繁忙，UI控制器主要用于处理显示，交互，其他的额外操作可以委托给其他类完成，将不应该分配给UI的任务分离出来是必要的。</p>
-<h3 id="LiveData"><a href="#LiveData" class="headerlink" title="LiveData"></a>LiveData</h3><img src="/2020/04/05/Android-1/3.png" class>
-
-<p>LiveData是配合ViewModel使用的</p>
-<p><strong>案例：</strong>实现一个点赞和踩的统计功能</p>
-<p>ViewModelWithLiveData.java</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.livedata;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.MutableLiveData;</span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.ViewModel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewModelWithLiveData</span> <span class="keyword">extends</span> <span class="title">ViewModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> MutableLiveData&lt;Integer&gt; LikedNumber;<span class="comment">//创建LiveData的方式</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MutableLiveData&lt;Integer&gt; <span class="title">getLikedNumber</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (LikedNumber == <span class="keyword">null</span>)&#123;</span><br><span class="line">            LikedNumber = <span class="keyword">new</span> MutableLiveData&lt;&gt;();</span><br><span class="line">            LikedNumber.setValue(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> LikedNumber;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLikedNumber</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        LikedNumber.setValue(LikedNumber.getValue() + n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>MainActivity.java</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.livedata;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageButton;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.Observer;</span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.ViewModelProvider;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ViewModelWithLiveData viewModelWithLiveData;</span><br><span class="line">    TextView textView;</span><br><span class="line">    ImageButton imageButtonLike , imageButtonDislike;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        imageButtonLike = findViewById(R.id.imageButton);</span><br><span class="line">        imageButtonDislike = findViewById(R.id.imageButton2);</span><br><span class="line"></span><br><span class="line">        viewModelWithLiveData = <span class="keyword">new</span> ViewModelProvider(<span class="keyword">this</span>).get(ViewModelWithLiveData<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        viewModelWithLiveData.getLikedNumber().observe(<span class="keyword">this</span>, <span class="keyword">new</span> Observer&lt;Integer&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChanged</span><span class="params">(Integer integer)</span> </span>&#123;</span><br><span class="line">                textView.setText(String.valueOf(integer));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        imageButtonLike.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                viewModelWithLiveData.addLikedNumber(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        imageButtonDislike.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                viewModelWithLiveData.addLikedNumber(-<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>前端</p>
-<img src="/2020/04/05/Android-1/4.png" class>
-
-<p>并使用了Android Studio中基本的矢量图创建方法。</p>
-<img src="/2020/04/05/Android-1/5.png" class>
-
-<h3 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h3><p>1、首先需要在gradle中添加DataBinding依赖，具体做法，在defaultConfig下添加</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">dataBinding &#123;</span><br><span class="line">            enabled <span class="keyword">true</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<p>2、在xml布局中引入DataBinding，点击首行代码的小灯泡即可。</p>
-<p>3、在MainActivity.java中修改代码</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//setContentView(R.layout.activity_main);</span></span><br><span class="line">binding = DataBindingUtil.setContentView(<span class="keyword">this</span>,R.layout.activity_main);</span><br></pre></td></tr></table></figure>
-
-<p>添加</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">binding.setData(myViewModel);</span><br><span class="line">binding.setLifecycleOwner(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
-
-<p>4、xml布局文件的<code>&lt;data&gt;</code>中添加</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;data&gt;</span><br><span class="line">	&lt;variable</span><br><span class="line">		name=<span class="string">"data"</span></span><br><span class="line">		type=<span class="string">"com.thorine.databinding.MyViewModel"</span> /&gt;</span><br><span class="line">&lt;/data&gt;</span><br></pre></td></tr></table></figure>
-
-<p>textView中获取数值：<code>android:text=&quot;@{String.valueOf(data.number)}&quot;</code></p>
-<p>Button中绑定监听事件：<code>android:onClick=&quot;@{()-&gt;data.add()}&quot;</code></p>
-]]></content>
-      <categories>
-        <category>Android</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-        <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>博客搭建总结(一)</title>
-    <url>/2020/02/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="第三次尝试搭建Hexo博客"><a href="#第三次尝试搭建Hexo博客" class="headerlink" title="第三次尝试搭建Hexo博客"></a>第三次尝试搭建Hexo博客</h2><p>干掉 干掉！</p>
-<p>多尝试几次，大不了干掉重来！</p>
-<a id="more"></a>
-
-<hr>
-<p>这篇文章就作为搭建博客时出现的问题及解决方法的总结，整个搭建过程并不尽人意。多多总结，少走弯路。</p>
-<h3 id="1、hexo-d命令时-的ERROR-Deployer-not-found-git错误提示"><a href="#1、hexo-d命令时-的ERROR-Deployer-not-found-git错误提示" class="headerlink" title="1、hexo d命令时 的ERROR Deployer not found: git错误提示"></a>1、hexo d命令时 的<code>ERROR Deployer not found: git</code>错误提示</h3><p>解决方法，执行命令 <code>cnpm install --save hexo-deployer-git</code>即可解决。</p>
-<h3 id="2、hexo-d命令提交时取消弹出的输入GitHub账号密码框"><a href="#2、hexo-d命令提交时取消弹出的输入GitHub账号密码框" class="headerlink" title="2、hexo d命令提交时取消弹出的输入GitHub账号密码框"></a>2、hexo d命令提交时取消弹出的输入GitHub账号密码框</h3><p>GitHub不允许随意的提交，所以需要账号密码来确认操作。我们提交代码之前一定是需要某种授权的，而 GitHub 上一般都是基于 SSH 授权的。 </p>
-<p><strong>那么什么是 SSH 呢？</strong> 简单点说，SSH是一种网络协议，用于计算机之间的加密登录。目前 </p>
-<p>是每一台 Linux 电脑的标准配置。而大多数 Git 服务器都会选择使用 SSH 公钥来进行授权， </p>
-<p>所以想要在 GitHub 提交代码的第一步就是要先添加 SSH key 配置。</p>
-<p>首先在博客根目录下输入ssh确定安装了ssh，出现如下则代表安装成功。</p>
-<img src="/2020/02/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/1.png" class>
-
-<p>紧接着输入ssh-keygen -t rsa 命令，敲击回车。</p>
-<img src="/2020/02/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/2.png" class>
-
-<p>然后就会生成两个文件 id_rsa 和 id_rsa.pub ，而 id_rsa 是密钥，id_rsa.pub 就是公钥。</p>
-<p>然后找到 C:\Users\Administrator\.ssh 路径下的id_rsa.pub文件记事本打开，并将其中内容复制，添加到GitHub上即可。</p>
-<h3 id="3、图片加载不出来"><a href="#3、图片加载不出来" class="headerlink" title="3、图片加载不出来"></a>3、图片加载不出来</h3><p>参考博客 <a href="https://blog.csdn.net/xjm850552586/article/details/84101345" target="_blank" rel="noopener">https://blog.csdn.net/xjm850552586/article/details/84101345</a></p>
-<p>需要注意的是，博客中引用图片通过命令  完成。例如 即可完成图片显示。</p>
-<h3 id="4、将该站点配置到百度站点收录管理中"><a href="#4、将该站点配置到百度站点收录管理中" class="headerlink" title="4、将该站点配置到百度站点收录管理中"></a>4、将该站点配置到百度站点收录管理中</h3><p>需要将Hexo博客双线部署以实现百度收录。我们的博客部署在GitHub上百度是不能收录的，双线部署，可以选择码云等国内站点。</p>
-<p>首先在码云上已经部署好，并且配置了Page的静态网站。</p>
-<p>在百度上管理码云上该网站的地址域名，选择验证时用第二种方式HTML标签认证成功。</p>
-<img src="/2020/02/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/3.png" class>
-
-<ul>
-<li><p>首先第一步，在next主题配置文件中添加下面这句，值就输入你content的值即可，配置里面可能没这个字段添加即可。</p>
-<img src="/2020/02/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/4.png" class>
-</li>
-<li><p>第二步，我是在该路径下的head文件添加了百度的代码。</p>
-<img src="/2020/02/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/5.png" class>
-</li>
-<li><p>然后Hexo生成发布博客即可。</p>
-</li>
-</ul>
-<p>百度的收录需要一定的时间，现在百度的收录方式有所调整，注重高质量的网站，否则就算现在收录成功，以后的一段时间里也会收回。所以要保证网站内容的高质量化，只有一起努力，才能把自己的博客网站做到更好。</p>
-<h3 id="5、搜索功能"><a href="#5、搜索功能" class="headerlink" title="5、搜索功能"></a>5、搜索功能</h3><p>参考博客：<a href="https://www.jianshu.com/p/202c9e789c8f" target="_blank" rel="noopener">https://www.jianshu.com/p/202c9e789c8f</a></p>
-]]></content>
-      <categories>
-        <category>HEXO</category>
-      </categories>
-      <tags>
-        <tag>experience</tag>
-        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3204,69 +3308,6 @@
 ]]></content>
       <categories>
         <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>十天时光荒废总结</title>
-    <url>/2020/04/16/%E5%8D%81%E5%A4%A9%E6%97%B6%E5%85%89%E8%8D%92%E5%BA%9F%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>十天时光已然逝去，但万事有弊就有利，相信浪费的时光也有其宝贵的价值。</p>
-<a id="more"></a>
-
-<hr>
-<p>这十天真是浑浑噩噩的十天，难以想象，现在回头看看，竟不能细想出干了些什么事，怕是每天都是重复，毫无收获吧。</p>
-<p>十天状态：</p>
-<p>1、课不好好上，就是不听，玩手机，心安理得，不像以前带着愧疚感玩。</p>
-<p>2、没有上进，毫无作为，什么都不想干。</p>
-<p>3、混吃等死？破罐子破摔？真是可怕。</p>
-<p>4、张武？每天就是这么没的。</p>
-<p>真的觉得世界都黑暗了，不知道该干什么，什么都干不好。</p>
-]]></content>
-      <categories>
-        <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>清明</title>
-    <url>/2020/04/04/%E6%B8%85%E6%98%8E/</url>
-    <content><![CDATA[<p>记录已经过完的四分之一个2020年。</p>
-<a id="more"></a>
-
-<hr>
-<p>又是一个清明时节，但这次显然多了一层不一样的含义</p>
-<p>宅家三月，似乎还没有做些什么，2020年就过了四分之一</p>
-<p>但这更是与死神抢人的三个月，国内疫情稍稍好转，国外疫情却大行其道</p>
-<p>我想过见证历史，但没想到，我会见证这样的历史</p>
-<p>全国默哀，举国悼念</p>
-<p>数不清的天使为我们保驾护航</p>
-<p>那有什么英雄，不过只是在死神手里抢人的一个个普通人罢了</p>
-<br>
-
-<p>窗外狂风怒号</p>
-<p>号笛拉响</p>
-<p>天地动容</p>
-<br>
-
-<p>人类的赞歌是勇气的赞歌</p>
-<p>人类的伟大是勇气的伟大</p>
-<br>
-
-<blockquote>
-<p>愿逝者安息</p>
-<p>愿生者奋发</p>
-<p>愿祖国昌盛</p>
-</blockquote>
-<br>
-
-<p>消逝的星星，你们永远在我心中</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
       </categories>
       <tags>
         <tag>idea</tag>
@@ -3579,66 +3620,60 @@
       </tags>
   </entry>
   <entry>
-    <title>Reinvent(5.3)</title>
-    <url>/2020/05/02/Reinvent-5-3/</url>
-    <content><![CDATA[<p>5.3日</p>
+    <title>清明</title>
+    <url>/2020/04/04/%E6%B8%85%E6%98%8E/</url>
+    <content><![CDATA[<p>记录已经过完的四分之一个2020年。</p>
 <a id="more"></a>
 
 <hr>
-<p>今日计划</p>
-<table>
-<thead>
-<tr>
-<th>时间</th>
-<th>内容</th>
-<th>计划用时</th>
-<th>实际用时</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>上午</td>
-<td>篮球+休息</td>
-<td>120min</td>
-<td>200min</td>
-</tr>
-<tr>
-<td></td>
-<td>计网3、4页PPT作业完成</td>
-<td>60min</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>概率论与数理统计复习和作业10</td>
-<td>60min</td>
-<td></td>
-</tr>
-<tr>
-<td>下午</td>
-<td>数据库第六章复习</td>
-<td>30min</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>数据库第七章作业</td>
-<td>60min</td>
-<td></td>
-</tr>
-<tr>
-<td>晚上</td>
-<td>MATLAB考试</td>
-<td>60min</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>Android学习</td>
-<td>30min+</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>今天要抓住白天的效率，主要是纸质作业学习，静下心来学习。</p>
+<p>又是一个清明时节，但这次显然多了一层不一样的含义</p>
+<p>宅家三月，似乎还没有做些什么，2020年就过了四分之一</p>
+<p>但这更是与死神抢人的三个月，国内疫情稍稍好转，国外疫情却大行其道</p>
+<p>我想过见证历史，但没想到，我会见证这样的历史</p>
+<p>全国默哀，举国悼念</p>
+<p>数不清的天使为我们保驾护航</p>
+<p>那有什么英雄，不过只是在死神手里抢人的一个个普通人罢了</p>
+<br>
+
+<p>窗外狂风怒号</p>
+<p>号笛拉响</p>
+<p>天地动容</p>
+<br>
+
+<p>人类的赞歌是勇气的赞歌</p>
+<p>人类的伟大是勇气的伟大</p>
+<br>
+
+<blockquote>
+<p>愿逝者安息</p>
+<p>愿生者奋发</p>
+<p>愿祖国昌盛</p>
+</blockquote>
+<br>
+
+<p>消逝的星星，你们永远在我心中</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>十天时光荒废总结</title>
+    <url>/2020/04/16/%E5%8D%81%E5%A4%A9%E6%97%B6%E5%85%89%E8%8D%92%E5%BA%9F%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>十天时光已然逝去，但万事有弊就有利，相信浪费的时光也有其宝贵的价值。</p>
+<a id="more"></a>
+
+<hr>
+<p>这十天真是浑浑噩噩的十天，难以想象，现在回头看看，竟不能细想出干了些什么事，怕是每天都是重复，毫无收获吧。</p>
+<p>十天状态：</p>
+<p>1、课不好好上，就是不听，玩手机，心安理得，不像以前带着愧疚感玩。</p>
+<p>2、没有上进，毫无作为，什么都不想干。</p>
+<p>3、混吃等死？破罐子破摔？真是可怕。</p>
+<p>4、张武？每天就是这么没的。</p>
+<p>真的觉得世界都黑暗了，不知道该干什么，什么都干不好。</p>
 ]]></content>
       <categories>
         <category>Reinvent</category>
