@@ -2682,7 +2682,7 @@
 <td>下午</td>
 <td>SQL server尝试使用</td>
 <td>60min</td>
-<td></td>
+<td>10min</td>
 </tr>
 <tr>
 <td>晚上</td>
@@ -2694,7 +2694,7 @@
 <td></td>
 <td>体育活动</td>
 <td>30min</td>
-<td></td>
+<td>120min</td>
 </tr>
 <tr>
 <td></td>
