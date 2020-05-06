@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-05-05T14:18:12.198Z</updated>
+  <updated>2020-05-06T05:09:55.906Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Reinvent-5-6</title>
+    <title>Reinvent(5.6)</title>
     <link href="http://icewind-r.github.io/2020/05/05/Reinvent-5-6/"/>
     <id>http://icewind-r.github.io/2020/05/05/Reinvent-5-6/</id>
     <published>2020-05-05T13:45:57.000Z</published>
-    <updated>2020-05-05T14:18:12.198Z</updated>
+    <updated>2020-05-06T05:09:55.906Z</updated>
     
-    <content type="html"><![CDATA[<p>5.6日</p><a id="more"></a><hr><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>PHP好好上课</td><td>90min</td><td></td></tr><tr><td></td><td>PHP学习并完成作业</td><td>120min</td><td></td></tr><tr><td>下午</td><td>Android</td><td>60min</td><td></td></tr><tr><td></td><td>计网</td><td>60min</td><td></td></tr><tr><td>晚上</td><td>体育活动</td><td>30min</td><td></td></tr><tr><td></td><td>Android</td><td>60min</td><td></td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<p>5.6日</p><a id="more"></a><hr><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>PHP好好上课</td><td>90min</td><td>完成</td></tr><tr><td></td><td>PHP学习并完成作业</td><td>120min</td><td>完成</td></tr><tr><td>下午</td><td>Android</td><td>60min</td><td></td></tr><tr><td></td><td>计网</td><td>60min</td><td></td></tr><tr><td>晚上</td><td>体育活动</td><td>30min</td><td></td></tr><tr><td></td><td>Android</td><td>60min</td><td></td></tr></tbody></table>]]></content>
     
     <summary type="html">
     
@@ -32,7 +32,7 @@
     </summary>
     
     
-      <category term="随笔" scheme="http://iceWind-R.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
     
     
       <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
