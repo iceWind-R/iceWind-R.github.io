@@ -524,6 +524,64 @@
       </tags>
   </entry>
   <entry>
+    <title>MATLAB课程总结（四）</title>
+    <url>/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+    <content><![CDATA[<p>这篇文章总结MATLAB程序设计，主要涉及代码文件方面。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="程序的三个结构"><a href="#程序的三个结构" class="headerlink" title="程序的三个结构"></a>程序的三个结构</h2><p>顺序选择循环。</p>
+<h3 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h3><h4 id="if-else"><a href="#if-else" class="headerlink" title="if-else"></a>if-else</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> 条件<span class="number">1</span></span><br><span class="line">	语句组 <span class="number">1</span></span><br><span class="line"><span class="keyword">elseif</span> 条件<span class="number">2</span></span><br><span class="line">	语句组 <span class="number">2</span> …</span><br><span class="line"><span class="keyword">elseif</span> 条件m</span><br><span class="line">	语句组 m</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    语句组n</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> 表达式</span><br><span class="line">	<span class="keyword">case</span> 表达式<span class="number">1</span></span><br><span class="line">		语句组<span class="number">1</span></span><br><span class="line">	<span class="keyword">case</span> 表达式<span class="number">2</span></span><br><span class="line">		语句组<span class="number">2</span> …</span><br><span class="line">	<span class="keyword">case</span> 表达式m</span><br><span class="line">		语句组m</span><br><span class="line">	<span class="keyword">otherwise</span></span><br><span class="line">		语句组 n</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="try"><a href="#try" class="headerlink" title="try"></a>try</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span></span><br><span class="line">	语句组<span class="number">1</span></span><br><span class="line"><span class="keyword">catch</span></span><br><span class="line">	语句组<span class="number">2</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>try语句先试探性执行语句组1，如果在执行过程中出现错误，则将错误信息赋给保留的lasterr变量，并转去执行语句组2。</p>
+<h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><h4 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> 循环变量 =表达式<span class="number">1</span>：表达式<span class="number">2</span>：表达式<span class="number">3</span></span><br><span class="line">	循环体语句</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>条件</span><br><span class="line">	循环体语句</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="break语句和continue语句"><a href="#break语句和continue语句" class="headerlink" title="break语句和continue语句"></a>break语句和continue语句</h4><p>它们一般与if语句配合使用。<br>break语句用于终止循环的执行。<br>当在循环体内执行到该语句时，程序将跳出循环，继续执行循环语句的下一语句。<br>continue语句控制跳过循环体中的某些语句。<br>当在循环体内执行到该语句时，程序将跳过循环体中所有剩下的语句，继续下一次循环。</p>
+<h2 id="M文件的分类"><a href="#M文件的分类" class="headerlink" title="M文件的分类"></a>M文件的分类</h2><p>除了在命令窗口直接操作，我们可以创建文件（M文件）来进行调用，使程序结构简单，编程效率高。</p>
+<p>用Matlab语言编写的程序，称为M文件。</p>
+<p>是由若干Matlab命令组合在一起构成的，它可以完成某些操作，也可以实现某种算法。</p>
+<p>◼ M文件根据调用方式的不同分为两类：</p>
+<p>​    命令文件（Script File）</p>
+<p>​    函数文件（Function File） </p>
+<p>◼ 它们的扩展名都是.m</p>
+<h3 id="命令文件和函数文件的区别"><a href="#命令文件和函数文件的区别" class="headerlink" title="命令文件和函数文件的区别"></a><strong>命令文件和函数文件的区别</strong></h3><p>命令文件没有输入参数，也不返回输出参数；函数文件可以带输入参数，也可以返回输出参数。</p>
+<p>◼ 命令文件对工作空间中的变量进行操作，文件中所有命令的执行结果也返回工作空间中；函数文件中定义的变</p>
+<p>​    量为局部变量，当函数文件执行完毕时，这些变量也被清除。</p>
+<p>◼ 命令文件可以直接运行；函数文件不能直接运行，要以函数调用的方式来调用它。</p>
+<h3 id="函数文件"><a href="#函数文件" class="headerlink" title="函数文件"></a>函数文件</h3><p>函数文件是另一种形式的M文件，每一个函数文件都定义一个函数。Matlab提供的标准函数大部分是由函数文件定义的。</p>
+<h4 id="函数文件的基本结构"><a href="#函数文件的基本结构" class="headerlink" title="函数文件的基本结构"></a><strong>函数文件的基本结构</strong></h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 输出形参表 = 函数名（输入形参表）</span></span><br><span class="line">注释说明部分</span><br><span class="line">函数体语句</span><br></pre></td></tr></table></figure>
+
+<p>其中，以function开头的一行为引导行，表示该M文件是一个函数文件。当输出形参多于一个时，应该用<strong>方括号</strong>括起来。</p>
+<p><strong>注意：</strong></p>
+<ol>
+<li>关于函数文件名<br>函数文件名通常由函数名再加上扩展名.m组成。<br>当函数文件名与函数名不同时，Matlab将忽略函数名而确认文件名，因此调用时使用函数文件名。</li>
+<li>关于注释说明部分<br>注释说明包括3部分：<br>① 紧随引导行之后以%开头的第一注释行。<br>这一行一般包括大写的函数文件名和函数功能简要描述，供lookfor关键词查询和help在线帮助时使用。<br>② 第一注释行及之后连续的注释行。<br>通常包括函数输入/输出参数的含义及调用格式说明等信息，构成全部在线帮<br>③ 与在线帮助文本相隔一空行的注释行。包括函数文件编写和修改的信息，如作者和版本等。<br>3、关于return语句<br>如果在函数文件中插入了return语句，则执行到该语句就结束函数的执行，流程转至调用该函数的位置。通常也不使用return语句。</li>
+</ol>
+<h4 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h4><p>函数调用的一般格式是：<br>[输出实参表] = 函数名(输入实参表）<br>注意：函数调用时，各实参出现的顺序、个数，应与函数定义时相同。</p>
+<h4 id="函数参数的可调性"><a href="#函数参数的可调性" class="headerlink" title="函数参数的可调性"></a>函数参数的可调性</h4><p>Matlab在函数调用上有一个与一般高级语言不同之处：<br>函数所传递参数数目的可调性，即参数的数量可以改变。<br>在调用函数时，Matlab用两个预定义变量nargin和nargout分别记录调用该函数时的输入实参和输出实参的个数。</p>
+<p><strong>例子</strong></p>
+<img src="/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/1.png" class>
+
+<h4 id="全局变量与局部变量"><a href="#全局变量与局部变量" class="headerlink" title="全局变量与局部变量"></a><strong>全局变量与局部变量</strong></h4><p>Matlab中，函数文件中的变量是局部变量。</p>
+<p>全局变量的作用域是整个Matlab的工作空间，所有函数都可以对它进行存取和修改。</p>
+<p>全局变量用global命令定义，格式为：</p>
+<p><code>global 变量名</code></p>
+<img src="/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/1.png" class>]]></content>
+      <categories>
+        <category>MATLAB</category>
+      </categories>
+      <tags>
+        <tag>MATLAB</tag>
+        <tag>Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MATLAB课程总结(一)</title>
     <url>/2020/03/13/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<p>MATLAB的第一次课堂总结，包括MATLAB中通用的命令、数组矩阵的相关运算，字符串的一些基本命令等。</p>
@@ -1017,64 +1075,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MATLAB课程总结（四）</title>
-    <url>/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
-    <content><![CDATA[<p>这篇文章总结MATLAB程序设计，主要涉及代码文件方面。</p>
-<a id="more"></a>
-
-<hr>
-<h2 id="程序的三个结构"><a href="#程序的三个结构" class="headerlink" title="程序的三个结构"></a>程序的三个结构</h2><p>顺序选择循环。</p>
-<h3 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h3><h4 id="if-else"><a href="#if-else" class="headerlink" title="if-else"></a>if-else</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> 条件<span class="number">1</span></span><br><span class="line">	语句组 <span class="number">1</span></span><br><span class="line"><span class="keyword">elseif</span> 条件<span class="number">2</span></span><br><span class="line">	语句组 <span class="number">2</span> …</span><br><span class="line"><span class="keyword">elseif</span> 条件m</span><br><span class="line">	语句组 m</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    语句组n</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> 表达式</span><br><span class="line">	<span class="keyword">case</span> 表达式<span class="number">1</span></span><br><span class="line">		语句组<span class="number">1</span></span><br><span class="line">	<span class="keyword">case</span> 表达式<span class="number">2</span></span><br><span class="line">		语句组<span class="number">2</span> …</span><br><span class="line">	<span class="keyword">case</span> 表达式m</span><br><span class="line">		语句组m</span><br><span class="line">	<span class="keyword">otherwise</span></span><br><span class="line">		语句组 n</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="try"><a href="#try" class="headerlink" title="try"></a>try</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span></span><br><span class="line">	语句组<span class="number">1</span></span><br><span class="line"><span class="keyword">catch</span></span><br><span class="line">	语句组<span class="number">2</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>try语句先试探性执行语句组1，如果在执行过程中出现错误，则将错误信息赋给保留的lasterr变量，并转去执行语句组2。</p>
-<h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><h4 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> 循环变量 =表达式<span class="number">1</span>：表达式<span class="number">2</span>：表达式<span class="number">3</span></span><br><span class="line">	循环体语句</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>条件</span><br><span class="line">	循环体语句</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="break语句和continue语句"><a href="#break语句和continue语句" class="headerlink" title="break语句和continue语句"></a>break语句和continue语句</h4><p>它们一般与if语句配合使用。<br>break语句用于终止循环的执行。<br>当在循环体内执行到该语句时，程序将跳出循环，继续执行循环语句的下一语句。<br>continue语句控制跳过循环体中的某些语句。<br>当在循环体内执行到该语句时，程序将跳过循环体中所有剩下的语句，继续下一次循环。</p>
-<h2 id="M文件的分类"><a href="#M文件的分类" class="headerlink" title="M文件的分类"></a>M文件的分类</h2><p>除了在命令窗口直接操作，我们可以创建文件（M文件）来进行调用，使程序结构简单，编程效率高。</p>
-<p>用Matlab语言编写的程序，称为M文件。</p>
-<p>是由若干Matlab命令组合在一起构成的，它可以完成某些操作，也可以实现某种算法。</p>
-<p>◼ M文件根据调用方式的不同分为两类：</p>
-<p>​    命令文件（Script File）</p>
-<p>​    函数文件（Function File） </p>
-<p>◼ 它们的扩展名都是.m</p>
-<h3 id="命令文件和函数文件的区别"><a href="#命令文件和函数文件的区别" class="headerlink" title="命令文件和函数文件的区别"></a><strong>命令文件和函数文件的区别</strong></h3><p>命令文件没有输入参数，也不返回输出参数；函数文件可以带输入参数，也可以返回输出参数。</p>
-<p>◼ 命令文件对工作空间中的变量进行操作，文件中所有命令的执行结果也返回工作空间中；函数文件中定义的变</p>
-<p>​    量为局部变量，当函数文件执行完毕时，这些变量也被清除。</p>
-<p>◼ 命令文件可以直接运行；函数文件不能直接运行，要以函数调用的方式来调用它。</p>
-<h3 id="函数文件"><a href="#函数文件" class="headerlink" title="函数文件"></a>函数文件</h3><p>函数文件是另一种形式的M文件，每一个函数文件都定义一个函数。Matlab提供的标准函数大部分是由函数文件定义的。</p>
-<h4 id="函数文件的基本结构"><a href="#函数文件的基本结构" class="headerlink" title="函数文件的基本结构"></a><strong>函数文件的基本结构</strong></h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 输出形参表 = 函数名（输入形参表）</span></span><br><span class="line">注释说明部分</span><br><span class="line">函数体语句</span><br></pre></td></tr></table></figure>
-
-<p>其中，以function开头的一行为引导行，表示该M文件是一个函数文件。当输出形参多于一个时，应该用<strong>方括号</strong>括起来。</p>
-<p><strong>注意：</strong></p>
-<ol>
-<li>关于函数文件名<br>函数文件名通常由函数名再加上扩展名.m组成。<br>当函数文件名与函数名不同时，Matlab将忽略函数名而确认文件名，因此调用时使用函数文件名。</li>
-<li>关于注释说明部分<br>注释说明包括3部分：<br>① 紧随引导行之后以%开头的第一注释行。<br>这一行一般包括大写的函数文件名和函数功能简要描述，供lookfor关键词查询和help在线帮助时使用。<br>② 第一注释行及之后连续的注释行。<br>通常包括函数输入/输出参数的含义及调用格式说明等信息，构成全部在线帮<br>③ 与在线帮助文本相隔一空行的注释行。包括函数文件编写和修改的信息，如作者和版本等。<br>3、关于return语句<br>如果在函数文件中插入了return语句，则执行到该语句就结束函数的执行，流程转至调用该函数的位置。通常也不使用return语句。</li>
-</ol>
-<h4 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h4><p>函数调用的一般格式是：<br>[输出实参表] = 函数名(输入实参表）<br>注意：函数调用时，各实参出现的顺序、个数，应与函数定义时相同。</p>
-<h4 id="函数参数的可调性"><a href="#函数参数的可调性" class="headerlink" title="函数参数的可调性"></a>函数参数的可调性</h4><p>Matlab在函数调用上有一个与一般高级语言不同之处：<br>函数所传递参数数目的可调性，即参数的数量可以改变。<br>在调用函数时，Matlab用两个预定义变量nargin和nargout分别记录调用该函数时的输入实参和输出实参的个数。</p>
-<p><strong>例子</strong></p>
-<img src="/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/1.png" class>
-
-<h4 id="全局变量与局部变量"><a href="#全局变量与局部变量" class="headerlink" title="全局变量与局部变量"></a><strong>全局变量与局部变量</strong></h4><p>Matlab中，函数文件中的变量是局部变量。</p>
-<p>全局变量的作用域是整个Matlab的工作空间，所有函数都可以对它进行存取和修改。</p>
-<p>全局变量用global命令定义，格式为：</p>
-<p><code>global 变量名</code></p>
-<img src="/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/1.png" class>]]></content>
-      <categories>
-        <category>MATLAB</category>
-      </categories>
-      <tags>
-        <tag>MATLAB</tag>
-        <tag>Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PHP基础知识（一）</title>
     <url>/2020/02/29/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<p>PHP的入门总结，主要是PHP的基础方面。非常基础，适合入门学习。</p>
@@ -1337,6 +1337,63 @@
       </tags>
   </entry>
   <entry>
+    <title>PHP基础知识（五）</title>
+    <url>/2020/03/30/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%94%EF%BC%89/</url>
+    <content><![CDATA[<p>总结展开PHP中文件加载和错误处理的具体操作。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="一、文件加载"><a href="#一、文件加载" class="headerlink" title="一、文件加载"></a>一、文件加载</h2><h3 id="1、文件加载的含义"><a href="#1、文件加载的含义" class="headerlink" title="1、文件加载的含义"></a>1、文件加载的含义</h3><p>将一个别的文件包含到当前文件中，成为当前文件运行过程中的一部分。通常，一些公共的代码，在多个页面都需要用到的时候，会做成一个独立的文件。然后在不同的页面需要用到的时候，直接载入进来就可以了。</p>
+<h3 id="2、文件加载的四种方式"><a href="#2、文件加载的四种方式" class="headerlink" title="2、文件加载的四种方式"></a>2、文件加载的四种方式</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">include</span> <span class="string">''</span>;</span><br><span class="line"><span class="keyword">include_once</span> <span class="string">''</span>;</span><br><span class="line"><span class="keyword">require</span> <span class="string">''</span>;</span><br><span class="line"><span class="keyword">require_once</span> <span class="string">''</span>;</span><br><span class="line"><span class="comment">#其中的参数都是加载文件的路径（相对路径或绝对路径）</span></span><br></pre></td></tr></table></figure>
+
+<p>获取物理路径（绝对路径）的方式：</p>
+<p><code>__DIR__</code>：表示当前文件所在路径，由它可以构建出绝对路径。</p>
+<p><code>getcwd()</code>：表示当前正访问的网页路径（当前工作目录），由它也可以构建绝对路径。</p>
+<p><strong>四种载入方式</strong>：一般来说，如果被载入的文件内容，是后续代码运行的必备前提，则应该使用require载入；如果被载入的文件内容，只需要（或只允许）出现一次，则应该使用“xxx_once”载入。include错误级别低，不会阻止代码运行。</p>
+<h2 id="二、错误处理"><a href="#二、错误处理" class="headerlink" title="二、错误处理"></a>二、错误处理</h2><h3 id="错误分类"><a href="#错误分类" class="headerlink" title="错误分类"></a>错误分类</h3><p>语法错误：运行前出错。</p>
+<p>运行时错误：语法没错，执行过程中出错。</p>
+<p>逻辑错误：运行结果出错。</p>
+<h3 id="常见的错误代号"><a href="#常见的错误代号" class="headerlink" title="常见的错误代号"></a>常见的错误代号</h3><p>E_NOTICE: 提示性错误，轻微，继续执行后面程序。</p>
+<p>E_WARNING:警告，稍微严重，后面的程序继续执行。</p>
+<p>E_ERROR:严重错误/致命错误，后面程序不继续执行。</p>
+<p>E_PARSE:语法错误，直接不运行程序。</p>
+<p>E_USER_NOTICE，E_USER_WARNING，E_USER_ERROR:用户自定义的提示、警告和严重错误。</p>
+<p>E_ALL：它是一个代表“所有”错误的代号。</p>
+<p>这些代号都是系统常量。</p>
+<h3 id="错误触发"><a href="#错误触发" class="headerlink" title="错误触发"></a>错误触发</h3><p>程序本身有错时，运行时会报错提示，但如果程序没错，而不符合预期结果，就可以主动触发一个错误，也就是说主动创建一个错误，E_USER_NOTICE，E_USER_WARNING，E_USER_ERROR等，那么如何触法用户错误呢？</p>
+<p>自定义错误触发语法：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">trigger_error(<span class="string">"自定义错误提示内容"</span>,自定义错误的代号);</span><br></pre></td></tr></table></figure>
+
+<p><strong>案例演示</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reg_user</span><span class="params">($age)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>($age &gt; <span class="number">120</span> || $age &lt;<span class="number">0</span>)&#123;</span><br><span class="line">        trigger_error(<span class="string">"年龄不符合规范"</span>,E_USER_NOTICE);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"用户资料审核通过！"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">reg_user(<span class="number">150</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="错误显示"><a href="#错误显示" class="headerlink" title="错误显示"></a>错误显示</h3><p>如果有错误发生（触发了错误），默认情况下会被显示在页面（即输出的结果页面）。</p>
+<ol>
+<li><p>设置display_errors以决定是否显示错误</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">ini_set(<span class="string">'display_errors'</span>,<span class="number">1</span>或<span class="number">0</span>);<span class="comment">//1表示显示</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置error_reporting以决定显示那些错误（错误代号：E_NOTICE…）</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">ini_set(<span class="string">'error_reporting'</span>，错误代号<span class="number">1</span> | 错误代号<span class="number">2</span> ...)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="自定义错误处理"><a href="#自定义错误处理" class="headerlink" title="自定义错误处理"></a>自定义错误处理</h3><p>具体做法，分两步：</p>
+<ol>
+<li>声明错误发生时，由我们自己来处理——设定一个错误处理的函数名。</li>
+<li>定义该函数，在函数中详细设定错误的处理情况：怎么显示，显示什么，怎么记录，记录什么。</li>
+</ol>
+<p><strong>注意：</strong>自定义错误只能处理“非致命错误”。</p>
+<p><strong>实例</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义错误</span></span><br><span class="line"><span class="comment">//set_error_handler("自定义的处理错误的函数的名字");</span></span><br><span class="line">set_error_handler(<span class="string">"my_error_handler"</span>);</span><br><span class="line"><span class="comment">//定义该函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_error_handler</span><span class="params">($errCode,$errMsg,$errFile,$errLine)</span></span>&#123;</span><br><span class="line">    <span class="comment">//参数解释：errCode:错误代码，errMsg：错误信息，errFile：错误文件，errLine：错误行号</span></span><br><span class="line">    <span class="comment">//此形参顺序固定，而且是由系统自动调用并传入参数</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误代码：'</span>.$errCode.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误信息：'</span>.$errMsg.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误文件：'</span>.$errFile.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误行号：'</span>.$errLine.<span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"v1 = $v1"</span>;<span class="comment">//未定义的变量</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">'./no-this-file.php'</span>;<span class="comment">//打开不存在的文件</span></span><br><span class="line">l1();<span class="comment">//调用未定义的函数</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PHP基础知识（二）</title>
     <url>/2020/03/04/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[<p>继续之前的PHP基础，这次为第二次基础的总结，涉及各种数据类型的介绍等。</p>
@@ -1555,63 +1612,6 @@
 <li>空类型NULL转布尔</li>
 </ul>
 ]]></content>
-      <categories>
-        <category>PHP</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-        <tag>PHP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP基础知识（五）</title>
-    <url>/2020/03/30/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%94%EF%BC%89/</url>
-    <content><![CDATA[<p>总结展开PHP中文件加载和错误处理的具体操作。</p>
-<a id="more"></a>
-
-<hr>
-<h2 id="一、文件加载"><a href="#一、文件加载" class="headerlink" title="一、文件加载"></a>一、文件加载</h2><h3 id="1、文件加载的含义"><a href="#1、文件加载的含义" class="headerlink" title="1、文件加载的含义"></a>1、文件加载的含义</h3><p>将一个别的文件包含到当前文件中，成为当前文件运行过程中的一部分。通常，一些公共的代码，在多个页面都需要用到的时候，会做成一个独立的文件。然后在不同的页面需要用到的时候，直接载入进来就可以了。</p>
-<h3 id="2、文件加载的四种方式"><a href="#2、文件加载的四种方式" class="headerlink" title="2、文件加载的四种方式"></a>2、文件加载的四种方式</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">include</span> <span class="string">''</span>;</span><br><span class="line"><span class="keyword">include_once</span> <span class="string">''</span>;</span><br><span class="line"><span class="keyword">require</span> <span class="string">''</span>;</span><br><span class="line"><span class="keyword">require_once</span> <span class="string">''</span>;</span><br><span class="line"><span class="comment">#其中的参数都是加载文件的路径（相对路径或绝对路径）</span></span><br></pre></td></tr></table></figure>
-
-<p>获取物理路径（绝对路径）的方式：</p>
-<p><code>__DIR__</code>：表示当前文件所在路径，由它可以构建出绝对路径。</p>
-<p><code>getcwd()</code>：表示当前正访问的网页路径（当前工作目录），由它也可以构建绝对路径。</p>
-<p><strong>四种载入方式</strong>：一般来说，如果被载入的文件内容，是后续代码运行的必备前提，则应该使用require载入；如果被载入的文件内容，只需要（或只允许）出现一次，则应该使用“xxx_once”载入。include错误级别低，不会阻止代码运行。</p>
-<h2 id="二、错误处理"><a href="#二、错误处理" class="headerlink" title="二、错误处理"></a>二、错误处理</h2><h3 id="错误分类"><a href="#错误分类" class="headerlink" title="错误分类"></a>错误分类</h3><p>语法错误：运行前出错。</p>
-<p>运行时错误：语法没错，执行过程中出错。</p>
-<p>逻辑错误：运行结果出错。</p>
-<h3 id="常见的错误代号"><a href="#常见的错误代号" class="headerlink" title="常见的错误代号"></a>常见的错误代号</h3><p>E_NOTICE: 提示性错误，轻微，继续执行后面程序。</p>
-<p>E_WARNING:警告，稍微严重，后面的程序继续执行。</p>
-<p>E_ERROR:严重错误/致命错误，后面程序不继续执行。</p>
-<p>E_PARSE:语法错误，直接不运行程序。</p>
-<p>E_USER_NOTICE，E_USER_WARNING，E_USER_ERROR:用户自定义的提示、警告和严重错误。</p>
-<p>E_ALL：它是一个代表“所有”错误的代号。</p>
-<p>这些代号都是系统常量。</p>
-<h3 id="错误触发"><a href="#错误触发" class="headerlink" title="错误触发"></a>错误触发</h3><p>程序本身有错时，运行时会报错提示，但如果程序没错，而不符合预期结果，就可以主动触发一个错误，也就是说主动创建一个错误，E_USER_NOTICE，E_USER_WARNING，E_USER_ERROR等，那么如何触法用户错误呢？</p>
-<p>自定义错误触发语法：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">trigger_error(<span class="string">"自定义错误提示内容"</span>,自定义错误的代号);</span><br></pre></td></tr></table></figure>
-
-<p><strong>案例演示</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reg_user</span><span class="params">($age)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>($age &gt; <span class="number">120</span> || $age &lt;<span class="number">0</span>)&#123;</span><br><span class="line">        trigger_error(<span class="string">"年龄不符合规范"</span>,E_USER_NOTICE);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"用户资料审核通过！"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">reg_user(<span class="number">150</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="错误显示"><a href="#错误显示" class="headerlink" title="错误显示"></a>错误显示</h3><p>如果有错误发生（触发了错误），默认情况下会被显示在页面（即输出的结果页面）。</p>
-<ol>
-<li><p>设置display_errors以决定是否显示错误</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">ini_set(<span class="string">'display_errors'</span>,<span class="number">1</span>或<span class="number">0</span>);<span class="comment">//1表示显示</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置error_reporting以决定显示那些错误（错误代号：E_NOTICE…）</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">ini_set(<span class="string">'error_reporting'</span>，错误代号<span class="number">1</span> | 错误代号<span class="number">2</span> ...)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="自定义错误处理"><a href="#自定义错误处理" class="headerlink" title="自定义错误处理"></a>自定义错误处理</h3><p>具体做法，分两步：</p>
-<ol>
-<li>声明错误发生时，由我们自己来处理——设定一个错误处理的函数名。</li>
-<li>定义该函数，在函数中详细设定错误的处理情况：怎么显示，显示什么，怎么记录，记录什么。</li>
-</ol>
-<p><strong>注意：</strong>自定义错误只能处理“非致命错误”。</p>
-<p><strong>实例</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义错误</span></span><br><span class="line"><span class="comment">//set_error_handler("自定义的处理错误的函数的名字");</span></span><br><span class="line">set_error_handler(<span class="string">"my_error_handler"</span>);</span><br><span class="line"><span class="comment">//定义该函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_error_handler</span><span class="params">($errCode,$errMsg,$errFile,$errLine)</span></span>&#123;</span><br><span class="line">    <span class="comment">//参数解释：errCode:错误代码，errMsg：错误信息，errFile：错误文件，errLine：错误行号</span></span><br><span class="line">    <span class="comment">//此形参顺序固定，而且是由系统自动调用并传入参数</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误代码：'</span>.$errCode.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误信息：'</span>.$errMsg.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误文件：'</span>.$errFile.<span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'错误行号：'</span>.$errLine.<span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"v1 = $v1"</span>;<span class="comment">//未定义的变量</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">'./no-this-file.php'</span>;<span class="comment">//打开不存在的文件</span></span><br><span class="line">l1();<span class="comment">//调用未定义的函数</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>PHP</category>
       </categories>
@@ -2356,6 +2356,77 @@
       </tags>
   </entry>
   <entry>
+    <title>Reinvent(5.3)</title>
+    <url>/2020/05/02/Reinvent-5-3/</url>
+    <content><![CDATA[<p>5.3日</p>
+<a id="more"></a>
+
+<hr>
+<p>今日计划</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+<th>计划用时</th>
+<th>实际用时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上午</td>
+<td>篮球+休息</td>
+<td>120min</td>
+<td>200min</td>
+</tr>
+<tr>
+<td></td>
+<td>计网3、4页PPT作业完成</td>
+<td>60min</td>
+<td>60min</td>
+</tr>
+<tr>
+<td></td>
+<td>概率论与数理统计复习和作业10</td>
+<td>60min</td>
+<td>未完成</td>
+</tr>
+<tr>
+<td>下午</td>
+<td>数据库第六章复习</td>
+<td>30min</td>
+<td>未完成</td>
+</tr>
+<tr>
+<td></td>
+<td>数据库第七章作业</td>
+<td>60min</td>
+<td>未完成</td>
+</tr>
+<tr>
+<td>晚上</td>
+<td>MATLAB考试</td>
+<td>60min</td>
+<td>20min</td>
+</tr>
+<tr>
+<td></td>
+<td>Android学习</td>
+<td>30min+</td>
+<td>未完成</td>
+</tr>
+</tbody></table>
+<p>今天要抓住白天的效率，主要是纸质作业学习，静下心来学习。</p>
+<p><strong>总结</strong></p>
+<p>要提高抗干扰能力，尝试学习一会再玩。</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MATLAB课程总结（二）</title>
     <url>/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[<p>本篇基于上篇文章基础，谈谈Matlab的<strong>数值运算</strong>，包括基本运算，与向量与矩阵处理的相关函数（最大值最小值，平均值，排序等）、多项式的相关函数（求根，加减乘除，导数等）等。</p>
@@ -2558,13 +2629,79 @@
       </tags>
   </entry>
   <entry>
-    <title>Reinvent(5.3)</title>
-    <url>/2020/05/02/Reinvent-5-3/</url>
-    <content><![CDATA[<p>5.3日</p>
+    <title>Android Jetpack架构组件（一）</title>
+    <url>/2020/04/05/Android-1/</url>
+    <content><![CDATA[<p>开始学习Android Jetpack相关知识。</p>
 <a id="more"></a>
 
 <hr>
-<p>今日计划</p>
+<p>首先补充一点内容。</p>
+<h3 id="设置app的横屏和竖屏"><a href="#设置app的横屏和竖屏" class="headerlink" title="设置app的横屏和竖屏"></a>设置app的横屏和竖屏</h3><p>设置app某个界面的横屏和竖屏的不同显示方式。</p>
+<img src="/2020/04/05/Android-1/1.png" class>
+
+<p>即可创建当前页面的一个横屏副本。</p>
+<p>app页面的横屏和竖屏转换是一个Activity的杀死重创建的过程，即界面被刷新，如果当前界面的数据没保存，则会丢失。</p>
+<p>如果需要临时保存当前页面的数据，使其在反转后数据不丢失，则需要以下操作。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//首先注意onCreate(Bundle savedInstanceState)的参数，为保存当前页面的临时数据，Bundle类为key:value形式。</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        button = findViewById(R.id.button);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>)&#123;</span><br><span class="line">            String s = savedInstanceState.getString(<span class="string">"KEY"</span>);</span><br><span class="line">            textView.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">        button.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                textView.setText(R.string.button);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle outState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onSaveInstanceState(outState);</span><br><span class="line">        outState.putString(<span class="string">"KEY"</span>, textView.getText().toString());<span class="comment">//存入Bundle对象，便于onCreate方法取出</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Android-Jetpack"><a href="#Android-Jetpack" class="headerlink" title="Android Jetpack"></a>Android Jetpack</h2><img src="/2020/04/05/Android-1/2.png" class>
+
+<p><strong>ViewModel</strong>：对象为特定的界面组件（如 Fragment 或 Activity）提供数据，并包含数据处理业务逻辑，以与模型进行通信。例如，ViewModel 可以调用其他组件来加载数据，还可以转发用户请求来修改数据。ViewModel 不了解界面组件，因此不受配置更改（如在旋转设备时重新创建 Activity）的影响。</p>
+<p><strong>LiveData</strong>：是一种可观察的数据存储器。应用中的其他组件可以使用此存储器监控对象的更改，而无需在它们之间创建明确且严格的依赖路径。LiveData 组件还遵循应用组件（如 Activity、Fragment 和 Service）的生命周期状态，并包括清理逻辑以防止对象泄漏和过多的内存消耗。</p>
+<p><strong>DataBinding</strong>：声明性地将可观察数据绑定到UI元素，其目的在于是为了脱离Controller与View之间的引用联系，很类似Butterknife库，使用也比较相似。</p>
+<p><strong>Navigation</strong>：允许用户在应用程序中浏览、进入和退出不同内容的Fragment。Navigation能够实现从简单的按钮单击到更复杂的模式，如应用程序栏和导航抽屉。导航组件还通过遵循一套既定的原则来确保一致和可预测的用户体验。</p>
+<p><strong>Lifecycles</strong>：Lifecycles是一个生命周期感知组件，当Activity或者Fragment的生命周期发生改变的时会，Lifecycles也会做出相应的生命周期状态的改变，它保存关于组件生命周期状态的信息(比如活动或片段)，并允许其他对象观察这种状态。</p>
+<h3 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a><strong>ViewModel</strong></h3><p>刚入门，做了一个简短的案例，通过ViewModel管理UI产生的数据。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两个按钮，实现+1，+2操作</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="comment">//用的是ViewModelProviders，可能需要引入Gradle配置</span></span><br><span class="line">        myVideModel = ViewModelProviders.of(<span class="keyword">this</span>).get(MyVideModel<span class="class">.<span class="keyword">class</span>)</span>;<span class="comment">//创建ViewModel对象</span></span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">        button1 = findViewById(R.id.button);</span><br><span class="line">        button2 = findViewById(R.id.button2);</span><br><span class="line">        button1.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                myVideModel.num ++;</span><br><span class="line">                textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        button2.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                myVideModel.num += <span class="number">2</span>;</span><br><span class="line">                textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//MyVideModel自定义的ViewModel类，需要继承自ViewModel类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyVideModel</span> <span class="keyword">extends</span> <span class="title">ViewModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ViewModel的出现主要为了解决两个问题：<br>1.当Actvitiy销毁重建过程中的数据恢复问题，虽然原来可以使用<code>onSaveInstanceState()</code>来完成，但是只支持能被序列化的数据而且是小量数据，对于大量数据则显得有点无力。<br>2.UI控制器的工作繁忙，UI控制器主要用于处理显示，交互，其他的额外操作可以委托给其他类完成，将不应该分配给UI的任务分离出来是必要的。</p>
+<h3 id="LiveData"><a href="#LiveData" class="headerlink" title="LiveData"></a>LiveData</h3><img src="/2020/04/05/Android-1/3.png" class>
+
+<p>LiveData是配合ViewModel使用的</p>
+<p><strong>案例：</strong>实现一个点赞和踩的统计功能</p>
+<p>ViewModelWithLiveData.java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.livedata;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.MutableLiveData;</span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.ViewModel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewModelWithLiveData</span> <span class="keyword">extends</span> <span class="title">ViewModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> MutableLiveData&lt;Integer&gt; LikedNumber;<span class="comment">//创建LiveData的方式</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MutableLiveData&lt;Integer&gt; <span class="title">getLikedNumber</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (LikedNumber == <span class="keyword">null</span>)&#123;</span><br><span class="line">            LikedNumber = <span class="keyword">new</span> MutableLiveData&lt;&gt;();</span><br><span class="line">            LikedNumber.setValue(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> LikedNumber;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLikedNumber</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        LikedNumber.setValue(LikedNumber.getValue() + n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>MainActivity.java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.livedata;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageButton;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.Observer;</span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.ViewModelProvider;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ViewModelWithLiveData viewModelWithLiveData;</span><br><span class="line">    TextView textView;</span><br><span class="line">    ImageButton imageButtonLike , imageButtonDislike;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        imageButtonLike = findViewById(R.id.imageButton);</span><br><span class="line">        imageButtonDislike = findViewById(R.id.imageButton2);</span><br><span class="line"></span><br><span class="line">        viewModelWithLiveData = <span class="keyword">new</span> ViewModelProvider(<span class="keyword">this</span>).get(ViewModelWithLiveData<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        viewModelWithLiveData.getLikedNumber().observe(<span class="keyword">this</span>, <span class="keyword">new</span> Observer&lt;Integer&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChanged</span><span class="params">(Integer integer)</span> </span>&#123;</span><br><span class="line">                textView.setText(String.valueOf(integer));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        imageButtonLike.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                viewModelWithLiveData.addLikedNumber(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        imageButtonDislike.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                viewModelWithLiveData.addLikedNumber(-<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>前端</p>
+<img src="/2020/04/05/Android-1/4.png" class>
+
+<p>并使用了Android Studio中基本的矢量图创建方法。</p>
+<img src="/2020/04/05/Android-1/5.png" class>
+
+<h3 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h3><p>1、首先需要在gradle中添加DataBinding依赖，具体做法，在defaultConfig下添加</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">dataBinding &#123;</span><br><span class="line">            enabled <span class="keyword">true</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、在xml布局中引入DataBinding，点击首行代码的小灯泡即可。</p>
+<p>3、在MainActivity.java中修改代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//setContentView(R.layout.activity_main);</span></span><br><span class="line">binding = DataBindingUtil.setContentView(<span class="keyword">this</span>,R.layout.activity_main);</span><br></pre></td></tr></table></figure>
+
+<p>添加</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">binding.setData(myViewModel);</span><br><span class="line">binding.setLifecycleOwner(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+
+<p>4、xml布局文件的<code>&lt;data&gt;</code>中添加</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;data&gt;</span><br><span class="line">	&lt;variable</span><br><span class="line">		name=<span class="string">"data"</span></span><br><span class="line">		type=<span class="string">"com.thorine.databinding.MyViewModel"</span> /&gt;</span><br><span class="line">&lt;/data&gt;</span><br></pre></td></tr></table></figure>
+
+<p>textView中获取数值：<code>android:text=&quot;@{String.valueOf(data.number)}&quot;</code></p>
+<p>Button中绑定监听事件：<code>android:onClick=&quot;@{()-&gt;data.add()}&quot;</code></p>
+]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(5.6)</title>
+    <url>/2020/05/05/Reinvent-5-6/</url>
+    <content><![CDATA[<p>5.6日</p>
+<a id="more"></a>
+
+<hr>
 <table>
 <thead>
 <tr>
@@ -2576,50 +2713,166 @@
 </thead>
 <tbody><tr>
 <td>上午</td>
-<td>篮球+休息</td>
+<td>PHP好好上课</td>
+<td>90min</td>
+<td>完成</td>
+</tr>
+<tr>
+<td></td>
+<td>PHP学习并完成作业</td>
 <td>120min</td>
-<td>200min</td>
-</tr>
-<tr>
-<td></td>
-<td>计网3、4页PPT作业完成</td>
-<td>60min</td>
-<td>60min</td>
-</tr>
-<tr>
-<td></td>
-<td>概率论与数理统计复习和作业10</td>
-<td>60min</td>
-<td>未完成</td>
+<td>完成</td>
 </tr>
 <tr>
 <td>下午</td>
-<td>数据库第六章复习</td>
-<td>30min</td>
-<td>未完成</td>
+<td>Android</td>
+<td>60min</td>
+<td></td>
 </tr>
 <tr>
 <td></td>
-<td>数据库第七章作业</td>
+<td>计网</td>
 <td>60min</td>
-<td>未完成</td>
+<td>90min</td>
 </tr>
 <tr>
 <td>晚上</td>
-<td>MATLAB考试</td>
-<td>60min</td>
-<td>20min</td>
+<td>体育活动</td>
+<td>30min</td>
+<td></td>
 </tr>
 <tr>
 <td></td>
-<td>Android学习</td>
-<td>30min+</td>
-<td>未完成</td>
+<td>Android</td>
+<td>60min</td>
+<td></td>
 </tr>
 </tbody></table>
-<p>今天要抓住白天的效率，主要是纸质作业学习，静下心来学习。</p>
-<p><strong>总结</strong></p>
-<p>要提高抗干扰能力，尝试学习一会再玩。</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(5.7)</title>
+    <url>/2020/05/07/Reinvent-5-7/</url>
+    <content><![CDATA[<p>5.7日</p>
+<a id="more"></a>
+
+<hr>
+<p>以后每天都至少半小时学习计网</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+<th>计划用时</th>
+<th>实际用时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上午</td>
+<td>好好上课</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>计网</td>
+<td>30min</td>
+<td></td>
+</tr>
+<tr>
+<td>下午</td>
+<td>Android</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>计网</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td>晚上</td>
+<td>体育活动</td>
+<td>30min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Android</td>
+<td>60min</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>今天Android目标，把界面好好创建，尽量实现底部导航栏。</p>
+<p>加油</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(5.8)</title>
+    <url>/2020/05/08/Reinvent-5-8/</url>
+    <content><![CDATA[<p>5.8日</p>
+<a id="more"></a>
+
+<hr>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+<th>计划用时</th>
+<th>实际用时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上午</td>
+<td>好好上课</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>下午</td>
+<td>概率论作业</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>体育活动</td>
+<td>30min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>matlab实验完成</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td>晚上</td>
+<td>计网</td>
+<td>30min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Android</td>
+<td>60min</td>
+<td></td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>Reinvent</category>
@@ -2701,131 +2954,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Reinvent(5.6)</title>
-    <url>/2020/05/05/Reinvent-5-6/</url>
-    <content><![CDATA[<p>5.6日</p>
-<a id="more"></a>
-
-<hr>
-<table>
-<thead>
-<tr>
-<th>时间</th>
-<th>内容</th>
-<th>计划用时</th>
-<th>实际用时</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>上午</td>
-<td>PHP好好上课</td>
-<td>90min</td>
-<td>完成</td>
-</tr>
-<tr>
-<td></td>
-<td>PHP学习并完成作业</td>
-<td>120min</td>
-<td>完成</td>
-</tr>
-<tr>
-<td>下午</td>
-<td>Android</td>
-<td>60min</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>计网</td>
-<td>60min</td>
-<td>90min</td>
-</tr>
-<tr>
-<td>晚上</td>
-<td>体育活动</td>
-<td>30min</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>Android</td>
-<td>60min</td>
-<td></td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Reinvent(5.7)</title>
-    <url>/2020/05/07/Reinvent-5-7/</url>
-    <content><![CDATA[<p>5.6日</p>
-<a id="more"></a>
-
-<hr>
-<p>以后每天都至少半小时学习计网</p>
-<table>
-<thead>
-<tr>
-<th>时间</th>
-<th>内容</th>
-<th>计划用时</th>
-<th>实际用时</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>上午</td>
-<td>好好上课</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>计网</td>
-<td>30min</td>
-<td></td>
-</tr>
-<tr>
-<td>下午</td>
-<td>Android</td>
-<td>60min</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>计网</td>
-<td>60min</td>
-<td></td>
-</tr>
-<tr>
-<td>晚上</td>
-<td>体育活动</td>
-<td>30min</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>Android</td>
-<td>60min</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>今天Android目标，把界面好好创建，尽量实现底部导航栏。</p>
-<p>加油</p>
-]]></content>
-      <categories>
-        <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>We Are All Fighters</title>
     <url>/2020/03/03/We-Are-All-Fighters/</url>
     <content><![CDATA[<iframe src="//player.bilibili.com/player.html?aid=90376384&cid=154346256&page=1" width="100%" height="450" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
@@ -2835,73 +2963,6 @@
       </categories>
       <tags>
         <tag>epidemic</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Android Jetpack架构组件（一）</title>
-    <url>/2020/04/05/Android-1/</url>
-    <content><![CDATA[<p>开始学习Android Jetpack相关知识。</p>
-<a id="more"></a>
-
-<hr>
-<p>首先补充一点内容。</p>
-<h3 id="设置app的横屏和竖屏"><a href="#设置app的横屏和竖屏" class="headerlink" title="设置app的横屏和竖屏"></a>设置app的横屏和竖屏</h3><p>设置app某个界面的横屏和竖屏的不同显示方式。</p>
-<img src="/2020/04/05/Android-1/1.png" class>
-
-<p>即可创建当前页面的一个横屏副本。</p>
-<p>app页面的横屏和竖屏转换是一个Activity的杀死重创建的过程，即界面被刷新，如果当前界面的数据没保存，则会丢失。</p>
-<p>如果需要临时保存当前页面的数据，使其在反转后数据不丢失，则需要以下操作。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//首先注意onCreate(Bundle savedInstanceState)的参数，为保存当前页面的临时数据，Bundle类为key:value形式。</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        button = findViewById(R.id.button);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>)&#123;</span><br><span class="line">            String s = savedInstanceState.getString(<span class="string">"KEY"</span>);</span><br><span class="line">            textView.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">        button.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                textView.setText(R.string.button);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle outState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onSaveInstanceState(outState);</span><br><span class="line">        outState.putString(<span class="string">"KEY"</span>, textView.getText().toString());<span class="comment">//存入Bundle对象，便于onCreate方法取出</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Android-Jetpack"><a href="#Android-Jetpack" class="headerlink" title="Android Jetpack"></a>Android Jetpack</h2><img src="/2020/04/05/Android-1/2.png" class>
-
-<p><strong>ViewModel</strong>：对象为特定的界面组件（如 Fragment 或 Activity）提供数据，并包含数据处理业务逻辑，以与模型进行通信。例如，ViewModel 可以调用其他组件来加载数据，还可以转发用户请求来修改数据。ViewModel 不了解界面组件，因此不受配置更改（如在旋转设备时重新创建 Activity）的影响。</p>
-<p><strong>LiveData</strong>：是一种可观察的数据存储器。应用中的其他组件可以使用此存储器监控对象的更改，而无需在它们之间创建明确且严格的依赖路径。LiveData 组件还遵循应用组件（如 Activity、Fragment 和 Service）的生命周期状态，并包括清理逻辑以防止对象泄漏和过多的内存消耗。</p>
-<p><strong>DataBinding</strong>：声明性地将可观察数据绑定到UI元素，其目的在于是为了脱离Controller与View之间的引用联系，很类似Butterknife库，使用也比较相似。</p>
-<p><strong>Navigation</strong>：允许用户在应用程序中浏览、进入和退出不同内容的Fragment。Navigation能够实现从简单的按钮单击到更复杂的模式，如应用程序栏和导航抽屉。导航组件还通过遵循一套既定的原则来确保一致和可预测的用户体验。</p>
-<p><strong>Lifecycles</strong>：Lifecycles是一个生命周期感知组件，当Activity或者Fragment的生命周期发生改变的时会，Lifecycles也会做出相应的生命周期状态的改变，它保存关于组件生命周期状态的信息(比如活动或片段)，并允许其他对象观察这种状态。</p>
-<h3 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a><strong>ViewModel</strong></h3><p>刚入门，做了一个简短的案例，通过ViewModel管理UI产生的数据。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两个按钮，实现+1，+2操作</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="comment">//用的是ViewModelProviders，可能需要引入Gradle配置</span></span><br><span class="line">        myVideModel = ViewModelProviders.of(<span class="keyword">this</span>).get(MyVideModel<span class="class">.<span class="keyword">class</span>)</span>;<span class="comment">//创建ViewModel对象</span></span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">        button1 = findViewById(R.id.button);</span><br><span class="line">        button2 = findViewById(R.id.button2);</span><br><span class="line">        button1.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                myVideModel.num ++;</span><br><span class="line">                textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        button2.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                myVideModel.num += <span class="number">2</span>;</span><br><span class="line">                textView.setText(String.valueOf(myVideModel.num));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//MyVideModel自定义的ViewModel类，需要继承自ViewModel类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyVideModel</span> <span class="keyword">extends</span> <span class="title">ViewModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>ViewModel的出现主要为了解决两个问题：<br>1.当Actvitiy销毁重建过程中的数据恢复问题，虽然原来可以使用<code>onSaveInstanceState()</code>来完成，但是只支持能被序列化的数据而且是小量数据，对于大量数据则显得有点无力。<br>2.UI控制器的工作繁忙，UI控制器主要用于处理显示，交互，其他的额外操作可以委托给其他类完成，将不应该分配给UI的任务分离出来是必要的。</p>
-<h3 id="LiveData"><a href="#LiveData" class="headerlink" title="LiveData"></a>LiveData</h3><img src="/2020/04/05/Android-1/3.png" class>
-
-<p>LiveData是配合ViewModel使用的</p>
-<p><strong>案例：</strong>实现一个点赞和踩的统计功能</p>
-<p>ViewModelWithLiveData.java</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.livedata;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.MutableLiveData;</span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.ViewModel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewModelWithLiveData</span> <span class="keyword">extends</span> <span class="title">ViewModel</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> MutableLiveData&lt;Integer&gt; LikedNumber;<span class="comment">//创建LiveData的方式</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MutableLiveData&lt;Integer&gt; <span class="title">getLikedNumber</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (LikedNumber == <span class="keyword">null</span>)&#123;</span><br><span class="line">            LikedNumber = <span class="keyword">new</span> MutableLiveData&lt;&gt;();</span><br><span class="line">            LikedNumber.setValue(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> LikedNumber;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLikedNumber</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        LikedNumber.setValue(LikedNumber.getValue() + n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>MainActivity.java</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.livedata;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageButton;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.Observer;</span><br><span class="line"><span class="keyword">import</span> androidx.lifecycle.ViewModelProvider;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ViewModelWithLiveData viewModelWithLiveData;</span><br><span class="line">    TextView textView;</span><br><span class="line">    ImageButton imageButtonLike , imageButtonDislike;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        textView = findViewById(R.id.textView);</span><br><span class="line">        imageButtonLike = findViewById(R.id.imageButton);</span><br><span class="line">        imageButtonDislike = findViewById(R.id.imageButton2);</span><br><span class="line"></span><br><span class="line">        viewModelWithLiveData = <span class="keyword">new</span> ViewModelProvider(<span class="keyword">this</span>).get(ViewModelWithLiveData<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        viewModelWithLiveData.getLikedNumber().observe(<span class="keyword">this</span>, <span class="keyword">new</span> Observer&lt;Integer&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChanged</span><span class="params">(Integer integer)</span> </span>&#123;</span><br><span class="line">                textView.setText(String.valueOf(integer));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        imageButtonLike.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                viewModelWithLiveData.addLikedNumber(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        imageButtonDislike.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                viewModelWithLiveData.addLikedNumber(-<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>前端</p>
-<img src="/2020/04/05/Android-1/4.png" class>
-
-<p>并使用了Android Studio中基本的矢量图创建方法。</p>
-<img src="/2020/04/05/Android-1/5.png" class>
-
-<h3 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h3><p>1、首先需要在gradle中添加DataBinding依赖，具体做法，在defaultConfig下添加</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">dataBinding &#123;</span><br><span class="line">            enabled <span class="keyword">true</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<p>2、在xml布局中引入DataBinding，点击首行代码的小灯泡即可。</p>
-<p>3、在MainActivity.java中修改代码</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//setContentView(R.layout.activity_main);</span></span><br><span class="line">binding = DataBindingUtil.setContentView(<span class="keyword">this</span>,R.layout.activity_main);</span><br></pre></td></tr></table></figure>
-
-<p>添加</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">binding.setData(myViewModel);</span><br><span class="line">binding.setLifecycleOwner(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
-
-<p>4、xml布局文件的<code>&lt;data&gt;</code>中添加</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;data&gt;</span><br><span class="line">	&lt;variable</span><br><span class="line">		name=<span class="string">"data"</span></span><br><span class="line">		type=<span class="string">"com.thorine.databinding.MyViewModel"</span> /&gt;</span><br><span class="line">&lt;/data&gt;</span><br></pre></td></tr></table></figure>
-
-<p>textView中获取数值：<code>android:text=&quot;@{String.valueOf(data.number)}&quot;</code></p>
-<p>Button中绑定监听事件：<code>android:onClick=&quot;@{()-&gt;data.add()}&quot;</code></p>
-]]></content>
-      <categories>
-        <category>Android</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
@@ -2933,6 +2994,21 @@
       <tags>
         <tag>云服务器</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>最爱的BGM</title>
+    <url>/2020/02/28/%E6%9C%80%E7%88%B1%E7%9A%84BGM/</url>
+    <content><![CDATA[<p>44首BGM，请君欣赏。</p>
+<a id="more"></a>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=3222803102&auto=1&height=430"></iframe>
+[网易云歌单链接]: https://music.163.com/#/playlist?id=3222803102&amp;userid=42466756]]></content>
+      <categories>
+        <category>娱乐</category>
+      </categories>
+      <tags>
+        <tag>music</tag>
       </tags>
   </entry>
   <entry>
@@ -3015,21 +3091,6 @@
       </categories>
       <tags>
         <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>最爱的BGM</title>
-    <url>/2020/02/28/%E6%9C%80%E7%88%B1%E7%9A%84BGM/</url>
-    <content><![CDATA[<p>44首BGM，请君欣赏。</p>
-<a id="more"></a>
-
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=3222803102&auto=1&height=430"></iframe>
-[网易云歌单链接]: https://music.163.com/#/playlist?id=3222803102&amp;userid=42466756]]></content>
-      <categories>
-        <category>娱乐</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
       </tags>
   </entry>
   <entry>
