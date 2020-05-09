@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-05-08T14:15:41.057Z</updated>
+  <updated>2020-05-09T13:17:50.573Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -17,17 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Reinvent(5.10)</title>
+    <link href="http://icewind-r.github.io/2020/05/09/Reinvent-5-10/"/>
+    <id>http://icewind-r.github.io/2020/05/09/Reinvent-5-10/</id>
+    <published>2020-05-09T13:09:00.000Z</published>
+    <updated>2020-05-09T13:17:50.573Z</updated>
+    
+    <content type="html"><![CDATA[<p>5.10日</p><a id="more"></a><hr><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>计网第一章学习和PPT整理</td><td>60min</td><td></td></tr><tr><td></td><td>体育活动</td><td>30min</td><td></td></tr><tr><td></td><td>php实验一，web实验</td><td>90min</td><td></td></tr><tr><td>下午</td><td>概率论学习与作业</td><td>90min</td><td></td></tr><tr><td></td><td>数据库看看</td><td>60min</td><td></td></tr><tr><td>晚上</td><td></td><td>30min</td><td></td></tr><tr><td></td><td>Android</td><td>60min</td><td></td></tr></tbody></table><p>赚钱养家真的很不容易，学习恐怕是最容易的事了，请尝试坚持。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;5.10日&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Reinvent(5.9)</title>
     <link href="http://icewind-r.github.io/2020/05/08/Reinvent-5-9/"/>
     <id>http://icewind-r.github.io/2020/05/08/Reinvent-5-9/</id>
     <published>2020-05-08T13:42:04.000Z</published>
-    <updated>2020-05-08T14:15:41.057Z</updated>
+    <updated>2020-05-09T13:08:05.781Z</updated>
     
-    <content type="html"><![CDATA[<p>5.8日</p><a id="more"></a><hr><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>matlab整理复习+实验</td><td>90min</td><td></td></tr><tr><td></td><td>计网第一章学习和PPT整理</td><td>60min</td><td></td></tr><tr><td></td><td>体育活动</td><td>30min</td><td></td></tr><tr><td></td><td>概率论学习与作业</td><td>90min</td><td></td></tr><tr><td>下午</td><td>上午任务收尾，保质完成</td><td>90min</td><td></td></tr><tr><td></td><td>数据库看看</td><td>60min</td><td></td></tr><tr><td>晚上</td><td></td><td>30min</td><td></td></tr><tr><td></td><td>Android</td><td>60min</td><td></td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<p>5.9日</p><a id="more"></a><hr><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>matlab整理复习+实验</td><td>90min</td><td>180min</td></tr><tr><td>下午</td><td>计网第一章学习和PPT整理</td><td>60min</td><td></td></tr><tr><td></td><td>体育活动</td><td>30min</td><td></td></tr><tr><td></td><td>概率论学习与作业</td><td>90min</td><td></td></tr><tr><td></td><td>数据库看看</td><td>60min</td><td></td></tr><tr><td>晚上</td><td></td><td>30min</td><td></td></tr><tr><td></td><td>Android</td><td>60min</td><td></td></tr></tbody></table>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;5.8日&lt;/p&gt;
+      &lt;p&gt;5.9日&lt;/p&gt;
     
     </summary>
     
@@ -446,30 +469,6 @@
     <summary type="html">
     
       &lt;p&gt;4.5总结&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
-    
-    
-      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自我改造计划（综述）</title>
-    <link href="http://icewind-r.github.io/2020/04/04/%E8%87%AA%E6%88%91%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92%EF%BC%88%E7%BB%BC%E8%BF%B0%EF%BC%89/"/>
-    <id>http://icewind-r.github.io/2020/04/04/%E8%87%AA%E6%88%91%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92%EF%BC%88%E7%BB%BC%E8%BF%B0%EF%BC%89/</id>
-    <published>2020-04-04T07:33:27.000Z</published>
-    <updated>2020-04-04T10:25:04.485Z</updated>
-    
-    <content type="html"><![CDATA[<p>希望自己不再堕落，每天都有一点收获。</p><p>全文主旨：<strong>戒掉手机</strong>。</p><a id="more"></a><hr><p>每天什么都不想做，只想躺着呆着玩手机？</p><h2 id="提前透支自己的人生，体会过后的空虚"><a href="#提前透支自己的人生，体会过后的空虚" class="headerlink" title="提前透支自己的人生，体会过后的空虚"></a>提前透支自己的人生，体会过后的空虚</h2><blockquote><p>“大半的人在二十岁或三十岁上就死了。一过这个年龄，他们只变了自己的影子。以后的生命不过是用来模仿自己，把以前真正有人味儿的时代所说的，所做的，所想的，所喜欢的，一天天的重复，而且重复的方式越来越机械，越来越脱腔走板。”——《约翰·克里斯多夫》罗曼·罗兰</p></blockquote><h2 id="注意力被过度消散后的不专注"><a href="#注意力被过度消散后的不专注" class="headerlink" title="注意力被过度消散后的不专注"></a>注意力被过度消散后的不专注</h2><p>信息泛滥让人的专注度下降，但真正能够让你的大脑汲取到营养的，都是需要高度且长时间专注的事，比如读书。</p><p>一个简单的问题：<strong>你多久没有安下心来，好好的读一本书了？</strong></p><p>尝试先从简单的事情做起，比如听一听TED一些心理篇的演讲。</p><h2 id="快感刺激阈值被提高后的慵懒"><a href="#快感刺激阈值被提高后的慵懒" class="headerlink" title="快感刺激阈值被提高后的慵懒"></a>快感刺激阈值被提高后的慵懒</h2><p>我们用手机逃避自己的现状，我们也在利用玩手机来拖延、逃避眼前待解决的问题。</p><p>玩手机来饮鸠止渴，回光返照，越是Deadline，越玩的疯狂，恶性循环。</p><h2 id="耐心点去感受不同阶段的人生体会"><a href="#耐心点去感受不同阶段的人生体会" class="headerlink" title="耐心点去感受不同阶段的人生体会"></a>耐心点去感受不同阶段的人生体会</h2><p>短暂地关闭外界感知通道，离开手机，反而有助于你的思维变得更清晰，更透彻。</p><p>​    而且啊，其实你即使不去关注那些，也没什么影响的。</p><p>​    就算你每隔五秒打开一次微信，没事找你的人还是不会找你。</p><p>​    就算你每天都能刷出瀑布般的信息流，和你无关的事还是和你无关。</p><img src="/2020/04/04/%E8%87%AA%E6%88%91%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92%EF%BC%88%E7%BB%BC%E8%BF%B0%EF%BC%89/1.jpg" class><h2 id="直面空虚和抑郁，借助它们反思"><a href="#直面空虚和抑郁，借助它们反思" class="headerlink" title="直面空虚和抑郁，借助它们反思"></a>直面空虚和抑郁，借助它们反思</h2><blockquote><p>为什么别人能做好的事情我做不好？</p><p>为什么别人跟着建民慢慢成长，我却连队伍都跟不上？</p></blockquote><p>人只有在抑郁的时候，才愿意思考。</p><p>是真的，先借助负面情绪，才能摆脱掉负面情绪。</p><h2 id="逼自己去做点慢节奏的事"><a href="#逼自己去做点慢节奏的事" class="headerlink" title="逼自己去做点慢节奏的事"></a>逼自己去做点慢节奏的事</h2><p>不要觉得发呆是浪费时间，也不要觉得停下来就是不思进取。</p><p>很多时候，停下来，等一等，看看四周，反思下过往，思考下未来，你会有很多错过的新发现。</p><p>一个小时也没看进去两页书，这没啥不好意思的。相比起自暴自弃刷手机，往大脑里塞一个小时的抖音神曲和情绪垃圾，对着书页放空大脑都要好很多。允许自己慢慢来，你迟早可以一个小时看五页、十页、二十页……</p><p>关键在于，屏蔽掉外界的信息，好好感受自己思维和注意力的游荡。前期你可以不过多干涉，就让自己静静的观察，并重新审视那些不断黏着你注意力的事物，再问问自己：“它配吗？”</p><p><strong>找回注意力，就是找回对时间的掌控感。</strong></p><p><strong>把步调调慢后，其实生活中那种“疲于奔命”的感觉也消失了。</strong></p><p>因为只有停下来，时间的流动才变得格外明显。只有慢慢来，时间的报答才有空酝酿成熟。</p><p>毕竟，很多名人的slogan都是：“做时间的朋友。”</p><p><strong>从今天起，每天做好属于自己的事情，总结记录，每天反思，望坚持。</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;希望自己不再堕落，每天都有一点收获。&lt;/p&gt;
-&lt;p&gt;全文主旨：&lt;strong&gt;戒掉手机&lt;/strong&gt;。&lt;/p&gt;
     
     </summary>
     
