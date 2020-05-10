@@ -278,13 +278,38 @@
 
 <img src="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/4.png" class>
 
-<h2 id="二、向量与矩阵处理相关函数"><a href="#二、向量与矩阵处理相关函数" class="headerlink" title="二、向量与矩阵处理相关函数"></a>二、向量与矩阵处理相关函数</h2><h3 id="1、矩阵变换函数"><a href="#1、矩阵变换函数" class="headerlink" title="1、矩阵变换函数"></a>1、矩阵变换函数</h3><p>包括矩阵重排、矩阵抽取以及矩阵转向等。</p>
+<h2 id="二、向量与矩阵处理相关函数"><a href="#二、向量与矩阵处理相关函数" class="headerlink" title="二、向量与矩阵处理相关函数"></a>二、向量与矩阵处理相关函数</h2><h2 id="矩阵分析与处理"><a href="#矩阵分析与处理" class="headerlink" title="矩阵分析与处理"></a>矩阵分析与处理</h2><h3 id="特殊矩阵"><a href="#特殊矩阵" class="headerlink" title="特殊矩阵"></a>特殊矩阵</h3><p>常见的特殊矩阵有零矩阵、幺矩阵、单位矩阵等，这类特殊矩阵在应用中具有通用性。</p>
+<p>1、通用的特殊矩阵<br>常用的产生通用特殊矩阵的函数有：</p>
+<ul>
+<li><p>zeros：产生全0矩阵（零矩阵）。</p>
+</li>
+<li><p>ones： 产生全1矩阵（幺矩阵）。</p>
+</li>
+<li><p>eye： 产生单位矩阵。</p>
+</li>
+<li><p>rand：产生0~1间均匀分布的随机矩阵。</p>
+</li>
+<li><p>randn：产生均值为0，方差为1的标准正态分布随机矩阵。</p>
+<ul>
+<li><p>产生(0,1)区间均匀分布随机矩阵使用rand函数</p>
+</li>
+<li><p>产生均值为0，方差为1的标准正态分布随机矩阵使用randn函数</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>例如：</strong><code>ones(5)</code>产生5*5的单位矩阵。</p>
+<h3 id="1、矩阵变换函数"><a href="#1、矩阵变换函数" class="headerlink" title="1、矩阵变换函数"></a>1、矩阵变换函数</h3><p>包括矩阵重排、矩阵抽取以及矩阵转向等。</p>
 <ol>
 <li><p>矩阵重排函数：<br>reshape(A,m,n)：把矩阵A中所有元素重新排列为m*n的矩阵，矩阵总元素数必须相等。</p>
 <figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>;<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span></span><br><span class="line">     <span class="number">5</span>     <span class="number">6</span>     <span class="number">7</span>     <span class="number">8</span></span><br><span class="line">&gt;&gt; <span class="built_in">reshape</span>(a,<span class="number">4</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">1</span>     <span class="number">3</span></span><br><span class="line">     <span class="number">5</span>     <span class="number">7</span></span><br><span class="line">     <span class="number">2</span>     <span class="number">4</span></span><br><span class="line">     <span class="number">6</span>     <span class="number">8</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>矩阵抽取函数：<br>diag(A, k)：A为矩阵时，抽取矩阵A的第k条对角线。k可以为正整数也可以为负整数。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> ; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]</span><br><span class="line">A =</span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span></span><br><span class="line">     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span></span><br><span class="line">     <span class="number">7</span>     <span class="number">8</span>     <span class="number">9</span></span><br><span class="line">&gt;&gt; <span class="built_in">diag</span>(A)        <span class="comment">% 提取A的主对角线元素</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">1</span></span><br><span class="line">     <span class="number">5</span></span><br><span class="line">     <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> ; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]</span><br><span class="line">A =</span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span></span><br><span class="line">     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span></span><br><span class="line">&gt;&gt; <span class="built_in">diag</span>(A)        <span class="comment">% 提取A的主对角线元素</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">1</span></span><br><span class="line">     <span class="number">5</span></span><br><span class="line">&gt;&gt; <span class="built_in">diag</span>(A,<span class="number">1</span>)        <span class="comment">% 提取A的第一条对角线的元素（对角线从0计数）</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">2</span></span><br><span class="line">  <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>同时该函数还可构造对角矩阵</strong></p>
+<p>如果V是一个m个元素的向量，diag(V)将产生一个m×m对角矩阵，其主对角线元素即为向量V的元素。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="built_in">diag</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">-1</span>,<span class="number">4</span>])</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">	<span class="number">1</span>  <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span></span><br><span class="line">	<span class="number">0</span>  <span class="number">2</span>  <span class="number">0</span>  <span class="number">0</span></span><br><span class="line">	<span class="number">0</span>  <span class="number">0</span> <span class="number">-1</span>  <span class="number">0</span></span><br><span class="line">	<span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>  <span class="number">4</span></span><br><span class="line"><span class="built_in">diag</span>(<span class="number">1</span>:<span class="number">3</span>,<span class="number">-1</span>)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">	<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">	<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">	<span class="number">0</span> <span class="number">2</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">	<span class="number">0</span> <span class="number">0</span> <span class="number">3</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>矩阵转向函数：<br>transpose(A)：求矩阵A的转置。可以用单引号（’）直接代替transpose函数。</p>
 <figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt; A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]</span><br><span class="line">A =</span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span></span><br><span class="line">     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span></span><br><span class="line">     <span class="number">7</span>     <span class="number">8</span>     <span class="number">9</span></span><br><span class="line">&gt;&gt; transpose(A)        <span class="comment">% 求A的转置</span></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">1</span>     <span class="number">4</span>     <span class="number">7</span></span><br><span class="line">     <span class="number">2</span>     <span class="number">5</span>     <span class="number">8</span></span><br><span class="line">     <span class="number">3</span>     <span class="number">6</span>     <span class="number">9</span></span><br></pre></td></tr></table></figure>
@@ -442,9 +467,9 @@
     <content><![CDATA[<p>MATLAB的第一次课堂总结，包括MATLAB中通用的命令、数组矩阵的相关运算，字符串的一些基本命令等。</p>
 <a id="more"></a>
 
-<h2 id="一、MATLAB注意事项"><a href="#一、MATLAB注意事项" class="headerlink" title="一、MATLAB注意事项"></a>一、MATLAB注意事项</h2><p>1、 MATLAB对字母的大小写是敏感的。</p>
+<h2 id="MATLAB注意事项"><a href="#MATLAB注意事项" class="headerlink" title="MATLAB注意事项"></a>MATLAB注意事项</h2><p>1、 MATLAB对字母的大小写是敏感的。</p>
 <p>2、按照MATLAB的变量定义规则，将所有变量都定义为数组。标量被看作（1×1）的数组，向量认为是（1×n）或（m×1）的数组,矩阵认为是（m×n）的数组。</p>
-<h2 id="二、常见的通用命令"><a href="#二、常见的通用命令" class="headerlink" title="二、常见的通用命令"></a>二、常见的通用命令</h2><p>1、<code>clc</code>清除清除窗口显示内容。</p>
+<h2 id="常见的通用命令"><a href="#常见的通用命令" class="headerlink" title="常见的通用命令"></a>常见的通用命令</h2><p>1、<code>clc</code>清除清除窗口显示内容。</p>
 <p>2、<code>who</code>、<code>whos</code>命令显示工作空间的变量，<code>clear</code>清除工作空间的变量。</p>
 <p>3、<code>dir</code>命令显示当前工作目录的文件和子目录清单。</p>
 <p>4、<code>cd</code>命令显示或设置当前工作目录。</p>
@@ -465,7 +490,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="三、命令行窗口"><a href="#三、命令行窗口" class="headerlink" title="三、命令行窗口"></a>三、命令行窗口</h2><p>1、<code>sin</code>命令</p>
+<h2 id="命令行窗口"><a href="#命令行窗口" class="headerlink" title="命令行窗口"></a>命令行窗口</h2><p>1、<code>sin</code>命令</p>
 <p>MATLAB中正弦函数sin就是常见的正弦函数。</p>
 <p>它的参数值是以“弧度”为单位的。</p>
 <p>pi也是Matalb的预定义变量。</p>
@@ -478,7 +503,7 @@
 <li>也可以分行输入，用回车“Enter”区分行。</li>
 </ul>
 <p>4、指令的多行输入：在本行命令的末尾加上三个及以上的点<code>...</code>即可。</p>
-<h2 id="四、数值表示、变量及表达式"><a href="#四、数值表示、变量及表达式" class="headerlink" title="四、数值表示、变量及表达式"></a>四、数值表示、变量及表达式</h2><p>1、MATLAB只采用十进制表示数值。</p>
+<h2 id="数值表示、变量及表达式"><a href="#数值表示、变量及表达式" class="headerlink" title="数值表示、变量及表达式"></a>数值表示、变量及表达式</h2><p>1、MATLAB只采用十进制表示数值。</p>
 <p>2、变量命名规则</p>
 <ul>
 <li>变量名函数名对字母大小写敏感</li>
@@ -588,7 +613,7 @@
 <li><p>MATLAB把复数作为一个整体，像计算实数一样计算复数。</p>
 </li>
 </ul>
-<h2 id="五、数组与矩阵"><a href="#五、数组与矩阵" class="headerlink" title="五、数组与矩阵"></a>五、数组与矩阵</h2><h3 id="1、分类"><a href="#1、分类" class="headerlink" title="1、分类"></a>1、分类</h3><ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="1、分类"><a href="#1、分类" class="headerlink" title="1、分类"></a>1、分类</h3><ul>
 <li><p>一维数组，也称为向量(vector) 。行向量(row vector)、列向量(column vector)。</p>
 </li>
 <li><p>二维数组(矩阵matrix)。</p>
@@ -753,7 +778,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="六、字符串"><a href="#六、字符串" class="headerlink" title="六、字符串"></a>六、字符串</h2><h3 id="1、基本命令"><a href="#1、基本命令" class="headerlink" title="1、基本命令"></a>1、基本命令</h3><ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="1、基本命令"><a href="#1、基本命令" class="headerlink" title="1、基本命令"></a>1、基本命令</h3><ul>
 <li><p>Matlab 用「单引号」来界定一个字符串。</p>
 </li>
 <li><p>可以使用方括号“[ ]”直接连接多个字符串变量，得到一个新字符串变量。</p>
@@ -786,7 +811,7 @@
 <h4 id="3、字符串比较"><a href="#3、字符串比较" class="headerlink" title="3、字符串比较"></a>3、字符串比较</h4><p>strcmp 指令: 用于比较字符串的內容的异同 。不相等返回0,相等返回1。</p>
 <figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">str1 = <span class="string">'today'</span>;  </span><br><span class="line">str2 = <span class="string">'tomorrow'</span>;  </span><br><span class="line">str3 = <span class="string">'today'</span>;  </span><br><span class="line">out1 = strcmp(str1, str2)	   <span class="comment">% 比较字符串 str1 和 str2 </span></span><br><span class="line">out1 = <span class="number">0</span>                       <span class="comment">%表示字符串 str1 和 str2不同</span></span><br><span class="line">out2 = strcmp(str1, str3)	   <span class="comment">% 比较字符串 str1 和 str3</span></span><br><span class="line">out2 = <span class="number">1</span>                       <span class="comment">%表示字符串 str1 和 str2相同</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="七、多维数组"><a href="#七、多维数组" class="headerlink" title="七、多维数组"></a>七、多维数组</h2><p>在 MATLAB 的数据类型中，向量可视为一维数组，矩阵可视为二维数组，对于维数超过2的数组均可视为多维数组。</p>
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p>在 MATLAB 的数据类型中，向量可视为一维数组，矩阵可视为二维数组，对于维数超过2的数组均可视为多维数组。</p>
 <p>将两个二维（平面）数组叠在一起，就构成三维数组，第三维称为「页」(Page)。</p>
 <img src="/2020/03/13/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/2.png" class>
 
