@@ -18,6 +18,295 @@
       </tags>
   </entry>
   <entry>
+    <title>Android_UI</title>
+    <url>/2020/02/28/Android-UI/</url>
+    <content><![CDATA[<p>Android UI的知识点总结，初入Android，做些总结。</p>
+<a id="more"></a>
+
+<p>现在学习主要是跟着视频教程边看边学，现将学习到的零星知识点总结如下：</p>
+<p>Android 系统中的所有 UI 类都是建立在 View 和 ViewGroup 两个类的基础之上的，所有 View 的子类称为 Widget，所有 ViewGroup 的子类称为 Layout。其中 ViewGroup 是 View 的子类。</p>
+<p>View 是所有 UI 组件的基类，基本上所有的高级 UI 组件都是继承 View 类实现的，如 TextView（文本框）、Button、List、EditText（编辑框）、Checkbox 等。一个 View 在屏幕占据一块矩形区域，负责渲染这块矩形区域，也可以处理这块矩形区域发生的事件，并可以设置该区域是否可见以及获取焦点等。</p>
+<p>ViewGroup 是容纳这些组件的容器，其本身也是从 View 中派生出来的，它继承于 Android.view.View，功能就是装载和管理下一层的 View 对象或 ViewGroup 对象，也就是说它是一个容纳其他元素的容器，负责对添加进来的 View 和 ViewGroup 进行管理和布局。</p>
+<p><strong>Android常用的UI组件：<a href="https://blog.csdn.net/m0_37597069/article/details/70196271" target="_blank" rel="noopener">参见链接</a></strong></p>
+<p>首先有一些属性是通用的：</p>
+<p>id=”@+id/name”创建一个id 引用时：”@id/name”</p>
+<p>orientation  水平方向或垂直方向</p>
+<p>margin：外边距</p>
+<p>padding：内边距</p>
+<p>gravity：位置管理</p>
+<h3 id="一、布局管理"><a href="#一、布局管理" class="headerlink" title="一、布局管理"></a>一、布局管理</h3><p>Android SDK 定义了多种布局方式以方便用户设计 UI。各种布局方式均为 ViewGroup 类的子类。</p>
+<img src="/2020/02/28/Android-UI/0.png" class>
+
+<p>主要学习的是两种最常用的布局，是线性布局（LinearLayout）和相对布局（RelativeLayout）。</p>
+<p><strong>1、线性布局（LinearLayout）</strong></p>
+<p>LinearLayout 又称线性布局，该布局应该是 Android 视图设计中最经常使用的布局。该布局可以使放入其中的组件以水平方式或者垂直方式整齐排列，通过 android:orientation 属性指定具体的排列方式，通过 weight 属性设置每个组件在布局中所占的比重。</p>
+<p>其中weight属性需要特别注意：weight代表的是权值，但此权值的分配是指剩余的空间（未被元素使用的空间按照权值比例分配），需要理解掌握。</p>
+<p><strong>2、相对布局（RelativeLayout）</strong></p>
+<p>RelativeLayout 又称相对布局。从名称上可以看出，这种布局方式是以一种让组件以相对于容器或者相对于容器中的另一个组件的相对位置进行放置的布局方式。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>android:layout_above=”@id/xxx”</td>
+<td>将控件置于给定 ID 控件之上</td>
+</tr>
+<tr>
+<td>android:layout_below=”@id/xxx”</td>
+<td>将控件置于给定 ID 控件之下</td>
+</tr>
+<tr>
+<td>android:layout_toLeftOf=”@id/xxx”</td>
+<td>将控件的右边缘和给定 ID 控件的左边缘对齐</td>
+</tr>
+<tr>
+<td>android:layout_toRightOf=”@id/xxx”</td>
+<td>将控件的左边缘和给定 ID 控件的右边缘对齐</td>
+</tr>
+<tr>
+<td>android:layout_alignBaseline=”@id/xxx”</td>
+<td>将控件的 baseline 与给定 ID 的 baseline 对齐</td>
+</tr>
+<tr>
+<td>android:layout_alignTop=”@id/xxx”</td>
+<td>将控件的上边缘和给定 ID 控件的上边缘对齐</td>
+</tr>
+<tr>
+<td>android:layout_alignBottom=”@id/xxx”</td>
+<td>将控件的底边缘和给定 ID 控件的底边缘对齐</td>
+</tr>
+<tr>
+<td>android:layout_alignLeft=”@id/xxx”</td>
+<td>将控件的左边缘和给定 ID 控件的左边缘对齐</td>
+</tr>
+<tr>
+<td>android:layout_alignRight=”@id/xxx”</td>
+<td>将控件的右边缘和给定 ID 控件的右边缘对齐</td>
+</tr>
+<tr>
+<td>android:layout_alignParentLeft=”true”</td>
+<td>将控件的左边缘和父控件的左边缘对齐</td>
+</tr>
+<tr>
+<td>android:layout_alignParentTop=”true”</td>
+<td>将控件的上边缘和父控件的上边缘对齐</td>
+</tr>
+<tr>
+<td>android:layout_alignParentRight=”true”</td>
+<td>将控件的右边缘和父控件的右边缘对齐</td>
+</tr>
+<tr>
+<td>android:layout_alignParentBottom=”true”</td>
+<td>将控件的底边缘和父控件的底边缘对齐</td>
+</tr>
+<tr>
+<td>android:layout_centerInParent=”true”</td>
+<td>将控件置于父控件的中心位置</td>
+</tr>
+<tr>
+<td>android:layout_centerHorizontal=”true”</td>
+<td>将控件置于水平方向的中心位置</td>
+</tr>
+<tr>
+<td>android:layout_centerVertical=”true”</td>
+<td>将控件置于垂直方向的中心位置</td>
+</tr>
+</tbody></table>
+<h3 id="二、TextView（文本框）"><a href="#二、TextView（文本框）" class="headerlink" title="二、TextView（文本框）"></a>二、TextView（文本框）</h3><p>设置文本框的最大行数（当然还有其他设置最大）：android:maxLines=”1”<br>设置文本显示方式：<br>end表示显示不完省略号：android:ellipsize=”end”<br>marquee表示显示不完播放：android:ellipsize=”marquee”<br>再加上这样几行可以循环播放<br>android:marqueeRepeatLimit=”marquee_forever”<br>android:focusable=”true”<br>android:focusableInTouchMode=”true”<br>添加图片，调整图片边距等<br>android:drawableRight=”@drawable/name”//表示在文本右边添加图片<br>android:drawablePadding=”5dp”</p>
+<h3 id="三、Button（按钮）"><a href="#三、Button（按钮）" class="headerlink" title="三、Button（按钮）"></a>三、Button（按钮）</h3><p>按钮学习的重点在改变按钮的样式和添加点击事件。</p>
+<p>改变样式主要是将按钮改为圆角，更加美观。</p>
+<p>可在drawable目录下新建xml文件修改。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">shape</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:shape</span>=<span class="string">"rectangle"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">solid</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:color</span>=<span class="string">"#FF9900"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">corners</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:radius</span>=<span class="string">"5dp"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>再在要设置的按钮添加背景属性，设置为此xml文件即可。</p>
+<p>同样可以设置很多效果，比如未点击和点击的不同颜色区分。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_pressed</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">shape</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#CC7A00"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"5dp"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_pressed</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">shape</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#FF9900"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"5dp"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>再就是添加点击事件，为普通按钮添加单击事件监听器。两种方式：</p>
+<p>1、匿名内部类作为单击事件监听器，这里添加内容为显示被点击的按钮内容。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//按钮3的点击事件</span></span><br><span class="line">mBtn3.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">        Toast.makeText(ButtonActivity.<span class="keyword">this</span>,<span class="string">"btn3我被点击了"</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>2、通过onClick属性实现</p>
+<p>① 在Activity中编写一个包含View类型参数的方法。　　public void myClick(View view){}</p>
+<p>② 将android:onClick属性指定为 ① 内的方法名。　　　android:onClick=”myClick”</p>
+<p><strong>扩展 ：ImageButton图片按钮</strong></p>
+<p>通过src属性指定</p>
+<h3 id="四、EditText（编辑框）"><a href="#四、EditText（编辑框）" class="headerlink" title="四、EditText（编辑框）"></a>四、EditText（编辑框）</h3><p><strong>属性</strong></p>
+<p>android:hint=”请输入用户名”  ：输入框提示信息</p>
+<p>android:inputType=”number”：规定输入格式。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">android:inputType=<span class="string">"none"</span><span class="comment">//输入普通字符</span></span><br><span class="line">android:inputType=<span class="string">"text"</span><span class="comment">//输入普通字符</span></span><br><span class="line">android:inputType=<span class="string">"textCapCharacters"</span><span class="comment">//输入普通字符</span></span><br><span class="line">android:inputType=<span class="string">"textCapWords"</span><span class="comment">//单词首字母大小</span></span><br><span class="line">android:inputType=<span class="string">"textCapSentences"</span><span class="comment">//仅第一个字母大小</span></span><br><span class="line">android:inputType=<span class="string">"textAutoCorrect"</span><span class="comment">//前两个自动完成</span></span><br><span class="line">android:inputType=<span class="string">"textAutoComplete"</span><span class="comment">//前两个自动完成</span></span><br><span class="line">android:inputType=<span class="string">"textMultiLine"</span><span class="comment">//多行输入</span></span><br><span class="line">android:inputType=<span class="string">"textImeMultiLine"</span><span class="comment">//输入法多行（不一定支持）</span></span><br><span class="line">android:inputType=<span class="string">"textNoSuggestions"</span><span class="comment">//不提示</span></span><br><span class="line">android:inputType=<span class="string">"textUri"</span><span class="comment">//URI格式</span></span><br><span class="line">android:inputType=<span class="string">"textEmailAddress"</span><span class="comment">//电子邮件地址格式</span></span><br><span class="line">android:inputType=<span class="string">"textEmailSubject"</span><span class="comment">//邮件主题格式</span></span><br><span class="line">android:inputType=<span class="string">"textShortMessage"</span><span class="comment">//短消息格式</span></span><br><span class="line">android:inputType=<span class="string">"textLongMessage"</span><span class="comment">//长消息格式</span></span><br><span class="line">android:inputType=<span class="string">"textPersonName"</span><span class="comment">//人名格式</span></span><br><span class="line">android:inputType=<span class="string">"textPostalAddress"</span><span class="comment">//邮政格式</span></span><br><span class="line">android:inputType=<span class="string">"textPassword"</span><span class="comment">//密码格式</span></span><br><span class="line">android:inputType=<span class="string">"textVisiblePassword"</span><span class="comment">//密码可见格式</span></span><br><span class="line">android:inputType=<span class="string">"textWebEditText"</span><span class="comment">//作为网页表单的文本格式</span></span><br><span class="line">android:inputType=<span class="string">"textFilter"</span><span class="comment">//文本筛选格式</span></span><br><span class="line">android:inputType=<span class="string">"textPhonetic"</span><span class="comment">//拼音输入格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数值类型</span></span><br><span class="line">android:inputType=<span class="string">"number"</span><span class="comment">//数字格式</span></span><br><span class="line">android:inputType=<span class="string">"numberSigned"</span><span class="comment">//有符号数字格式</span></span><br><span class="line">android:inputType=<span class="string">"numberDecimal"</span><span class="comment">//可以带小数点的浮点格式</span></span><br><span class="line">android:inputType=<span class="string">"phone"</span><span class="comment">//拨号键盘</span></span><br><span class="line">android:inputType=<span class="string">"datetime"</span><span class="comment">//日期+时间格式</span></span><br><span class="line">android:inputType=<span class="string">"date"</span><span class="comment">//日期键盘</span></span><br><span class="line">android:inputType=<span class="string">"time"</span><span class="comment">//时间键盘</span></span><br><span class="line">转自CSDN：原文链接：https:<span class="comment">//blog.csdn.net/zhangphil/article/details/79970667</span></span><br></pre></td></tr></table></figure>
+
+<p>同样也可在编辑框里添加图片等操作，android:drawableLeft=”@drawable/name”  。（与android:drawableStart相同）</p>
+<p>同理：android:drawableBottom,android:drawableRight(android:drawableEnd)</p>
+<p>android:drawablePadding:内边距</p>
+<p>android:lines：限制行数，超出时向上滚动。</p>
+<p>getText():获取编辑框内容</p>
+<h3 id="五、RadioButton（单选框）"><a href="#五、RadioButton（单选框）" class="headerlink" title="五、RadioButton（单选框）"></a>五、RadioButton（单选框）</h3><p>RadioGroup 为单项选择按钮组，其中可以包含多个 RadioButton，即单选按钮，它们共同为用户提供一种多选一的选择方式。在多个 RadioButton 被同一个 RadioGroup 包含的情况下，多个 RadioButton 之间自动形成互斥关系，仅有一个可以被选择。</p>
+<p>基本格式：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RadioGroup</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">RadioButton</span>/&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">RadioButton</span>/&gt;</span></span><br><span class="line">　　.....</span><br><span class="line"><span class="tag">&lt;/<span class="name">RadioGroup</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>RadioGroup中也有orientation属性，即选择水平或竖直方向排列RadioButton。</p>
+<p>RadioButton中的属性：</p>
+<p>按钮名称：android:text=”name”</p>
+<p>表示被默认选中的选项：android:checked=”true”<br>设置按钮形状：android:button=”@null”（表示不设置）</p>
+<p><strong>可以自定义按钮选中时的样式：</strong></p>
+<p>同样在drawable目录下新建xml文件修改。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_checked</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">shape</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#CC7A00"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"5dp"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_checked</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">shape</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">stroke</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:width</span>=<span class="string">"1dp"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:color</span>=<span class="string">"#CC7A00"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"5dp"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中state_checked表示是否选中的状态</p>
+<p> 效果：</p>
+<img src="/2020/02/28/Android-UI/1.png" class>
+
+<p>这种效果时通过背景实现不同的状态表示。</p>
+<h4 id="添加选中事件获取选中的内容。"><a href="#添加选中事件获取选中的内容。" class="headerlink" title="添加选中事件获取选中的内容。"></a>添加选中事件获取选中的内容。</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取单选按钮组RadioGroup mRg1，设置选中监听事件</span></span><br><span class="line">mRg1.setOnCheckedChangeListener(<span class="keyword">new</span> RadioGroup.OnCheckedChangeListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCheckedChanged</span><span class="params">(RadioGroup group, <span class="keyword">int</span> checkedId)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//根据选中的checkedId值获取内容</span></span><br><span class="line">        RadioButton radioButton = group.findViewById(checkedId);</span><br><span class="line">        <span class="comment">//输出</span></span><br><span class="line">        Toast.makeText(RadioButtonActivity.<span class="keyword">this</span>,radioButton.getText(),Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="六、CheckBox（多选框）"><a href="#六、CheckBox（多选框）" class="headerlink" title="六、CheckBox（多选框）"></a>六、CheckBox（多选框）</h3><p>大致与单选相同，介绍另一种通过自定义改变按钮形状实现按钮样式。</p>
+<p>这里将  android:button=”@drawable/bg_checkbox” 设置为自定义的。bg_checkbox同样新建的xml文件。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:state_checked</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:drawable</span>=<span class="string">"@drawable/face"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:state_checked</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:drawable</span>=<span class="string">"@drawable/selection"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="七、ImageView（图片视图）"><a href="#七、ImageView（图片视图）" class="headerlink" title="七、ImageView（图片视图）"></a>七、ImageView（图片视图）</h3><p><strong>1、介绍属性</strong></p>
+<p>background为背景，src为内容。</p>
+<p>scaleType：覆盖方式，常见属性值有：</p>
+<p>　　fixXY：撑满控件，宽高比可能发生改变。</p>
+<p>　　fitCenter：保持宽高比缩放，直至能够完全显示。</p>
+<p>　　centerCrop：保持宽高比缩放，直至能够完全覆盖控件，剪裁显示。</p>
+<p><strong>2、加载网络图片</strong></p>
+<p>首先使用第三方的库，这里选择的是Github上的glide库</p>
+<p> <a href="https://github.com/bumptech/glide" target="_blank" rel="noopener">https://github.com/bumptech/glide</a></p>
+<img src="/2020/02/28/Android-UI/2.png" class>
+
+<p>将其添加到Android Studio中的build.gradle目录下。</p>
+<img src="/2020/02/28/Android-UI/3.png" class>
+
+<p> 同步好后在activity的Java代码部分添加代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_image_view);</span><br><span class="line">    mIv2 = findViewById(R.id.iv_2);</span><br><span class="line">    <span class="comment">//加载一张网络图片</span></span><br><span class="line">    Glide.with(<span class="keyword">this</span>).load(<span class="string">"http://i1.sinaimg.cn/ent/d/2008-06-04/U105P28T3D2048907F326DT20080604225106.jpg"</span>).into(mIv2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同时需要在AndroidManifest.xml中声明使用网络权限。</p>
+<p>添加一行代码： <uses-permission android:name="android.permission.INTERNET"> 即可。</uses-permission></p>
+<h3 id="八、日期选择器，时间选择器，计时器"><a href="#八、日期选择器，时间选择器，计时器" class="headerlink" title="八、日期选择器，时间选择器，计时器"></a>八、日期选择器，时间选择器，计时器</h3><h4 id="1、DatePicker（日期选择器）"><a href="#1、DatePicker（日期选择器）" class="headerlink" title="1、DatePicker（日期选择器）"></a>1、DatePicker（日期选择器）</h4><p>即可显示日期，可以添加事件接收选择的日期。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> year,month,day;</span><br><span class="line">DatePicker datePicker;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_date_pcker);</span><br><span class="line">    <span class="comment">//日期选择器的id为datepicker</span></span><br><span class="line">    datePicker = findViewById(R.id.datepicker);</span><br><span class="line">    Calendar calendar = Calendar.getInstance();</span><br><span class="line">    <span class="comment">//初始化</span></span><br><span class="line">    year = calendar.get(calendar.YEAR);</span><br><span class="line">    month = calendar.get(calendar.MONTH);</span><br><span class="line">    day = calendar.get(calendar.DAY_OF_MONTH);</span><br><span class="line">    <span class="comment">//添加选择事件</span></span><br><span class="line">    datePicker.init(year, month, day, <span class="keyword">new</span> DatePicker.OnDateChangedListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDateChanged</span><span class="params">(DatePicker view, <span class="keyword">int</span> year, <span class="keyword">int</span> monthOfYear, <span class="keyword">int</span> dayOfMonth)</span> </span>&#123;</span><br><span class="line">            DatePickerActivity.<span class="keyword">this</span>.year = year;</span><br><span class="line">            DatePickerActivity.<span class="keyword">this</span>.month = monthOfYear;</span><br><span class="line">            DatePickerActivity.<span class="keyword">this</span>.day = dayOfMonth;</span><br><span class="line">            show(year,month,day);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(<span class="keyword">int</span> year,<span class="keyword">int</span> month,<span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">    String str = year+<span class="string">"年"</span>+(month+<span class="number">1</span>)+<span class="string">"月"</span>+day+<span class="string">"日"</span>;</span><br><span class="line">    Toast.makeText(DatePickerActivity.<span class="keyword">this</span>,str,Toast.LENGTH_SHORT).show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、TimePicker（时间选择器）"><a href="#2、TimePicker（时间选择器）" class="headerlink" title="2、TimePicker（时间选择器）"></a>2、TimePicker（时间选择器）</h4><p>显示时间，添加一个监听器。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//timepicker为时间选择器的id</span></span><br><span class="line">TimePicker tp = findViewById(R.id.timepicker);</span><br><span class="line">tp.setIs24HourView(<span class="keyword">true</span>);<span class="comment">//采用24小时支持</span></span><br><span class="line"><span class="comment">//时间改变的监听器</span></span><br><span class="line">tp.setOnTimeChangedListener(<span class="keyword">new</span> TimePicker.OnTimeChangedListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTimeChanged</span><span class="params">(TimePicker view, <span class="keyword">int</span> hourOfDay, <span class="keyword">int</span> minute)</span> </span>&#123;</span><br><span class="line">        String str = hourOfDay+<span class="string">"时"</span>+minute+<span class="string">"分"</span>;</span><br><span class="line">        Toast.makeText(TimePickerActivity.<span class="keyword">this</span>,str,Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、Chronometer（计时器）"><a href="#3、Chronometer（计时器）" class="headerlink" title="3、Chronometer（计时器）"></a>3、Chronometer（计时器）</h4><p>属性通常设置 android:format=”已用时间：%s” 表示用时分秒的格式计时。</p>
+<p>并通常需要为计时器设定四个方法。</p>
+<p>① setBase()：设置计时器的起始时间</p>
+<p>② setFormat()：设置显示时间的格式</p>
+<p>③ start()：指定开始计时</p>
+<p>④ stop()：指定结束计时</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Chronometer ch ;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_chronometer);</span><br><span class="line">    ch = findViewById(R.id.chromometer);</span><br><span class="line">    <span class="comment">//获取当前的系统时间</span></span><br><span class="line">    ch.setBase(SystemClock.elapsedRealtime());</span><br><span class="line">    <span class="comment">//设置时间格式</span></span><br><span class="line">    ch.setFormat(<span class="string">"%s"</span>);</span><br><span class="line">    <span class="comment">//开启计时器</span></span><br><span class="line">    ch.start();</span><br><span class="line">    <span class="comment">//添加监听器，计时器改变时触发</span></span><br><span class="line">    ch.setOnChronometerTickListener(<span class="keyword">new</span> Chronometer.OnChronometerTickListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChronometerTick</span><span class="params">(Chronometer chronometer)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(SystemClock.elapsedRealtime()-ch.getBase()&gt;=<span class="number">60000</span>)&#123;<span class="comment">//如果大于60s，停止计时</span></span><br><span class="line">                ch.stop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>综上，第一部分总结。</p>
+<hr>
+<p>以下为第二部分总结。</p>
+<h3 id="一、ProgressBar（进度条）"><a href="#一、ProgressBar（进度条）" class="headerlink" title="一、ProgressBar（进度条）"></a>一、ProgressBar（进度条）</h3><p>进度条有两种形式，圆形加载式和水平长条形状，可通过style属性设置（注意：前面没有android:）</p>
+<p>列举几种：</p>
+<p>　　?android:attr/progressBarStyleHorizontal　　　　细水平长度进度条</p>
+<p>　　?android:attr/progressBarStyleSmall　　　　　　旋转画面的小圆形进度条</p>
+<p>　　?android:attr/progressBarStyleLarge　　　　　　旋转画面的大圆形进度条</p>
+<p>　　@android:style/Widget.ProgressBar.Horizontal　　粗水平长度进度条</p>
+<p>　　@android:style/Widget.ProgressBar.Small　　　　旋转画面的小圆形进度条</p>
+<p>　　@android:style/Widget.ProgressBar.Large　　　　旋转画面的大圆形进度条</p>
+<p>android:max=”100” 　　　 　该属性设置进程的最大值<br>android:progress=”50”　　　表示初始的进程值</p>
+<p><strong>实现动态进度条步骤：</strong></p>
+<p>创建线程，判断耗时操作是否完成，若没有完成，调用进度条的setProgress()方法更新进度，然后循环操作，直到耗时操作完成，然后调用setVisibility()方法设置进度条不显示。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">    <span class="comment">&lt;!--    style确定进度条样式，max指定进度条值，便于后台判断    --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ProgressBar</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/progressbar"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">style</span>=<span class="string">"@android:style/Widget.ProgressBar.Horizontal"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_marginBottom</span>=<span class="string">"60dp"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:max</span>=<span class="string">"100"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>后台Java代码：</p>
+<p>private ProgressBar progressBar;<br>    private int mProgress=0;<br>    private Handler mhandler;//消息处理对象</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_progress_bar);</span><br><span class="line">    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,</span><br><span class="line">            WindowManager.LayoutParams.FLAG_FULLSCREEN);<span class="comment">//设置全屏显示</span></span><br><span class="line">    progressBar = findViewById(R.id.progressbar);</span><br><span class="line">    mhandler = <span class="keyword">new</span> Handler()&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">            <span class="comment">//判断线程是否完成，未完成则更新进度，完成则隐藏(通过线程模拟耗时操作)</span></span><br><span class="line">            <span class="keyword">if</span>(msg.what==<span class="number">0x111</span>)</span><br><span class="line">                progressBar.setProgress(mProgress);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Toast.makeText(ProgressBarActivity.<span class="keyword">this</span>,<span class="string">"耗时操作已完成"</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">                progressBar.setVisibility(View.GONE);<span class="comment">//设置进度条不显示</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">                mProgress = doWork();<span class="comment">//耗时操作</span></span><br><span class="line">                Message message = <span class="keyword">new</span> Message();</span><br><span class="line">                <span class="keyword">if</span>(mProgress&lt;<span class="number">100</span>)&#123;<span class="comment">//耗时操作未完成</span></span><br><span class="line">                    message.what=<span class="number">0x111</span>;<span class="comment">//自定义消息代码,表示未完成</span></span><br><span class="line">                    mhandler.sendMessage(message);<span class="comment">//发送消息，更新进度</span></span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    message.what=<span class="number">0x110</span>;<span class="comment">//表示已完成</span></span><br><span class="line">                    mhandler.sendMessage(message);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">doWork</span><span class="params">()</span></span>&#123;<span class="comment">//自定义doWork方法，模拟耗时</span></span><br><span class="line">            mProgress+=Math.random()*<span class="number">10</span>;<span class="comment">//利用随机数生成加载进度</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">200</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> mProgress;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、SeekBar（拖动条）"><a href="#二、SeekBar（拖动条）" class="headerlink" title="二、SeekBar（拖动条）"></a>二、SeekBar（拖动条）</h3><p>是ProgressBar的子类，有些相同之处。</p>
+<p>属性：</p>
+<p>与ProgressBar一样，有 max,progress属性。</p>
+<p>android:thumb=”@drawable/pwd”属性设置进度条的按钮形状。</p>
+<p>使用时，需要添加可以获取进度条改变的事件监听器，来改变当前显示的内容。</p>
+<p>seekseekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {<br>            @Override<br>            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {//进度改变所执行的方法<br>                Toast.makeText(SeekBarActivity.this,”进度改变：”+progress,Toast.LENGTH_SHORT).show();<br>            }</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStartTrackingTouch</span><span class="params">(SeekBar seekBar)</span> </span>&#123;<span class="comment">//开始触摸所执行的方法</span></span><br><span class="line">        Toast.makeText(SeekBarActivity.<span class="keyword">this</span>,<span class="string">"开始触摸"</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStopTrackingTouch</span><span class="params">(SeekBar seekBar)</span> </span>&#123;</span><br><span class="line">        Toast.makeText(SeekBarActivity.<span class="keyword">this</span>,<span class="string">"停止触摸"</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、RatingBar（星级评分条）"><a href="#三、RatingBar（星级评分条）" class="headerlink" title="三、RatingBar（星级评分条）"></a>三、RatingBar（星级评分条）</h3><p>属性：</p>
+<p>android:numStars=”5” 代表有五颗星<br>android:rating=”4” 　　代表默认选择四颗<br>android:stepSize=”1”　选择的最小单位为一颗</p>
+<p>android:isIndicator=”true” 代表不可改变</p>
+<p><strong>注意：宽度不要设置为match_parent，否则会影响星星数量。</strong></p>
+<p>package com.example.tiange_project;</p>
+<p>import android.os.Bundle;<br>import android.view.View;<br>import android.widget.Button;<br>import android.widget.RatingBar;<br>import android.widget.Toast;</p>
+<p>import androidx.appcompat.app.AppCompatActivity;</p>
+<p>public class RatingBarActivity extends AppCompatActivity {</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> RatingBar ratingBar;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_rating_bar);</span><br><span class="line">    ratingBar = findViewById(R.id.ratingbar);</span><br><span class="line">    <span class="comment">//获取选中几颗星</span></span><br><span class="line">    String rating = String.valueOf(ratingBar.getRating());</span><br><span class="line">    Toast.makeText(RatingBarActivity.<span class="keyword">this</span>,<span class="string">"Rating:"</span>+rating,Toast.LENGTH_SHORT).show();</span><br><span class="line">    <span class="comment">//获取改变的星星数量</span></span><br><span class="line">    String stepSize = String.valueOf(ratingBar.getStepSize());</span><br><span class="line">    Toast.makeText(RatingBarActivity.<span class="keyword">this</span>,<span class="string">"StepSize:"</span>+stepSize,Toast.LENGTH_SHORT).show();</span><br><span class="line">    <span class="comment">//获取进度</span></span><br><span class="line">    String progress = String.valueOf(ratingBar.getProgress());</span><br><span class="line">    Toast.makeText(RatingBarActivity.<span class="keyword">this</span>,<span class="string">"Progress:"</span>+progress,Toast.LENGTH_SHORT).show();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2、添加单击事件，提交按钮</span></span><br><span class="line">    Button button = findViewById(R.id.rating_button);</span><br><span class="line">    button.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">float</span> rating = ratingBar.getRating();</span><br><span class="line">            Toast.makeText(RatingBarActivity.<span class="keyword">this</span>,<span class="string">"你得到了"</span>+rating+<span class="string">"颗星！"</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>}</p>
+<h3 id="四、ImageSwitcher（图像切换器）"><a href="#四、ImageSwitcher（图像切换器）" class="headerlink" title="四、ImageSwitcher（图像切换器）"></a>四、ImageSwitcher（图像切换器）</h3><p>设置切换图片的淡入淡出效果。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.tiange_project;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.AnimationUtils;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageSwitcher;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageView;</span><br><span class="line"><span class="keyword">import</span> android.widget.ViewSwitcher;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImageSwitcherActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> ImageSwitcher imageSwitcher;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_image_switcher);</span><br><span class="line">    imageSwitcher = findViewById(R.id.imageswitcher);</span><br><span class="line">    <span class="comment">//设置淡出动画</span></span><br><span class="line">    imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(ImageSwitcherActivity.<span class="keyword">this</span>,android.R.anim.fade_out));</span><br><span class="line">    <span class="comment">//设置进入动画</span></span><br><span class="line">    imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(ImageSwitcherActivity.<span class="keyword">this</span>,android.R.anim.fade_in));</span><br><span class="line"></span><br><span class="line">    imageSwitcher.setFactory(<span class="keyword">new</span> ViewSwitcher.ViewFactory() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> View <span class="title">makeView</span><span class="params">()</span> </span>&#123;<span class="comment">//为图像切换器指定视图工厂</span></span><br><span class="line">            ImageView imageView = <span class="keyword">new</span> ImageView(ImageSwitcherActivity.<span class="keyword">this</span>);</span><br><span class="line">            imageView.setImageResource(R.drawable.image01);</span><br><span class="line">            <span class="keyword">return</span> imageView;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    imageSwitcher.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            ((ImageSwitcher)v).setImageResource(R.drawable.image02);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>}</p>
+<h3 id="五、GrideView（网格视图）"><a href="#五、GrideView（网格视图）" class="headerlink" title="五、GrideView（网格视图）"></a>五、GrideView（网格视图）</h3><p>属性：</p>
+<p>android:numColumns=”3” 设定列数为3</p>
+<p>适配器(Adapter)：连接后端数据与前端显示的接口，数据和UI组件的重要纽带。</p>
+<img src="/2020/02/28/Android-UI/4.png" class>
+
+
+<p> 通过适配器adapter实现数据源显示到GrideView上。</p>
+<p>Android提供了四个适配器实现类，分别是</p>
+<p>① ArrayAdapter：数组适配器。</p>
+<p>② SimpleAdapter：简单适配器，功能强大。</p>
+<p>③ SimpleCursorAdapter:简单数据库适配器。</p>
+<p>④ BaseAdapter：对各个列表项进行限制。</p>
+<p><strong>为GrideView添加适配器</strong></p>
+<p>在Java代码中添加适配器，但在使用其时，一般先创捷一个布局文件cell.xml（在其内部添加ImageView组件，显示视图）。我们可在其中任意自定义资源文件，以显示不同的效果。</p>
+<p>package com.example.tiange_project;</p>
+<p>import android.os.Bundle;<br>import android.widget.GridView;<br>import android.widget.SimpleAdapter;</p>
+<p>import androidx.appcompat.app.AppCompatActivity;</p>
+<p>import java.util.ArrayList;<br>import java.util.HashMap;<br>import java.util.List;<br>import java.util.Map;</p>
+<p>public class GrideViewActivity extends AppCompatActivity {<br>    //创建int数组，记录资源id<br>    private int[] picture = new int[]{R.drawable.img01,R.drawable.img02,R.drawable.img03,<br>                                      R.drawable.img04,R.drawable.img05,R.drawable.img06,<br>                                      R.drawable.img07,R.drawable.img08,R.drawable.img09};</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_gride_view);</span><br><span class="line">    GridView gridView = findViewById(R.id.grideview);</span><br><span class="line">    <span class="comment">//存储图片资源</span></span><br><span class="line">    List&lt;Map&lt;String,Object&gt;&gt; listitem = <span class="keyword">new</span> ArrayList&lt;Map&lt;String,Object&gt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;picture.length;i++)&#123;<span class="comment">//通过for循环添加对象</span></span><br><span class="line">        Map&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;String,Object&gt;();</span><br><span class="line">        map.put(<span class="string">"image"</span>,picture[i]);</span><br><span class="line">        listitem.add(map);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//建立适配器对象</span></span><br><span class="line">    SimpleAdapter simpleAdapter = <span class="keyword">new</span> SimpleAdapter(<span class="keyword">this</span>,listitem,R.layout.cell,<span class="keyword">new</span> String[]&#123;<span class="string">"image"</span>&#125;,<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;R.id.image&#125;);</span><br><span class="line">    <span class="comment">//设置适配器</span></span><br><span class="line">    gridView.setAdapter(simpleAdapter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>}</p>
+<h3 id="六、Spinner（下拉列表）"><a href="#六、Spinner（下拉列表）" class="headerlink" title="六、Spinner（下拉列表）"></a>六、Spinner（下拉列表）</h3><p>属性：</p>
+<p>entries=“” 是一个数组资源，表示下拉列表的内容选项。数据存储在values下自己新建的arrays目录。</p>
+<img src="/2020/02/28/Android-UI/5.png" class>
+
+
+<p> 在其中编写代码</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--  使用item添加各个数组元素  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string-array</span> <span class="attr">name</span>=<span class="string">"ctype"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span>全部<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span>电影<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span>图书<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span>游戏<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">string-array</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>即可正常显示出下拉列表。</p>
+<h4 id="也可通过适配器设置下拉选项。"><a href="#也可通过适配器设置下拉选项。" class="headerlink" title="也可通过适配器设置下拉选项。"></a>也可通过适配器设置下拉选项。</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.tiange_project;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.widget.ArrayAdapter;</span><br><span class="line"><span class="keyword">import</span> android.widget.Spinner;</span><br><span class="line"><span class="keyword">import</span> android.widget.Toast;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpinnerActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_spinner);</span><br><span class="line">        String[] ctype = <span class="keyword">new</span> String[]&#123;<span class="string">"全部"</span>,<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>&#125;;</span><br><span class="line">        <span class="comment">//数组适配器</span></span><br><span class="line">        ArrayAdapter&lt;String&gt; adapter = <span class="keyword">new</span> ArrayAdapter&lt;String&gt;(<span class="keyword">this</span>,android.R.layout.simple_spinner_item,ctype);</span><br><span class="line">        <span class="comment">//为适配器设置下拉的选择样式</span></span><br><span class="line">        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);</span><br><span class="line">        Spinner spinner = findViewById(R.id.spinner);</span><br><span class="line">        spinner.setAdapter(adapter);</span><br><span class="line">        <span class="comment">//获取选择的选项</span></span><br><span class="line">        String str = spinner.getSelectedItem().toString();</span><br><span class="line">        Toast.makeText(SpinnerActivity.<span class="keyword">this</span>,str,Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="七、ListView（列表视图）"><a href="#七、ListView（列表视图）" class="headerlink" title="七、ListView（列表视图）"></a>七、ListView（列表视图）</h3><p>和下拉列表基本一致。</p>
+<h3 id="八、滚动视图"><a href="#八、滚动视图" class="headerlink" title="八、滚动视图"></a>八、滚动视图</h3><p><strong>分为 ScrollView（垂直滚动） 和 HorizontalScrollView（水平滚动）</strong></p>
+<p>要注意的是，其中只能包含一个组件，若要包含多个，则需要用布局管理器将其包含起来。</p>
+<h3 id="九、选项卡"><a href="#九、选项卡" class="headerlink" title="九、选项卡"></a>九、选项卡</h3><p>在Android中，没有固定的组件实现，一般通过以下四个步骤实现。</p>
+<p>1、在布局文件中添加TabHost、TabWidget和TabContent组件</p>
+<p>2、编写各标签页的xmi布局文件，即各个选项的显示页面。</p>
+<p>3、获取并初始化TabHost组件</p>
+<p>4、将TabHost添加到标签页中</p>
+<p><strong>实例</strong></p>
+<p>1、先创建固定格式的布局文件。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">TabHost</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">".TabActivity"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@android:id/tabhost"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TabWidget</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@android:id/tabs"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">TabWidget</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">FrameLayout</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@android:id/tabcontent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">TabHost</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2、编写后台Java代码。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.tiange_project;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.LayoutInflater;</span><br><span class="line"><span class="keyword">import</span> android.widget.TabHost;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TabActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_tab);</span><br><span class="line">        <span class="comment">//初始化TabHost组件</span></span><br><span class="line">        TabHost tabHost = findViewById(android.R.id.tabhost);</span><br><span class="line">        tabHost.setup();<span class="comment">//初始化</span></span><br><span class="line"></span><br><span class="line">        LayoutInflater inflater = LayoutInflater.from(<span class="keyword">this</span>);<span class="comment">//用这个对象加载两个标签页的布局文件</span></span><br><span class="line">        inflater.inflate(R.layout.tab1,tabHost.getTabContentView());<span class="comment">//1</span></span><br><span class="line">        inflater.inflate(R.layout.tab2,tabHost.getTabContentView());<span class="comment">//2</span></span><br><span class="line">        <span class="comment">//添加标签页</span></span><br><span class="line">        tabHost.addTab(tabHost.newTabSpec(<span class="string">"tab1"</span>).setIndicator(<span class="string">"精选表情"</span>).setContent(R.id.left));</span><br><span class="line">        tabHost.addTab(tabHost.newTabSpec(<span class="string">"tab2"</span>).setIndicator(<span class="string">"投稿表情"</span>).setContent(R.id.right));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，tab1和tab2都是自定义的xml布局文件，表示标签页显示的内容。</p>
+<p>即可完成。</p>
+<p>到此，基本的UI组件学习已经完成，当然每个组件都只是刚刚入门，想要精通还有很长一段路要走。</p>
+<p>继续加油吧！</p>
+]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MATLAB课程总结（三）</title>
     <url>/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/</url>
     <content><![CDATA[<p>这篇总结MATLAB的图形基础。</p>
@@ -230,8 +519,8 @@
         <category>MATLAB</category>
       </categories>
       <tags>
-        <tag>MATLAB</tag>
         <tag>Learning</tag>
+        <tag>MATLAB</tag>
       </tags>
   </entry>
   <entry>
@@ -457,8 +746,8 @@
         <category>MATLAB</category>
       </categories>
       <tags>
-        <tag>MATLAB</tag>
         <tag>Learning</tag>
+        <tag>MATLAB</tag>
       </tags>
   </entry>
   <entry>
@@ -828,297 +1117,8 @@
         <category>MATLAB</category>
       </categories>
       <tags>
+        <tag>Learning</tag>
         <tag>MATLAB</tag>
-        <tag>Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Android_UI</title>
-    <url>/2020/02/28/Android-UI/</url>
-    <content><![CDATA[<p>Android UI的知识点总结，初入Android，做些总结。</p>
-<a id="more"></a>
-
-<p>现在学习主要是跟着视频教程边看边学，现将学习到的零星知识点总结如下：</p>
-<p>Android 系统中的所有 UI 类都是建立在 View 和 ViewGroup 两个类的基础之上的，所有 View 的子类称为 Widget，所有 ViewGroup 的子类称为 Layout。其中 ViewGroup 是 View 的子类。</p>
-<p>View 是所有 UI 组件的基类，基本上所有的高级 UI 组件都是继承 View 类实现的，如 TextView（文本框）、Button、List、EditText（编辑框）、Checkbox 等。一个 View 在屏幕占据一块矩形区域，负责渲染这块矩形区域，也可以处理这块矩形区域发生的事件，并可以设置该区域是否可见以及获取焦点等。</p>
-<p>ViewGroup 是容纳这些组件的容器，其本身也是从 View 中派生出来的，它继承于 Android.view.View，功能就是装载和管理下一层的 View 对象或 ViewGroup 对象，也就是说它是一个容纳其他元素的容器，负责对添加进来的 View 和 ViewGroup 进行管理和布局。</p>
-<p><strong>Android常用的UI组件：<a href="https://blog.csdn.net/m0_37597069/article/details/70196271" target="_blank" rel="noopener">参见链接</a></strong></p>
-<p>首先有一些属性是通用的：</p>
-<p>id=”@+id/name”创建一个id 引用时：”@id/name”</p>
-<p>orientation  水平方向或垂直方向</p>
-<p>margin：外边距</p>
-<p>padding：内边距</p>
-<p>gravity：位置管理</p>
-<h3 id="一、布局管理"><a href="#一、布局管理" class="headerlink" title="一、布局管理"></a>一、布局管理</h3><p>Android SDK 定义了多种布局方式以方便用户设计 UI。各种布局方式均为 ViewGroup 类的子类。</p>
-<img src="/2020/02/28/Android-UI/0.png" class>
-
-<p>主要学习的是两种最常用的布局，是线性布局（LinearLayout）和相对布局（RelativeLayout）。</p>
-<p><strong>1、线性布局（LinearLayout）</strong></p>
-<p>LinearLayout 又称线性布局，该布局应该是 Android 视图设计中最经常使用的布局。该布局可以使放入其中的组件以水平方式或者垂直方式整齐排列，通过 android:orientation 属性指定具体的排列方式，通过 weight 属性设置每个组件在布局中所占的比重。</p>
-<p>其中weight属性需要特别注意：weight代表的是权值，但此权值的分配是指剩余的空间（未被元素使用的空间按照权值比例分配），需要理解掌握。</p>
-<p><strong>2、相对布局（RelativeLayout）</strong></p>
-<p>RelativeLayout 又称相对布局。从名称上可以看出，这种布局方式是以一种让组件以相对于容器或者相对于容器中的另一个组件的相对位置进行放置的布局方式。</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>android:layout_above=”@id/xxx”</td>
-<td>将控件置于给定 ID 控件之上</td>
-</tr>
-<tr>
-<td>android:layout_below=”@id/xxx”</td>
-<td>将控件置于给定 ID 控件之下</td>
-</tr>
-<tr>
-<td>android:layout_toLeftOf=”@id/xxx”</td>
-<td>将控件的右边缘和给定 ID 控件的左边缘对齐</td>
-</tr>
-<tr>
-<td>android:layout_toRightOf=”@id/xxx”</td>
-<td>将控件的左边缘和给定 ID 控件的右边缘对齐</td>
-</tr>
-<tr>
-<td>android:layout_alignBaseline=”@id/xxx”</td>
-<td>将控件的 baseline 与给定 ID 的 baseline 对齐</td>
-</tr>
-<tr>
-<td>android:layout_alignTop=”@id/xxx”</td>
-<td>将控件的上边缘和给定 ID 控件的上边缘对齐</td>
-</tr>
-<tr>
-<td>android:layout_alignBottom=”@id/xxx”</td>
-<td>将控件的底边缘和给定 ID 控件的底边缘对齐</td>
-</tr>
-<tr>
-<td>android:layout_alignLeft=”@id/xxx”</td>
-<td>将控件的左边缘和给定 ID 控件的左边缘对齐</td>
-</tr>
-<tr>
-<td>android:layout_alignRight=”@id/xxx”</td>
-<td>将控件的右边缘和给定 ID 控件的右边缘对齐</td>
-</tr>
-<tr>
-<td>android:layout_alignParentLeft=”true”</td>
-<td>将控件的左边缘和父控件的左边缘对齐</td>
-</tr>
-<tr>
-<td>android:layout_alignParentTop=”true”</td>
-<td>将控件的上边缘和父控件的上边缘对齐</td>
-</tr>
-<tr>
-<td>android:layout_alignParentRight=”true”</td>
-<td>将控件的右边缘和父控件的右边缘对齐</td>
-</tr>
-<tr>
-<td>android:layout_alignParentBottom=”true”</td>
-<td>将控件的底边缘和父控件的底边缘对齐</td>
-</tr>
-<tr>
-<td>android:layout_centerInParent=”true”</td>
-<td>将控件置于父控件的中心位置</td>
-</tr>
-<tr>
-<td>android:layout_centerHorizontal=”true”</td>
-<td>将控件置于水平方向的中心位置</td>
-</tr>
-<tr>
-<td>android:layout_centerVertical=”true”</td>
-<td>将控件置于垂直方向的中心位置</td>
-</tr>
-</tbody></table>
-<h3 id="二、TextView（文本框）"><a href="#二、TextView（文本框）" class="headerlink" title="二、TextView（文本框）"></a>二、TextView（文本框）</h3><p>设置文本框的最大行数（当然还有其他设置最大）：android:maxLines=”1”<br>设置文本显示方式：<br>end表示显示不完省略号：android:ellipsize=”end”<br>marquee表示显示不完播放：android:ellipsize=”marquee”<br>再加上这样几行可以循环播放<br>android:marqueeRepeatLimit=”marquee_forever”<br>android:focusable=”true”<br>android:focusableInTouchMode=”true”<br>添加图片，调整图片边距等<br>android:drawableRight=”@drawable/name”//表示在文本右边添加图片<br>android:drawablePadding=”5dp”</p>
-<h3 id="三、Button（按钮）"><a href="#三、Button（按钮）" class="headerlink" title="三、Button（按钮）"></a>三、Button（按钮）</h3><p>按钮学习的重点在改变按钮的样式和添加点击事件。</p>
-<p>改变样式主要是将按钮改为圆角，更加美观。</p>
-<p>可在drawable目录下新建xml文件修改。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">shape</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:shape</span>=<span class="string">"rectangle"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">solid</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:color</span>=<span class="string">"#FF9900"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">corners</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:radius</span>=<span class="string">"5dp"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>再在要设置的按钮添加背景属性，设置为此xml文件即可。</p>
-<p>同样可以设置很多效果，比如未点击和点击的不同颜色区分。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_pressed</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">shape</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#CC7A00"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"5dp"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_pressed</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">shape</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#FF9900"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"5dp"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>再就是添加点击事件，为普通按钮添加单击事件监听器。两种方式：</p>
-<p>1、匿名内部类作为单击事件监听器，这里添加内容为显示被点击的按钮内容。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//按钮3的点击事件</span></span><br><span class="line">mBtn3.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">        Toast.makeText(ButtonActivity.<span class="keyword">this</span>,<span class="string">"btn3我被点击了"</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>2、通过onClick属性实现</p>
-<p>① 在Activity中编写一个包含View类型参数的方法。　　public void myClick(View view){}</p>
-<p>② 将android:onClick属性指定为 ① 内的方法名。　　　android:onClick=”myClick”</p>
-<p><strong>扩展 ：ImageButton图片按钮</strong></p>
-<p>通过src属性指定</p>
-<h3 id="四、EditText（编辑框）"><a href="#四、EditText（编辑框）" class="headerlink" title="四、EditText（编辑框）"></a>四、EditText（编辑框）</h3><p><strong>属性</strong></p>
-<p>android:hint=”请输入用户名”  ：输入框提示信息</p>
-<p>android:inputType=”number”：规定输入格式。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">android:inputType=<span class="string">"none"</span><span class="comment">//输入普通字符</span></span><br><span class="line">android:inputType=<span class="string">"text"</span><span class="comment">//输入普通字符</span></span><br><span class="line">android:inputType=<span class="string">"textCapCharacters"</span><span class="comment">//输入普通字符</span></span><br><span class="line">android:inputType=<span class="string">"textCapWords"</span><span class="comment">//单词首字母大小</span></span><br><span class="line">android:inputType=<span class="string">"textCapSentences"</span><span class="comment">//仅第一个字母大小</span></span><br><span class="line">android:inputType=<span class="string">"textAutoCorrect"</span><span class="comment">//前两个自动完成</span></span><br><span class="line">android:inputType=<span class="string">"textAutoComplete"</span><span class="comment">//前两个自动完成</span></span><br><span class="line">android:inputType=<span class="string">"textMultiLine"</span><span class="comment">//多行输入</span></span><br><span class="line">android:inputType=<span class="string">"textImeMultiLine"</span><span class="comment">//输入法多行（不一定支持）</span></span><br><span class="line">android:inputType=<span class="string">"textNoSuggestions"</span><span class="comment">//不提示</span></span><br><span class="line">android:inputType=<span class="string">"textUri"</span><span class="comment">//URI格式</span></span><br><span class="line">android:inputType=<span class="string">"textEmailAddress"</span><span class="comment">//电子邮件地址格式</span></span><br><span class="line">android:inputType=<span class="string">"textEmailSubject"</span><span class="comment">//邮件主题格式</span></span><br><span class="line">android:inputType=<span class="string">"textShortMessage"</span><span class="comment">//短消息格式</span></span><br><span class="line">android:inputType=<span class="string">"textLongMessage"</span><span class="comment">//长消息格式</span></span><br><span class="line">android:inputType=<span class="string">"textPersonName"</span><span class="comment">//人名格式</span></span><br><span class="line">android:inputType=<span class="string">"textPostalAddress"</span><span class="comment">//邮政格式</span></span><br><span class="line">android:inputType=<span class="string">"textPassword"</span><span class="comment">//密码格式</span></span><br><span class="line">android:inputType=<span class="string">"textVisiblePassword"</span><span class="comment">//密码可见格式</span></span><br><span class="line">android:inputType=<span class="string">"textWebEditText"</span><span class="comment">//作为网页表单的文本格式</span></span><br><span class="line">android:inputType=<span class="string">"textFilter"</span><span class="comment">//文本筛选格式</span></span><br><span class="line">android:inputType=<span class="string">"textPhonetic"</span><span class="comment">//拼音输入格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数值类型</span></span><br><span class="line">android:inputType=<span class="string">"number"</span><span class="comment">//数字格式</span></span><br><span class="line">android:inputType=<span class="string">"numberSigned"</span><span class="comment">//有符号数字格式</span></span><br><span class="line">android:inputType=<span class="string">"numberDecimal"</span><span class="comment">//可以带小数点的浮点格式</span></span><br><span class="line">android:inputType=<span class="string">"phone"</span><span class="comment">//拨号键盘</span></span><br><span class="line">android:inputType=<span class="string">"datetime"</span><span class="comment">//日期+时间格式</span></span><br><span class="line">android:inputType=<span class="string">"date"</span><span class="comment">//日期键盘</span></span><br><span class="line">android:inputType=<span class="string">"time"</span><span class="comment">//时间键盘</span></span><br><span class="line">转自CSDN：原文链接：https:<span class="comment">//blog.csdn.net/zhangphil/article/details/79970667</span></span><br></pre></td></tr></table></figure>
-
-<p>同样也可在编辑框里添加图片等操作，android:drawableLeft=”@drawable/name”  。（与android:drawableStart相同）</p>
-<p>同理：android:drawableBottom,android:drawableRight(android:drawableEnd)</p>
-<p>android:drawablePadding:内边距</p>
-<p>android:lines：限制行数，超出时向上滚动。</p>
-<p>getText():获取编辑框内容</p>
-<h3 id="五、RadioButton（单选框）"><a href="#五、RadioButton（单选框）" class="headerlink" title="五、RadioButton（单选框）"></a>五、RadioButton（单选框）</h3><p>RadioGroup 为单项选择按钮组，其中可以包含多个 RadioButton，即单选按钮，它们共同为用户提供一种多选一的选择方式。在多个 RadioButton 被同一个 RadioGroup 包含的情况下，多个 RadioButton 之间自动形成互斥关系，仅有一个可以被选择。</p>
-<p>基本格式：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RadioGroup</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">RadioButton</span>/&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">RadioButton</span>/&gt;</span></span><br><span class="line">　　.....</span><br><span class="line"><span class="tag">&lt;/<span class="name">RadioGroup</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>RadioGroup中也有orientation属性，即选择水平或竖直方向排列RadioButton。</p>
-<p>RadioButton中的属性：</p>
-<p>按钮名称：android:text=”name”</p>
-<p>表示被默认选中的选项：android:checked=”true”<br>设置按钮形状：android:button=”@null”（表示不设置）</p>
-<p><strong>可以自定义按钮选中时的样式：</strong></p>
-<p>同样在drawable目录下新建xml文件修改。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_checked</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">shape</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#CC7A00"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"5dp"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_checked</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">shape</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">stroke</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:width</span>=<span class="string">"1dp"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:color</span>=<span class="string">"#CC7A00"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"5dp"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>其中state_checked表示是否选中的状态</p>
-<p> 效果：</p>
-<img src="/2020/02/28/Android-UI/1.png" class>
-
-<p>这种效果时通过背景实现不同的状态表示。</p>
-<h4 id="添加选中事件获取选中的内容。"><a href="#添加选中事件获取选中的内容。" class="headerlink" title="添加选中事件获取选中的内容。"></a>添加选中事件获取选中的内容。</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取单选按钮组RadioGroup mRg1，设置选中监听事件</span></span><br><span class="line">mRg1.setOnCheckedChangeListener(<span class="keyword">new</span> RadioGroup.OnCheckedChangeListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCheckedChanged</span><span class="params">(RadioGroup group, <span class="keyword">int</span> checkedId)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//根据选中的checkedId值获取内容</span></span><br><span class="line">        RadioButton radioButton = group.findViewById(checkedId);</span><br><span class="line">        <span class="comment">//输出</span></span><br><span class="line">        Toast.makeText(RadioButtonActivity.<span class="keyword">this</span>,radioButton.getText(),Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="六、CheckBox（多选框）"><a href="#六、CheckBox（多选框）" class="headerlink" title="六、CheckBox（多选框）"></a>六、CheckBox（多选框）</h3><p>大致与单选相同，介绍另一种通过自定义改变按钮形状实现按钮样式。</p>
-<p>这里将  android:button=”@drawable/bg_checkbox” 设置为自定义的。bg_checkbox同样新建的xml文件。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:state_checked</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:drawable</span>=<span class="string">"@drawable/face"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:state_checked</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:drawable</span>=<span class="string">"@drawable/selection"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="七、ImageView（图片视图）"><a href="#七、ImageView（图片视图）" class="headerlink" title="七、ImageView（图片视图）"></a>七、ImageView（图片视图）</h3><p><strong>1、介绍属性</strong></p>
-<p>background为背景，src为内容。</p>
-<p>scaleType：覆盖方式，常见属性值有：</p>
-<p>　　fixXY：撑满控件，宽高比可能发生改变。</p>
-<p>　　fitCenter：保持宽高比缩放，直至能够完全显示。</p>
-<p>　　centerCrop：保持宽高比缩放，直至能够完全覆盖控件，剪裁显示。</p>
-<p><strong>2、加载网络图片</strong></p>
-<p>首先使用第三方的库，这里选择的是Github上的glide库</p>
-<p> <a href="https://github.com/bumptech/glide" target="_blank" rel="noopener">https://github.com/bumptech/glide</a></p>
-<img src="/2020/02/28/Android-UI/2.png" class>
-
-<p>将其添加到Android Studio中的build.gradle目录下。</p>
-<img src="/2020/02/28/Android-UI/3.png" class>
-
-<p> 同步好后在activity的Java代码部分添加代码</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_image_view);</span><br><span class="line">    mIv2 = findViewById(R.id.iv_2);</span><br><span class="line">    <span class="comment">//加载一张网络图片</span></span><br><span class="line">    Glide.with(<span class="keyword">this</span>).load(<span class="string">"http://i1.sinaimg.cn/ent/d/2008-06-04/U105P28T3D2048907F326DT20080604225106.jpg"</span>).into(mIv2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>同时需要在AndroidManifest.xml中声明使用网络权限。</p>
-<p>添加一行代码： <uses-permission android:name="android.permission.INTERNET"> 即可。</uses-permission></p>
-<h3 id="八、日期选择器，时间选择器，计时器"><a href="#八、日期选择器，时间选择器，计时器" class="headerlink" title="八、日期选择器，时间选择器，计时器"></a>八、日期选择器，时间选择器，计时器</h3><h4 id="1、DatePicker（日期选择器）"><a href="#1、DatePicker（日期选择器）" class="headerlink" title="1、DatePicker（日期选择器）"></a>1、DatePicker（日期选择器）</h4><p>即可显示日期，可以添加事件接收选择的日期。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> year,month,day;</span><br><span class="line">DatePicker datePicker;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_date_pcker);</span><br><span class="line">    <span class="comment">//日期选择器的id为datepicker</span></span><br><span class="line">    datePicker = findViewById(R.id.datepicker);</span><br><span class="line">    Calendar calendar = Calendar.getInstance();</span><br><span class="line">    <span class="comment">//初始化</span></span><br><span class="line">    year = calendar.get(calendar.YEAR);</span><br><span class="line">    month = calendar.get(calendar.MONTH);</span><br><span class="line">    day = calendar.get(calendar.DAY_OF_MONTH);</span><br><span class="line">    <span class="comment">//添加选择事件</span></span><br><span class="line">    datePicker.init(year, month, day, <span class="keyword">new</span> DatePicker.OnDateChangedListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDateChanged</span><span class="params">(DatePicker view, <span class="keyword">int</span> year, <span class="keyword">int</span> monthOfYear, <span class="keyword">int</span> dayOfMonth)</span> </span>&#123;</span><br><span class="line">            DatePickerActivity.<span class="keyword">this</span>.year = year;</span><br><span class="line">            DatePickerActivity.<span class="keyword">this</span>.month = monthOfYear;</span><br><span class="line">            DatePickerActivity.<span class="keyword">this</span>.day = dayOfMonth;</span><br><span class="line">            show(year,month,day);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(<span class="keyword">int</span> year,<span class="keyword">int</span> month,<span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">    String str = year+<span class="string">"年"</span>+(month+<span class="number">1</span>)+<span class="string">"月"</span>+day+<span class="string">"日"</span>;</span><br><span class="line">    Toast.makeText(DatePickerActivity.<span class="keyword">this</span>,str,Toast.LENGTH_SHORT).show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、TimePicker（时间选择器）"><a href="#2、TimePicker（时间选择器）" class="headerlink" title="2、TimePicker（时间选择器）"></a>2、TimePicker（时间选择器）</h4><p>显示时间，添加一个监听器。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//timepicker为时间选择器的id</span></span><br><span class="line">TimePicker tp = findViewById(R.id.timepicker);</span><br><span class="line">tp.setIs24HourView(<span class="keyword">true</span>);<span class="comment">//采用24小时支持</span></span><br><span class="line"><span class="comment">//时间改变的监听器</span></span><br><span class="line">tp.setOnTimeChangedListener(<span class="keyword">new</span> TimePicker.OnTimeChangedListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTimeChanged</span><span class="params">(TimePicker view, <span class="keyword">int</span> hourOfDay, <span class="keyword">int</span> minute)</span> </span>&#123;</span><br><span class="line">        String str = hourOfDay+<span class="string">"时"</span>+minute+<span class="string">"分"</span>;</span><br><span class="line">        Toast.makeText(TimePickerActivity.<span class="keyword">this</span>,str,Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、Chronometer（计时器）"><a href="#3、Chronometer（计时器）" class="headerlink" title="3、Chronometer（计时器）"></a>3、Chronometer（计时器）</h4><p>属性通常设置 android:format=”已用时间：%s” 表示用时分秒的格式计时。</p>
-<p>并通常需要为计时器设定四个方法。</p>
-<p>① setBase()：设置计时器的起始时间</p>
-<p>② setFormat()：设置显示时间的格式</p>
-<p>③ start()：指定开始计时</p>
-<p>④ stop()：指定结束计时</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Chronometer ch ;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_chronometer);</span><br><span class="line">    ch = findViewById(R.id.chromometer);</span><br><span class="line">    <span class="comment">//获取当前的系统时间</span></span><br><span class="line">    ch.setBase(SystemClock.elapsedRealtime());</span><br><span class="line">    <span class="comment">//设置时间格式</span></span><br><span class="line">    ch.setFormat(<span class="string">"%s"</span>);</span><br><span class="line">    <span class="comment">//开启计时器</span></span><br><span class="line">    ch.start();</span><br><span class="line">    <span class="comment">//添加监听器，计时器改变时触发</span></span><br><span class="line">    ch.setOnChronometerTickListener(<span class="keyword">new</span> Chronometer.OnChronometerTickListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChronometerTick</span><span class="params">(Chronometer chronometer)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(SystemClock.elapsedRealtime()-ch.getBase()&gt;=<span class="number">60000</span>)&#123;<span class="comment">//如果大于60s，停止计时</span></span><br><span class="line">                ch.stop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>综上，第一部分总结。</p>
-<hr>
-<p>以下为第二部分总结。</p>
-<h3 id="一、ProgressBar（进度条）"><a href="#一、ProgressBar（进度条）" class="headerlink" title="一、ProgressBar（进度条）"></a>一、ProgressBar（进度条）</h3><p>进度条有两种形式，圆形加载式和水平长条形状，可通过style属性设置（注意：前面没有android:）</p>
-<p>列举几种：</p>
-<p>　　?android:attr/progressBarStyleHorizontal　　　　细水平长度进度条</p>
-<p>　　?android:attr/progressBarStyleSmall　　　　　　旋转画面的小圆形进度条</p>
-<p>　　?android:attr/progressBarStyleLarge　　　　　　旋转画面的大圆形进度条</p>
-<p>　　@android:style/Widget.ProgressBar.Horizontal　　粗水平长度进度条</p>
-<p>　　@android:style/Widget.ProgressBar.Small　　　　旋转画面的小圆形进度条</p>
-<p>　　@android:style/Widget.ProgressBar.Large　　　　旋转画面的大圆形进度条</p>
-<p>android:max=”100” 　　　 　该属性设置进程的最大值<br>android:progress=”50”　　　表示初始的进程值</p>
-<p><strong>实现动态进度条步骤：</strong></p>
-<p>创建线程，判断耗时操作是否完成，若没有完成，调用进度条的setProgress()方法更新进度，然后循环操作，直到耗时操作完成，然后调用setVisibility()方法设置进度条不显示。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">    <span class="comment">&lt;!--    style确定进度条样式，max指定进度条值，便于后台判断    --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ProgressBar</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/progressbar"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">style</span>=<span class="string">"@android:style/Widget.ProgressBar.Horizontal"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_marginBottom</span>=<span class="string">"60dp"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:max</span>=<span class="string">"100"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>后台Java代码：</p>
-<p>private ProgressBar progressBar;<br>    private int mProgress=0;<br>    private Handler mhandler;//消息处理对象</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_progress_bar);</span><br><span class="line">    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,</span><br><span class="line">            WindowManager.LayoutParams.FLAG_FULLSCREEN);<span class="comment">//设置全屏显示</span></span><br><span class="line">    progressBar = findViewById(R.id.progressbar);</span><br><span class="line">    mhandler = <span class="keyword">new</span> Handler()&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">            <span class="comment">//判断线程是否完成，未完成则更新进度，完成则隐藏(通过线程模拟耗时操作)</span></span><br><span class="line">            <span class="keyword">if</span>(msg.what==<span class="number">0x111</span>)</span><br><span class="line">                progressBar.setProgress(mProgress);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Toast.makeText(ProgressBarActivity.<span class="keyword">this</span>,<span class="string">"耗时操作已完成"</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">                progressBar.setVisibility(View.GONE);<span class="comment">//设置进度条不显示</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">                mProgress = doWork();<span class="comment">//耗时操作</span></span><br><span class="line">                Message message = <span class="keyword">new</span> Message();</span><br><span class="line">                <span class="keyword">if</span>(mProgress&lt;<span class="number">100</span>)&#123;<span class="comment">//耗时操作未完成</span></span><br><span class="line">                    message.what=<span class="number">0x111</span>;<span class="comment">//自定义消息代码,表示未完成</span></span><br><span class="line">                    mhandler.sendMessage(message);<span class="comment">//发送消息，更新进度</span></span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    message.what=<span class="number">0x110</span>;<span class="comment">//表示已完成</span></span><br><span class="line">                    mhandler.sendMessage(message);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">doWork</span><span class="params">()</span></span>&#123;<span class="comment">//自定义doWork方法，模拟耗时</span></span><br><span class="line">            mProgress+=Math.random()*<span class="number">10</span>;<span class="comment">//利用随机数生成加载进度</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">200</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> mProgress;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、SeekBar（拖动条）"><a href="#二、SeekBar（拖动条）" class="headerlink" title="二、SeekBar（拖动条）"></a>二、SeekBar（拖动条）</h3><p>是ProgressBar的子类，有些相同之处。</p>
-<p>属性：</p>
-<p>与ProgressBar一样，有 max,progress属性。</p>
-<p>android:thumb=”@drawable/pwd”属性设置进度条的按钮形状。</p>
-<p>使用时，需要添加可以获取进度条改变的事件监听器，来改变当前显示的内容。</p>
-<p>seekseekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {<br>            @Override<br>            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {//进度改变所执行的方法<br>                Toast.makeText(SeekBarActivity.this,”进度改变：”+progress,Toast.LENGTH_SHORT).show();<br>            }</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStartTrackingTouch</span><span class="params">(SeekBar seekBar)</span> </span>&#123;<span class="comment">//开始触摸所执行的方法</span></span><br><span class="line">        Toast.makeText(SeekBarActivity.<span class="keyword">this</span>,<span class="string">"开始触摸"</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStopTrackingTouch</span><span class="params">(SeekBar seekBar)</span> </span>&#123;</span><br><span class="line">        Toast.makeText(SeekBarActivity.<span class="keyword">this</span>,<span class="string">"停止触摸"</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="三、RatingBar（星级评分条）"><a href="#三、RatingBar（星级评分条）" class="headerlink" title="三、RatingBar（星级评分条）"></a>三、RatingBar（星级评分条）</h3><p>属性：</p>
-<p>android:numStars=”5” 代表有五颗星<br>android:rating=”4” 　　代表默认选择四颗<br>android:stepSize=”1”　选择的最小单位为一颗</p>
-<p>android:isIndicator=”true” 代表不可改变</p>
-<p><strong>注意：宽度不要设置为match_parent，否则会影响星星数量。</strong></p>
-<p>package com.example.tiange_project;</p>
-<p>import android.os.Bundle;<br>import android.view.View;<br>import android.widget.Button;<br>import android.widget.RatingBar;<br>import android.widget.Toast;</p>
-<p>import androidx.appcompat.app.AppCompatActivity;</p>
-<p>public class RatingBarActivity extends AppCompatActivity {</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> RatingBar ratingBar;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_rating_bar);</span><br><span class="line">    ratingBar = findViewById(R.id.ratingbar);</span><br><span class="line">    <span class="comment">//获取选中几颗星</span></span><br><span class="line">    String rating = String.valueOf(ratingBar.getRating());</span><br><span class="line">    Toast.makeText(RatingBarActivity.<span class="keyword">this</span>,<span class="string">"Rating:"</span>+rating,Toast.LENGTH_SHORT).show();</span><br><span class="line">    <span class="comment">//获取改变的星星数量</span></span><br><span class="line">    String stepSize = String.valueOf(ratingBar.getStepSize());</span><br><span class="line">    Toast.makeText(RatingBarActivity.<span class="keyword">this</span>,<span class="string">"StepSize:"</span>+stepSize,Toast.LENGTH_SHORT).show();</span><br><span class="line">    <span class="comment">//获取进度</span></span><br><span class="line">    String progress = String.valueOf(ratingBar.getProgress());</span><br><span class="line">    Toast.makeText(RatingBarActivity.<span class="keyword">this</span>,<span class="string">"Progress:"</span>+progress,Toast.LENGTH_SHORT).show();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2、添加单击事件，提交按钮</span></span><br><span class="line">    Button button = findViewById(R.id.rating_button);</span><br><span class="line">    button.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">float</span> rating = ratingBar.getRating();</span><br><span class="line">            Toast.makeText(RatingBarActivity.<span class="keyword">this</span>,<span class="string">"你得到了"</span>+rating+<span class="string">"颗星！"</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>}</p>
-<h3 id="四、ImageSwitcher（图像切换器）"><a href="#四、ImageSwitcher（图像切换器）" class="headerlink" title="四、ImageSwitcher（图像切换器）"></a>四、ImageSwitcher（图像切换器）</h3><p>设置切换图片的淡入淡出效果。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.tiange_project;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.view.animation.AnimationUtils;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageSwitcher;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageView;</span><br><span class="line"><span class="keyword">import</span> android.widget.ViewSwitcher;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImageSwitcherActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> ImageSwitcher imageSwitcher;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_image_switcher);</span><br><span class="line">    imageSwitcher = findViewById(R.id.imageswitcher);</span><br><span class="line">    <span class="comment">//设置淡出动画</span></span><br><span class="line">    imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(ImageSwitcherActivity.<span class="keyword">this</span>,android.R.anim.fade_out));</span><br><span class="line">    <span class="comment">//设置进入动画</span></span><br><span class="line">    imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(ImageSwitcherActivity.<span class="keyword">this</span>,android.R.anim.fade_in));</span><br><span class="line"></span><br><span class="line">    imageSwitcher.setFactory(<span class="keyword">new</span> ViewSwitcher.ViewFactory() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> View <span class="title">makeView</span><span class="params">()</span> </span>&#123;<span class="comment">//为图像切换器指定视图工厂</span></span><br><span class="line">            ImageView imageView = <span class="keyword">new</span> ImageView(ImageSwitcherActivity.<span class="keyword">this</span>);</span><br><span class="line">            imageView.setImageResource(R.drawable.image01);</span><br><span class="line">            <span class="keyword">return</span> imageView;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    imageSwitcher.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            ((ImageSwitcher)v).setImageResource(R.drawable.image02);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>}</p>
-<h3 id="五、GrideView（网格视图）"><a href="#五、GrideView（网格视图）" class="headerlink" title="五、GrideView（网格视图）"></a>五、GrideView（网格视图）</h3><p>属性：</p>
-<p>android:numColumns=”3” 设定列数为3</p>
-<p>适配器(Adapter)：连接后端数据与前端显示的接口，数据和UI组件的重要纽带。</p>
-<img src="/2020/02/28/Android-UI/4.png" class>
-
-
-<p> 通过适配器adapter实现数据源显示到GrideView上。</p>
-<p>Android提供了四个适配器实现类，分别是</p>
-<p>① ArrayAdapter：数组适配器。</p>
-<p>② SimpleAdapter：简单适配器，功能强大。</p>
-<p>③ SimpleCursorAdapter:简单数据库适配器。</p>
-<p>④ BaseAdapter：对各个列表项进行限制。</p>
-<p><strong>为GrideView添加适配器</strong></p>
-<p>在Java代码中添加适配器，但在使用其时，一般先创捷一个布局文件cell.xml（在其内部添加ImageView组件，显示视图）。我们可在其中任意自定义资源文件，以显示不同的效果。</p>
-<p>package com.example.tiange_project;</p>
-<p>import android.os.Bundle;<br>import android.widget.GridView;<br>import android.widget.SimpleAdapter;</p>
-<p>import androidx.appcompat.app.AppCompatActivity;</p>
-<p>import java.util.ArrayList;<br>import java.util.HashMap;<br>import java.util.List;<br>import java.util.Map;</p>
-<p>public class GrideViewActivity extends AppCompatActivity {<br>    //创建int数组，记录资源id<br>    private int[] picture = new int[]{R.drawable.img01,R.drawable.img02,R.drawable.img03,<br>                                      R.drawable.img04,R.drawable.img05,R.drawable.img06,<br>                                      R.drawable.img07,R.drawable.img08,R.drawable.img09};</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_gride_view);</span><br><span class="line">    GridView gridView = findViewById(R.id.grideview);</span><br><span class="line">    <span class="comment">//存储图片资源</span></span><br><span class="line">    List&lt;Map&lt;String,Object&gt;&gt; listitem = <span class="keyword">new</span> ArrayList&lt;Map&lt;String,Object&gt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;picture.length;i++)&#123;<span class="comment">//通过for循环添加对象</span></span><br><span class="line">        Map&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;String,Object&gt;();</span><br><span class="line">        map.put(<span class="string">"image"</span>,picture[i]);</span><br><span class="line">        listitem.add(map);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//建立适配器对象</span></span><br><span class="line">    SimpleAdapter simpleAdapter = <span class="keyword">new</span> SimpleAdapter(<span class="keyword">this</span>,listitem,R.layout.cell,<span class="keyword">new</span> String[]&#123;<span class="string">"image"</span>&#125;,<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;R.id.image&#125;);</span><br><span class="line">    <span class="comment">//设置适配器</span></span><br><span class="line">    gridView.setAdapter(simpleAdapter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>}</p>
-<h3 id="六、Spinner（下拉列表）"><a href="#六、Spinner（下拉列表）" class="headerlink" title="六、Spinner（下拉列表）"></a>六、Spinner（下拉列表）</h3><p>属性：</p>
-<p>entries=“” 是一个数组资源，表示下拉列表的内容选项。数据存储在values下自己新建的arrays目录。</p>
-<img src="/2020/02/28/Android-UI/5.png" class>
-
-
-<p> 在其中编写代码</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--  使用item添加各个数组元素  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string-array</span> <span class="attr">name</span>=<span class="string">"ctype"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span>全部<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span>电影<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span>图书<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span>游戏<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">string-array</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>即可正常显示出下拉列表。</p>
-<h4 id="也可通过适配器设置下拉选项。"><a href="#也可通过适配器设置下拉选项。" class="headerlink" title="也可通过适配器设置下拉选项。"></a>也可通过适配器设置下拉选项。</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.tiange_project;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.widget.ArrayAdapter;</span><br><span class="line"><span class="keyword">import</span> android.widget.Spinner;</span><br><span class="line"><span class="keyword">import</span> android.widget.Toast;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpinnerActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_spinner);</span><br><span class="line">        String[] ctype = <span class="keyword">new</span> String[]&#123;<span class="string">"全部"</span>,<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>&#125;;</span><br><span class="line">        <span class="comment">//数组适配器</span></span><br><span class="line">        ArrayAdapter&lt;String&gt; adapter = <span class="keyword">new</span> ArrayAdapter&lt;String&gt;(<span class="keyword">this</span>,android.R.layout.simple_spinner_item,ctype);</span><br><span class="line">        <span class="comment">//为适配器设置下拉的选择样式</span></span><br><span class="line">        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);</span><br><span class="line">        Spinner spinner = findViewById(R.id.spinner);</span><br><span class="line">        spinner.setAdapter(adapter);</span><br><span class="line">        <span class="comment">//获取选择的选项</span></span><br><span class="line">        String str = spinner.getSelectedItem().toString();</span><br><span class="line">        Toast.makeText(SpinnerActivity.<span class="keyword">this</span>,str,Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="七、ListView（列表视图）"><a href="#七、ListView（列表视图）" class="headerlink" title="七、ListView（列表视图）"></a>七、ListView（列表视图）</h3><p>和下拉列表基本一致。</p>
-<h3 id="八、滚动视图"><a href="#八、滚动视图" class="headerlink" title="八、滚动视图"></a>八、滚动视图</h3><p><strong>分为 ScrollView（垂直滚动） 和 HorizontalScrollView（水平滚动）</strong></p>
-<p>要注意的是，其中只能包含一个组件，若要包含多个，则需要用布局管理器将其包含起来。</p>
-<h3 id="九、选项卡"><a href="#九、选项卡" class="headerlink" title="九、选项卡"></a>九、选项卡</h3><p>在Android中，没有固定的组件实现，一般通过以下四个步骤实现。</p>
-<p>1、在布局文件中添加TabHost、TabWidget和TabContent组件</p>
-<p>2、编写各标签页的xmi布局文件，即各个选项的显示页面。</p>
-<p>3、获取并初始化TabHost组件</p>
-<p>4、将TabHost添加到标签页中</p>
-<p><strong>实例</strong></p>
-<p>1、先创建固定格式的布局文件。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">TabHost</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">".TabActivity"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@android:id/tabhost"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TabWidget</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@android:id/tabs"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">TabWidget</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">FrameLayout</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@android:id/tabcontent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">TabHost</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>2、编写后台Java代码。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.tiange_project;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.LayoutInflater;</span><br><span class="line"><span class="keyword">import</span> android.widget.TabHost;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TabActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_tab);</span><br><span class="line">        <span class="comment">//初始化TabHost组件</span></span><br><span class="line">        TabHost tabHost = findViewById(android.R.id.tabhost);</span><br><span class="line">        tabHost.setup();<span class="comment">//初始化</span></span><br><span class="line"></span><br><span class="line">        LayoutInflater inflater = LayoutInflater.from(<span class="keyword">this</span>);<span class="comment">//用这个对象加载两个标签页的布局文件</span></span><br><span class="line">        inflater.inflate(R.layout.tab1,tabHost.getTabContentView());<span class="comment">//1</span></span><br><span class="line">        inflater.inflate(R.layout.tab2,tabHost.getTabContentView());<span class="comment">//2</span></span><br><span class="line">        <span class="comment">//添加标签页</span></span><br><span class="line">        tabHost.addTab(tabHost.newTabSpec(<span class="string">"tab1"</span>).setIndicator(<span class="string">"精选表情"</span>).setContent(R.id.left));</span><br><span class="line">        tabHost.addTab(tabHost.newTabSpec(<span class="string">"tab2"</span>).setIndicator(<span class="string">"投稿表情"</span>).setContent(R.id.right));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意，tab1和tab2都是自定义的xml布局文件，表示标签页显示的内容。</p>
-<p>即可完成。</p>
-<p>到此，基本的UI组件学习已经完成，当然每个组件都只是刚刚入门，想要精通还有很长一段路要走。</p>
-<p>继续加油吧！</p>
-]]></content>
-      <categories>
-        <category>Android</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
@@ -1483,130 +1483,8 @@
         <category>MATLAB</category>
       </categories>
       <tags>
+        <tag>Learning</tag>
         <tag>MATLAB</tag>
-        <tag>Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP——数据库MySQL操作</title>
-    <url>/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>总结PHP中操作MySQL的相关方法与命令。</p>
-<a id="more"></a>
-
-<hr>
-<h2 id="PHP连接MySQL"><a href="#PHP连接MySQL" class="headerlink" title="PHP连接MySQL"></a>PHP连接MySQL</h2><h3 id="PHP连接MySQL服务器"><a href="#PHP连接MySQL服务器" class="headerlink" title="PHP连接MySQL服务器"></a>PHP连接MySQL服务器</h3><h4 id="mysqli-connect"><a href="#mysqli-connect" class="headerlink" title="mysqli_connect()"></a>mysqli_connect()</h4><ul>
-<li><p>描述：连接到MySQL服务器</p>
-</li>
-<li><p>语法：<code>$link = mysqli_connect([host],[username],[password],[dbName],[port])</code></p>
-</li>
-<li><p>返回值：连接成功，则返回MySQLi连接对象。如果失败，则返回FALSE。</p>
-</li>
-</ul>
-<h4 id="运算符"><a href="#运算符" class="headerlink" title="@运算符"></a>@运算符</h4><ul>
-<li>PHP支持错误抑制运算符@。</li>
-<li>可以把它放在<strong>变量，函数、include调用</strong>和<strong>变量</strong>等前面。</li>
-</ul>
-<p>在连接数据库失败的时候，往往系统给出提示信息，会暴露电脑的相关配置，可能发生信息的不安全泄露，造成隐患。我们可以使用错误抑制符@来避免数据库连接失败的错误提示。</p>
-<p>用法：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$link = @ mysqli_connect([host],[username],[password],[dbName],[port]);</span><br></pre></td></tr></table></figure>
-
-<h4 id="die-和exit"><a href="#die-和exit" class="headerlink" title="die()和exit()"></a>die()和exit()</h4><ul>
-<li>输出一个消息并且退出当前脚本，作用等同。</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$db_host = <span class="string">"localhost"</span>;<span class="comment">//主机号</span></span><br><span class="line">$db_port = <span class="string">"3306"</span>;	   <span class="comment">//端口号</span></span><br><span class="line">$db_user = <span class="string">"root"</span>;	   <span class="comment">//用户名</span></span><br><span class="line">$db_password = <span class="string">"root"</span>; <span class="comment">//密码</span></span><br><span class="line">$db_name = <span class="string">"mydb"</span>;	   <span class="comment">//数据库名</span></span><br><span class="line">$charset = <span class="string">"utf8"</span>;	   <span class="comment">//字符集</span></span><br><span class="line"><span class="keyword">if</span>(!$link = @ mysqli_connect($db_host.<span class="string">":"</span>.$db_port,$db_user,$db_password))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"连接失败"</span>);<span class="comment">//中止程序向下运行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="mysqli-connect-error"><a href="#mysqli-connect-error" class="headerlink" title="mysqli_connect_error()"></a>mysqli_connect_error()</h4><ul>
-<li>返回连接失败的错误信息。</li>
-</ul>
-<h4 id="mysqli-close"><a href="#mysqli-close" class="headerlink" title="mysqli_close()"></a>mysqli_close()</h4><ul>
-<li>关闭先前打开的数据库连接</li>
-<li>语法：<code>bool mysqli_close(mysqli $link);</code></li>
-</ul>
-<h3 id="选择当前数据库"><a href="#选择当前数据库" class="headerlink" title="选择当前数据库"></a>选择当前数据库</h3><p>一个数据库服务器包含很多的数据库，通常需要针对某个具体的数据库操作。</p>
-<p>语法：bool mysqli_select_db(mysqli $link,string $database)</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(!mysqli_select_db($link,$database))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"选择数据库$&#123;db_name&#125;失败"</span>;</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="设置客户端字符集"><a href="#设置客户端字符集" class="headerlink" title="设置客户端字符集"></a>设置客户端字符集</h3><p>设置默认字符编码</p>
-<p>语法：<code>bool mysqli_set_charset(mysqli $link,string $ charset)</code></p>
-<h2 id="执行SQL语句"><a href="#执行SQL语句" class="headerlink" title="执行SQL语句"></a>执行SQL语句</h2><h4 id="mysqli-query"><a href="#mysqli-query" class="headerlink" title="mysqli_query()"></a>mysqli_query()</h4><ul>
-<li>发送一条MySQL查询</li>
-<li>语法：<code>resource mysqli_query(mysqli $link,string $query)</code></li>
-<li>$query是查询的sql语句字符串</li>
-</ul>
-<p><strong>说明：</strong>mysqli_query()仅对SELECT，SHOW 或 DESCRIBE 语句返回一个mysqli_result结果集对象，如果查询不正确返回FALSE。对于其他类型的SQL语句，成功返回TRUE，失败返回FALSE。非FALSE的返回值意味着查询是合法的并能够被服务器执行。</p>
-<p><strong>注意</strong>：查询字符串不应以分号结束，和命令行模式下有区别。</p>
-<p>mysqli_result结果集对象：结果已经查到，但必须用特殊的方法才能取出数据。</p>
-<h4 id="mysqli-free-result"><a href="#mysqli-free-result" class="headerlink" title="mysqli_free_result()"></a>mysqli_free_result()</h4><ul>
-<li>释放与结果集相关联的内存</li>
-<li>语法：<code>void mysqli_free_result(mysqli_result $result)</code></li>
-</ul>
-<p><strong>注意</strong>：是结果集对象mysqli_result，而不是bool。</p>
-<h3 id="从结果集获取数据"><a href="#从结果集获取数据" class="headerlink" title="从结果集获取数据"></a>从结果集获取数据</h3><h4 id="mysqli-fetch-row"><a href="#mysqli-fetch-row" class="headerlink" title="mysqli_fetch_row()"></a>mysqli_fetch_row()</h4><ul>
-<li><p>从结果集中取出一行作为枚举数组（下标为整型的是枚举数组，下标为字符串的是关联数组）</p>
-</li>
-<li><p>array mysqli_fetch_row(mysqli_result $result)</p>
-</li>
-<li><p>每调用一次，取出当前行，并把指针指向下一行，下次调用便是下一行的数据。</p>
-</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>($arr = mysqli_fetch_row($result))&#123;</span><br><span class="line">    print_r($arr);<span class="comment">//取出所有数组</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="mysqli-fetch-assoc"><a href="#mysqli-fetch-assoc" class="headerlink" title="mysqli_fetch_assoc()"></a>mysqli_fetch_assoc()</h4><ul>
-<li><p>从结果集中取出一行作为关联数组</p>
-</li>
-<li><p>语法：<code>array mysqli_fetch_assoc(mysqli_result $result)</code></p>
-</li>
-<li><p>从结果集取得的行生成的关联数组，如果没有更多行则返回FALSE。</p>
-</li>
-</ul>
-<p><strong>注意</strong>：此函数返回的字段名大小写敏感。</p>
-<h4 id="mysqli-fetch-array"><a href="#mysqli-fetch-array" class="headerlink" title="mysqli_fetch_array()"></a>mysqli_fetch_array()</h4><ul>
-<li><p>从结果集中取出一行作为关联数组或数字数组，或二者兼有。</p>
-</li>
-<li><p>语法：<code>array mysqli_fetch_array(mysqli_result $result [,int $result_type = MYSQLI_BOTH])</code></p>
-</li>
-<li><p>$result_type是一个常量，取值：MYSQLI_BOTH （二者兼有，默认），MYSQLI_ASSOC （关联索引），MYSQLI_NUM（数字索引） </p>
-</li>
-<li><p>从结果集取得的行生成的数组，如果没有更多行则返回FALSE。</p>
-</li>
-</ul>
-<p><strong>注意</strong>：此函数返回的字段名大小写敏感。</p>
-<p>二者兼有<strong>举例</strong>（一份数据在数组中存两遍，一遍枚举数组，一遍关联数组）：</p>
-<img src="/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/1.png" class>
-
-<h4 id="mysqli-fetch-all"><a href="#mysqli-fetch-all" class="headerlink" title="mysqli_fetch_all()"></a>mysqli_fetch_all()</h4><p>从结果集中取出所有行作为关联数组、枚举数组或二者兼有。</p>
-<p>语法：<code>mixed mysqli_fetch_all(mysqli_result $result [,int $result_type = MYSQLI_NUM])</code></p>
-<p>与之前不同的是，默认为枚举数组；即第一维永远为数字，表示第几条记录，第二维字段可以改变，数字、字符串或二者兼有。</p>
-<h4 id="mysqli-error"><a href="#mysqli-error" class="headerlink" title="mysqli_error()"></a>mysqli_error()</h4><ul>
-<li><p>显示执行sql语句失败的错误信息</p>
-</li>
-<li><p>语法：<code>mysqli_error(mysqli $link)</code></p>
-</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$sql = <span class="string">"insert into test(id,name,age) values(null,'李四',25)"</span>;</span><br><span class="line">$result = mysqli_query($link,$sql) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"2、数据插入失败:"</span>.mysqli_error($link));</span><br></pre></td></tr></table></figure>
-
-<h3 id="获取记录数"><a href="#获取记录数" class="headerlink" title="获取记录数"></a>获取记录数</h3><h4 id="mysqli-num-rows"><a href="#mysqli-num-rows" class="headerlink" title="mysqli_num_rows()"></a>mysqli_num_rows()</h4><p>取得结果集中行的数目</p>
-<p>语法：<code>int mysqli_num_rows(mysqli_result $result)</code></p>
-<p><strong>注意：</strong>此命令仅对SELECT语句有效。</p>
-<h4 id="mysqli-affected-rows"><a href="#mysqli-affected-rows" class="headerlink" title="mysqli_affected_rows()"></a>mysqli_affected_rows()</h4><p>取得前一次MySQL操作所影响的记录行数，包括SELECT,UPDATE,INSERT或DELETE。</p>
-<p>语法：<code>int mysqli_affected_rows(mysqli $link)</code></p>
-<p><strong>注意：</strong>如果最近一次查询失败，函数返回-1。当使用UPDATE查询，MySQL不会将原值和新值一样的值更新，即此条记录不代表被修改。返回值不一定就是查询条件所符合的记录，只有修改过的记录数才会被返回。</p>
-<p><strong>案例演示注意事项</strong></p>
-<p>1、首先是表单的提交，在php中判断是否提交表单，可以在表单中设置隐藏域，值为一个随机值，判断这个随机且唯一的值是否正确即可判断表单是否提交，该方法可避免其他人提交表单修改自己数据库的不安全情况。</p>
-<img src="/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/2.png" class>
-
-<p>2、然后是复选框的提交，复选框提交时会出现覆盖现象，此时在name属性后添加<code>[]</code>来表明该属性为数组属性。</p>
-<p>PHP会把<code>name=&quot;hobby[]&quot;</code>看成添加一个数组元素，而HTML会把它看成一个字符串。</p>
-<img src="/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/3.png" class>
-
-<p><strong>提示：</strong>将多个爱好连成一个值，并写入到数据库某个字段中，只需要一个字段来存储爱好，用到字符串的拼接。</p>
-<img src="/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/4.png" class>]]></content>
-      <categories>
-        <category>PHP</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-        <tag>PHP</tag>
       </tags>
   </entry>
   <entry>
@@ -1828,6 +1706,128 @@
 <li>空类型NULL转布尔</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PHP——数据库MySQL操作</title>
+    <url>/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>总结PHP中操作MySQL的相关方法与命令。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="PHP连接MySQL"><a href="#PHP连接MySQL" class="headerlink" title="PHP连接MySQL"></a>PHP连接MySQL</h2><h3 id="PHP连接MySQL服务器"><a href="#PHP连接MySQL服务器" class="headerlink" title="PHP连接MySQL服务器"></a>PHP连接MySQL服务器</h3><h4 id="mysqli-connect"><a href="#mysqli-connect" class="headerlink" title="mysqli_connect()"></a>mysqli_connect()</h4><ul>
+<li><p>描述：连接到MySQL服务器</p>
+</li>
+<li><p>语法：<code>$link = mysqli_connect([host],[username],[password],[dbName],[port])</code></p>
+</li>
+<li><p>返回值：连接成功，则返回MySQLi连接对象。如果失败，则返回FALSE。</p>
+</li>
+</ul>
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="@运算符"></a>@运算符</h4><ul>
+<li>PHP支持错误抑制运算符@。</li>
+<li>可以把它放在<strong>变量，函数、include调用</strong>和<strong>变量</strong>等前面。</li>
+</ul>
+<p>在连接数据库失败的时候，往往系统给出提示信息，会暴露电脑的相关配置，可能发生信息的不安全泄露，造成隐患。我们可以使用错误抑制符@来避免数据库连接失败的错误提示。</p>
+<p>用法：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$link = @ mysqli_connect([host],[username],[password],[dbName],[port]);</span><br></pre></td></tr></table></figure>
+
+<h4 id="die-和exit"><a href="#die-和exit" class="headerlink" title="die()和exit()"></a>die()和exit()</h4><ul>
+<li>输出一个消息并且退出当前脚本，作用等同。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$db_host = <span class="string">"localhost"</span>;<span class="comment">//主机号</span></span><br><span class="line">$db_port = <span class="string">"3306"</span>;	   <span class="comment">//端口号</span></span><br><span class="line">$db_user = <span class="string">"root"</span>;	   <span class="comment">//用户名</span></span><br><span class="line">$db_password = <span class="string">"root"</span>; <span class="comment">//密码</span></span><br><span class="line">$db_name = <span class="string">"mydb"</span>;	   <span class="comment">//数据库名</span></span><br><span class="line">$charset = <span class="string">"utf8"</span>;	   <span class="comment">//字符集</span></span><br><span class="line"><span class="keyword">if</span>(!$link = @ mysqli_connect($db_host.<span class="string">":"</span>.$db_port,$db_user,$db_password))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"连接失败"</span>);<span class="comment">//中止程序向下运行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="mysqli-connect-error"><a href="#mysqli-connect-error" class="headerlink" title="mysqli_connect_error()"></a>mysqli_connect_error()</h4><ul>
+<li>返回连接失败的错误信息。</li>
+</ul>
+<h4 id="mysqli-close"><a href="#mysqli-close" class="headerlink" title="mysqli_close()"></a>mysqli_close()</h4><ul>
+<li>关闭先前打开的数据库连接</li>
+<li>语法：<code>bool mysqli_close(mysqli $link);</code></li>
+</ul>
+<h3 id="选择当前数据库"><a href="#选择当前数据库" class="headerlink" title="选择当前数据库"></a>选择当前数据库</h3><p>一个数据库服务器包含很多的数据库，通常需要针对某个具体的数据库操作。</p>
+<p>语法：bool mysqli_select_db(mysqli $link,string $database)</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(!mysqli_select_db($link,$database))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"选择数据库$&#123;db_name&#125;失败"</span>;</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置客户端字符集"><a href="#设置客户端字符集" class="headerlink" title="设置客户端字符集"></a>设置客户端字符集</h3><p>设置默认字符编码</p>
+<p>语法：<code>bool mysqli_set_charset(mysqli $link,string $ charset)</code></p>
+<h2 id="执行SQL语句"><a href="#执行SQL语句" class="headerlink" title="执行SQL语句"></a>执行SQL语句</h2><h4 id="mysqli-query"><a href="#mysqli-query" class="headerlink" title="mysqli_query()"></a>mysqli_query()</h4><ul>
+<li>发送一条MySQL查询</li>
+<li>语法：<code>resource mysqli_query(mysqli $link,string $query)</code></li>
+<li>$query是查询的sql语句字符串</li>
+</ul>
+<p><strong>说明：</strong>mysqli_query()仅对SELECT，SHOW 或 DESCRIBE 语句返回一个mysqli_result结果集对象，如果查询不正确返回FALSE。对于其他类型的SQL语句，成功返回TRUE，失败返回FALSE。非FALSE的返回值意味着查询是合法的并能够被服务器执行。</p>
+<p><strong>注意</strong>：查询字符串不应以分号结束，和命令行模式下有区别。</p>
+<p>mysqli_result结果集对象：结果已经查到，但必须用特殊的方法才能取出数据。</p>
+<h4 id="mysqli-free-result"><a href="#mysqli-free-result" class="headerlink" title="mysqli_free_result()"></a>mysqli_free_result()</h4><ul>
+<li>释放与结果集相关联的内存</li>
+<li>语法：<code>void mysqli_free_result(mysqli_result $result)</code></li>
+</ul>
+<p><strong>注意</strong>：是结果集对象mysqli_result，而不是bool。</p>
+<h3 id="从结果集获取数据"><a href="#从结果集获取数据" class="headerlink" title="从结果集获取数据"></a>从结果集获取数据</h3><h4 id="mysqli-fetch-row"><a href="#mysqli-fetch-row" class="headerlink" title="mysqli_fetch_row()"></a>mysqli_fetch_row()</h4><ul>
+<li><p>从结果集中取出一行作为枚举数组（下标为整型的是枚举数组，下标为字符串的是关联数组）</p>
+</li>
+<li><p>array mysqli_fetch_row(mysqli_result $result)</p>
+</li>
+<li><p>每调用一次，取出当前行，并把指针指向下一行，下次调用便是下一行的数据。</p>
+</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>($arr = mysqli_fetch_row($result))&#123;</span><br><span class="line">    print_r($arr);<span class="comment">//取出所有数组</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="mysqli-fetch-assoc"><a href="#mysqli-fetch-assoc" class="headerlink" title="mysqli_fetch_assoc()"></a>mysqli_fetch_assoc()</h4><ul>
+<li><p>从结果集中取出一行作为关联数组</p>
+</li>
+<li><p>语法：<code>array mysqli_fetch_assoc(mysqli_result $result)</code></p>
+</li>
+<li><p>从结果集取得的行生成的关联数组，如果没有更多行则返回FALSE。</p>
+</li>
+</ul>
+<p><strong>注意</strong>：此函数返回的字段名大小写敏感。</p>
+<h4 id="mysqli-fetch-array"><a href="#mysqli-fetch-array" class="headerlink" title="mysqli_fetch_array()"></a>mysqli_fetch_array()</h4><ul>
+<li><p>从结果集中取出一行作为关联数组或数字数组，或二者兼有。</p>
+</li>
+<li><p>语法：<code>array mysqli_fetch_array(mysqli_result $result [,int $result_type = MYSQLI_BOTH])</code></p>
+</li>
+<li><p>$result_type是一个常量，取值：MYSQLI_BOTH （二者兼有，默认），MYSQLI_ASSOC （关联索引），MYSQLI_NUM（数字索引） </p>
+</li>
+<li><p>从结果集取得的行生成的数组，如果没有更多行则返回FALSE。</p>
+</li>
+</ul>
+<p><strong>注意</strong>：此函数返回的字段名大小写敏感。</p>
+<p>二者兼有<strong>举例</strong>（一份数据在数组中存两遍，一遍枚举数组，一遍关联数组）：</p>
+<img src="/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/1.png" class>
+
+<h4 id="mysqli-fetch-all"><a href="#mysqli-fetch-all" class="headerlink" title="mysqli_fetch_all()"></a>mysqli_fetch_all()</h4><p>从结果集中取出所有行作为关联数组、枚举数组或二者兼有。</p>
+<p>语法：<code>mixed mysqli_fetch_all(mysqli_result $result [,int $result_type = MYSQLI_NUM])</code></p>
+<p>与之前不同的是，默认为枚举数组；即第一维永远为数字，表示第几条记录，第二维字段可以改变，数字、字符串或二者兼有。</p>
+<h4 id="mysqli-error"><a href="#mysqli-error" class="headerlink" title="mysqli_error()"></a>mysqli_error()</h4><ul>
+<li><p>显示执行sql语句失败的错误信息</p>
+</li>
+<li><p>语法：<code>mysqli_error(mysqli $link)</code></p>
+</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$sql = <span class="string">"insert into test(id,name,age) values(null,'李四',25)"</span>;</span><br><span class="line">$result = mysqli_query($link,$sql) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"2、数据插入失败:"</span>.mysqli_error($link));</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取记录数"><a href="#获取记录数" class="headerlink" title="获取记录数"></a>获取记录数</h3><h4 id="mysqli-num-rows"><a href="#mysqli-num-rows" class="headerlink" title="mysqli_num_rows()"></a>mysqli_num_rows()</h4><p>取得结果集中行的数目</p>
+<p>语法：<code>int mysqli_num_rows(mysqli_result $result)</code></p>
+<p><strong>注意：</strong>此命令仅对SELECT语句有效。</p>
+<h4 id="mysqli-affected-rows"><a href="#mysqli-affected-rows" class="headerlink" title="mysqli_affected_rows()"></a>mysqli_affected_rows()</h4><p>取得前一次MySQL操作所影响的记录行数，包括SELECT,UPDATE,INSERT或DELETE。</p>
+<p>语法：<code>int mysqli_affected_rows(mysqli $link)</code></p>
+<p><strong>注意：</strong>如果最近一次查询失败，函数返回-1。当使用UPDATE查询，MySQL不会将原值和新值一样的值更新，即此条记录不代表被修改。返回值不一定就是查询条件所符合的记录，只有修改过的记录数才会被返回。</p>
+<p><strong>案例演示注意事项</strong></p>
+<p>1、首先是表单的提交，在php中判断是否提交表单，可以在表单中设置隐藏域，值为一个随机值，判断这个随机且唯一的值是否正确即可判断表单是否提交，该方法可避免其他人提交表单修改自己数据库的不安全情况。</p>
+<img src="/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/2.png" class>
+
+<p>2、然后是复选框的提交，复选框提交时会出现覆盖现象，此时在name属性后添加<code>[]</code>来表明该属性为数组属性。</p>
+<p>PHP会把<code>name=&quot;hobby[]&quot;</code>看成添加一个数组元素，而HTML会把它看成一个字符串。</p>
+<img src="/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/3.png" class>
+
+<p><strong>提示：</strong>将多个爱好连成一个值，并写入到数据库某个字段中，只需要一个字段来存储爱好，用到字符串的拼接。</p>
+<img src="/2020/04/29/PHP%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93MySQL%E6%93%8D%E4%BD%9C/4.png" class>]]></content>
       <categories>
         <category>PHP</category>
       </categories>
@@ -2367,6 +2367,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Reinvent(4.24)</title>
+    <url>/2020/04/24/Reinvent-4-24/</url>
+    <content><![CDATA[<p>4.24日</p>
+<a id="more"></a>
+
+<hr>
+<p>今天上午打球洗澡，概率论课没听，已经预习了，但是省出来的时间并没有做有意义的事情。</p>
+<p>下午晚上计划，看app记账本视频，完成基本的界面布局。</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Android Jetpack架构组件（一）</title>
     <url>/2020/04/05/Android-1/</url>
     <content><![CDATA[<p>开始学习Android Jetpack相关知识。</p>
@@ -2431,23 +2448,6 @@
       <tags>
         <tag>Learning</tag>
         <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Reinvent(4.24)</title>
-    <url>/2020/04/24/Reinvent-4-24/</url>
-    <content><![CDATA[<p>4.24日</p>
-<a id="more"></a>
-
-<hr>
-<p>今天上午打球洗澡，概率论课没听，已经预习了，但是省出来的时间并没有做有意义的事情。</p>
-<p>下午晚上计划，看app记账本视频，完成基本的界面布局。</p>
-]]></content>
-      <categories>
-        <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
       </tags>
   </entry>
   <entry>
@@ -2680,104 +2680,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Reinvent(5.11)</title>
-    <url>/2020/05/10/Reinvent-5-11/</url>
-    <content><![CDATA[<p>5.11日</p>
-<a id="more"></a>
-
-<hr>
-<table>
-<thead>
-<tr>
-<th>时间</th>
-<th>内容</th>
-<th>计划用时</th>
-<th>实际用时</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>上午</td>
-<td>计网第六章学习与PPT整理</td>
-<td>90min</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>数据库第八章学习（看PPT在书上做笔记）</td>
-<td>60min</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>概率论学习</td>
-<td>60min</td>
-<td></td>
-</tr>
-<tr>
-<td>下午</td>
-<td>php实验一（超链接三个跳转到表单，登陆注册，<br>适当js，css，换背景）</td>
-<td>60min</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>数据库作业</td>
-<td>30min</td>
-<td></td>
-</tr>
-<tr>
-<td>晚上</td>
-<td>web实验</td>
-<td>90min</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>Android</td>
-<td>60min</td>
-<td></td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Reinvent(4.23)</title>
-    <url>/2020/04/23/Reinvent-4-23/</url>
-    <content><![CDATA[<p>总结从4.16~4.23这一个周。</p>
-<a id="more"></a>
-
-<hr>
-<p>虽然写了十天时光荒废的总结，但还是没有真正的提高效率。</p>
-<p>就强了一点每天的学习偶尔跟跟，作业写写抄抄。</p>
-<p>别人的第一阶段十天冲刺都进行到第八九天了，而我还没开始。</p>
-<p>想了想，问题可能还是每天没有目标吧。</p>
-<p>我决定从现在开始，每天改变自己一点</p>
-<p>下一天的目标前一天晚上想好，写下来</p>
-<p>当天的目标认真落实，每天总结，要细致</p>
-<p>一百天自我改造计划，从现在开始</p>
-<p>一定要记住！！是现在，不是一会，更不是明天！</p>
-<p>今晚目标</p>
-<p>概率论考试完成，预习三四个超星视频</p>
-<p>看直播少于30分钟</p>
-<p>练习体育交叉步，平板支撑，马步</p>
-<p>明天目标</p>
-<p>上午，预习概率论四五个视频，上课好好听讲，不要看直播，少玩手机</p>
-<p>中午，少玩手机，认真睡觉，无聊就看看app记账本视频。</p>
-]]></content>
-      <categories>
-        <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Reinvent(4.5)</title>
     <url>/2020/04/05/Reinvent-4-5/</url>
     <content><![CDATA[<p>4.5总结</p>
@@ -2892,6 +2794,104 @@
 <p>还是没有做到稳扎稳打，中午很不对劲，结束的早，11：00开始就玩起手机，边玩边做饭还边想着学习，结果什么都没干好，直播不能再这么沉迷的看，结果中午午睡也没有睡好。</p>
 <p>下午时间少，晚上效率不高，做的东西学的知识少。</p>
 <p>还是太多分心，学习的时候好好学，玩的时候好好玩。</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(4.23)</title>
+    <url>/2020/04/23/Reinvent-4-23/</url>
+    <content><![CDATA[<p>总结从4.16~4.23这一个周。</p>
+<a id="more"></a>
+
+<hr>
+<p>虽然写了十天时光荒废的总结，但还是没有真正的提高效率。</p>
+<p>就强了一点每天的学习偶尔跟跟，作业写写抄抄。</p>
+<p>别人的第一阶段十天冲刺都进行到第八九天了，而我还没开始。</p>
+<p>想了想，问题可能还是每天没有目标吧。</p>
+<p>我决定从现在开始，每天改变自己一点</p>
+<p>下一天的目标前一天晚上想好，写下来</p>
+<p>当天的目标认真落实，每天总结，要细致</p>
+<p>一百天自我改造计划，从现在开始</p>
+<p>一定要记住！！是现在，不是一会，更不是明天！</p>
+<p>今晚目标</p>
+<p>概率论考试完成，预习三四个超星视频</p>
+<p>看直播少于30分钟</p>
+<p>练习体育交叉步，平板支撑，马步</p>
+<p>明天目标</p>
+<p>上午，预习概率论四五个视频，上课好好听讲，不要看直播，少玩手机</p>
+<p>中午，少玩手机，认真睡觉，无聊就看看app记账本视频。</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(5.11)</title>
+    <url>/2020/05/10/Reinvent-5-11/</url>
+    <content><![CDATA[<p>5.11日</p>
+<a id="more"></a>
+
+<hr>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+<th>计划用时</th>
+<th>实际用时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上午</td>
+<td>计网第六章学习与PPT整理</td>
+<td>90min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>数据库第八章学习（看PPT在书上做笔记）</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>概率论学习</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td>下午</td>
+<td>php实验一（超链接三个跳转到表单，登陆注册，<br>适当js，css，换背景）</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>数据库作业</td>
+<td>30min</td>
+<td></td>
+</tr>
+<tr>
+<td>晚上</td>
+<td>web实验</td>
+<td>90min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Android</td>
+<td>60min</td>
+<td></td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>Reinvent</category>
@@ -3044,67 +3044,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Reinvent(5.6)</title>
-    <url>/2020/05/05/Reinvent-5-6/</url>
-    <content><![CDATA[<p>5.6日</p>
-<a id="more"></a>
-
-<hr>
-<table>
-<thead>
-<tr>
-<th>时间</th>
-<th>内容</th>
-<th>计划用时</th>
-<th>实际用时</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>上午</td>
-<td>PHP好好上课</td>
-<td>90min</td>
-<td>完成</td>
-</tr>
-<tr>
-<td></td>
-<td>PHP学习并完成作业</td>
-<td>120min</td>
-<td>完成</td>
-</tr>
-<tr>
-<td>下午</td>
-<td>Android</td>
-<td>60min</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>计网</td>
-<td>60min</td>
-<td>90min</td>
-</tr>
-<tr>
-<td>晚上</td>
-<td>体育活动</td>
-<td>30min</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>Android</td>
-<td>60min</td>
-<td></td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Reinvent(5.7)</title>
     <url>/2020/05/07/Reinvent-5-7/</url>
     <content><![CDATA[<p>5.7日</p>
@@ -3160,6 +3099,67 @@
 </tbody></table>
 <p>今天Android目标，把界面好好创建，尽量实现底部导航栏。</p>
 <p>加油</p>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(5.6)</title>
+    <url>/2020/05/05/Reinvent-5-6/</url>
+    <content><![CDATA[<p>5.6日</p>
+<a id="more"></a>
+
+<hr>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+<th>计划用时</th>
+<th>实际用时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上午</td>
+<td>PHP好好上课</td>
+<td>90min</td>
+<td>完成</td>
+</tr>
+<tr>
+<td></td>
+<td>PHP学习并完成作业</td>
+<td>120min</td>
+<td>完成</td>
+</tr>
+<tr>
+<td>下午</td>
+<td>Android</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>计网</td>
+<td>60min</td>
+<td>90min</td>
+</tr>
+<tr>
+<td>晚上</td>
+<td>体育活动</td>
+<td>30min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Android</td>
+<td>60min</td>
+<td></td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>Reinvent</category>
@@ -3818,6 +3818,99 @@
       </tags>
   </entry>
   <entry>
+    <title>清明</title>
+    <url>/2020/04/04/%E6%B8%85%E6%98%8E/</url>
+    <content><![CDATA[<p>记录已经过完的四分之一个2020年。</p>
+<a id="more"></a>
+
+<hr>
+<p>又是一个清明时节，但这次显然多了一层不一样的含义</p>
+<p>宅家三月，似乎还没有做些什么，2020年就过了四分之一</p>
+<p>但这更是与死神抢人的三个月，国内疫情稍稍好转，国外疫情却大行其道</p>
+<p>我想过见证历史，但没想到，我会见证这样的历史</p>
+<p>全国默哀，举国悼念</p>
+<p>数不清的天使为我们保驾护航</p>
+<p>那有什么英雄，不过只是在死神手里抢人的一个个普通人罢了</p>
+<br>
+
+<p>窗外狂风怒号</p>
+<p>号笛拉响</p>
+<p>天地动容</p>
+<br>
+
+<p>人类的赞歌是勇气的赞歌</p>
+<p>人类的伟大是勇气的伟大</p>
+<br>
+
+<blockquote>
+<p>愿逝者安息</p>
+<p>愿生者奋发</p>
+<p>愿祖国昌盛</p>
+</blockquote>
+<br>
+
+<p>消逝的星星，你们永远在我心中</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电脑系统重装前的准备工作</title>
+    <url>/2020/05/03/%E7%94%B5%E8%84%91%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</url>
+    <content><![CDATA[<p>总结下次电脑系统重装需要的环境软件和操作。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="电脑初始化前的操作"><a href="#电脑初始化前的操作" class="headerlink" title="电脑初始化前的操作"></a>电脑初始化前的操作</h2><p>不能着急，需要把电脑中的资料提前保存，预计是百度网盘，记得开会员。要保存的资料有：</p>
+<ul>
+<li>MyBlog</li>
+<li>每个编译器存放的代码</li>
+<li>Wallpaper Engine下的壁纸</li>
+<li>下载的音乐</li>
+<li>D盘下的小工具</li>
+<li>谷歌浏览助手</li>
+<li>额滴小心肝</li>
+</ul>
+<h2 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h2><p>首先是要给系统的磁盘分好类。</p>
+<ol>
+<li>D盘（软件盘）：一级目录为application、server、MyBlog。（把download文件夹移到E盘）</li>
+<li>E盘（文档盘）：包括学习资料、我的工具，同时把桌面、document等等移到此盘下（先建一个大文件夹（我的文件），然后把每一项移动进来）。</li>
+<li>F盘（游戏盘）：每个公司一个文件夹。Steam，Wegame，uplay等。</li>
+</ol>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Java、PHP（php_study）</p>
+<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><h3 id="学习类"><a href="#学习类" class="headerlink" title="学习类"></a>学习类</h3><h4 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h4><p>IDEA、PyCharm、PHPStorm、AS、CodeBlocks、Eclipse、VS、VSCode</p>
+<p>（与Github绑定）</p>
+<h4 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h4><p>HBulider、Notepad++、Sublime Text、RegexBuddy</p>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>MySQL、Redis、SQL server、Navicat For MySQL、SQLiteStudio</p>
+<p>php_study中有MySQL，了解后使用</p>
+<h4 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h4><p>VM、Genymotion</p>
+<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>Xftp、Xshell</p>
+<h3 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h3><p>chrome、Firefox</p>
+<p>其中，chrome中Tempermonkey下的插件</p>
+<img src="/2020/05/03/%E7%94%B5%E8%84%91%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/1.png" class>
+
+<p>WPS、Everything、印象笔记、bandzip、欧路翻译、</p>
+<p>Iris（护眼）、百度网盘、</p>
+<p>格式工厂、PS，PR、ScreenToGif、达芬奇、小蝴蝶</p>
+<h3 id="娱乐类"><a href="#娱乐类" class="headerlink" title="娱乐类"></a>娱乐类</h3><p>微信、TIM、QQ、网易云音乐、腾讯视频、</p>
+<p>网易加速、雷神加速、Steam（Wallpaper Engine）、WeGame、暴雪战网</p>
+<h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>VM中建立自己的Linux系统。</p>
+<p>tomcat、</p>
+<p>apache、MySQL、phpMyadmin、PHP等由phpstudy提供</p>
+<p>配置虚拟主机</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PHP基础知识（四）</title>
     <url>/2020/03/27/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
     <content><![CDATA[<p>这篇文章总结php代码嵌套到html中所需的<strong>标签语法</strong>，还有php中<strong>函数</strong>的定义和使用。</p>
@@ -4095,6 +4188,47 @@
       </tags>
   </entry>
   <entry>
+    <title>闺女开学有感</title>
+    <url>/2020/05/05/%E9%97%BA%E5%A5%B3%E5%BC%80%E5%AD%A6%E6%9C%89%E6%84%9F/</url>
+    <content><![CDATA[<p>如题</p>
+<a id="more"></a>
+
+<hr>
+<p>时间过得很快，认识的两个月已经流逝，相信这最后的两个月也不会让我等太久。</p>
+<p>这次分离，只能高考后再见，下次相见就长大了啊。</p>
+<p>第一次开始在乎QQ的小标识。</p>
+<p>是啊，真的挺悲伤</p>
+<br>
+
+<p>时间就是这样</p>
+<p>又想留住 又想度过</p>
+<br>
+
+<p>相信结果一定不会差</p>
+<br>
+
+<p>我期待着</p>
+<p>高考结束的那一天</p>
+<p>成绩下来的那一天</p>
+<p>报考志愿的那一天</p>
+<p>收到录取通知书的那一天</p>
+<p>步入大学的那一天</p>
+<br>
+
+<p>相信一切都是上天最好的安排</p>
+<br>
+
+<img src="/2020/05/05/%E9%97%BA%E5%A5%B3%E5%BC%80%E5%AD%A6%E6%9C%89%E6%84%9F/1.PNG">
+
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>博客搭建总结(一)</title>
     <url>/2020/02/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="第三次尝试搭建Hexo博客"><a href="#第三次尝试搭建Hexo博客" class="headerlink" title="第三次尝试搭建Hexo博客"></a>第三次尝试搭建Hexo博客</h2><p>干掉 干掉！</p>
@@ -4176,88 +4310,6 @@
       </tags>
   </entry>
   <entry>
-    <title>清明</title>
-    <url>/2020/04/04/%E6%B8%85%E6%98%8E/</url>
-    <content><![CDATA[<p>记录已经过完的四分之一个2020年。</p>
-<a id="more"></a>
-
-<hr>
-<p>又是一个清明时节，但这次显然多了一层不一样的含义</p>
-<p>宅家三月，似乎还没有做些什么，2020年就过了四分之一</p>
-<p>但这更是与死神抢人的三个月，国内疫情稍稍好转，国外疫情却大行其道</p>
-<p>我想过见证历史，但没想到，我会见证这样的历史</p>
-<p>全国默哀，举国悼念</p>
-<p>数不清的天使为我们保驾护航</p>
-<p>那有什么英雄，不过只是在死神手里抢人的一个个普通人罢了</p>
-<br>
-
-<p>窗外狂风怒号</p>
-<p>号笛拉响</p>
-<p>天地动容</p>
-<br>
-
-<p>人类的赞歌是勇气的赞歌</p>
-<p>人类的伟大是勇气的伟大</p>
-<br>
-
-<blockquote>
-<p>愿逝者安息</p>
-<p>愿生者奋发</p>
-<p>愿祖国昌盛</p>
-</blockquote>
-<br>
-
-<p>消逝的星星，你们永远在我心中</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>闺女开学有感</title>
-    <url>/2020/05/05/%E9%97%BA%E5%A5%B3%E5%BC%80%E5%AD%A6%E6%9C%89%E6%84%9F/</url>
-    <content><![CDATA[<p>如题</p>
-<a id="more"></a>
-
-<hr>
-<p>时间过得很快，认识的两个月已经流逝，相信这最后的两个月也不会让我等太久。</p>
-<p>这次分离，只能高考后再见，下次相见就长大了啊。</p>
-<p>第一次开始在乎QQ的小标识。</p>
-<p>是啊，真的挺悲伤</p>
-<br>
-
-<p>时间就是这样</p>
-<p>又想留住 又想度过</p>
-<br>
-
-<p>相信结果一定不会差</p>
-<br>
-
-<p>我期待着</p>
-<p>高考结束的那一天</p>
-<p>成绩下来的那一天</p>
-<p>报考志愿的那一天</p>
-<p>收到录取通知书的那一天</p>
-<p>步入大学的那一天</p>
-<br>
-
-<p>相信一切都是上天最好的安排</p>
-<br>
-
-<img src="/2020/05/05/%E9%97%BA%E5%A5%B3%E5%BC%80%E5%AD%A6%E6%9C%89%E6%84%9F/1.PNG">
-
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>自我改造计划（综述）</title>
     <url>/2020/04/04/%E8%87%AA%E6%88%91%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92%EF%BC%88%E7%BB%BC%E8%BF%B0%EF%BC%89/</url>
     <content><![CDATA[<p>希望自己不再堕落，每天都有一点收获。</p>
@@ -4298,55 +4350,6 @@
 ]]></content>
       <categories>
         <category>Reinvent</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电脑系统重装前的准备工作</title>
-    <url>/2020/05/03/%E7%94%B5%E8%84%91%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</url>
-    <content><![CDATA[<p>总结下次电脑系统重装需要的环境软件和操作。</p>
-<a id="more"></a>
-
-<hr>
-<h2 id="电脑初始化前的操作"><a href="#电脑初始化前的操作" class="headerlink" title="电脑初始化前的操作"></a>电脑初始化前的操作</h2><p>不能着急，需要把电脑中的资料提前保存，预计是百度网盘，记得开会员。要保存的资料有：</p>
-<ul>
-<li>MyBlog</li>
-<li>每个编译器存放的代码</li>
-<li>Wallpaper Engine下的壁纸</li>
-<li>下载的音乐</li>
-<li>D盘下的小工具</li>
-<li>谷歌浏览助手</li>
-<li>额滴小心肝</li>
-</ul>
-<h2 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h2><p>首先是要给系统的磁盘分好类。</p>
-<ol>
-<li>D盘（软件盘）：一级目录为application、server、MyBlog。（把download文件夹移到E盘）</li>
-<li>E盘（文档盘）：包括学习资料、我的工具，同时把桌面、document等等移到此盘下（先建一个大文件夹（我的文件），然后把每一项移动进来）。</li>
-<li>F盘（游戏盘）：每个公司一个文件夹。Steam，Wegame，uplay等。</li>
-</ol>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Java、PHP（php_study）</p>
-<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><h3 id="学习类"><a href="#学习类" class="headerlink" title="学习类"></a>学习类</h3><h4 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h4><p>IDEA、PyCharm、PHPStorm、AS、CodeBlocks、Eclipse、VS、VSCode</p>
-<p>（与Github绑定）</p>
-<h4 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h4><p>HBulider、Notepad++、Sublime Text、RegexBuddy</p>
-<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>MySQL、Redis、SQL server、Navicat For MySQL、SQLiteStudio</p>
-<p>php_study中有MySQL，了解后使用</p>
-<h4 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h4><p>VM、Genymotion</p>
-<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>Xftp、Xshell</p>
-<h3 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h3><p>chrome、Firefox</p>
-<p>WPS、Everything、印象笔记、bandzip、有道翻译、</p>
-<p>Iris（护眼）、百度网盘、迅雷、</p>
-<p>格式工厂、PS，PR、ScreenToGif、小蝴蝶</p>
-<h3 id="娱乐类"><a href="#娱乐类" class="headerlink" title="娱乐类"></a>娱乐类</h3><p>微信、TIM、QQ、网易云音乐、腾讯视频、</p>
-<p>网易加速、雷神加速、Steam（Wallpaper Engine）、WeGame、暴雪战网</p>
-<h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>VM中建立自己的Linux系统。</p>
-<p>tomcat、</p>
-<p>apache、MySQL、phpMyadmin、PHP等由phpstudy提供</p>
-<p>配置虚拟主机</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
       </categories>
       <tags>
         <tag>idea</tag>
