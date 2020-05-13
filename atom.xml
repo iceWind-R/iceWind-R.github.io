@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-05-13T12:26:14.835Z</updated>
+  <updated>2020-05-13T14:13:28.830Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reinvent(5.14)</title>
+    <link href="http://icewind-r.github.io/2020/05/13/Reinvent-5-14/"/>
+    <id>http://icewind-r.github.io/2020/05/13/Reinvent-5-14/</id>
+    <published>2020-05-13T13:57:13.000Z</published>
+    <updated>2020-05-13T14:13:28.830Z</updated>
+    
+    <content type="html"><![CDATA[<p>5.14日</p><a id="more"></a><hr><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>好好听课，认真学习</td><td></td><td></td></tr><tr><td>下午</td><td>概率论学习</td><td>60min</td><td></td></tr><tr><td></td><td>Android博客</td><td>60min</td><td></td></tr><tr><td>晚上</td><td>数据库作业</td><td>30min</td><td></td></tr><tr><td></td><td></td><td>30min</td><td></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;5.14日&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
   
   <entry>
     <title>男儿有泪不轻弹？</title>
@@ -444,29 +467,6 @@
     <summary type="html">
     
       &lt;p&gt;4.8日~4.16总结&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
-    
-    
-      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reinvent(4.7)</title>
-    <link href="http://icewind-r.github.io/2020/04/07/Reinvent-4-7/"/>
-    <id>http://icewind-r.github.io/2020/04/07/Reinvent-4-7/</id>
-    <published>2020-04-07T03:02:23.000Z</published>
-    <updated>2020-04-16T13:54:29.507Z</updated>
-    
-    <content type="html"><![CDATA[<p>4.7日总结。</p><a id="more"></a><hr><p><strong>上午总结</strong></p><p>上课的同时做PPT，群内三人讨论，成果还可以。</p><p><strong>下午晚上总结</strong></p><p>发挥的不错进行了建民的原型展示，但是，之后的时间都废掉了，唉，不能把上完建民课就看成了万事大吉。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;4.7日总结。&lt;/p&gt;
     
     </summary>
     
