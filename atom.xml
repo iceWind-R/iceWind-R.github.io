@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-05-13T14:13:28.830Z</updated>
+  <updated>2020-05-14T14:21:21.514Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reinvent(5.15)</title>
+    <link href="http://icewind-r.github.io/2020/05/14/Reinvent-5-15/"/>
+    <id>http://icewind-r.github.io/2020/05/14/Reinvent-5-15/</id>
+    <published>2020-05-14T14:19:28.000Z</published>
+    <updated>2020-05-14T14:21:21.514Z</updated>
+    
+    <content type="html"><![CDATA[<p>5.15日</p><a id="more"></a><hr><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>认真学习概率论，完成预习</td><td></td><td></td></tr><tr><td>下午</td><td>计网第二章学习</td><td>60min</td><td></td></tr><tr><td></td><td>matlab整理+实验</td><td>60min</td><td></td></tr><tr><td>晚上</td><td>数据库作业</td><td>30min</td><td></td></tr><tr><td></td><td>Android博客</td><td>30min</td><td></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;5.15日&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
   
   <entry>
     <title>Reinvent(5.14)</title>
@@ -444,29 +467,6 @@
     <summary type="html">
     
       &lt;p&gt;十天时光已然逝去，但万事有弊就有利，相信浪费的时光也有其宝贵的价值。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
-    
-    
-      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reinvent(4.16)</title>
-    <link href="http://icewind-r.github.io/2020/04/12/Reinvent-4-16/"/>
-    <id>http://icewind-r.github.io/2020/04/12/Reinvent-4-16/</id>
-    <published>2020-04-12T07:18:17.000Z</published>
-    <updated>2020-04-16T14:01:18.051Z</updated>
-    
-    <content type="html"><![CDATA[<p>4.8日~4.16总结</p><a id="more"></a><hr><p><strong>4.8日~4.12日</strong></p><p>周二到周天五天</p><p>什么都没干</p><p>一直在玩游戏混，打了5天的CF，我都不敢信。</p><p>卸了卸了。</p><p>中午睡得不错，争取一下，该好好干了。</p><p><strong>4.13日~4.16日</strong></p><p>尝试进入状态 ，但效果极差。</p><p><strong>4.16晚</strong></p><p>总结原因，和闺女交流，感觉很棒。</p><p>聊天记录索引：时间：2020.4.16 第一句话：今天怎么样啊？</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;4.8日~4.16总结&lt;/p&gt;
     
     </summary>
     
