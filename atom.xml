@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-05-23T13:04:50.123Z</updated>
+  <updated>2020-05-24T13:57:04.864Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -17,32 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Reinvent(5.25)</title>
+    <link href="http://icewind-r.github.io/2020/05/24/Reinvent-5-25/"/>
+    <id>http://icewind-r.github.io/2020/05/24/Reinvent-5-25/</id>
+    <published>2020-05-24T13:54:17.000Z</published>
+    <updated>2020-05-24T13:57:04.864Z</updated>
+    
+    <content type="html"><![CDATA[<p>5.25日</p><a id="more"></a><hr><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>计网实验做出来</td><td></td><td></td></tr><tr><td></td><td>php注册界面美化</td><td></td><td></td></tr><tr><td>中午</td><td>务必早点睡觉啊！！</td><td></td><td></td></tr><tr><td>下午</td><td>早点起床学习，概率论作业完成</td><td></td><td></td></tr><tr><td>晚上</td><td>web实验</td><td>30min</td><td></td></tr><tr><td></td><td>web实验</td><td></td><td></td></tr><tr><td></td><td>Android博客</td><td>30min</td><td></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;5.25日&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Reinvent(5.24)</title>
     <link href="http://icewind-r.github.io/2020/05/23/Reinvent-5-24/"/>
     <id>http://icewind-r.github.io/2020/05/23/Reinvent-5-24/</id>
     <published>2020-05-23T12:55:04.000Z</published>
-    <updated>2020-05-23T13:04:50.123Z</updated>
+    <updated>2020-05-24T13:54:47.469Z</updated>
     
-    <content type="html"><![CDATA[<p>5.24日</p><hr><p>时间过得也太快了吧，难以想象，得抓紧当下啊！！！</p><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>认真学习概率论，完成预习</td><td>60min</td><td></td></tr><tr><td></td><td>计网第三章学习完成</td><td>60min</td><td></td></tr><tr><td></td><td>数据库作业？（可选）</td><td></td><td></td></tr><tr><td>中午</td><td>务必早点睡觉啊！！</td><td></td><td></td></tr><tr><td>下午</td><td>php界面</td><td></td><td></td></tr><tr><td>晚上</td><td>php</td><td>30min</td><td></td></tr><tr><td></td><td>Android博客</td><td>30min</td><td></td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<p>5.24日</p><a id="more"></a><hr><p>时间过得也太快了吧，难以想象，得抓紧当下啊！！！</p><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>认真学习概率论，完成预习</td><td>60min</td><td></td></tr><tr><td></td><td>计网第三章学习完成</td><td>60min</td><td></td></tr><tr><td></td><td>数据库作业？（可选）</td><td></td><td></td></tr><tr><td>中午</td><td>务必早点睡觉啊！！</td><td></td><td></td></tr><tr><td>下午</td><td>php界面</td><td></td><td></td></tr><tr><td>晚上</td><td>php</td><td>30min</td><td></td></tr><tr><td></td><td>Android博客</td><td>30min</td><td></td></tr></tbody></table>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;5.24日&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;时间过得也太快了吧，难以想象，得抓紧当下啊！！！&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;时间&lt;/th&gt;
-&lt;th&gt;内容&lt;/th&gt;
-&lt;th&gt;计划用时&lt;/th&gt;
-&lt;th&gt;实际用时&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;t
-      
+      &lt;p&gt;5.24日&lt;/p&gt;
     
     </summary>
     
@@ -459,29 +467,6 @@
     <summary type="html">
     
       &lt;p&gt;4.24日&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
-    
-    
-      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reinvent(4.23)</title>
-    <link href="http://icewind-r.github.io/2020/04/23/Reinvent-4-23/"/>
-    <id>http://icewind-r.github.io/2020/04/23/Reinvent-4-23/</id>
-    <published>2020-04-23T08:47:14.000Z</published>
-    <updated>2020-04-29T13:20:26.275Z</updated>
-    
-    <content type="html"><![CDATA[<p>总结从4.16~4.23这一个周。</p><a id="more"></a><hr><p>虽然写了十天时光荒废的总结，但还是没有真正的提高效率。</p><p>就强了一点每天的学习偶尔跟跟，作业写写抄抄。</p><p>别人的第一阶段十天冲刺都进行到第八九天了，而我还没开始。</p><p>想了想，问题可能还是每天没有目标吧。</p><p>我决定从现在开始，每天改变自己一点</p><p>下一天的目标前一天晚上想好，写下来</p><p>当天的目标认真落实，每天总结，要细致</p><p>一百天自我改造计划，从现在开始</p><p>一定要记住！！是现在，不是一会，更不是明天！</p><p>今晚目标</p><p>概率论考试完成，预习三四个超星视频</p><p>看直播少于30分钟</p><p>练习体育交叉步，平板支撑，马步</p><p>明天目标</p><p>上午，预习概率论四五个视频，上课好好听讲，不要看直播，少玩手机</p><p>中午，少玩手机，认真睡觉，无聊就看看app记账本视频。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;总结从4.16~4.23这一个周。&lt;/p&gt;
     
     </summary>
     
