@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-05-14T14:21:21.514Z</updated>
+  <updated>2020-05-23T13:04:50.123Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reinvent(5.24)</title>
+    <link href="http://icewind-r.github.io/2020/05/23/Reinvent-5-24/"/>
+    <id>http://icewind-r.github.io/2020/05/23/Reinvent-5-24/</id>
+    <published>2020-05-23T12:55:04.000Z</published>
+    <updated>2020-05-23T13:04:50.123Z</updated>
+    
+    <content type="html"><![CDATA[<p>5.24日</p><hr><p>时间过得也太快了吧，难以想象，得抓紧当下啊！！！</p><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>认真学习概率论，完成预习</td><td>60min</td><td></td></tr><tr><td></td><td>计网第三章学习完成</td><td>60min</td><td></td></tr><tr><td></td><td>数据库作业？（可选）</td><td></td><td></td></tr><tr><td>中午</td><td>务必早点睡觉啊！！</td><td></td><td></td></tr><tr><td>下午</td><td>php界面</td><td></td><td></td></tr><tr><td>晚上</td><td>php</td><td>30min</td><td></td></tr><tr><td></td><td>Android博客</td><td>30min</td><td></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;5.24日&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;时间过得也太快了吧，难以想象，得抓紧当下啊！！！&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;时间&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;th&gt;计划用时&lt;/th&gt;
+&lt;th&gt;实际用时&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;t
+      
+    
+    </summary>
+    
+    
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
   
   <entry>
     <title>Reinvent(5.15)</title>
@@ -444,29 +482,6 @@
     <summary type="html">
     
       &lt;p&gt;总结从4.16~4.23这一个周。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
-    
-    
-      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>十天时光荒废总结</title>
-    <link href="http://icewind-r.github.io/2020/04/16/%E5%8D%81%E5%A4%A9%E6%97%B6%E5%85%89%E8%8D%92%E5%BA%9F%E6%80%BB%E7%BB%93/"/>
-    <id>http://icewind-r.github.io/2020/04/16/%E5%8D%81%E5%A4%A9%E6%97%B6%E5%85%89%E8%8D%92%E5%BA%9F%E6%80%BB%E7%BB%93/</id>
-    <published>2020-04-16T14:07:24.000Z</published>
-    <updated>2020-04-17T12:22:43.253Z</updated>
-    
-    <content type="html"><![CDATA[<p>十天时光已然逝去，但万事有弊就有利，相信浪费的时光也有其宝贵的价值。</p><a id="more"></a><hr><p>这十天真是浑浑噩噩的十天，难以想象，现在回头看看，竟不能细想出干了些什么事，怕是每天都是重复，毫无收获吧。</p><p>十天状态：</p><p>1、课不好好上，就是不听，玩手机，心安理得，不像以前带着愧疚感玩。</p><p>2、没有上进，毫无作为，什么都不想干。</p><p>3、混吃等死？破罐子破摔？真是可怕。</p><p>4、张武？每天就是这么没的。</p><p>真的觉得世界都黑暗了，不知道该干什么，什么都干不好。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;十天时光已然逝去，但万事有弊就有利，相信浪费的时光也有其宝贵的价值。&lt;/p&gt;
     
     </summary>
     
