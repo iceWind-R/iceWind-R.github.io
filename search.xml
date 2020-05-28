@@ -4188,7 +4188,7 @@
 <h2 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h2><p>首先是要给系统的磁盘分好类。</p>
 <ol>
 <li>D盘（软件盘）：一级目录为application、server、MyBlog。（把download文件夹移到E盘）</li>
-<li>E盘（文档盘）：包括学习资料、我的工具，同时把桌面、document等等移到此盘下（先建一个大文件夹（我的文件），然后把每一项移动进来）。</li>
+<li>E盘（文档盘）：包括学习资料、我的工具，同时把桌面、document等等移到此盘下（先建一个大文件夹（我的文件：注意，文件名换个英文的），然后把每一项移动进来）。</li>
 <li>F盘（游戏盘）：每个公司一个文件夹。Steam，Wegame，uplay等。</li>
 </ol>
 <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Java、PHP（php_study）</p>
@@ -4731,6 +4731,141 @@
 <td></td>
 <td>Android博客</td>
 <td>30min</td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(5.28)</title>
+    <url>/2020/05/28/Reinvent-5-28/</url>
+    <content><![CDATA[<p>5.28日</p>
+<a id="more"></a>
+
+<hr>
+<p>本周任务：</p>
+<p>计网的实验1、2，第六章知识总结</p>
+<p>英语口语录制</p>
+<p>数据库实验三四五、第八章作业</p>
+<p>概率论预习、考试</p>
+<p>php大作业</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+<th>计划用时</th>
+<th>实际用时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>下午</td>
+<td>计网实验1</td>
+<td>90min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>数据库第八章作业</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td>晚上</td>
+<td>英语口语稿子写好</td>
+<td>30min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>web实验提交</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>计网第四章学习</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>计网第六章整理</td>
+<td>90min</td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+<th>计划用时</th>
+<th>实际用时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上午</td>
+<td>概率论预习、认真上课</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>下午</td>
+<td>计网第四章学习</td>
+<td>60min</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>英语口语视频录制</td>
+<td>30min</td>
+<td></td>
+</tr>
+<tr>
+<td>晚上</td>
+<td>数据库实验四</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+<th>计划用时</th>
+<th>实际用时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上午</td>
+<td>计网第四章</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>计网实验二</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>下午</td>
+<td>数据库实验3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>晚上</td>
+<td>php</td>
+<td></td>
 <td></td>
 </tr>
 </tbody></table>

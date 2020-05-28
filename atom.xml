@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-05-24T13:57:04.864Z</updated>
+  <updated>2020-05-28T03:46:57.691Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reinvent(5.28)</title>
+    <link href="http://icewind-r.github.io/2020/05/28/Reinvent-5-28/"/>
+    <id>http://icewind-r.github.io/2020/05/28/Reinvent-5-28/</id>
+    <published>2020-05-28T02:49:33.000Z</published>
+    <updated>2020-05-28T03:46:57.691Z</updated>
+    
+    <content type="html"><![CDATA[<p>5.28日</p><a id="more"></a><hr><p>本周任务：</p><p>计网的实验1、2，第六章知识总结</p><p>英语口语录制</p><p>数据库实验三四五、第八章作业</p><p>概率论预习、考试</p><p>php大作业</p><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>下午</td><td>计网实验1</td><td>90min</td><td></td></tr><tr><td></td><td>数据库第八章作业</td><td>60min</td><td></td></tr><tr><td>晚上</td><td>英语口语稿子写好</td><td>30min</td><td></td></tr><tr><td></td><td>web实验提交</td><td></td><td></td></tr><tr><td></td><td>计网第四章学习</td><td></td><td></td></tr><tr><td></td><td>计网第六章整理</td><td>90min</td><td></td></tr></tbody></table><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>概率论预习、认真上课</td><td></td><td></td></tr><tr><td>下午</td><td>计网第四章学习</td><td>60min</td><td></td></tr><tr><td></td><td>英语口语视频录制</td><td>30min</td><td></td></tr><tr><td>晚上</td><td>数据库实验四</td><td></td><td></td></tr></tbody></table><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>计网第四章</td><td></td><td></td></tr><tr><td></td><td>计网实验二</td><td></td><td></td></tr><tr><td>下午</td><td>数据库实验3</td><td></td><td></td></tr><tr><td>晚上</td><td>php</td><td></td><td></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;5.28日&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
   
   <entry>
     <title>Reinvent(5.25)</title>
@@ -366,9 +389,9 @@
     <link href="http://icewind-r.github.io/2020/05/03/%E7%94%B5%E8%84%91%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/"/>
     <id>http://icewind-r.github.io/2020/05/03/%E7%94%B5%E8%84%91%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</id>
     <published>2020-05-03T07:12:07.000Z</published>
-    <updated>2020-05-21T01:58:15.607Z</updated>
+    <updated>2020-05-26T00:50:56.538Z</updated>
     
-    <content type="html"><![CDATA[<p>总结下次电脑系统重装需要的环境软件和操作。</p><a id="more"></a><hr><h2 id="电脑初始化前的操作"><a href="#电脑初始化前的操作" class="headerlink" title="电脑初始化前的操作"></a>电脑初始化前的操作</h2><p>不能着急，需要把电脑中的资料提前保存，预计是百度网盘，记得开会员。要保存的资料有：</p><ul><li>MyBlog</li><li>每个编译器存放的代码</li><li>Wallpaper Engine下的壁纸</li><li>下载的音乐</li><li>D盘下的小工具</li><li>谷歌浏览助手</li><li>额滴小心肝</li><li>chrome中Tempermonkey的插件</li></ul><h2 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h2><p>首先是要给系统的磁盘分好类。</p><ol><li>D盘（软件盘）：一级目录为application、server、MyBlog。（把download文件夹移到E盘）</li><li>E盘（文档盘）：包括学习资料、我的工具，同时把桌面、document等等移到此盘下（先建一个大文件夹（我的文件），然后把每一项移动进来）。</li><li>F盘（游戏盘）：每个公司一个文件夹。Steam，Wegame，uplay等。</li></ol><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Java、PHP（php_study）</p><h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><h3 id="学习类"><a href="#学习类" class="headerlink" title="学习类"></a>学习类</h3><h4 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h4><p>IDEA、PyCharm、PHPStorm、AS、CodeBlocks、Eclipse、VS、VSCode</p><p>（与Github绑定）</p><h4 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h4><p>HBulider、Notepad++、Sublime Text</p><h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>MySQL、Redis、SQL server、Navicat For MySQL、SQLiteStudio</p><p>php_study中有MySQL，了解后使用</p><h4 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h4><p>VM、Genymotion</p><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>Xftp、Xshell</p><h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>MatLab、RegexBuddy、Cisco Packet Tracer</p><h3 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h3><p>chrome、Firefox</p><p>WPS、Everything、印象笔记、bandzip、欧路翻译、</p><p>Iris（护眼）、百度网盘（使用微信登录）、</p><p>格式工厂、PS，PR、ScreenToGif、达芬奇、PotPlayer（百度网盘中下载，<a href="https://www.zhihu.com/question/20710497/answer/1076773103" target="_blank" rel="noopener">如何使用</a>）、小蝴蝶</p><h3 id="娱乐类"><a href="#娱乐类" class="headerlink" title="娱乐类"></a>娱乐类</h3><p>微信、TIM、QQ、网易云音乐、腾讯视频、</p><p>网易加速、雷神加速、Steam、WeGame、暴雪战网、Epic</p><h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>VM中建立自己的Linux系统。</p><p>tomcat、</p><p>apache、MySQL、phpMyadmin、PHP等由phpstudy提供</p><p>配置虚拟主机</p><p>Maven的安装和IDEA中Maven的配置</p>]]></content>
+    <content type="html"><![CDATA[<p>总结下次电脑系统重装需要的环境软件和操作。</p><a id="more"></a><hr><h2 id="电脑初始化前的操作"><a href="#电脑初始化前的操作" class="headerlink" title="电脑初始化前的操作"></a>电脑初始化前的操作</h2><p>不能着急，需要把电脑中的资料提前保存，预计是百度网盘，记得开会员。要保存的资料有：</p><ul><li>MyBlog</li><li>每个编译器存放的代码</li><li>Wallpaper Engine下的壁纸</li><li>下载的音乐</li><li>D盘下的小工具</li><li>谷歌浏览助手</li><li>额滴小心肝</li><li>chrome中Tempermonkey的插件</li></ul><h2 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h2><p>首先是要给系统的磁盘分好类。</p><ol><li>D盘（软件盘）：一级目录为application、server、MyBlog。（把download文件夹移到E盘）</li><li>E盘（文档盘）：包括学习资料、我的工具，同时把桌面、document等等移到此盘下（先建一个大文件夹（我的文件：注意，文件名换个英文的），然后把每一项移动进来）。</li><li>F盘（游戏盘）：每个公司一个文件夹。Steam，Wegame，uplay等。</li></ol><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Java、PHP（php_study）</p><h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><h3 id="学习类"><a href="#学习类" class="headerlink" title="学习类"></a>学习类</h3><h4 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h4><p>IDEA、PyCharm、PHPStorm、AS、CodeBlocks、Eclipse、VS、VSCode</p><p>（与Github绑定）</p><h4 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h4><p>HBulider、Notepad++、Sublime Text</p><h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>MySQL、Redis、SQL server、Navicat For MySQL、SQLiteStudio</p><p>php_study中有MySQL，了解后使用</p><h4 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h4><p>VM、Genymotion</p><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>Xftp、Xshell</p><h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>MatLab、RegexBuddy、Cisco Packet Tracer</p><h3 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h3><p>chrome、Firefox</p><p>WPS、Everything、印象笔记、bandzip、欧路翻译、</p><p>Iris（护眼）、百度网盘（使用微信登录）、</p><p>格式工厂、PS，PR、ScreenToGif、达芬奇、PotPlayer（百度网盘中下载，<a href="https://www.zhihu.com/question/20710497/answer/1076773103" target="_blank" rel="noopener">如何使用</a>）、小蝴蝶</p><h3 id="娱乐类"><a href="#娱乐类" class="headerlink" title="娱乐类"></a>娱乐类</h3><p>微信、TIM、QQ、网易云音乐、腾讯视频、</p><p>网易加速、雷神加速、Steam、WeGame、暴雪战网、Epic</p><h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>VM中建立自己的Linux系统。</p><p>tomcat、</p><p>apache、MySQL、phpMyadmin、PHP等由phpstudy提供</p><p>配置虚拟主机</p><p>Maven的安装和IDEA中Maven的配置</p>]]></content>
     
     <summary type="html">
     
@@ -452,29 +475,6 @@
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
       <category term="PHP" scheme="http://iceWind-R.github.io/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reinvent(4.24)</title>
-    <link href="http://icewind-r.github.io/2020/04/24/Reinvent-4-24/"/>
-    <id>http://icewind-r.github.io/2020/04/24/Reinvent-4-24/</id>
-    <published>2020-04-24T05:06:53.000Z</published>
-    <updated>2020-04-29T13:20:23.400Z</updated>
-    
-    <content type="html"><![CDATA[<p>4.24日</p><a id="more"></a><hr><p>今天上午打球洗澡，概率论课没听，已经预习了，但是省出来的时间并没有做有意义的事情。</p><p>下午晚上计划，看app记账本视频，完成基本的界面布局。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;4.24日&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
-    
-    
-      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
     
   </entry>
   
