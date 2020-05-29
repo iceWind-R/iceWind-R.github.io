@@ -4750,9 +4750,9 @@
 
 <hr>
 <p>本周任务：</p>
-<p>计网的实验1、2，第六章知识总结</p>
+<p>计网的实验2，第六章知识总结</p>
 <p>英语口语录制</p>
-<p>数据库实验三四五、第八章作业</p>
+<p>数据库实验三四五、</p>
 <p>概率论预习、考试</p>
 <p>php大作业</p>
 <table>
@@ -4768,13 +4768,13 @@
 <td>下午</td>
 <td>计网实验1</td>
 <td>90min</td>
-<td></td>
+<td>OK</td>
 </tr>
 <tr>
 <td></td>
 <td>数据库第八章作业</td>
 <td>60min</td>
-<td></td>
+<td>OK</td>
 </tr>
 <tr>
 <td>晚上</td>
@@ -4786,7 +4786,7 @@
 <td></td>
 <td>web实验提交</td>
 <td></td>
-<td></td>
+<td>OK</td>
 </tr>
 <tr>
 <td></td>
@@ -4869,6 +4869,38 @@
 <td></td>
 </tr>
 </tbody></table>
+]]></content>
+      <categories>
+        <category>Reinvent</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinvent(5.29)</title>
+    <url>/2020/05/29/Reinvent-5-29/</url>
+    <content><![CDATA[<p>5.29日</p>
+<a id="more"></a>
+
+<hr>
+<p>周五、周六、周日任务汇总：</p>
+<p>计网的实验2</p>
+<p>计网四五六章的学习</p>
+<p>英语口语录制</p>
+<p>概率论两次考试（需要先学习）</p>
+<p>今天下午</p>
+<ul>
+<li><p>英语口语录制</p>
+</li>
+<li><p>概论第七章学习和考试完成</p>
+</li>
+</ul>
+<p>今天晚上</p>
+<ul>
+<li>计网第四章学习</li>
+<li>Android界面换血</li>
+</ul>
 ]]></content>
       <categories>
         <category>Reinvent</category>
