@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-05-29T06:31:49.015Z</updated>
+  <updated>2020-05-29T14:21:22.797Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -17,13 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Reinvent(5.30)</title>
+    <link href="http://icewind-r.github.io/2020/05/29/Reinvent-5-30/"/>
+    <id>http://icewind-r.github.io/2020/05/29/Reinvent-5-30/</id>
+    <published>2020-05-29T14:18:59.000Z</published>
+    <updated>2020-05-29T14:21:22.797Z</updated>
+    
+    <content type="html"><![CDATA[<p>5.29日</p><a id="more"></a><hr><p>上午</p><ul><li>计网第四章学习两小节</li><li>概率论下一章学习+考试</li></ul><p>下午</p><ul><li>php实验四</li></ul><p>晚上</p><ul><li><p>计网听听网课</p></li><li><p>Android界面</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;5.29日&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Reinvent(5.29)</title>
     <link href="http://icewind-r.github.io/2020/05/29/Reinvent-5-29/"/>
     <id>http://icewind-r.github.io/2020/05/29/Reinvent-5-29/</id>
     <published>2020-05-29T06:25:51.000Z</published>
-    <updated>2020-05-29T06:31:49.015Z</updated>
+    <updated>2020-05-29T06:34:12.029Z</updated>
     
-    <content type="html"><![CDATA[<p>5.29日</p><a id="more"></a><hr><p>周五、周六、周日任务汇总：</p><p>计网的实验2</p><p>计网四五六章的学习</p><p>英语口语录制</p><p>概率论两次考试（需要先学习）</p><p>今天下午</p><ul><li><p>英语口语录制</p></li><li><p>概论第七章学习和考试完成</p></li></ul><p>今天晚上</p><ul><li>计网第四章学习</li><li>Android界面换血</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>5.29日</p><a id="more"></a><hr><p>周五、周六、周日任务汇总：</p><p>计网的实验2</p><p>计网四五六章的学习</p><p>英语口语录制</p><p>概率论两次考试（需要先学习）</p><p>今天下午</p><ul><li><p>英语口语录制</p></li><li><p>概论第七章学习和考试完成</p></li></ul><p>今天晚上</p><ul><li>计网第四章学习</li><li>Android界面换血</li><li>php实验四</li></ul>]]></content>
     
     <summary type="html">
     
@@ -442,29 +465,6 @@
     <summary type="html">
     
       &lt;p&gt;5.3日&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
-    
-    
-      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reinvent(5.2)</title>
-    <link href="http://icewind-r.github.io/2020/05/02/Reinvent-5-2/"/>
-    <id>http://icewind-r.github.io/2020/05/02/Reinvent-5-2/</id>
-    <published>2020-05-01T22:11:52.000Z</published>
-    <updated>2020-05-02T13:28:26.076Z</updated>
-    
-    <content type="html"><![CDATA[<p>5.2日</p><a id="more"></a><hr><p>昨天一天都在学习MATLAB，完成了实验二和实验三的一小部分，效率低下，归根结底，没有好好的为自己做计划。</p><p><strong>今日计划</strong></p><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>MATLAB实验三完成，理解各种命令。</td><td>90min</td><td>170min</td></tr><tr><td></td><td>计网四页PPT作业完成</td><td>120min</td><td>60min+？</td></tr><tr><td></td><td>上午的体育活动</td><td>30min</td><td>完成</td></tr><tr><td>下午</td><td>概率论与数理统计复习和作业10</td><td>90min</td><td>未完成</td></tr><tr><td></td><td>博客搜索功能改善</td><td>30min</td><td>5min</td></tr><tr><td></td><td>数据库原理第六章复习</td><td>30min</td><td>未完成</td></tr><tr><td>晚上</td><td>PHP复习</td><td>60min</td><td>30min+30min</td></tr><tr><td></td><td>晚上的体育活动</td><td>30min</td><td>未完成</td></tr></tbody></table><p>今天早上6点起来做的规划，加油。</p><p>我再坚持五分钟，下次我一定放弃。</p><p><strong>上午总结</strong></p><p>截止9：30完成matlab的实验内容，效率不高，命令不熟悉，没学过，现学，花费时间长。</p><p>第一项比计划多出一个多小时的完成时间</p><p>计网任务完成不到一半用时一个小时，预计还需要一个半小时完成。</p><p><strong>下午晚上</strong></p><p>其实脑子蛮清醒，也不是不想干，就是不知道干什么？</p><p>想做些电脑上学习的事，但是剩下的计划都是纸上书上，或者是Android这样的大项目，有点无从下手。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;5.2日&lt;/p&gt;
     
     </summary>
     
