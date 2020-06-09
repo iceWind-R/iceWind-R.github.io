@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-06-04T14:30:02.868Z</updated>
+  <updated>2020-06-05T01:35:24.328Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -21,28 +21,13 @@
     <link href="http://icewind-r.github.io/2020/06/04/Reinvent-6-5/"/>
     <id>http://icewind-r.github.io/2020/06/04/Reinvent-6-5/</id>
     <published>2020-06-04T14:30:02.000Z</published>
-    <updated>2020-06-04T14:30:02.868Z</updated>
+    <updated>2020-06-05T01:35:24.328Z</updated>
+    
+    <content type="html"><![CDATA[<p>6.5日</p><a id="more"></a><hr><p><strong>上午</strong></p><p>学习计网5.4</p><p><strong>下午</strong></p><p>数据库第二篇开始，整理群里资料</p><p><strong>晚上</strong></p><p>捋好个人作业顺序，完成每个周的总结</p><p>毛概论文确定题目，写好格式</p>]]></content>
     
     <summary type="html">
     
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Reinvent(6.3)</title>
-    <link href="http://icewind-r.github.io/2020/06/03/Reinvent-6-3/"/>
-    <id>http://icewind-r.github.io/2020/06/03/Reinvent-6-3/</id>
-    <published>2020-06-03T06:44:39.000Z</published>
-    <updated>2020-06-03T08:21:25.882Z</updated>
-    
-    <content type="html"><![CDATA[<p>5.30日</p><a id="more"></a><hr><p>每天晚上玩</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;5.30日&lt;/p&gt;
+      &lt;p&gt;6.5日&lt;/p&gt;
     
     </summary>
     
@@ -457,6 +442,29 @@
     <summary type="html">
     
       &lt;p&gt;5.5日&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Reinvent" scheme="http://iceWind-R.github.io/categories/Reinvent/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reinvent(5.4)</title>
+    <link href="http://icewind-r.github.io/2020/05/03/Reinvent-5-4/"/>
+    <id>http://icewind-r.github.io/2020/05/03/Reinvent-5-4/</id>
+    <published>2020-05-03T14:07:46.000Z</published>
+    <updated>2020-05-04T03:54:46.522Z</updated>
+    
+    <content type="html"><![CDATA[<p>5.4日</p><a id="more"></a><hr><p><strong>今日计划</strong></p><p>专心一点、抗干扰。</p><table><thead><tr><th>时间</th><th>内容</th><th>计划用时</th><th>实际用时</th></tr></thead><tbody><tr><td>上午</td><td>概率论作业</td><td>60min</td><td>30min</td></tr><tr><td></td><td>数据库复习第六章</td><td>30min</td><td>40min</td></tr><tr><td></td><td>体育活动</td><td>30min</td><td>未完成</td></tr><tr><td></td><td>Android项目初创建并导入到GitHub</td><td>90min</td><td>30min</td></tr><tr><td>下午</td><td>计网PPT作业完成</td><td>60min</td><td></td></tr><tr><td></td><td>SQL server尝试使用</td><td>60min</td><td></td></tr><tr><td>晚上</td><td>matlab整理第四章</td><td>60min</td><td></td></tr><tr><td></td><td>体育活动</td><td>30min</td><td></td></tr><tr><td></td><td>Android慢慢来</td><td>60min</td><td></td></tr></tbody></table><p> <strong>总结</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;5.4日&lt;/p&gt;
     
     </summary>
     
