@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-06-17T03:20:15.586Z</updated>
+  <updated>2020-06-21T11:18:18.550Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Plan_01_第一周（6.21~6.28）</title>
+    <link href="http://icewind-r.github.io/2020/06/21/Plan-01-%E7%AC%AC%E4%B8%80%E5%91%A8/"/>
+    <id>http://icewind-r.github.io/2020/06/21/Plan-01-%E7%AC%AC%E4%B8%80%E5%91%A8/</id>
+    <published>2020-06-21T10:47:02.000Z</published>
+    <updated>2020-06-21T11:18:18.550Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是暑假的第一周，务必不要拖延，每天进步一点。</p><a id="more"></a><hr><p><strong>整体计划：</strong></p><ol><li>python学习</li><li>Android学习</li><li>每天一个知乎收藏总结</li><li>服务器</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是暑假的第一周，务必不要拖延，每天进步一点。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Plan" scheme="http://iceWind-R.github.io/categories/Plan/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
   
   <entry>
     <title>没来得及好好过的大二</title>
@@ -272,9 +295,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
-    
       <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
+    
+      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
   </entry>
   
@@ -372,9 +395,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
-    
       <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
+    
+      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
   </entry>
   
@@ -422,9 +445,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
-    
       <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
+    
+      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
   </entry>
   
@@ -472,34 +495,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
-    
       <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Python入门小结（一）</title>
-    <link href="http://icewind-r.github.io/2020/03/12/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://icewind-r.github.io/2020/03/12/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/</id>
-    <published>2020-03-12T00:49:55.000Z</published>
-    <updated>2020-03-17T05:46:27.301Z</updated>
-    
-    <content type="html"><![CDATA[<p>老师突如其来的爬虫测试让人心里倍生无助感，最后虽说用Java勉强完成了测试，但也乱入进了python领域。算了，python现在这么火，早晚得入门，不如就现在吧。</p><a id="more"></a><p>主要介绍刚刚入门的一些基础的语法知识，至于前期的环境搭建和IDE的下载，网上教程很多且大多切实可用，这里不再赘述，下面开始介绍基本的，与其他语言不一样的语法基础。</p><hr><h3 id="一、注释"><a href="#一、注释" class="headerlink" title="一、注释"></a>一、注释</h3><ul><li><p>单行注释（用 ‘#’ ）</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注释内容</span></span><br></pre></td></tr></table></figure></li><li><p>多行注释（三个双引号或单引号包围）</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">第一行注释</span></span><br><span class="line"><span class="string">第二行注释</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">第一行注释</span></span><br><span class="line"><span class="string">第二行注释</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure></li></ul><h3 id="二、变量"><a href="#二、变量" class="headerlink" title="二、变量"></a>二、变量</h3><p>定义变量，变量名自定义，满足标识符命名规则。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 变量名 = 值</span></span><br><span class="line">myData = <span class="string">'Tom'</span></span><br><span class="line">print(myData)</span><br></pre></td></tr></table></figure><h3 id="三、数据类型"><a href="#三、数据类型" class="headerlink" title="三、数据类型"></a>三、数据类型</h3><img src="/2020/03/12/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/1.png" class><p>举例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="number">1</span> <span class="comment"># 整数型</span></span><br><span class="line">num2 = <span class="number">1.1</span> <span class="comment"># 浮点型</span></span><br><span class="line">str = <span class="string">'hello world'</span> <span class="comment"># 字符串型</span></span><br><span class="line">flag = <span class="literal">True</span> <span class="comment"># 布尔型</span></span><br><span class="line">lis = [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>] <span class="comment"># list列表</span></span><br><span class="line">tup = (<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>) <span class="comment"># tuple元组</span></span><br><span class="line">s = &#123;<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>&#125; <span class="comment"># set集合</span></span><br><span class="line">dic = &#123;<span class="string">'name'</span>:<span class="string">'Tom'</span>,<span class="string">'age'</span>:<span class="number">18</span>&#125; <span class="comment"># dict字典</span></span><br></pre></td></tr></table></figure><h3 id="四、输出"><a href="#四、输出" class="headerlink" title="四、输出"></a>四、输出</h3><h4 id="1、格式化输出"><a href="#1、格式化输出" class="headerlink" title="1、格式化输出"></a>1、格式化输出</h4><table><thead><tr><th>转换说明符</th><th>解释</th></tr></thead><tbody><tr><td><strong>%d</strong>、%i</td><td>转换为带符号的十进制整数</td></tr><tr><td>%o</td><td>转换为带符号的八进制整数</td></tr><tr><td>%x、%X</td><td>转换为带符号的十六进制整数</td></tr><tr><td>%e</td><td>转化为科学计数法表示的浮点数（e 小写）</td></tr><tr><td>%E</td><td>转化为科学计数法表示的浮点数（E 大写）</td></tr><tr><td><strong>%f</strong>、%F</td><td>转化为十进制浮点数</td></tr><tr><td>%g</td><td>智能选择使用 %f 或 %e 格式</td></tr><tr><td>%G</td><td>智能选择使用 %F 或 %E 格式</td></tr><tr><td>%c</td><td>格式化字符及其 ASCII 码</td></tr><tr><td>%r</td><td>使用 repr() 函数将表达式转换为字符串</td></tr><tr><td><strong>%s</strong></td><td>使用 str() 函数将表达式转换为字符串</td></tr></tbody></table><p>%s，%d，%f较为常用。</p><p><strong>技巧</strong>：</p><ol><li><p>%03d：表示输出的整数显示3位数，不足以0不全，超出当前位数则原样输出。</p></li><li><p>%.2f：表示小数点后显示2位。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">18</span></span><br><span class="line">name = <span class="string">'Tom'</span></span><br><span class="line">weight = <span class="number">65.5</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'今年我的年龄是%03d岁'</span> % age) <span class="comment"># %03d</span></span><br><span class="line">print(<span class="string">'我的名字是%s'</span> % name)</span><br><span class="line">print(<span class="string">'我的体重是%.3f公斤'</span> % weight)<span class="comment"># %.3f</span></span><br><span class="line">print(<span class="string">'我叫%s,今年%d岁。'</span> % (name , age))<span class="comment"># 输出多个</span></span><br><span class="line">print(<span class="string">'我叫%s,今年%s岁。'</span> % (name , age)) <span class="comment"># %s可以输出整型，浮点型</span></span><br></pre></td></tr></table></figure><p>格式化字符串除了%s，还可以写为<code>f&#39;{表达式}&#39;</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">f'我的名字是<span class="subst">&#123;name&#125;</span>,今年<span class="subst">&#123;age&#125;</span>岁了'</span>) <span class="comment"># 结果：我的名字是Tom,今年18岁了</span></span><br></pre></td></tr></table></figure><p>f-格式化字符串是Python3.6中新增的格式化方法，该方法更简单易读。</p></li></ol><h4 id="2、转义字符"><a href="#2、转义字符" class="headerlink" title="2、转义字符"></a>2、转义字符</h4><ul><li><code>\n</code>：换行。</li><li><code>\t</code>：制表符，一个TAB键（4个空格）的举例。</li></ul><h4 id="3、结束符"><a href="#3、结束符" class="headerlink" title="3、结束符"></a>3、结束符</h4><p><code>print(&#39;输出的内容&#39;,end=&quot;\n&quot;)</code></p><blockquote><p>在Python中，print()，默认自带<code>end=&quot;\n&quot;</code>这个换行结束符，用户可按需求更改结束符（包括转义字符，或者自定义的字符串等等）。</p></blockquote><h3 id="五、输入"><a href="#五、输入" class="headerlink" title="五、输入"></a>五、输入</h3><h4 id="1、语法"><a href="#1、语法" class="headerlink" title="1、语法"></a>1、语法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var = input(<span class="string">"提示信息"</span>)</span><br></pre></td></tr></table></figure><p>在Python中，<code>input</code>会把接收到的数据都当作字符串处理，并用变量接收。</p><h4 id="2、数据类型转换"><a href="#2、数据类型转换" class="headerlink" title="2、数据类型转换"></a>2、数据类型转换</h4><table><thead><tr><th>函 数</th><th>作 用</th></tr></thead><tbody><tr><td>int(x)</td><td>将 x 转换成整数类型</td></tr><tr><td>float(x)</td><td>将 x 转换成浮点数类型</td></tr><tr><td>complex(real，[,imag])</td><td>创建一个复数，real为实部，imag为虚部</td></tr><tr><td>str(x)</td><td>将 x 转换为字符串</td></tr><tr><td>repr(x)</td><td>将 x 转换为表达式字符串</td></tr><tr><td>eval(str)</td><td>计算在字符串中的有效 Python 表达式，并返回一个对象</td></tr><tr><td>chr(x)</td><td>将整数 x 转换为一个字符</td></tr><tr><td>ord(x)</td><td>将一个字符 x 转换为它对应的整数值</td></tr><tr><td>hex(x)</td><td>将一个整数 x 转换为一个十六进制字符串</td></tr><tr><td>oct(x)</td><td>将一个整数 x 转换为一个八进制的字符串</td></tr></tbody></table><h3 id="六、运算符"><a href="#六、运算符" class="headerlink" title="六、运算符"></a>六、运算符</h3><h4 id="1、算数运算符"><a href="#1、算数运算符" class="headerlink" title="1、算数运算符"></a>1、算数运算符</h4><table><thead><tr><th>运算符</th><th>说明</th><th>实例</th><th>结果</th></tr></thead><tbody><tr><td>+</td><td>加</td><td>12.45 + 15</td><td>27.45</td></tr><tr><td>-</td><td>减</td><td>4.56 - 0.26</td><td>4.3</td></tr><tr><td>*</td><td>乘</td><td>5 * 3.6</td><td>18.0</td></tr><tr><td>/</td><td>除法（和数学中的规则一样）</td><td>7 / 2</td><td>3.5</td></tr><tr><td>//</td><td>整除（只保留商的整数部分）</td><td>7 // 2</td><td>3</td></tr><tr><td>%</td><td>取余，即返回除法的余数</td><td>7 % 2</td><td>1</td></tr><tr><td>**</td><td>幂运算/次方运算，即返回 x 的 y 次方</td><td>2 ** 4</td><td>16，即 24</td></tr></tbody></table><h4 id="2、赋值运算符"><a href="#2、赋值运算符" class="headerlink" title="2、赋值运算符"></a>2、赋值运算符</h4><table><thead><tr><th>运算符</th><th>说 明</th><th>用法举例</th><th>等价形式</th></tr></thead><tbody><tr><td>=</td><td>最基本的赋值运算</td><td>x = y</td><td>x = y</td></tr><tr><td>+=</td><td>加赋值</td><td>x += y</td><td>x = x + y</td></tr><tr><td>-=</td><td>减赋值</td><td>x -= y</td><td>x = x - y</td></tr><tr><td>*=</td><td>乘赋值</td><td>x *= y</td><td>x = x * y</td></tr><tr><td>/=</td><td>除赋值</td><td>x /= y</td><td>x = x / y</td></tr><tr><td>%=</td><td>取余数赋值</td><td>x %= y</td><td>x = x % y</td></tr><tr><td>**=</td><td>幂赋值</td><td>x **= y</td><td>x = x ** y</td></tr><tr><td>//=</td><td>取整数赋值</td><td>x //= y</td><td>x = x // y</td></tr><tr><td>&amp;=</td><td>按位与赋值</td><td>x &amp;= y</td><td>x = x &amp; y</td></tr><tr><td>|=</td><td>按位或赋值</td><td>x |= y</td><td>x = x | y</td></tr><tr><td>^=</td><td>按位异或赋值</td><td>x ^= y</td><td>x = x ^ y</td></tr><tr><td>&lt;&lt;=</td><td>左移赋值</td><td>x &lt;&lt;= y</td><td>x = x &lt;&lt; y，这里的 y 指的是左移的位数</td></tr><tr><td>&gt;&gt;=</td><td>右移赋值</td><td>x &gt;&gt;= y</td><td>x = x &gt;&gt; y，这里的 y 指的是右移的位数</td></tr></tbody></table><h4 id="3、位运算符"><a href="#3、位运算符" class="headerlink" title="3、位运算符"></a>3、位运算符</h4><table><thead><tr><th>位运算符</th><th>说明</th><th>使用形式</th><th>举 例</th></tr></thead><tbody><tr><td>&amp;</td><td>按位与</td><td>a &amp; b</td><td>4 &amp; 5</td></tr><tr><td>|</td><td>按位或</td><td>a | b</td><td>4 | 5</td></tr><tr><td>^</td><td>按位异或</td><td>a ^ b</td><td>4 ^ 5</td></tr><tr><td>~</td><td>按位取反</td><td>~a</td><td>~4</td></tr><tr><td>&lt;&lt;</td><td>按位左移</td><td>a &lt;&lt; b</td><td>4 &lt;&lt; 2，表示整数 4 按位左移 2 位</td></tr><tr><td>&gt;&gt;</td><td>按位右移</td><td>a &gt;&gt; b</td><td>4 &gt;&gt; 2，表示整数 4 按位右移 2 位</td></tr></tbody></table><h4 id="4、比较运算符"><a href="#4、比较运算符" class="headerlink" title="4、比较运算符"></a>4、比较运算符</h4><table><thead><tr><th>比较运算符</th><th>说明</th></tr></thead><tbody><tr><td>&gt;</td><td>大于，如果<code>&gt;</code>前面的值大于后面的值，则返回 True，否则返回 False。</td></tr><tr><td>&lt;</td><td>小于，如果<code>&lt;</code>前面的值小于后面的值，则返回 True，否则返回 False。</td></tr><tr><td>==</td><td>等于，如果<code>==</code>两边的值相等，则返回 True，否则返回 False。</td></tr><tr><td>&gt;=</td><td>大于等于（等价于数学中的 ≥），如果<code>&gt;=</code>前面的值大于或者等于后面的值，则返回 True，否则返回 False。</td></tr><tr><td>&lt;=</td><td>小于等于（等价于数学中的 ≤），如果<code>&lt;=</code>前面的值小于或者等于后面的值，则返回 True，否则返回 False。</td></tr><tr><td>!=</td><td>不等于（等价于数学中的 ≠），如果<code>!=</code>两边的值不相等，则返回 True，否则返回 False。</td></tr><tr><td>is</td><td>判断两个变量所引用的对象是否相同，如果相同则返回 True，否则返回 False。</td></tr><tr><td>is not</td><td>判断两个变量所引用的对象是否不相同，如果不相同则返回 True，否则返回 False。</td></tr></tbody></table><h4 id="5、逻辑运算符"><a href="#5、逻辑运算符" class="headerlink" title="5、逻辑运算符"></a>5、逻辑运算符</h4><table><thead><tr><th>逻辑运算符</th><th>含义</th><th>基本格式</th><th>说明</th></tr></thead><tbody><tr><td>and</td><td>逻辑与运算，等价于数学中的“且”</td><td>a and b</td><td>当 a 和 b 两个表达式都为真时，a and b 的结果才为真，否则为假。</td></tr><tr><td>or</td><td>逻辑或运算，等价于数学中的“或”</td><td>a or b</td><td>当 a 和 b 两个表达式都为假时，a or b 的结果才是假，否则为真。</td></tr><tr><td>not</td><td>逻辑非运算，等价于数学中的“非”</td><td>not a</td><td>如果 a 为真，那么 not a 的结果为假；如果 a 为假，那么 not a 的结果为真。相当于对 a 取反。</td></tr></tbody></table><h4 id="6、三目运算符"><a href="#6、三目运算符" class="headerlink" title="6、三目运算符"></a>6、三目运算符</h4><p>Python利用if else语句提供三目运算符的运算，形式如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exp1 <span class="keyword">if</span> contion <span class="keyword">else</span> exp2</span><br></pre></td></tr></table></figure><blockquote><p><strong>解释</strong>：condition 是判断条件，exp1 和 exp2 是两个表达式。如果 condition 成立（结果为真），就执行 exp1，并把 exp1 的结果作为整个表达式的结果；如果 condition 不成立（结果为假），就执行 exp2，并把 exp2 的结果作为整个表达式的结果。</p></blockquote><p>例如：<code>max = a if a&gt;b else b</code>，表示取a，b的最大值，并赋给max。</p><p><strong>三目运算符的嵌套</strong></p><p>Python 三目运算符支持嵌套，如此可以构成更加复杂的表达式。在嵌套时需要注意 if 和 else 的配对，例如：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a <span class="keyword">if</span> a&gt;b <span class="keyword">else</span> c <span class="keyword">if</span> c&gt;d <span class="keyword">else</span> d</span><br></pre></td></tr></table></figure><p>应该理解为：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a <span class="keyword">if</span> a&gt;b <span class="keyword">else</span> ( c <span class="keyword">if</span> c&gt;d <span class="keyword">else</span> d )</span><br></pre></td></tr></table></figure><hr><p>第一部分总结。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;老师突如其来的爬虫测试让人心里倍生无助感，最后虽说用Java勉强完成了测试，但也乱入进了python领域。算了，python现在这么火，早晚得入门，不如就现在吧。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://iceWind-R.github.io/categories/Python/"/>
-    
-    
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
-    
-      <category term="Python" scheme="http://iceWind-R.github.io/tags/Python/"/>
     
   </entry>
   
