@@ -2981,7 +2981,7 @@
   <entry>
     <title>Python入门小结（二）</title>
     <url>/2020/03/17/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<p>基于上篇博客介绍了一些很基本的Python语法，如数据类型，输入输出，运算符等等，此篇博客继续总结选择、循环等结构。</p>
+    <content><![CDATA[<p>基于上篇博客介绍了一些很基本的Python语法，<strong>如数据类型</strong>，<strong>输入输出</strong>，<strong>运算符</strong>等等，此篇博客继续总结<strong>选择</strong>、<strong>循环</strong>等结构。</p>
 <a id="more"></a>
 
 <hr>
@@ -3718,6 +3718,64 @@
       <tags>
         <tag>Learning</tag>
         <tag>正则表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python入门总结（四）</title>
+    <url>/2020/06/22/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+    <content><![CDATA[<p>基于上次的<strong>列表</strong>和<strong>元组</strong>，这次总结<strong>字典</strong>和<strong>集合</strong>的基本操作</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="一、字典"><a href="#一、字典" class="headerlink" title="一、字典"></a>一、字典</h1><p>字典的数据是以键值对形式出现。</p>
+<h2 id="1、创建字典"><a href="#1、创建字典" class="headerlink" title="1、创建字典"></a>1、创建字典</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span>:<span class="string">'Tom'</span>,<span class="string">'age'</span>:<span class="number">20</span>,<span class="string">'gender'</span>:<span class="string">'男'</span>&#125; <span class="comment">#有数据字典</span></span><br><span class="line">dict2 = &#123;&#125; <span class="comment">#空字典</span></span><br><span class="line">dict3 = dict() <span class="comment">#空字典</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、字典常见操作"><a href="#2、字典常见操作" class="headerlink" title="2、字典常见操作"></a>2、字典常见操作</h2><h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p>写法：<code>字典序列[key] = 值</code></p>
+<blockquote>
+<p>注意：如果key存在则修改这个key对应的值；如果key不存在则新增此键值对</p>
+</blockquote>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><ul>
+<li>del() / del：删除字典或字典中指定键值对</li>
+<li>clear()：清空字典</li>
+</ul>
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>字典序列[key] = 值</p>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><h4 id="key值查找"><a href="#key值查找" class="headerlink" title="key值查找"></a>key值查找</h4><p><code>dict1[&#39;name&#39;]</code></p>
+<blockquote>
+<p>如果key存在则返回相应值；否则报错</p>
+</blockquote>
+<h4 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h4><ul>
+<li><p>语法</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字典序列.get(key, 默认值)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：如果当前查找的key不存在，则返回第二个参数，如果省略第二个参数，则返回None</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="keys"><a href="#keys" class="headerlink" title="keys()"></a>keys()</h4><p>查找字典中所有的key，返回可迭代对象</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(dict1.keys()) <span class="comment"># dict_keys(['name','age','gender'])</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="values"><a href="#values" class="headerlink" title="values()"></a>values()</h4><p>查找字典中所有的value，返回可迭代对象</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(dict1.values()) <span class="comment"># dict_values(['Tom','20','男'])</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="items"><a href="#items" class="headerlink" title="items()"></a>items()</h4><p>查找字典中所有的键值对，返回可迭代对象，里面的数据是元组，元组数据1是key，2是value</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(dict1.items()) <span class="comment"># dict_items([('name','Tom'),('age',20),('gender','男')])</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3、字典的循环遍历"><a href="#3、字典的循环遍历" class="headerlink" title="3、字典的循环遍历"></a>3、字典的循环遍历</h2><h3 id="遍历字典的key"><a href="#遍历字典的key" class="headerlink" title="遍历字典的key"></a>遍历字典的key</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> dict1.keys():</span><br><span class="line">    print(key)</span><br><span class="line"><span class="comment"># 结果：name age gender</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历字典的value"><a href="#遍历字典的value" class="headerlink" title="遍历字典的value"></a>遍历字典的value</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> dict1.values():</span><br><span class="line">	print(value)</span><br><span class="line"><span class="comment"># 结果 Tom 20 男</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历字典的元素"><a href="#遍历字典的元素" class="headerlink" title="遍历字典的元素"></a>遍历字典的元素</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> dict1.items():</span><br><span class="line">    print(item)</span><br><span class="line">结果 (<span class="string">'name'</span>,<span class="string">'tom'</span>) (<span class="string">'age'</span>,<span class="number">20</span>) (<span class="string">'gender'</span>,<span class="string">'男'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历字典的键值对-拆包"><a href="#遍历字典的键值对-拆包" class="headerlink" title="遍历字典的键值对(拆包)"></a>遍历字典的键值对(拆包)</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> dict1.items():</span><br><span class="line">    print(<span class="string">f'<span class="subst">&#123;key&#125;</span> = <span class="subst">&#123;value&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、集合"><a href="#二、集合" class="headerlink" title="二、集合"></a>二、集合</h1>]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
 </search>

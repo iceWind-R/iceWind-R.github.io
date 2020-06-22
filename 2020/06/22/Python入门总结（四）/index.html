@@ -22,21 +22,20 @@
     var CONFIG = {"hostname":"icewind-r.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="希望自己不再堕落，每天都有一点收获。 全文主旨：戒掉手机。">
+  <meta name="description" content="基于上次的列表和元组，这次总结字典和集合的基本操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自我改造计划（综述）">
-<meta property="og:url" content="http://icewind-r.github.io/2020/04/04/%E8%87%AA%E6%88%91%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92%EF%BC%88%E7%BB%BC%E8%BF%B0%EF%BC%89/index.html">
+<meta property="og:title" content="Python入门总结（四）">
+<meta property="og:url" content="http://icewind-r.github.io/2020/06/22/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/index.html">
 <meta property="og:site_name" content="Thorine">
-<meta property="og:description" content="希望自己不再堕落，每天都有一点收获。 全文主旨：戒掉手机。">
-<meta property="og:image" content="http://icewind-r.github.io/2020/04/04/%E8%87%AA%E6%88%91%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92%EF%BC%88%E7%BB%BC%E8%BF%B0%EF%BC%89/1.jpg">
-<meta property="article:published_time" content="2020-04-04T07:33:27.000Z">
-<meta property="article:modified_time" content="2020-04-04T10:25:04.485Z">
+<meta property="og:description" content="基于上次的列表和元组，这次总结字典和集合的基本操作">
+<meta property="article:published_time" content="2020-06-22T11:52:42.000Z">
+<meta property="article:modified_time" content="2020-06-22T14:15:19.044Z">
 <meta property="article:author" content="大雪初晴丶">
-<meta property="article:tag" content="idea">
+<meta property="article:tag" content="Learning">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://icewind-r.github.io/2020/04/04/%E8%87%AA%E6%88%91%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92%EF%BC%88%E7%BB%BC%E8%BF%B0%EF%BC%89/1.jpg">
 
-<link rel="canonical" href="http://icewind-r.github.io/2020/04/04/%E8%87%AA%E6%88%91%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92%EF%BC%88%E7%BB%BC%E8%BF%B0%EF%BC%89/">
+<link rel="canonical" href="http://icewind-r.github.io/2020/06/22/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -48,7 +47,7 @@
   };
 </script>
 
-  <title>自我改造计划（综述） | Thorine</title>
+  <title>Python入门总结（四） | Thorine</title>
   
 
 
@@ -208,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2020/04/04/%E8%87%AA%E6%88%91%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92%EF%BC%88%E7%BB%BC%E8%BF%B0%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2020/06/22/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang01.jpg">
@@ -221,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          自我改造计划（综述）
+          Python入门总结（四）
         </h1>
 
         <div class="post-meta">
@@ -232,7 +231,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-04-04 15:33:27 / 修改时间：18:25:04" itemprop="dateCreated datePublished" datetime="2020-04-04T15:33:27+08:00">2020-04-04</time>
+              <time title="创建时间：2020-06-22 19:52:42 / 修改时间：22:15:19" itemprop="dateCreated datePublished" datetime="2020-06-22T19:52:42+08:00">2020-06-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,12 +239,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Reinvent/" itemprop="url" rel="index"><span itemprop="name">Reinvent</span></a>
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/04/04/%E8%87%AA%E6%88%91%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92%EF%BC%88%E7%BB%BC%E8%BF%B0%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="自我改造计划（综述）" title="阅读次数">
+            <span id="/2020/06/22/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="Python入门总结（四）" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -267,8 +266,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/04/04/%E8%87%AA%E6%88%91%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92%EF%BC%88%E7%BB%BC%E8%BF%B0%EF%BC%89/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/04/%E8%87%AA%E6%88%91%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92%EF%BC%88%E7%BB%BC%E8%BF%B0%EF%BC%89/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/06/22/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/22/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -278,14 +277,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>416</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -297,42 +296,53 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>希望自己不再堕落，每天都有一点收获。</p>
-<p>全文主旨：<strong>戒掉手机</strong>。</p>
+        <p>基于上次的<strong>列表</strong>和<strong>元组</strong>，这次总结<strong>字典</strong>和<strong>集合</strong>的基本操作</p>
 <a id="more"></a>
 
 <hr>
-<p>每天什么都不想做，只想躺着呆着玩手机？</p>
-<h2 id="提前透支自己的人生，体会过后的空虚"><a href="#提前透支自己的人生，体会过后的空虚" class="headerlink" title="提前透支自己的人生，体会过后的空虚"></a>提前透支自己的人生，体会过后的空虚</h2><blockquote>
-<p>“大半的人在二十岁或三十岁上就死了。一过这个年龄，他们只变了自己的影子。以后的生命不过是用来模仿自己，把以前真正有人味儿的时代所说的，所做的，所想的，所喜欢的，一天天的重复，而且重复的方式越来越机械，越来越脱腔走板。”——《约翰·克里斯多夫》罗曼·罗兰</p>
-</blockquote>
-<h2 id="注意力被过度消散后的不专注"><a href="#注意力被过度消散后的不专注" class="headerlink" title="注意力被过度消散后的不专注"></a>注意力被过度消散后的不专注</h2><p>信息泛滥让人的专注度下降，但真正能够让你的大脑汲取到营养的，都是需要高度且长时间专注的事，比如读书。</p>
-<p>一个简单的问题：<strong>你多久没有安下心来，好好的读一本书了？</strong></p>
-<p>尝试先从简单的事情做起，比如听一听TED一些心理篇的演讲。</p>
-<h2 id="快感刺激阈值被提高后的慵懒"><a href="#快感刺激阈值被提高后的慵懒" class="headerlink" title="快感刺激阈值被提高后的慵懒"></a>快感刺激阈值被提高后的慵懒</h2><p>我们用手机逃避自己的现状，我们也在利用玩手机来拖延、逃避眼前待解决的问题。</p>
-<p>玩手机来饮鸠止渴，回光返照，越是Deadline，越玩的疯狂，恶性循环。</p>
-<h2 id="耐心点去感受不同阶段的人生体会"><a href="#耐心点去感受不同阶段的人生体会" class="headerlink" title="耐心点去感受不同阶段的人生体会"></a>耐心点去感受不同阶段的人生体会</h2><p>短暂地关闭外界感知通道，离开手机，反而有助于你的思维变得更清晰，更透彻。</p>
-<p>​    而且啊，其实你即使不去关注那些，也没什么影响的。</p>
-<p>​    就算你每隔五秒打开一次微信，没事找你的人还是不会找你。</p>
-<p>​    就算你每天都能刷出瀑布般的信息流，和你无关的事还是和你无关。</p>
-<img src="/2020/04/04/%E8%87%AA%E6%88%91%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92%EF%BC%88%E7%BB%BC%E8%BF%B0%EF%BC%89/1.jpg" class>
+<h1 id="一、字典"><a href="#一、字典" class="headerlink" title="一、字典"></a>一、字典</h1><p>字典的数据是以键值对形式出现。</p>
+<h2 id="1、创建字典"><a href="#1、创建字典" class="headerlink" title="1、创建字典"></a>1、创建字典</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span>:<span class="string">'Tom'</span>,<span class="string">'age'</span>:<span class="number">20</span>,<span class="string">'gender'</span>:<span class="string">'男'</span>&#125; <span class="comment">#有数据字典</span></span><br><span class="line">dict2 = &#123;&#125; <span class="comment">#空字典</span></span><br><span class="line">dict3 = dict() <span class="comment">#空字典</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="直面空虚和抑郁，借助它们反思"><a href="#直面空虚和抑郁，借助它们反思" class="headerlink" title="直面空虚和抑郁，借助它们反思"></a>直面空虚和抑郁，借助它们反思</h2><blockquote>
-<p>为什么别人能做好的事情我做不好？</p>
-<p>为什么别人跟着建民慢慢成长，我却连队伍都跟不上？</p>
+<h2 id="2、字典常见操作"><a href="#2、字典常见操作" class="headerlink" title="2、字典常见操作"></a>2、字典常见操作</h2><h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p>写法：<code>字典序列[key] = 值</code></p>
+<blockquote>
+<p>注意：如果key存在则修改这个key对应的值；如果key不存在则新增此键值对</p>
 </blockquote>
-<p>人只有在抑郁的时候，才愿意思考。</p>
-<p>是真的，先借助负面情绪，才能摆脱掉负面情绪。</p>
-<h2 id="逼自己去做点慢节奏的事"><a href="#逼自己去做点慢节奏的事" class="headerlink" title="逼自己去做点慢节奏的事"></a>逼自己去做点慢节奏的事</h2><p>不要觉得发呆是浪费时间，也不要觉得停下来就是不思进取。</p>
-<p>很多时候，停下来，等一等，看看四周，反思下过往，思考下未来，你会有很多错过的新发现。</p>
-<p>一个小时也没看进去两页书，这没啥不好意思的。相比起自暴自弃刷手机，往大脑里塞一个小时的抖音神曲和情绪垃圾，对着书页放空大脑都要好很多。允许自己慢慢来，你迟早可以一个小时看五页、十页、二十页……</p>
-<p>关键在于，屏蔽掉外界的信息，好好感受自己思维和注意力的游荡。前期你可以不过多干涉，就让自己静静的观察，并重新审视那些不断黏着你注意力的事物，再问问自己：“它配吗？”</p>
-<p><strong>找回注意力，就是找回对时间的掌控感。</strong></p>
-<p><strong>把步调调慢后，其实生活中那种“疲于奔命”的感觉也消失了。</strong></p>
-<p>因为只有停下来，时间的流动才变得格外明显。只有慢慢来，时间的报答才有空酝酿成熟。</p>
-<p>毕竟，很多名人的slogan都是：“做时间的朋友。”</p>
-<p><strong>从今天起，每天做好属于自己的事情，总结记录，每天反思，望坚持。</strong></p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><ul>
+<li>del() / del：删除字典或字典中指定键值对</li>
+<li>clear()：清空字典</li>
+</ul>
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>字典序列[key] = 值</p>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><h4 id="key值查找"><a href="#key值查找" class="headerlink" title="key值查找"></a>key值查找</h4><p><code>dict1[&#39;name&#39;]</code></p>
+<blockquote>
+<p>如果key存在则返回相应值；否则报错</p>
+</blockquote>
+<h4 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h4><ul>
+<li><p>语法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字典序列.get(key, 默认值)</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>注意：如果当前查找的key不存在，则返回第二个参数，如果省略第二个参数，则返回None</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="keys"><a href="#keys" class="headerlink" title="keys()"></a>keys()</h4><p>查找字典中所有的key，返回可迭代对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(dict1.keys()) <span class="comment"># dict_keys(['name','age','gender'])</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="values"><a href="#values" class="headerlink" title="values()"></a>values()</h4><p>查找字典中所有的value，返回可迭代对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(dict1.values()) <span class="comment"># dict_values(['Tom','20','男'])</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="items"><a href="#items" class="headerlink" title="items()"></a>items()</h4><p>查找字典中所有的键值对，返回可迭代对象，里面的数据是元组，元组数据1是key，2是value</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(dict1.items()) <span class="comment"># dict_items([('name','Tom'),('age',20),('gender','男')])</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3、字典的循环遍历"><a href="#3、字典的循环遍历" class="headerlink" title="3、字典的循环遍历"></a>3、字典的循环遍历</h2><h3 id="遍历字典的key"><a href="#遍历字典的key" class="headerlink" title="遍历字典的key"></a>遍历字典的key</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> dict1.keys():</span><br><span class="line">    print(key)</span><br><span class="line"><span class="comment"># 结果：name age gender</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历字典的value"><a href="#遍历字典的value" class="headerlink" title="遍历字典的value"></a>遍历字典的value</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> dict1.values():</span><br><span class="line">	print(value)</span><br><span class="line"><span class="comment"># 结果 Tom 20 男</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历字典的元素"><a href="#遍历字典的元素" class="headerlink" title="遍历字典的元素"></a>遍历字典的元素</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> dict1.items():</span><br><span class="line">    print(item)</span><br><span class="line">结果 (<span class="string">'name'</span>,<span class="string">'tom'</span>) (<span class="string">'age'</span>,<span class="number">20</span>) (<span class="string">'gender'</span>,<span class="string">'男'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历字典的键值对-拆包"><a href="#遍历字典的键值对-拆包" class="headerlink" title="遍历字典的键值对(拆包)"></a>遍历字典的键值对(拆包)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> dict1.items():</span><br><span class="line">    print(<span class="string">f'<span class="subst">&#123;key&#125;</span> = <span class="subst">&#123;value&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、集合"><a href="#二、集合" class="headerlink" title="二、集合"></a>二、集合</h1>
     </div>
 
     
@@ -367,7 +377,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/idea/" rel="tag"><i class="fa fa-tag"></i> idea</a>
+              <a href="/tags/Learning/" rel="tag"><i class="fa fa-tag"></i> Learning</a>
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
           </div>
 
         
@@ -376,13 +387,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/04/%E6%B8%85%E6%98%8E/" rel="prev" title="清明">
-      <i class="fa fa-chevron-left"></i> 清明
+    <a href="/2020/06/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="prev" title="博客搭建总结（二）">
+      <i class="fa fa-chevron-left"></i> 博客搭建总结（二）
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/04/05/Android-1/" rel="next" title="Android Jetpack架构组件（一）">
-      Android Jetpack架构组件（一） <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -443,7 +451,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#提前透支自己的人生，体会过后的空虚"><span class="nav-number">1.</span> <span class="nav-text">提前透支自己的人生，体会过后的空虚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意力被过度消散后的不专注"><span class="nav-number">2.</span> <span class="nav-text">注意力被过度消散后的不专注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快感刺激阈值被提高后的慵懒"><span class="nav-number">3.</span> <span class="nav-text">快感刺激阈值被提高后的慵懒</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#耐心点去感受不同阶段的人生体会"><span class="nav-number">4.</span> <span class="nav-text">耐心点去感受不同阶段的人生体会</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直面空虚和抑郁，借助它们反思"><span class="nav-number">5.</span> <span class="nav-text">直面空虚和抑郁，借助它们反思</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逼自己去做点慢节奏的事"><span class="nav-number">6.</span> <span class="nav-text">逼自己去做点慢节奏的事</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、字典"><span class="nav-number">1.</span> <span class="nav-text">一、字典</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、创建字典"><span class="nav-number">1.1.</span> <span class="nav-text">1、创建字典</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、字典常见操作"><span class="nav-number">1.2.</span> <span class="nav-text">2、字典常见操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#增加"><span class="nav-number">1.2.1.</span> <span class="nav-text">增加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">1.2.2.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改"><span class="nav-number">1.2.3.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找"><span class="nav-number">1.2.4.</span> <span class="nav-text">查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#key值查找"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">key值查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#get"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">get()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#keys"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">keys()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#values"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">values()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#items"><span class="nav-number">1.2.4.5.</span> <span class="nav-text">items()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、字典的循环遍历"><span class="nav-number">1.3.</span> <span class="nav-text">3、字典的循环遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历字典的key"><span class="nav-number">1.3.1.</span> <span class="nav-text">遍历字典的key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历字典的value"><span class="nav-number">1.3.2.</span> <span class="nav-text">遍历字典的value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历字典的元素"><span class="nav-number">1.3.3.</span> <span class="nav-text">遍历字典的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历字典的键值对-拆包"><span class="nav-number">1.3.4.</span> <span class="nav-text">遍历字典的键值对(拆包)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、集合"><span class="nav-number">2.</span> <span class="nav-text">二、集合</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
