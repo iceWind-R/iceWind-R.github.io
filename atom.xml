@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-06-21T14:43:25.463Z</updated>
+  <updated>2020-06-22T04:36:31.841Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="http://icewind-r.github.io/2020/06/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://icewind-r.github.io/2020/06/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</id>
     <published>2020-06-21T12:41:08.000Z</published>
-    <updated>2020-06-21T14:43:25.463Z</updated>
+    <updated>2020-06-22T04:36:31.841Z</updated>
     
-    <content type="html"><![CDATA[<p>主要是B站的CodeSheep的视频内知识点总结（非常感谢），给作为小白的自己一点服务器、博客等方面知识的拓展。</p><a id="more"></a><hr><p>1、静态博客：hexo,hugo等框架搭建起来的博客，内部生成固定的html页面代码，每个人访问的内容都完全一致。</p><p>2、动态博客：wordpress，halo，有着后台应用服务的博客，需要单独应用服务器的承载，比如登录功能。</p>]]></content>
+    <content type="html"><![CDATA[<p>前文已经利用GitHub搭建了基本的博客， 此篇总结一些服务器，Linux的知识点，为之后的部署到服务器做好准备。</p><a id="more"></a><hr><p>1、静态博客：hexo,hugo等框架搭建起来的博客，内部生成固定的html页面代码，每个人访问的内容都完全一致。</p><p>2、动态博客：wordpress，halo，有着后台应用服务的博客，需要单独应用服务器的承载，比如登录功能。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;主要是B站的CodeSheep的视频内知识点总结（非常感谢），给作为小白的自己一点服务器、博客等方面知识的拓展。&lt;/p&gt;
+      &lt;p&gt;前文已经利用GitHub搭建了基本的博客， 此篇总结一些服务器，Linux的知识点，为之后的部署到服务器做好准备。&lt;/p&gt;
     
     </summary>
     
@@ -42,13 +42,13 @@
   </entry>
   
   <entry>
-    <title>Plan_01_第一周（6.21~6.28）</title>
+    <title>Plan_01（6.21~6.28）</title>
     <link href="http://icewind-r.github.io/2020/06/21/Plan-01-%E7%AC%AC%E4%B8%80%E5%91%A8/"/>
     <id>http://icewind-r.github.io/2020/06/21/Plan-01-%E7%AC%AC%E4%B8%80%E5%91%A8/</id>
     <published>2020-06-21T10:47:02.000Z</published>
-    <updated>2020-06-21T13:29:53.861Z</updated>
+    <updated>2020-06-22T04:47:04.319Z</updated>
     
-    <content type="html"><![CDATA[<p>这是暑假的第一周，务必不要拖延，每天进步一点。</p><a id="more"></a><hr><p><strong>整体计划：</strong></p><ol><li>python</li><li>Android</li><li>服务器</li><li>英语</li><li>阅读</li><li>每天一个知乎收藏总结</li></ol><p><strong>周一（6.22）计划</strong></p><p>四个服务器的视频看完，服务器搭建博客完成</p><p>python语法复习</p><p><strong>本周知乎总结：</strong></p><ol><li>为人处世<ol><li>不要让自己每天的时间分散，碎片化是效率的生死大敌，少刷朋友圈，少水群，因为这只会浪费你的时间。</li><li>改变自己最高效的方法，就是去做你害怕的事，不作为比失败更可怕。</li><li>能定期和父母联系是一项很棒的能力。</li><li>不喜欢当下的工作，马上换，每拖一分你勇气就少一分。你多学一点本事，将来就能少开口求人一次。</li><li>学会果断拒绝，而不是犹豫后拒绝。</li><li>最短的距离是从嘴到手，最长的距离是从说到做。</li></ol></li></ol>]]></content>
+    <content type="html"><![CDATA[<p>这是暑假的第一周，务必不要拖延，每天进步一点。</p><a id="more"></a><hr><p><strong>整体计划：</strong></p><ol><li>python</li><li>Android</li><li>服务器</li><li>英语</li><li>阅读</li><li>知乎收藏</li></ol><p><strong>周一（6.22）计划</strong></p><p>四个服务器的视频看完，服务器搭建博客完成</p><p>python第七天视频学习完成</p><p><strong>本周知乎总结：</strong></p><ol><li>为人处世<ol><li>不要让自己每天的时间分散，碎片化是效率的生死大敌，少刷朋友圈，少水群，因为这只会浪费你的时间。</li><li>改变自己最高效的方法，就是去做你害怕的事，不作为比失败更可怕。</li><li>能定期和父母联系是一项很棒的能力。</li><li>不喜欢当下的工作，马上换，每拖一分你勇气就少一分。你多学一点本事，将来就能少开口求人一次。</li><li>学会果断拒绝，而不是犹豫后拒绝。</li><li>最短的距离是从嘴到手，最长的距离是从说到做。</li></ol></li></ol>]]></content>
     
     <summary type="html">
     
@@ -320,9 +320,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
-    
       <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
+    
+      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
   </entry>
   
@@ -420,9 +420,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
-    
       <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
+    
+      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
   </entry>
   
@@ -470,9 +470,9 @@
       <category term="MATLAB" scheme="http://iceWind-R.github.io/categories/MATLAB/"/>
     
     
-      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
-    
       <category term="MATLAB" scheme="http://iceWind-R.github.io/tags/MATLAB/"/>
+    
+      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
   </entry>
   
