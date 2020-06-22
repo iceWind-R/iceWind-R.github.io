@@ -3769,7 +3769,32 @@
 
 <h3 id="遍历字典的键值对-拆包"><a href="#遍历字典的键值对-拆包" class="headerlink" title="遍历字典的键值对(拆包)"></a>遍历字典的键值对(拆包)</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> dict1.items():</span><br><span class="line">    print(<span class="string">f'<span class="subst">&#123;key&#125;</span> = <span class="subst">&#123;value&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
 
-<h1 id="二、集合"><a href="#二、集合" class="headerlink" title="二、集合"></a>二、集合</h1>]]></content>
+<h1 id="二、集合"><a href="#二、集合" class="headerlink" title="二、集合"></a>二、集合</h1><h2 id="1、创建集合"><a href="#1、创建集合" class="headerlink" title="1、创建集合"></a>1、创建集合</h2><p>创建集合使用<code>{}</code>或<code>set()</code>，但是如果要创建空集合只能使用set()，因为<code>{}</code>用来创建空字典</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">s2 = set(<span class="string">'ads'</span>)</span><br><span class="line">s3 = set() <span class="comment"># set</span></span><br><span class="line">s4 = &#123;&#125; <span class="comment">#dict</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、操作"><a href="#2、操作" class="headerlink" title="2、操作"></a>2、操作</h2><h3 id="增加-1"><a href="#增加-1" class="headerlink" title="增加"></a>增加</h3><ul>
+<li><p>add()</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s1 = &#123;<span class="number">1</span>,<span class="number">2</span>&#125;</span><br><span class="line">s1.add(<span class="number">3</span>)</span><br><span class="line">s1.add(<span class="number">1</span>) <span class="comment"># &#123;1,2,3&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>集合有去重功能，所以当向集合内追加的数据是当前集合已有数据的话，则不进行任何操作。</p>
+</blockquote>
+</li>
+<li><p>update()：追加的数据是序列。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s1 = &#123;<span class="number">1</span>,<span class="number">2</span>&#125;</span><br><span class="line">s1.update(<span class="number">3</span>) <span class="comment">#报错 </span></span><br><span class="line">s1.update([<span class="number">100</span>,<span class="number">200</span>])</span><br><span class="line">s1.update(<span class="string">'abc'</span>)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h3><ul>
+<li>remove()：删除指定数据，如果数据不存在报错</li>
+<li>discard()：删除指定数据，如果数据不存在不报错</li>
+<li>pop()：随机删除某个数据，并返回该值</li>
+</ul>
+<h3 id="查找-1"><a href="#查找-1" class="headerlink" title="查找"></a>查找</h3><ul>
+<li>in</li>
+<li>not in</li>
+</ul>
+]]></content>
       <categories>
         <category>Python</category>
       </categories>
