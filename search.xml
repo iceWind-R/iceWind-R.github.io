@@ -2280,7 +2280,7 @@
   <entry>
     <title>Python入门总结（五）</title>
     <url>/2020/06/23/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%94%EF%BC%89/</url>
-    <content><![CDATA[<p>基于上次的<strong>字典</strong>和<strong>集合</strong>，本次总结python中的一些公共操作。</p>
+    <content><![CDATA[<p>基于上次的<strong>字典</strong>和<strong>集合</strong>，本次总结python中的一些<strong>公共操作</strong>和简单的<strong>推导式</strong>运算。</p>
 <a id="more"></a>
 
 <hr>
@@ -3948,6 +3948,26 @@
       </categories>
       <tags>
         <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python入门总结（六）</title>
+    <url>/2020/06/23/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/</url>
+    <content><![CDATA[<p>基于上次的<strong>公共操作</strong>和简单的<strong>推导式</strong>运算，本次学习<strong>函数</strong>的相关知识。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="函数基本形式"><a href="#函数基本形式" class="headerlink" title="函数基本形式"></a>函数基本形式</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="string">""" </span></span><br><span class="line"><span class="string">    说明文档内容</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    代码</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line"><span class="comment"># 调用时，help(f)查看说明文档</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
 </search>
