@@ -22,17 +22,20 @@
     var CONFIG = {"hostname":"icewind-r.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一个热爱编程的大二小白">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Thorine">
-<meta property="og:url" content="http://icewind-r.github.io/archives/2020/03/index.html">
+  <meta name="description" content="基于上次的字典和集合，本次总结python中的一些公共操作。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python入门总结（五）">
+<meta property="og:url" content="http://icewind-r.github.io/2020/06/23/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%94%EF%BC%89/index.html">
 <meta property="og:site_name" content="Thorine">
-<meta property="og:description" content="一个热爱编程的大二小白">
+<meta property="og:description" content="基于上次的字典和集合，本次总结python中的一些公共操作。">
+<meta property="article:published_time" content="2020-06-23T01:29:50.000Z">
+<meta property="article:modified_time" content="2020-06-23T04:18:14.434Z">
 <meta property="article:author" content="大雪初晴丶">
-<meta property="article:tag" content="大学生">
+<meta property="article:tag" content="Learning">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://icewind-r.github.io/archives/2020/03/">
+<link rel="canonical" href="http://icewind-r.github.io/2020/06/23/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%94%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -40,11 +43,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>归档 | Thorine</title>
+  <title>Python入门总结（五） | Thorine</title>
   
 
 
@@ -199,237 +202,258 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2020/06/23/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%94%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang01.jpg">
+      <meta itemprop="name" content="大雪初晴丶">
+      <meta itemprop="description" content="一个热爱编程的大二小白">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Thorine">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python入门总结（五）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-23 09:29:50 / 修改时间：12:18:14" itemprop="dateCreated datePublished" datetime="2020-06-23T09:29:50+08:00">2020-06-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/06/23/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%94%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="Python入门总结（五）" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">还行! 目前共计 32 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/06/23/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%94%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/23/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%94%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>486</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
+        <p>基于上次的<strong>字典</strong>和<strong>集合</strong>，本次总结python中的一些公共操作。</p>
+<a id="more"></a>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<hr>
+<h1 id="一、公共操作"><a href="#一、公共操作" class="headerlink" title="一、公共操作"></a>一、公共操作</h1><h2 id="1、运算符"><a href="#1、运算符" class="headerlink" title="1、运算符"></a>1、运算符</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>支持的容器类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>合并</td>
+<td>字符串、列表、元组</td>
+</tr>
+<tr>
+<td>*</td>
+<td>复制</td>
+<td>字符串、列表、元组</td>
+</tr>
+<tr>
+<td>in</td>
+<td>元素是否存在</td>
+<td>字符串、列表、元组、字典</td>
+</tr>
+<tr>
+<td>not in</td>
+<td>元素是否不存在</td>
+<td>字符串、列表、元组、字典</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># *复制运算符</span></span><br><span class="line">str = <span class="string">'hello'</span></span><br><span class="line">list = [<span class="string">'world'</span>]</span><br><span class="line">t = (<span class="string">'world'</span>,)</span><br><span class="line">print(str * <span class="number">5</span>) <span class="comment"># 'hellohellohellohellohello'</span></span><br><span class="line">print(list * <span class="number">5</span>) <span class="comment"># ['world','world','world','world','world']</span></span><br><span class="line">print(t * <span class="number">5</span>) <span class="comment"># ('world','world','world','world','world')</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(<span class="string">'h'</span> <span class="keyword">in</span> str) <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-30T15:41:21+08:00"
-              content="2020-03-30">
-          03-30
-        </time>
-      </div>
+<h2 id="2、公共方法"><a href="#2、公共方法" class="headerlink" title="2、公共方法"></a>2、公共方法</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>len()</td>
+<td>计算容器中元素个数</td>
+</tr>
+<tr>
+<td>del 或 del()</td>
+<td>删除</td>
+</tr>
+<tr>
+<td>max()</td>
+<td>返回容器中元素最大值</td>
+</tr>
+<tr>
+<td>min()</td>
+<td>返回容器中元素最小值</td>
+</tr>
+<tr>
+<td>range(start,end,step)</td>
+<td>生成从start到end的数字（可迭代对象），步长为step，供for循环使用</td>
+</tr>
+<tr>
+<td>enumerate()</td>
+<td>函数用于将一个可遍历的数据对象（如列表、元组或字符串）组合为一个索引序列，同时列出数据和数据下标，一般在for循环当中。</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="string">'hello'</span></span><br><span class="line">list = [<span class="string">'world'</span>]</span><br><span class="line">t = (<span class="string">'world'</span>,)</span><br><span class="line">s = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">dict = &#123;<span class="string">'name'</span>:<span class="string">'Tom'</span>,<span class="string">'age'</span>:<span class="number">20</span>&#125;</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/30/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%94%EF%BC%89/" itemprop="url">
-            <span itemprop="name">PHP基础知识（五）</span>
-          </a>
-      </h2>
+<h3 id="len-和-del"><a href="#len-和-del" class="headerlink" title="len() 和 del()"></a>len() 和 del()</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">len(str) <span class="comment"># 5</span></span><br><span class="line">len(dict) <span class="comment">#2 字典的一个键值对记为长度1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span>(str)</span><br><span class="line"><span class="keyword">del</span>(dict[<span class="string">'name'</span>])</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
+<h3 id="max-和-min"><a href="#max-和-min" class="headerlink" title="max() 和 min()"></a>max() 和 min()</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">max(str)</span><br><span class="line">min(s)</span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h3 id="range"><a href="#range" class="headerlink" title="range()"></a>range()</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1 2 3 4 5 6 7 8 9</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>,<span class="number">1</span>):</span><br><span class="line">    print(i)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 1 3 5 7 9</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>,<span class="number">2</span>):</span><br><span class="line">    print(i)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 0 1 2 3 4 5 6 7 8 9</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-27T16:23:58+08:00"
-              content="2020-03-27">
-          03-27
-        </time>
-      </div>
+<blockquote>
+<p>注意：range()生成的序列不包含end数字。</p>
+<p>如果不写开始，默认从0开始</p>
+<p>如果不写步长，默认为1</p>
+</blockquote>
+<h3 id="enumerate"><a href="#enumerate" class="headerlink" title="enumerate()"></a>enumerate()</h3><ul>
+<li><p>语法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enumerate(可遍历对象,start = <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/27/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/" itemprop="url">
-            <span itemprop="name">MATLAB课程总结（四）</span>
-          </a>
-      </h2>
+<blockquote>
+<p>注意：start参数用来设置遍历数据的下标的起始值，默认为0。</p>
+</blockquote>
+</li>
+<li><p>enumerate 返回结果是元组，元组第一个数据是原迭代对象的数据对应的下标，第二个为对应的 数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">list = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> enumerate(list):</span><br><span class="line">    print(i)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> index, char <span class="keyword">in</span> enumerate(list, start = <span class="number">1</span>):</span><br><span class="line">    print(<span class="string">f'下标是<span class="subst">&#123;index&#125;</span>，对应的字符是<span class="subst">&#123;char&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-27T06:42:02+08:00"
-              content="2020-03-27">
-          03-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/27/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E5%9B%9B%EF%BC%89/" itemprop="url">
-            <span itemprop="name">PHP基础知识（四）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-25T07:41:46+08:00"
-              content="2020-03-25">
-          03-25
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/25/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url">
-            <span itemprop="name">正则表达式</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-24T21:58:20+08:00"
-              content="2020-03-24">
-          03-24
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/24/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/" itemprop="url">
-            <span itemprop="name">Python入门小结（三）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-24T08:37:32+08:00"
-              content="2020-03-24">
-          03-24
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/24/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/" itemprop="url">
-            <span itemprop="name">MATLAB课程总结（三）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-23T13:42:59+08:00"
-              content="2020-03-23">
-          03-23
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/23/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%89%EF%BC%89/" itemprop="url">
-            <span itemprop="name">PHP基础知识（三）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-20T20:39:11+08:00"
-              content="2020-03-20">
-          03-20
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/20/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="url">
-            <span itemprop="name">MATLAB课程总结（二）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-17T10:48:24+08:00"
-              content="2020-03-17">
-          03-17
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/17/Python%E5%85%A5%E9%97%A8%E5%B0%8F%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="url">
-            <span itemprop="name">Python入门小结（二）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-13T16:23:56+08:00"
-              content="2020-03-13">
-          03-13
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/13/MATLAB%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url">
-            <span itemprop="name">MATLAB课程总结(一)</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+</li>
+</ul>
 
     </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>~感谢你请我吃糖果~</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.JPG" alt="大雪初晴丶 微信支付">
+        <p>微信支付</p>
+      </div>
+
   </div>
+</div>
+
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束，感谢您的阅读，欢迎评论留言！-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Learning/" rel="tag"><i class="fa fa-tag"></i> Learning</a>
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/22/Python%E5%85%A5%E9%97%A8%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89/" rel="prev" title="Python入门总结（四）">
+      <i class="fa fa-chevron-left"></i> Python入门总结（四）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
   
   
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2020/03/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/03/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -476,6 +500,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、公共操作"><span class="nav-number">1.</span> <span class="nav-text">一、公共操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、运算符"><span class="nav-number">1.1.</span> <span class="nav-text">1、运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、公共方法"><span class="nav-number">1.2.</span> <span class="nav-text">2、公共方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#len-和-del"><span class="nav-number">1.2.1.</span> <span class="nav-text">len() 和 del()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#max-和-min"><span class="nav-number">1.2.2.</span> <span class="nav-text">max() 和 min()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#range"><span class="nav-number">1.2.3.</span> <span class="nav-text">range()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#enumerate"><span class="nav-number">1.2.4.</span> <span class="nav-text">enumerate()</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
