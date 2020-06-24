@@ -2977,6 +2977,25 @@
 <p>返回字典类型。</p>
 </blockquote>
 <p>以上与函数部分的规则完全一致。</p>
+<h2 id="lambda的应用"><a href="#lambda的应用" class="headerlink" title="lambda的应用"></a>lambda的应用</h2><h3 id="带判断的lambda"><a href="#带判断的lambda" class="headerlink" title="带判断的lambda"></a>带判断的lambda</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fn1 = <span class="keyword">lambda</span> a, b: a <span class="keyword">if</span> a &gt; b <span class="keyword">else</span> b</span><br><span class="line">print(fn1(<span class="number">1</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="列表数据按字典key的值排序"><a href="#列表数据按字典key的值排序" class="headerlink" title="列表数据按字典key的值排序"></a>列表数据按字典key的值排序</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">students = [</span><br><span class="line">    &#123;<span class="string">'name'</span>:<span class="string">'Tom'</span>, <span class="string">'age'</span>: <span class="number">20</span>&#125;,</span><br><span class="line">    &#123;<span class="string">'name'</span>:<span class="string">'Rose'</span>, <span class="string">'age'</span>: <span class="number">19</span>&#125;,</span><br><span class="line">    &#123;<span class="string">'name'</span>:<span class="string">'Jack'</span>, <span class="string">'age'</span>: <span class="number">22</span>&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按name值升序排序</span></span><br><span class="line">students.sort(key = <span class="keyword">lambda</span> x: x[<span class="string">'name'</span>])</span><br><span class="line">print(students)</span><br><span class="line"><span class="comment"># sort函数：如果要排序的列表里数据为字典，则指定key值则可排序</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 按name值降序排序</span></span><br><span class="line">students.sort(key = <span class="keyword">lambda</span> x: x[<span class="string">'name'</span>], reverse = <span class="literal">True</span>)</span><br><span class="line">print(students)</span><br></pre></td></tr></table></figure>
+
+<h1 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h1><p>把函数作为参数传入，这样的函数为高阶函数。高阶函数是函数式编程的体现，高度抽象的编程范式。</p>
+<p><strong>示例</strong>：任意两个数字，求绝对值abs（或四舍五入 round）后进行求和。</p>
+<ul>
+<li><p>方法1</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_num</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> abs(a) + abs(b)</span><br><span class="line">result = add_num(<span class="number">-1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法2</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_num</span><span class="params">(a, b, f)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> f(a) + f(b)</span><br><span class="line"></span><br><span class="line"><span class="comment">#灵活性变高</span></span><br><span class="line">result = sum_num(<span class="number">-1</span>, <span class="number">2</span>, abs)</span><br><span class="line">result = sum_num(<span class="number">-1</span>, <span class="number">2</span>, round)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="内置高阶函数"><a href="#内置高阶函数" class="headerlink" title="内置高阶函数"></a>内置高阶函数</h2><h3 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h3><p><code>map(func, lst)</code>，将传入的函数变量func作用到lst变量的每个元素中，并将结果组成新的迭代器返回。</p>
+<p><strong>例子：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x ** <span class="number">2</span></span><br><span class="line">result = map(func, list1) </span><br><span class="line">print(result) <span class="comment">#为地址</span></span><br><span class="line">print(list(result)) <span class="comment"># list()，将数据转换为列表 [1, 4, 9, 16, 25]</span></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Python</category>
