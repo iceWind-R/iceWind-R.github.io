@@ -22,19 +22,20 @@
     var CONFIG = {"hostname":"icewind-r.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="你记得你上一次为什么而落泪吗？">
+  <meta name="description" content="基于上次的列表和元组，这次总结字典和集合的基本操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="男儿有泪不轻弹？">
-<meta property="og:url" content="http://icewind-r.github.io/2020/05/13/%E7%94%B7%E5%84%BF%E6%9C%89%E6%B3%AA%E4%B8%8D%E8%BD%BB%E5%BC%B9%EF%BC%9F/index.html">
+<meta property="og:title" content="Python_4(字典元组)">
+<meta property="og:url" content="http://icewind-r.github.io/2020/06/22/Python-4/index.html">
 <meta property="og:site_name" content="Thorine">
-<meta property="og:description" content="你记得你上一次为什么而落泪吗？">
-<meta property="article:published_time" content="2020-05-13T12:11:37.000Z">
-<meta property="article:modified_time" content="2020-05-13T12:26:14.835Z">
+<meta property="og:description" content="基于上次的列表和元组，这次总结字典和集合的基本操作">
+<meta property="article:published_time" content="2020-06-22T11:52:42.000Z">
+<meta property="article:modified_time" content="2020-06-24T10:51:58.606Z">
 <meta property="article:author" content="大雪初晴丶">
-<meta property="article:tag" content="idea">
+<meta property="article:tag" content="Learning">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://icewind-r.github.io/2020/05/13/%E7%94%B7%E5%84%BF%E6%9C%89%E6%B3%AA%E4%B8%8D%E8%BD%BB%E5%BC%B9%EF%BC%9F/">
+<link rel="canonical" href="http://icewind-r.github.io/2020/06/22/Python-4/">
 
 
 <script id="page-configurations">
@@ -46,7 +47,7 @@
   };
 </script>
 
-  <title>男儿有泪不轻弹？ | Thorine</title>
+  <title>Python_4(字典元组) | Thorine</title>
   
 
 
@@ -206,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2020/05/13/%E7%94%B7%E5%84%BF%E6%9C%89%E6%B3%AA%E4%B8%8D%E8%BD%BB%E5%BC%B9%EF%BC%9F/">
+    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2020/06/22/Python-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang01.jpg">
@@ -219,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          男儿有泪不轻弹？
+          Python_4(字典元组)
         </h1>
 
         <div class="post-meta">
@@ -228,22 +229,28 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-05-13 20:11:37 / 修改时间：20:26:14" itemprop="dateCreated datePublished" datetime="2020-05-13T20:11:37+08:00">2020-05-13</time>
+              <time title="创建时间：2020-06-22 19:52:42" itemprop="dateCreated datePublished" datetime="2020-06-22T19:52:42+08:00">2020-06-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-24 18:51:58" itemprop="dateModified" datetime="2020-06-24T18:51:58+08:00">2020-06-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/05/13/%E7%94%B7%E5%84%BF%E6%9C%89%E6%B3%AA%E4%B8%8D%E8%BD%BB%E5%BC%B9%EF%BC%9F/" class="post-meta-item leancloud_visitors" data-flag-title="男儿有泪不轻弹？" title="阅读次数">
+            <span id="/2020/06/22/Python-4/" class="post-meta-item leancloud_visitors" data-flag-title="Python_4(字典元组)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -265,8 +272,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/05/13/%E7%94%B7%E5%84%BF%E6%9C%89%E6%B3%AA%E4%B8%8D%E8%BD%BB%E5%BC%B9%EF%BC%9F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/13/%E7%94%B7%E5%84%BF%E6%9C%89%E6%B3%AA%E4%B8%8D%E8%BD%BB%E5%BC%B9%EF%BC%9F/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/06/22/Python-4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/22/Python-4/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -276,14 +283,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>277</span>
+              <span>621</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -295,30 +302,77 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p> 你记得你上一次为什么而落泪吗？</p>
+        <p>基于上次的<strong>列表</strong>和<strong>元组</strong>，这次总结<strong>字典</strong>和<strong>集合</strong>的基本操作</p>
 <a id="more"></a>
 
 <hr>
-<p>5.13 晚20：00</p>
-<p>已不记得上次为什么而落泪，可能还是童年时和父母的一次赌气？和同学的一场争执？</p>
-<p>十多年过去，即将20岁的我，却再一次落泪</p>
-<p>我承认我的懦弱，但这次，我觉得不一样</p>
-<p>真的没想到和父母的代沟能有这么大</p>
-<p>第一次感受到心痛掩盖了身体的痛</p>
-<p>家真的是游子的港湾吗？</p>
-<p>可能是地理上的港湾，可能是身体上的给我丰衣足食的港湾</p>
-<p>却再也难已是我心灵的港湾了</p>
-<p>这次不为任何而哭</p>
-<p>只是为自己的孤独而哭</p>
-<p>更为自己的无能而哭</p>
-<p>或许，这就是庸人最后的挣扎了吧</p>
-<p>但毕竟心有不甘</p>
-<p>那就继续挣扎吧</p>
-<p>起码感动自己</p>
-<p>你说，是吧？</p>
-<br>
+<h1 id="一、字典"><a href="#一、字典" class="headerlink" title="一、字典"></a>一、字典</h1><p>字典的数据是以键值对形式出现。</p>
+<h2 id="1、创建字典"><a href="#1、创建字典" class="headerlink" title="1、创建字典"></a>1、创建字典</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span>:<span class="string">'Tom'</span>,<span class="string">'age'</span>:<span class="number">20</span>,<span class="string">'gender'</span>:<span class="string">'男'</span>&#125; <span class="comment">#有数据字典</span></span><br><span class="line">dict2 = &#123;&#125; <span class="comment">#空字典</span></span><br><span class="line">dict3 = dict() <span class="comment">#空字典</span></span><br></pre></td></tr></table></figure>
 
-<p>哦对，今天崴脚了，打球这几年的第一次，得好好休养几天了</p>
+<h2 id="2、字典常见操作"><a href="#2、字典常见操作" class="headerlink" title="2、字典常见操作"></a>2、字典常见操作</h2><h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p>写法：<code>字典序列[key] = 值</code></p>
+<blockquote>
+<p>注意：如果key存在则修改这个key对应的值；如果key不存在则新增此键值对</p>
+</blockquote>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><ul>
+<li>del() / del：删除字典或字典中指定键值对</li>
+<li>clear()：清空字典</li>
+</ul>
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>字典序列[key] = 值</p>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><h4 id="key值查找"><a href="#key值查找" class="headerlink" title="key值查找"></a>key值查找</h4><p><code>dict1[&#39;name&#39;]</code></p>
+<blockquote>
+<p>如果key存在则返回相应值；否则报错</p>
+</blockquote>
+<h4 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h4><ul>
+<li><p>语法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字典序列.get(key, 默认值)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：如果当前查找的key不存在，则返回第二个参数，如果省略第二个参数，则返回None</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="keys"><a href="#keys" class="headerlink" title="keys()"></a>keys()</h4><p>查找字典中所有的key，返回可迭代对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(dict1.keys()) <span class="comment"># dict_keys(['name','age','gender'])</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="values"><a href="#values" class="headerlink" title="values()"></a>values()</h4><p>查找字典中所有的value，返回可迭代对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(dict1.values()) <span class="comment"># dict_values(['Tom','20','男'])</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="items"><a href="#items" class="headerlink" title="items()"></a>items()</h4><p>查找字典中所有的键值对，返回可迭代对象，里面的数据是元组，元组数据1是key，2是value</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(dict1.items()) <span class="comment"># dict_items([('name','Tom'),('age',20),('gender','男')])</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3、字典的循环遍历"><a href="#3、字典的循环遍历" class="headerlink" title="3、字典的循环遍历"></a>3、字典的循环遍历</h2><h3 id="遍历字典的key"><a href="#遍历字典的key" class="headerlink" title="遍历字典的key"></a>遍历字典的key</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> dict1.keys():</span><br><span class="line">    print(key)</span><br><span class="line"><span class="comment"># 结果：name age gender</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历字典的value"><a href="#遍历字典的value" class="headerlink" title="遍历字典的value"></a>遍历字典的value</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> dict1.values():</span><br><span class="line">	print(value)</span><br><span class="line"><span class="comment"># 结果 Tom 20 男</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历字典的元素"><a href="#遍历字典的元素" class="headerlink" title="遍历字典的元素"></a>遍历字典的元素</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> dict1.items():</span><br><span class="line">    print(item)</span><br><span class="line">结果 (<span class="string">'name'</span>,<span class="string">'tom'</span>) (<span class="string">'age'</span>,<span class="number">20</span>) (<span class="string">'gender'</span>,<span class="string">'男'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历字典的键值对-拆包"><a href="#遍历字典的键值对-拆包" class="headerlink" title="遍历字典的键值对(拆包)"></a>遍历字典的键值对(拆包)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> dict1.items():</span><br><span class="line">    print(<span class="string">f'<span class="subst">&#123;key&#125;</span> = <span class="subst">&#123;value&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、集合"><a href="#二、集合" class="headerlink" title="二、集合"></a>二、集合</h1><h2 id="1、创建集合"><a href="#1、创建集合" class="headerlink" title="1、创建集合"></a>1、创建集合</h2><p>创建集合使用<code>{}</code>或<code>set()</code>，但是如果要创建空集合只能使用set()，因为<code>{}</code>用来创建空字典</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">s2 = set(<span class="string">'ads'</span>)</span><br><span class="line">s3 = set() <span class="comment"># set</span></span><br><span class="line">s4 = &#123;&#125; <span class="comment">#dict</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、操作"><a href="#2、操作" class="headerlink" title="2、操作"></a>2、操作</h2><h3 id="增加-1"><a href="#增加-1" class="headerlink" title="增加"></a>增加</h3><ul>
+<li><p>add()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s1 = &#123;<span class="number">1</span>,<span class="number">2</span>&#125;</span><br><span class="line">s1.add(<span class="number">3</span>)</span><br><span class="line">s1.add(<span class="number">1</span>) <span class="comment"># &#123;1,2,3&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>集合有去重功能，所以当向集合内追加的数据是当前集合已有数据的话，则不进行任何操作。</p>
+</blockquote>
+</li>
+<li><p>update()：追加的数据是序列。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s1 = &#123;<span class="number">1</span>,<span class="number">2</span>&#125;</span><br><span class="line">s1.update(<span class="number">3</span>) <span class="comment">#报错 </span></span><br><span class="line">s1.update([<span class="number">100</span>,<span class="number">200</span>])</span><br><span class="line">s1.update(<span class="string">'abc'</span>)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h3><ul>
+<li>remove()：删除指定数据，如果数据不存在报错</li>
+<li>discard()：删除指定数据，如果数据不存在不报错</li>
+<li>pop()：随机删除某个数据，并返回该值</li>
+</ul>
+<h3 id="查找-1"><a href="#查找-1" class="headerlink" title="查找"></a>查找</h3><ul>
+<li>in</li>
+<li>not in</li>
+</ul>
 
     </div>
 
@@ -354,7 +408,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/idea/" rel="tag"><i class="fa fa-tag"></i> idea</a>
+              <a href="/tags/Learning/" rel="tag"><i class="fa fa-tag"></i> Learning</a>
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
           </div>
 
         
@@ -363,12 +418,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/05/%E9%97%BA%E5%A5%B3%E5%BC%80%E5%AD%A6%E6%9C%89%E6%84%9F/" rel="prev" title="闺女开学有感">
-      <i class="fa fa-chevron-left"></i> 闺女开学有感
+    <a href="/2020/06/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="prev" title="博客搭建总结（二）">
+      <i class="fa fa-chevron-left"></i> 博客搭建总结（二）
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/06/17/%E6%B2%A1%E6%9D%A5%E5%BE%97%E5%8F%8A%E5%A5%BD%E5%A5%BD%E8%BF%87%E7%9A%84%E5%A4%A7%E4%BA%8C/" rel="next" title="没来得及好好过的大二">
-      没来得及好好过的大二 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/06/23/Python-5/" rel="next" title="Python_5(公共操作推导式)">
+      Python_5(公共操作推导式) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -430,6 +485,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、字典"><span class="nav-number">1.</span> <span class="nav-text">一、字典</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、创建字典"><span class="nav-number">1.1.</span> <span class="nav-text">1、创建字典</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、字典常见操作"><span class="nav-number">1.2.</span> <span class="nav-text">2、字典常见操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#增加"><span class="nav-number">1.2.1.</span> <span class="nav-text">增加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">1.2.2.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改"><span class="nav-number">1.2.3.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找"><span class="nav-number">1.2.4.</span> <span class="nav-text">查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#key值查找"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">key值查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#get"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">get()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#keys"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">keys()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#values"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">values()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#items"><span class="nav-number">1.2.4.5.</span> <span class="nav-text">items()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、字典的循环遍历"><span class="nav-number">1.3.</span> <span class="nav-text">3、字典的循环遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历字典的key"><span class="nav-number">1.3.1.</span> <span class="nav-text">遍历字典的key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历字典的value"><span class="nav-number">1.3.2.</span> <span class="nav-text">遍历字典的value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历字典的元素"><span class="nav-number">1.3.3.</span> <span class="nav-text">遍历字典的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历字典的键值对-拆包"><span class="nav-number">1.3.4.</span> <span class="nav-text">遍历字典的键值对(拆包)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、集合"><span class="nav-number">2.</span> <span class="nav-text">二、集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、创建集合"><span class="nav-number">2.1.</span> <span class="nav-text">1、创建集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、操作"><span class="nav-number">2.2.</span> <span class="nav-text">2、操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#增加-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">增加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">查找</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
