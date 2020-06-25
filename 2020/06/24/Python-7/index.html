@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Thorine">
 <meta property="og:description" content="基于上次的函数基本知识，本篇总结python中文件的相关操作。">
 <meta property="article:published_time" content="2020-06-24T13:56:11.000Z">
-<meta property="article:modified_time" content="2020-06-25T05:14:35.412Z">
+<meta property="article:modified_time" content="2020-06-25T10:41:08.638Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="Learning">
 <meta property="article:tag" content="Python">
@@ -237,7 +237,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-25 13:14:35" itemprop="dateModified" datetime="2020-06-25T13:14:35+08:00">2020-06-25</time>
+                <time title="修改时间：2020-06-25 18:41:08" itemprop="dateModified" datetime="2020-06-25T18:41:08+08:00">2020-06-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -283,14 +283,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -306,19 +306,19 @@
 <a id="more"></a>
 
 <hr>
-<h1 id="文件的基本操作"><a href="#文件的基本操作" class="headerlink" title="文件的基本操作"></a>文件的基本操作</h1><h2 id="文件操作步骤"><a href="#文件操作步骤" class="headerlink" title="文件操作步骤"></a>文件操作步骤</h2><ol>
+<h1 id="文件的基本操作"><a href="#文件的基本操作" class="headerlink" title="文件的基本操作"></a>文件的基本操作</h1><ol>
 <li>打开文件</li>
 <li>读写等操作</li>
 <li>关闭文件</li>
 </ol>
-<h3 id="打开"><a href="#打开" class="headerlink" title="打开"></a>打开</h3><p>在python中，使用open函数，可以打开一个已经存在的文件，或者创建一个新文件，语法如下：</p>
+<h2 id="打开"><a href="#打开" class="headerlink" title="打开"></a>打开</h2><p>在python中，使用open函数，可以打开一个已经存在的文件，或者创建一个新文件，语法如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open(name, mode)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>name：是要打开的目标文件名的字符串（可以包含具体路径）</li>
 <li>mode：设置打开文件的模式（访问模式）：只读、只写、追加等</li>
 </ul>
-<h4 id="打开文件模式"><a href="#打开文件模式" class="headerlink" title="打开文件模式"></a>打开文件模式</h4><table>
+<h2 id="打开文件模式"><a href="#打开文件模式" class="headerlink" title="打开文件模式"></a>打开文件模式</h2><table>
 <thead>
 <tr>
 <th align="left">模式</th>
@@ -385,13 +385,13 @@
 <p><strong>使用</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'test.txt'</span>, <span class="string">'w'</span>) <span class="comment"># f代表文件对象</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="文件对象方法"><a href="#文件对象方法" class="headerlink" title="文件对象方法"></a>文件对象方法</h3><h4 id="写"><a href="#写" class="headerlink" title="写"></a>写</h4><ul>
+<h2 id="文件对象方法"><a href="#文件对象方法" class="headerlink" title="文件对象方法"></a>文件对象方法</h2><h3 id="写"><a href="#写" class="headerlink" title="写"></a>写</h3><ul>
 <li><p>语法</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件对象.write(<span class="string">'内容'</span>)</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h4 id="读"><a href="#读" class="headerlink" title="读"></a>读</h4><ul>
+<h3 id="读"><a href="#读" class="headerlink" title="读"></a>读</h3><ul>
 <li><p><strong>read</strong>()</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件对象.read(num)</span><br></pre></td></tr></table></figure>
 
@@ -407,7 +407,7 @@
 <p>一次读取一行内容</p>
 </li>
 </ul>
-<h4 id="移动文件指针-seek"><a href="#移动文件指针-seek" class="headerlink" title="移动文件指针__seek()"></a>移动文件指针__seek()</h4><p>语法：</p>
+<h3 id="移动文件指针-seek"><a href="#移动文件指针-seek" class="headerlink" title="移动文件指针__seek()"></a>移动文件指针__seek()</h3><p>语法：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件对象.seek(偏移量, 起始位置)</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -419,6 +419,63 @@
 </ul>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'test,txt'</span>, <span class="string">'r+'</span>)</span><br><span class="line">f.seek(<span class="number">2</span>, <span class="number">0</span>) <span class="comment"># 从开头位置，偏移两个字符，即第三个字符开始读取</span></span><br><span class="line">f.seek(<span class="number">0</span>) <span class="comment">#  &lt;=&gt; seek(0, 0),即从文件的最开始读取</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="文件备份"><a href="#文件备份" class="headerlink" title="文件备份"></a>文件备份</h1><p>需求：用户输入当前目录下任意文件名，程序完成对该文件的备份功能（test[备份].txt）</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>接收用户输入的文件名</li>
+<li>规划备份文件名</li>
+<li>备份文件写入数据</li>
+</ol>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><ol>
+<li><p>接受用户输入目标文件名</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">old_name = input(<span class="string">'请输入您要备份的文件名：'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>规划备份文件名</p>
+<ul>
+<li>提取目标文件后缀（字符串最后的一个点才是后缀的点）</li>
+<li>组织备份的文件名，xx[备份]后缀</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以sound.txt.mp3文件名为例</span></span><br><span class="line"></span><br><span class="line">index = old_name.rfind(<span class="string">'.'</span>)	<span class="comment"># 提取文件后缀名中“.”的下标   9</span></span><br><span class="line"><span class="comment"># old_name[:index]  源文件名（无后缀）   sound.txt</span></span><br><span class="line"><span class="comment"># old_name[index:]  后缀名		.mp3</span></span><br><span class="line"></span><br><span class="line">new_name = old_name[:index] + <span class="string">'[备份]'</span> + old_name[index:]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>备份文件写入数据</p>
+<ul>
+<li>打开源文件 和 备份文件</li>
+<li>将源文件数据写入备份文件</li>
+<li>关闭文件</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">old_f = open(old_name, <span class="string">'rb'</span>) <span class="comment"># 以二进制的方式读写</span></span><br><span class="line">new_f = open(new_name, <span class="string">'wb'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    con = old_f.read(<span class="number">1024</span>)</span><br><span class="line">    <span class="keyword">if</span> len(con) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span>; <span class="comment">#表示读完，退出循环</span></span><br><span class="line">    new_f.write(con)</span><br><span class="line">    </span><br><span class="line">old_f.close()</span><br><span class="line">new_f.close()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="文件和文件夹的操作"><a href="#文件和文件夹的操作" class="headerlink" title="文件和文件夹的操作"></a>文件和文件夹的操作</h1><p>在python中文件和文件夹的操作要借助os模板里面的相关功能，具体步骤如下：</p>
+<ol>
+<li><p>导入os模块</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用os模块相关功能</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.函数名()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="文件重命名"><a href="#文件重命名" class="headerlink" title="文件重命名"></a>文件重命名</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.rename(目标文件名, 新文件名)</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.remove(目标文件名)</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.mkdir(文件夹名字)</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.rmdir(文件夹名字)</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取当前目录"><a href="#获取当前目录" class="headerlink" title="获取当前目录"></a>获取当前目录</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.getcwd()</span><br></pre></td></tr></table></figure>
+
+<h2 id="改变默认目录"><a href="#改变默认目录" class="headerlink" title="改变默认目录"></a>改变默认目录</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.chdir(目录)</span><br></pre></td></tr></table></figure>
+
+<p><strong>需求</strong>：在A文件夹里创建B文件夹</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.chdir(<span class="string">'A'</span>)</span><br><span class="line">os.mkdir(<span class="string">'B'</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取目录列表"><a href="#获取目录列表" class="headerlink" title="获取目录列表"></a>获取目录列表</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.listdir(目录) <span class="comment">#获取该目录下的所有文件，返回一个列表</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>例子</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(os.listdir(<span class="string">'A'</span>)) <span class="comment"># B</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -529,7 +586,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件的基本操作"><span class="nav-number">1.</span> <span class="nav-text">文件的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作步骤"><span class="nav-number">1.1.</span> <span class="nav-text">文件操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开"><span class="nav-number">1.1.1.</span> <span class="nav-text">打开</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#打开文件模式"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">打开文件模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件对象方法"><span class="nav-number">1.1.2.</span> <span class="nav-text">文件对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">读</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动文件指针-seek"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">移动文件指针__seek()</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件的基本操作"><span class="nav-number">1.</span> <span class="nav-text">文件的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#打开"><span class="nav-number">1.1.</span> <span class="nav-text">打开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开文件模式"><span class="nav-number">1.2.</span> <span class="nav-text">打开文件模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件对象方法"><span class="nav-number">1.3.</span> <span class="nav-text">文件对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#写"><span class="nav-number">1.3.1.</span> <span class="nav-text">写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读"><span class="nav-number">1.3.2.</span> <span class="nav-text">读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动文件指针-seek"><span class="nav-number">1.3.3.</span> <span class="nav-text">移动文件指针__seek()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件备份"><span class="nav-number">2.</span> <span class="nav-text">文件备份</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">2.1.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">2.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件和文件夹的操作"><span class="nav-number">3.</span> <span class="nav-text">文件和文件夹的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件重命名"><span class="nav-number">3.1.</span> <span class="nav-text">文件重命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-number">3.2.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建文件夹"><span class="nav-number">3.3.</span> <span class="nav-text">创建文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件夹"><span class="nav-number">3.4.</span> <span class="nav-text">删除文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取当前目录"><span class="nav-number">3.5.</span> <span class="nav-text">获取当前目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改变默认目录"><span class="nav-number">3.6.</span> <span class="nav-text">改变默认目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取目录列表"><span class="nav-number">3.7.</span> <span class="nav-text">获取目录列表</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -616,7 +673,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:44</span>
 </div>
 
 <!--
