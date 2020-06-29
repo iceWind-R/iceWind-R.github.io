@@ -3021,7 +3021,6 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名<span class="params">(object)</span>:</span> <span class="comment"># object 为 python中的顶级类</span></span><br><span class="line">    代码</span><br></pre></td></tr></table></figure>
 
 
-
 </li>
 </ul>
 <h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><ul>
@@ -3126,6 +3125,7 @@
 <h2 id="获取和修改私有属性"><a href="#获取和修改私有属性" class="headerlink" title="获取和修改私有属性"></a>获取和修改私有属性</h2><p>自定义get和set方法</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_money</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> self.__money</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_money</span><span class="params">(self)</span>:</span></span><br><span class="line">    self.__money = <span class="number">100</span></span><br></pre></td></tr></table></figure>
 
+<h1 id="保护权限"><a href="#保护权限" class="headerlink" title="保护权限"></a>保护权限</h1><p>以单下划线开头。</p>
 <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="面向对象的三个特性"><a href="#面向对象的三个特性" class="headerlink" title="面向对象的三个特性"></a>面向对象的三个特性</h2><ul>
 <li>封装<ul>
 <li>将属性和方法书写到类里的操作</li>
@@ -3216,11 +3216,12 @@
 <li>关闭文件</li>
 </ol>
 <h2 id="打开"><a href="#打开" class="headerlink" title="打开"></a>打开</h2><p>在python中，使用open函数，可以打开一个已经存在的文件，或者创建一个新文件，语法如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">open(name, mode)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">open(name, mode, encoding=<span class="string">'utf-8'</span>)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>name：是要打开的目标文件名的字符串（可以包含具体路径）</li>
 <li>mode：设置打开文件的模式（访问模式）：只读、只写、追加等</li>
+<li>encoding：指定编码</li>
 </ul>
 <h2 id="打开文件模式"><a href="#打开文件模式" class="headerlink" title="打开文件模式"></a>打开文件模式</h2><table>
 <thead>
@@ -3284,6 +3285,15 @@
 <li>只要带 b 的，都是 以二进制格式打开文件</li>
 <li>带 + 的，打开文件用于读写</li>
 <li>a ，文件指针在结尾</li>
+</ul>
+</blockquote>
+<img src="/2020/06/24/Python-7/1.png" class>
+
+<blockquote>
+<p> 注：</p>
+<ul>
+<li>Truncate：截断</li>
+<li>Initial Position：初始位置</li>
 </ul>
 </blockquote>
 <p><strong>使用</strong></p>
@@ -3381,6 +3391,21 @@
 <p><strong>例子</strong>：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(os.listdir(<span class="string">'A'</span>)) <span class="comment"># B</span></span><br></pre></td></tr></table></figure>
 
+<h1 id="读取JSON文件"><a href="#读取JSON文件" class="headerlink" title="读取JSON文件"></a>读取JSON文件</h1><p>我们使用Python中的json模块就可以将字典或列表以JSON格式保存到文件中，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    mydict = &#123;</span><br><span class="line">        <span class="string">'name'</span>: <span class="string">'张三'</span>,</span><br><span class="line">        <span class="string">'age'</span>: <span class="number">38</span>,</span><br><span class="line">        <span class="string">'qq'</span>: <span class="number">957658</span>,</span><br><span class="line">        <span class="string">'friends'</span>: [<span class="string">'王大锤'</span>, <span class="string">'白元芳'</span>],</span><br><span class="line">        <span class="string">'cars'</span>: [</span><br><span class="line">            &#123;<span class="string">'brand'</span>: <span class="string">'BYD'</span>, <span class="string">'max_speed'</span>: <span class="number">180</span>&#125;,</span><br><span class="line">            &#123;<span class="string">'brand'</span>: <span class="string">'Audi'</span>, <span class="string">'max_speed'</span>: <span class="number">280</span>&#125;,</span><br><span class="line">            &#123;<span class="string">'brand'</span>: <span class="string">'Benz'</span>, <span class="string">'max_speed'</span>: <span class="number">320</span>&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'data.json'</span>, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> fs:</span><br><span class="line">            json.dump(mydict, fs)</span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> e:</span><br><span class="line">        print(e)</span><br><span class="line">    print(<span class="string">'保存数据完成!'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>json模块主要有四个比较重要的函数，分别是：</p>
+<ul>
+<li><code>dump</code> - 将Python对象按照JSON格式序列化到文件中</li>
+<li><code>dumps</code> - 将Python对象处理成JSON格式的字符串</li>
+<li><code>load</code> - 将文件中的JSON数据反序列化成对象</li>
+<li><code>loads</code> - 将字符串的内容反序列化成Python对象</li>
+</ul>
+<p>这里出现了两个概念，一个叫序列化，一个叫反序列化。自由的百科全书<a href="https://zh.wikipedia.org/" target="_blank" rel="noopener">维基百科</a>上对这两个概念是这样解释的：</p>
+<ul>
+<li>序列化（serialization）在计算机科学的数据处理中，是指将数据结构或对象状态转换为可以存储或传输的形式，这样在需要的时候能够恢复到原先的状态，而且通过序列化的数据重新获取字节时，可以利用这些字节来产生原始对象的副本（拷贝）。</li>
+<li>与这个过程相反的动作，即从一系列字节中提取数据结构的操作，就是反序列化（deserialization）”。</li>
+</ul>
 ]]></content>
       <categories>
         <category>Python</category>
@@ -3895,6 +3920,7 @@
 <a id="more"></a>
 
 <hr>
+<p>可以阅读一篇非常有名的博客叫<a href="https://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">《正则表达式30分钟入门教程》</a></p>
 <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>正则表达式(regular expression)描述了一种字符串匹配的模式（pattern），可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串等。</p>
 <p>构造正则表达式的方法和创建数学表达式的方法一样。也就是用多种元字符与运算符可以将小的表达式结合在一起来创建更大的表达式。正则表达式的组件可以是单个的字符、字符集合、字符范围、字符间的选择或者所有这些组件的任意组合。</p>
 <p>正则表达式是由普通字符（例如字符 a 到 z）以及特殊字符（称为”元字符”）组成的文字模式。模式描述在搜索文本时要匹配的一个或多个字符串。正则表达式作为一个模板，将某个字符模式与所搜索的字符串进行匹配。</p>
@@ -4539,7 +4565,19 @@
 <p>需求：密码长度不足，则报异常（输入密码少于3位，则报错，抛出自定义异常，并捕获该异常）</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 自定义异常类，继承Exception</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShortInputError</span><span class="params">(Exception)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, length, min_len)</span>:</span></span><br><span class="line">        self.length = length</span><br><span class="line">        self.min_len = min_len</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 设置抛出异常的描述信息</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f'你输入的长度为<span class="subst">&#123;self.length&#125;</span>，不能少于<span class="subst">&#123;self.min_len&#125;</span>个字符'</span></span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        con = input(<span class="string">'请输入密码：'</span>)</span><br><span class="line">        <span class="keyword">if</span> len(con) &lt; <span class="number">3</span>: <span class="comment"># 即输入密码不符合要求</span></span><br><span class="line">            <span class="keyword">raise</span> ShortInputError(len(con), <span class="number">3</span>) <span class="comment"># 抛出异常 raise</span></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> result:</span><br><span class="line">        print(result)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">    	print(<span class="string">'密码输入完成'</span>)</span><br></pre></td></tr></table></figure>
 
-]]></content>
+<h1 id="with-…-as"><a href="#with-…-as" class="headerlink" title="with … as"></a>with … as</h1><p>with as 语句的<strong>结构</strong>如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> expression [<span class="keyword">as</span> variable]:</span><br><span class="line">    <span class="keyword">with</span>-block</span><br></pre></td></tr></table></figure>
+
+<p>with…as语句<strong>执行顺序</strong>：<br>–&gt;首先执行expression里面的<code>__enter__</code>函数，它的返回值会赋给<code>as</code>后面的<code>variable</code>，想让它返回什么就返回什么，只要你知道怎么处理就可以了，如果不写<code>as variable</code>，返回值会被忽略。</p>
+<p>–&gt;然后，开始执行<code>with-block</code>中的语句，不论成功失败(比如发生异常、错误，设置sys.exit() )，在<code>with-block</code>执行完成后，会执行<code>expression</code>中的<code>__exit__</code>函数。</p>
+<p>这个和<code>try finally</code>函数有什么关系呢？</p>
+<p>其实，这样的过程<strong>等价</strong>于：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:  </span><br><span class="line">    执行 __enter__的内容  </span><br><span class="line">    执行 with_block.  </span><br><span class="line"><span class="keyword">finally</span>:  </span><br><span class="line">    执行 __exit__内容</span><br></pre></td></tr></table></figure>
+
+<h2 id="简单形式"><a href="#简单形式" class="headerlink" title="简单形式"></a>简单形式</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">try：</span><br><span class="line">  f &#x3D; open(&#39;a.txt&#39;, &#39;w&#39;)</span><br><span class="line">  f.write(&#39;Hello!&#39;)</span><br><span class="line">finally:</span><br><span class="line">  f.close()</span><br></pre></td></tr></table></figure>
+
+<p><strong>等价</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">with open(&#39;a.txt&#39;, &#39;w&#39;) as f:</span><br><span class="line">  f.write(&#39;Hello!&#39;)</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Python</category>
       </categories>
