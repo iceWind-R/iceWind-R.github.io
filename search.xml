@@ -2720,7 +2720,7 @@
 <li>in</li>
 <li>not in</li>
 </ul>
-]]></content>
+<h2 id="3、交并补"><a href="#3、交并补" class="headerlink" title="3、交并补"></a>3、交并补</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 集合的交集、并集、差集、对称差运算</span></span><br><span class="line">print(set1 &amp; set2)</span><br><span class="line"><span class="comment"># print(set1.intersection(set2))</span></span><br><span class="line">print(set1 | set2)</span><br><span class="line"><span class="comment"># print(set1.union(set2))</span></span><br><span class="line">print(set1 - set2)</span><br><span class="line"><span class="comment"># print(set1.difference(set2))</span></span><br><span class="line">print(set1 ^ set2)</span><br><span class="line"><span class="comment"># print(set1.symmetric_difference(set2))</span></span><br><span class="line"><span class="comment"># 判断子集和超集</span></span><br><span class="line">print(set2 &lt;= set1)</span><br><span class="line"><span class="comment"># print(set2.issubset(set1))</span></span><br><span class="line">print(set3 &lt;= set1)</span><br><span class="line"><span class="comment"># print(set3.issubset(set1))</span></span><br><span class="line">print(set1 &gt;= set2)</span><br><span class="line"><span class="comment"># print(set1.issuperset(set2))</span></span><br><span class="line">print(set1 &gt;= set3)</span><br><span class="line"><span class="comment"># print(set1.issuperset(set3))</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Python</category>
       </categories>
@@ -2849,12 +2849,13 @@
 <li><p>isspace()：如果字符串只包含空白。</p>
 </li>
 </ul>
-<p><strong>示例</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str1 = <span class="string">'hello, world!'</span></span><br><span class="line">print(<span class="string">'字符串的长度是:'</span>, len(str1))</span><br><span class="line">print(<span class="string">'单词首字母大写: '</span>, str1.title())</span><br><span class="line">print(<span class="string">'字符串变大写: '</span>, str1.upper())</span><br><span class="line"><span class="comment"># str1 = str1.upper()</span></span><br><span class="line">print(<span class="string">'字符串是不是大写: '</span>, str1.isupper())</span><br><span class="line">print(<span class="string">'字符串是不是以hello开头: '</span>, str1.startswith(<span class="string">'hello'</span>))</span><br><span class="line">print(<span class="string">'字符串是不是以hello结尾: '</span>, str1.endswith(<span class="string">'hello'</span>))</span><br><span class="line">print(<span class="string">'字符串是不是以感叹号开头: '</span>, str1.startswith(<span class="string">'!'</span>))</span><br><span class="line">print(<span class="string">'字符串是不是一感叹号结尾: '</span>, str1.endswith(<span class="string">'!'</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>可以使用<code>*</code>运算符来重复一个字符串的内容，可以使用<code>in</code>和<code>not in</code>来判断一个字符串是否包含另外一个字符串（成员运算）</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s1 = <span class="string">'hello '</span> * <span class="number">3</span></span><br><span class="line">print(s1) <span class="comment"># hello hello hello</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'ll'</span> <span class="keyword">in</span> s1) <span class="comment"># True</span></span><br><span class="line">print(<span class="string">'good'</span> <span class="keyword">in</span> s1) <span class="comment"># False</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str1 = <span class="string">'hello, world!'</span></span><br><span class="line">print(<span class="string">'字符串的长度是:'</span>, len(str1))</span><br><span class="line">print(<span class="string">'单词首字母大写: '</span>, str1.title())</span><br><span class="line">print(<span class="string">'字符串变大写: '</span>, str1.upper())</span><br><span class="line"><span class="comment"># str1 = str1.upper()</span></span><br><span class="line">print(<span class="string">'字符串是不是大写: '</span>, str1.isupper())</span><br><span class="line">print(<span class="string">'字符串是不是以hello开头: '</span>, str1.startswith(<span class="string">'hello'</span>))</span><br><span class="line">print(<span class="string">'字符串是不是以hello结尾: '</span>, str1.endswith(<span class="string">'hello'</span>))</span><br><span class="line">print(<span class="string">'字符串是不是以感叹号开头: '</span>, str1.startswith(<span class="string">'!'</span>))</span><br><span class="line">print(<span class="string">'字符串是不是一感叹号结尾: '</span>, str1.endswith(<span class="string">'!'</span>))</span><br></pre></td></tr></table></figure>
 
 <p><strong>结果</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串的长度是: <span class="number">13</span></span><br><span class="line">单词首字母大写:  Hello, World!</span><br><span class="line">字符串变大写:  HELLO, WORLD!</span><br><span class="line">字符串是不是大写:  <span class="literal">False</span></span><br><span class="line">字符串是不是以hello开头:  <span class="literal">True</span></span><br><span class="line">字符串是不是以hello结尾:  <span class="literal">False</span></span><br><span class="line">字符串是不是以感叹号开头:  <span class="literal">False</span></span><br><span class="line">字符串是不是一感叹号结尾:  <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>Python</category>
@@ -3401,7 +3402,7 @@
 
 <p>列表存储的多个数据可为不同类型，但为了相关操作，尽量存储相同数据类型的数据。</p>
 <h2 id="2、列表的常用操作"><a href="#2、列表的常用操作" class="headerlink" title="2、列表的常用操作"></a>2、列表的常用操作</h2><p>对列表中的多个数据实现增、删、改、查等基本操作。</p>
-<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><h4 id="下标"><a href="#下标" class="headerlink" title="下标"></a>下标</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>,<span class="string">'Rose'</span>,<span class="string">'Lily'</span>];</span><br><span class="line">print(name_list[<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><h4 id="下标"><a href="#下标" class="headerlink" title="下标"></a>下标</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>,<span class="string">'Rose'</span>,<span class="string">'Lily'</span>];</span><br><span class="line">print(name_list[<span class="number">1</span>]); <span class="comment"># Rose</span></span><br><span class="line">print(name_list[<span class="number">-1</span>]);<span class="comment"># Lily</span></span><br><span class="line"></span><br><span class="line">list2 = [<span class="string">'hello'</span>] * <span class="number">3</span></span><br><span class="line">print(list2) <span class="comment"># ['hello', 'hello', 'hello']</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><ul>
 <li><p>index()：返回指定数据所在位置的下标</p>
@@ -3467,21 +3468,21 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">del</span> 目标</span><br></pre></td></tr></table></figure>
 
 <p>例子：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#删除指定数据</span></span><br><span class="line"><span class="keyword">del</span> name_list[<span class="number">0</span>]</span><br><span class="line"><span class="comment">#删除列表</span></span><br><span class="line"><span class="keyword">del</span> name_list</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除指定数据</span></span><br><span class="line"><span class="keyword">del</span> name_list[<span class="number">0</span>]</span><br><span class="line"><span class="comment"># 删除列表</span></span><br><span class="line"><span class="keyword">del</span> name_list</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>pop()：删除指定下标的数据（默认最后一个），并返回该数据。</p>
 <p>语法：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">列表序列.pop(下标)</span><br></pre></td></tr></table></figure>
 
 <p>例子：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">del_name = name_list.pop(<span class="number">1</span>) <span class="comment">#Rose</span></span><br><span class="line">print(name_list) <span class="comment">#['Tom','Lily']</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">del_name = name_list.pop(<span class="number">1</span>) <span class="comment"># Rose</span></span><br><span class="line">print(name_list) <span class="comment"># ['Tom','Lily']</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>remove()：移除列表中某个数据的第一个匹配项。</p>
 <p>语法：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">列表序列.remove(数据)</span><br></pre></td></tr></table></figure>
 
 <p>例子：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name_list.remove(<span class="string">'Rose'</span>)  <span class="comment">#['Tom','Lily']</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name_list.remove(<span class="string">'Rose'</span>)  <span class="comment"># ['Tom','Lily']</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>clear()：清空列表</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name_list.clear()</span><br><span class="line">print(name_list) <span class="comment"># 结果：[]</span></span><br></pre></td></tr></table></figure>
@@ -3490,10 +3491,10 @@
 </ul>
 <h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><ul>
 <li><p>修改指定下标数据</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name_list[<span class="number">0</span>] = <span class="string">'Test'</span> <span class="comment">#['Test','Rose','Lily']</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name_list[<span class="number">0</span>] = <span class="string">'Test'</span> <span class="comment"># ['Test','Rose','Lily']</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>逆置：reverse()</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">num_list = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">num_list.reverse() <span class="comment">#[3,2,1]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">num_list = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">num_list.reverse() <span class="comment"># [3,2,1]</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>排序：sort()</p>
 <p>语法：</p>
@@ -3503,13 +3504,14 @@
 <p>注意：reverse表示排序规则，reverse = False 升序（默认），reverse = True 降序，</p>
 </blockquote>
 <p>例子：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">num_list.sort(reverse=<span class="literal">True</span>) <span class="comment">#降序，[3,2,1]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">num_list.sort(reverse=<span class="literal">True</span>) <span class="comment"># 降序，[3,2,1]</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><p>函数：copy()</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list1 = name_list.copy()</span><br></pre></td></tr></table></figure>
 
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>和字符串一样，也可切片等。</p>
 <h2 id="3、列表的循环遍历"><a href="#3、列表的循环遍历" class="headerlink" title="3、列表的循环遍历"></a>3、列表的循环遍历</h2><h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">0</span> </span><br><span class="line"><span class="keyword">while</span> i &lt; len(name_list):</span><br><span class="line">    print(name_list[i])</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> name_list:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
