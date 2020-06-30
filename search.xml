@@ -4817,6 +4817,14 @@
 <hr>
 <h1 id="网络爬虫"><a href="#网络爬虫" class="headerlink" title="网络爬虫"></a>网络爬虫</h1><img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-02/1.png" class>
 
+<img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-02/6.png" class>
+
+<h1 id="Robots协议"><a href="#Robots协议" class="headerlink" title="Robots协议"></a>Robots协议</h1><p><strong>作用</strong>：网站告知网络爬虫哪些页面可以抓取，哪些不行。</p>
+<p><strong>形式：</strong>在网站根目录下的robots.txt文件</p>
+<p>基本语法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 注释，*代表所有，/代表根目录 </span></span><br><span class="line">User‐agent: * </span><br><span class="line">Disallow: /</span><br></pre></td></tr></table></figure>
+
+<p>百度robots协议查看：<a href="https://www.baidu.com/robots.txt" target="_blank" rel="noopener">https://www.baidu.com/robots.txt</a></p>
 <h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h2 id="1、爬取亚马逊商品信息"><a href="#1、爬取亚马逊商品信息" class="headerlink" title="1、爬取亚马逊商品信息"></a>1、爬取亚马逊商品信息</h2><p>在我们用简单的get方法爬取时，获取状态码显示503</p>
 <img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-02/2.png" class>
 
