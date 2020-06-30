@@ -4686,4 +4686,22 @@
         <tag>Python</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Python爬虫_01</title>
+    <url>/2020/06/30/Python%E7%88%AC%E8%99%AB-01/</url>
+    <content><![CDATA[<p>这部分是python记录爬虫功能的笔记，刚刚入门，总结记录。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="Requests库入门"><a href="#Requests库入门" class="headerlink" title="Requests库入门"></a>Requests库入门</h1><p>关于更多requests库的知识，可以查看<a href="https://requests.readthedocs.io/zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">官方网站</a>。</p>
+<p>request 库需要安装</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
 </search>
