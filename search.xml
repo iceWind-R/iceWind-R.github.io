@@ -4770,26 +4770,75 @@
 <img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-01/18.png" class>
 </li>
 <li><p>cookies : 字典或CookieJar，Request中的cookie</p>
-<p>auth : 元组，支持HTTP认证功能</p>
+</li>
+<li><p>auth : 元组，支持HTTP认证功能</p>
+</li>
+<li><p>allow_redirects：True/False，默认为True，重定向开关</p>
+</li>
+<li><p>stream：True/False，默认为True，获取内容立即下载开关</p>
+</li>
+<li><p>verify：True/False，默认为True，认证SSL证书开关</p>
+</li>
+<li><p>cert：本地SSL证书路径</p>
 </li>
 </ol>
 <h2 id="2-requests-get-url-params-None-kwargs"><a href="#2-requests-get-url-params-None-kwargs" class="headerlink" title="2. requests.get(url, params=None, \kwargs)"></a>2. requests.get(<strong>url</strong>, <strong>params=None</strong>, <strong><em>\</em>kwargs</strong>)</h2><p><strong>∙</strong> <strong>url</strong> : 拟获取页面的url链接</p>
 <p><strong>∙</strong> <strong>params</strong> : url中的额外参数，字典或字节流格式，可选</p>
-<p><strong>∙</strong> <strong><em>\</em>kwargs</strong>: 12个控制访问的参数</p>
+<p><strong>∙</strong> **kwargs: 12个控制访问的参数</p>
 <h2 id="3-requests-head-url-kwargs"><a href="#3-requests-head-url-kwargs" class="headerlink" title="3. requests.head(url, \kwargs)"></a>3. requests.head(<strong>url</strong>, <strong><em>\</em>kwargs</strong>)</h2><p><strong>∙</strong> <strong>url</strong> : 拟获取页面的url链接</p>
-<p><strong>∙</strong> <strong><em>\</em>kwargs</strong>: 12个控制访问的参数</p>
+<p><strong>∙</strong> **kwargs: 12个控制访问的参数</p>
 <h2 id="4-requests-post-url-data-None-json-None-kwargs"><a href="#4-requests-post-url-data-None-json-None-kwargs" class="headerlink" title="4. requests.post(url, data=None, json=None, \kwargs)"></a>4. requests.post(<strong>url</strong>, <strong>data=None</strong>, <strong>json=None</strong>, <strong><em>\</em>kwargs</strong>)</h2><p><strong>∙</strong> <strong>url</strong> : 拟更新页面的url链接</p>
 <p><strong>∙</strong> <strong>data</strong> : 字典、字节序列或文件，Request的内容</p>
 <p><strong>∙</strong> <strong>json</strong> : JSON格式的数据，Request的内容</p>
-<p><strong>∙</strong> <strong><em>\</em>kwargs</strong>: 12个控制访问的参数</p>
+<p><strong>∙</strong> **kwargs: 12个控制访问的参数</p>
 <h2 id="5-requests-put-url-data-None-kwargs"><a href="#5-requests-put-url-data-None-kwargs" class="headerlink" title="5. requests.put(url, data=None, \kwargs)"></a>5. requests.put(<strong>url</strong>, <strong>data=None</strong>, <strong><em>\</em>kwargs</strong>)</h2><p><strong>∙</strong> <strong>url</strong> : 拟更新页面的url链接</p>
 <p><strong>∙</strong> <strong>data</strong> : 字典、字节序列或文件，Request的内容</p>
-<p><strong>∙</strong> <strong><em>\</em>kwargs</strong>: 12个控制访问的参数</p>
+<p><strong>∙</strong> **kwargs: 12个控制访问的参数</p>
 <h2 id="6-requests-patch-url-data-None-kwargs"><a href="#6-requests-patch-url-data-None-kwargs" class="headerlink" title="6. requests.patch(url, data=None, \kwargs)"></a>6. requests.patch(<strong>url</strong>, <strong>data=None</strong>, <strong><em>\</em>kwargs</strong>)</h2><p><strong>∙</strong> <strong>url</strong> : 拟更新页面的url链接</p>
 <p><strong>∙</strong> <strong>data</strong> : 字典、字节序列或文件，Request的内容</p>
-<p><strong>∙</strong> <strong><em>\</em>kwargs</strong>: 12个控制访问的参数</p>
+<p><strong>∙</strong> **kwargs: 12个控制访问的参数</p>
 <h2 id="7-requests-delete-url-kwargs"><a href="#7-requests-delete-url-kwargs" class="headerlink" title="7. requests.delete(url, \kwargs)"></a>7. requests.delete(<strong>url</strong>, <strong><em>\</em>kwargs</strong>)</h2><p><strong>∙</strong> <strong>url</strong> : 拟删除页面的url链接</p>
-<p><strong>∙</strong> <strong><em>\</em>kwargs</strong>: 12个控制访问的参数</p>
+<p><strong>∙</strong> **kwargs: 12个控制访问的参数</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python爬虫_02</title>
+    <url>/2020/06/30/Python%E7%88%AC%E8%99%AB-02/</url>
+    <content><![CDATA[<p>这部分是爬虫初步的爬取实例，涉及网站、搜索、图片等查询。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="网络爬虫"><a href="#网络爬虫" class="headerlink" title="网络爬虫"></a>网络爬虫</h1><img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-02/1.png" class>
+
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h2 id="1、爬取亚马逊商品信息"><a href="#1、爬取亚马逊商品信息" class="headerlink" title="1、爬取亚马逊商品信息"></a>1、爬取亚马逊商品信息</h2><p>在我们用简单的get方法爬取时，获取状态码显示503</p>
+<img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-02/2.png" class>
+
+<p>返回的 r 中包含 request 请求。</p>
+<p>通过<code>r.request.headers</code>查看头部信息，看到User-Agent选项不是浏览器的信息，可以得知亚马逊会组织非浏览器的访问。</p>
+<p><strong>方法：</strong>更改头部信息，使该爬虫模拟浏览器登录。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">kv = &#123;<span class="string">'user-agent'</span>:<span class="string">'Mozilla/5.0'</span>&#125;</span><br><span class="line">url = <span class="string">"https://www.amazon.cn/gp/product/B01M8L5Z3Y"</span></span><br><span class="line">r = requests.get(url, headers = kv)</span><br></pre></td></tr></table></figure>
+
+<p>此时即可正常爬取。</p>
+<img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-02/3.png" class>
+
+<h2 id="2、爬虫指定关键字到百度查询结果"><a href="#2、爬虫指定关键字到百度查询结果" class="headerlink" title="2、爬虫指定关键字到百度查询结果"></a>2、爬虫指定关键字到百度查询结果</h2><p>百度的关键词接口：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">http://www.baidu.com/s?wd=keyword</span><br></pre></td></tr></table></figure>
+
+<p>输入keyword得到搜索引擎的搜索结果。</p>
+<p>即对我们的requests库，构造这样的url即可。</p>
+<img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-02/4.png" class>
+
+<h2 id="3、网络图片的爬取和存储"><a href="#3、网络图片的爬取和存储" class="headerlink" title="3、网络图片的爬取和存储"></a>3、网络图片的爬取和存储</h2><p>图片在网络上的存储地址以图片的后缀为结尾。</p>
+<img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-02/5.png" class>
+
+<p>代码中，<code>r.content</code>是内容的二进制形式，写入目标文件可得到相应图片。</p>
 ]]></content>
       <categories>
         <category>Python</category>
