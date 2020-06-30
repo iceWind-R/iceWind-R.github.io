@@ -4856,4 +4856,75 @@
         <tag>Python</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Python爬虫_03</title>
+    <url>/2020/06/30/Python%E7%88%AC%E8%99%AB-03/</url>
+    <content><![CDATA[<p>本篇总结BeautifulSoup库的安装使用。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="BeautifulSoup初步"><a href="#BeautifulSoup初步" class="headerlink" title="BeautifulSoup初步"></a>BeautifulSoup初步</h1><p>安装很容易，管理员打开命令行窗口，输入<code>pip install BeautifulSoup</code>，即可。</p>
+<p>使用BeautifulSoup主要两行代码即可。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 引用bs4库的BeautifulSoup类</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="comment"># html代码可以是requests库读取的网页代码 解析器：html的parser</span></span><br><span class="line">soup = BeautifulSoup(html代码, <span class="string">'html.parser'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可查看有代码缩进的html页面代码</span></span><br><span class="line">print(soup.prettify())</span><br></pre></td></tr></table></figure>
+
+<h1 id="BeautifulSoup库的基本元素"><a href="#BeautifulSoup库的基本元素" class="headerlink" title="BeautifulSoup库的基本元素"></a>BeautifulSoup库的基本元素</h1><p>HTML文档、标签树和BeautifulSoup类的关系是等价的。</p>
+<p>BeautifulSoup对应一个HTML/XML文档的全部内容</p>
+<p>BeautifulSoup有四种解析器，其他三种需要另行安装。</p>
+<h2 id="BeautifulSoup类的基本元素"><a href="#BeautifulSoup类的基本元素" class="headerlink" title="BeautifulSoup类的基本元素"></a>BeautifulSoup类的基本元素</h2><img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-03/1.png" class>
+
+<img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-03/2.png" class>
+
+<h3 id="1、Tag标签"><a href="#1、Tag标签" class="headerlink" title="1、Tag标签"></a>1、Tag标签</h3><p>任何存在于HTML语法中的标签都可以用<code>soup.&lt;Tag&gt;</code>访问获得 当HTML文档中存在多个相同<code>&lt;Tag&gt;</code>对应内容时，<code>soup.&lt;Tag&gt;</code>返回第一个。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.title</span><br><span class="line">&lt;title&gt;This is a title&lt;/title&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、Tag的name"><a href="#2、Tag的name" class="headerlink" title="2、Tag的name"></a>2、Tag的name</h3><p>每个<code>&lt;Tag&gt;</code>都有自己的名字，通过<code>&lt;Tag&gt;.name</code>获取，字符串类型.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.a.name</span><br><span class="line"><span class="string">'a'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.a.parent.name <span class="comment"># 包裹a的第一层标签为p标签</span></span><br><span class="line"><span class="string">'p'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3、Tag的attrs（属性）"><a href="#3、Tag的attrs（属性）" class="headerlink" title="3、Tag的attrs（属性）"></a>3、Tag的attrs（属性）</h3><p>一个<code>&lt;Tag&gt;</code>可以有 0或多个属性，字典类型。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>tag = soup.a</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>tag.attrs</span><br><span class="line">&#123;<span class="string">'href'</span>: <span class="string">'http://www.icourse163.org/course/BIT-268001'</span>, <span class="string">'class'</span>: [<span class="string">'py1'</span>], <span class="string">'id'</span>: <span class="string">'link1'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>tag.attrs[<span class="string">'href'</span>]</span><br><span class="line"><span class="string">'http://www.icourse163.org/course/BIT-268001'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4、Tag的NavigableString"><a href="#4、Tag的NavigableString" class="headerlink" title="4、Tag的NavigableString"></a>4、Tag的NavigableString</h3><p>NavigableString可以跨越多个层次。即直接获取<code>&lt;p&gt;&lt;a&gt;xxxx&lt;/a&gt;&lt;/p&gt;</code>里的内容。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.p</span><br><span class="line">&lt;p class="title"&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.p.string</span><br><span class="line"><span class="string">'The demo python introduces several python courses.'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5、Tag的Comment"><a href="#5、Tag的Comment" class="headerlink" title="5、Tag的Comment"></a>5、Tag的Comment</h3><p>提取注释部分。</p>
+<h1 id="基于bs4库的HTML内容遍历方法"><a href="#基于bs4库的HTML内容遍历方法" class="headerlink" title="基于bs4库的HTML内容遍历方法"></a>基于bs4库的HTML内容遍历方法</h1><p>有三种遍历方法：下行、上行和平行遍历。</p>
+<img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-03/3.png" class>
+
+<h2 id="1、标签树的下行遍历"><a href="#1、标签树的下行遍历" class="headerlink" title="1、标签树的下行遍历"></a>1、标签树的下行遍历</h2><img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-03/4.png" class>
+
+<p>BeautifulSoup类型是标签树的根节点。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.body.contents</span><br><span class="line">['\n', &lt;p class="title"&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;, '\n', &lt;p class="course"&gt;Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:</span><br><span class="line">&lt;a class="py1" href="http://www.icourse163.org/course/BIT-268001" id="link1"&gt;Basic Python&lt;/a&gt; and &lt;a class="py2" href="http://www.icourse163.org/course/BIT-1001870001" id="link2"&gt;Advanced Python&lt;/a&gt;.&lt;/p&gt;, '\n']</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>len(soup.body.contents)</span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：返回的是列表。</p>
+<p><strong>遍历方法</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 遍历儿子结点</span></span><br><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> soup.body.children:</span><br><span class="line">    print(child)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历子孙结点</span></span><br><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> soup.body.descendants:</span><br><span class="line">    print(child)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、标签树的上行遍历"><a href="#2、标签树的上行遍历" class="headerlink" title="2、标签树的上行遍历"></a>2、标签树的上行遍历</h2><img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-03/5.png" class>
+
+<p><strong>实例</strong>：遍历所有先辈节点，包括soup本身，所以要区别判断</p>
+<img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-03/6.png" class>
+
+<h2 id="3、标签树的平行遍历"><a href="#3、标签树的平行遍历" class="headerlink" title="3、标签树的平行遍历"></a>3、标签树的平行遍历</h2><img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-03/7.png" class>
+
+<p><strong>注意：</strong></p>
+<img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-03/8.png" class>
+
+<p><strong>遍历</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> sibling <span class="keyword">in</span> soup.a.next_sibling:</span><br><span class="line">    print(sibling)			<span class="comment"># 遍历后续结点</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> sibling <span class="keyword">in</span> soup.a.previous_sibling:</span><br><span class="line">	print(sibling)			<span class="comment"># 遍历前续结点</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-03/9.png" class>
+
+<h1 id="基于bs4库的HTML格式输出"><a href="#基于bs4库的HTML格式输出" class="headerlink" title="基于bs4库的HTML格式输出"></a>基于bs4库的HTML格式输出</h1><p>能否让HTML内容更加“友好”的显示？</p>
+<h2 id="bs4库的prettify-方法"><a href="#bs4库的prettify-方法" class="headerlink" title="bs4库的prettify()方法"></a>bs4库的prettify()方法</h2><p>可以使读取的html内容格式化输出</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 用于文本和标签</span></span><br><span class="line">soup.prettify() </span><br><span class="line">soup.a.prettify()</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h1><img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-03/10.png" class>]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
 </search>
