@@ -5097,7 +5097,21 @@
 <h2 id="Match对象的方法"><a href="#Match对象的方法" class="headerlink" title="Match对象的方法"></a>Match对象的方法</h2><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/11.png" class>
 
 <p><strong>实例：</strong></p>
-<img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/12.png" class>]]></content>
+<img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/12.png" class>
+
+<h1 id="Re库的贪婪匹配和最小匹配"><a href="#Re库的贪婪匹配和最小匹配" class="headerlink" title="Re库的贪婪匹配和最小匹配"></a>Re库的贪婪匹配和最小匹配</h1><h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><p>同时匹配长短不同的多项，返回哪一个呢？</p>
+<img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/13.png" class>
+
+<h2 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>match = re.search(<span class="string">r'PY.*N'</span>, <span class="string">'PYANBNCNDN'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>match.group(<span class="number">0</span>)</span><br><span class="line"><span class="string">'PYANBNCNDN'</span></span><br></pre></td></tr></table></figure>
+
+<p>Re库默认采用贪婪匹配，即输出匹配最长的子串</p>
+<h2 id="最小匹配"><a href="#最小匹配" class="headerlink" title="最小匹配"></a>最小匹配</h2><p>加操作符<code>?</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>match = re.search(<span class="string">r'PY.*?N'</span>, <span class="string">'PYANBNCNDN'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>match.group(<span class="number">0</span>)</span><br><span class="line"><span class="string">'PYAN'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="最小匹配操作符"><a href="#最小匹配操作符" class="headerlink" title="最小匹配操作符"></a>最小匹配操作符</h2><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/14.png" class>
+
+<p>只要长度输出可能不同的，都可以通过在操作符后增加<code>?</code>变成最小匹配</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/15.png" class>]]></content>
       <categories>
         <category>Python</category>
       </categories>
