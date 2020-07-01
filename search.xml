@@ -4687,9 +4687,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Python爬虫_01</title>
+    <title>Python爬虫_01(requests库)</title>
     <url>/2020/06/30/Python%E7%88%AC%E8%99%AB-01/</url>
-    <content><![CDATA[<p>这部分是python记录爬虫功能的笔记，刚刚入门，这篇总结<strong>requests</strong>库的使用。</p>
+    <content><![CDATA[<p>这部分是python记录爬虫功能的笔记，刚刚入门，这篇总结 <strong>requests</strong> 库的使用。</p>
 <a id="more"></a>
 
 <hr>
@@ -4809,9 +4809,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Python爬虫_02</title>
+    <title>Python爬虫_02(requests库实例)</title>
     <url>/2020/06/30/Python%E7%88%AC%E8%99%AB-02/</url>
-    <content><![CDATA[<p>这部分是爬虫初步的<strong>爬取实例</strong>，涉及网站、搜索、图片等查询。</p>
+    <content><![CDATA[<p>这部分是爬虫初步的 <strong>爬取实例</strong> ，涉及网站、搜索、图片等查询。</p>
 <a id="more"></a>
 
 <hr>
@@ -4857,9 +4857,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Python爬虫_03</title>
+    <title>Python爬虫_03(BeautifulSoup库的使用)</title>
     <url>/2020/06/30/Python%E7%88%AC%E8%99%AB-03/</url>
-    <content><![CDATA[<p>本篇总结<strong>BeautifulSoup</strong>库的安装使用。</p>
+    <content><![CDATA[<p>本篇总结 *<em>BeautifulSoup *</em>库的安装使用。</p>
 <a id="more"></a>
 
 <hr>
@@ -4928,9 +4928,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Python爬虫_04</title>
+    <title>Python爬虫_04(信息提取)</title>
     <url>/2020/07/01/Python%E7%88%AC%E8%99%AB-04/</url>
-    <content><![CDATA[<p>本篇总结爬取时<strong>信息标记与提取方法</strong>。</p>
+    <content><![CDATA[<p>本篇总结爬取时 <strong>信息标记 *<em>与 *</em>提取方法</strong> 。</p>
 <a id="more"></a>
 
 <hr>
@@ -5018,9 +5018,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Python爬虫_05</title>
+    <title>Python爬虫_05(正则表达式)</title>
     <url>/2020/07/01/Python%E7%88%AC%E8%99%AB-05/</url>
-    <content><![CDATA[<p>本篇总结<strong>正则</strong>在python爬虫中的应用。</p>
+    <content><![CDATA[<p>本篇总结 <strong>正则</strong> 在python爬虫中的应用。</p>
 <a id="more"></a>
 
 <hr>
@@ -5112,6 +5112,22 @@
 
 <p>只要长度输出可能不同的，都可以通过在操作符后增加<code>?</code>变成最小匹配</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/15.png" class>]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python爬虫_06</title>
+    <url>/2020/07/01/Python%E7%88%AC%E8%99%AB-06/</url>
+    <content><![CDATA[<p>本篇总结是两个案例的实际应用尝试： <strong>淘宝商品比价</strong> 和 <strong>股票</strong> 的定向爬虫。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="淘宝商品比价"><a href="#淘宝商品比价" class="headerlink" title="淘宝商品比价"></a>淘宝商品比价</h1><h1 id="股票"><a href="#股票" class="headerlink" title="股票"></a>股票</h1>]]></content>
       <categories>
         <category>Python</category>
       </categories>
