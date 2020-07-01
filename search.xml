@@ -4689,7 +4689,7 @@
   <entry>
     <title>Python爬虫_01</title>
     <url>/2020/06/30/Python%E7%88%AC%E8%99%AB-01/</url>
-    <content><![CDATA[<p>这部分是python记录爬虫功能的笔记，刚刚入门，总结记录。</p>
+    <content><![CDATA[<p>这部分是python记录爬虫功能的笔记，刚刚入门，这篇总结<strong>requests</strong>库的使用。</p>
 <a id="more"></a>
 
 <hr>
@@ -4811,7 +4811,7 @@
   <entry>
     <title>Python爬虫_02</title>
     <url>/2020/06/30/Python%E7%88%AC%E8%99%AB-02/</url>
-    <content><![CDATA[<p>这部分是爬虫初步的爬取实例，涉及网站、搜索、图片等查询。</p>
+    <content><![CDATA[<p>这部分是爬虫初步的<strong>爬取实例</strong>，涉及网站、搜索、图片等查询。</p>
 <a id="more"></a>
 
 <hr>
@@ -4859,7 +4859,7 @@
   <entry>
     <title>Python爬虫_03</title>
     <url>/2020/06/30/Python%E7%88%AC%E8%99%AB-03/</url>
-    <content><![CDATA[<p>本篇总结BeautifulSoup库的安装使用。</p>
+    <content><![CDATA[<p>本篇总结<strong>BeautifulSoup</strong>库的安装使用。</p>
 <a id="more"></a>
 
 <hr>
@@ -4930,7 +4930,7 @@
   <entry>
     <title>Python爬虫_04</title>
     <url>/2020/07/01/Python%E7%88%AC%E8%99%AB-04/</url>
-    <content><![CDATA[<p>本篇总结爬取时信息标记与提取方法。</p>
+    <content><![CDATA[<p>本篇总结爬取时<strong>信息标记与提取方法</strong>。</p>
 <a id="more"></a>
 
 <hr>
@@ -5009,6 +5009,95 @@
 
 <h1 id="实例：中国大学的排名爬虫"><a href="#实例：中国大学的排名爬虫" class="headerlink" title="实例：中国大学的排名爬虫"></a>实例：中国大学的排名爬虫</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># CrawUnivRankingA.py</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url, timeout=<span class="number">30</span>) <span class="comment"># r返回的是一个Response对象</span></span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        <span class="keyword">return</span> r.text <span class="comment"># 返回的r中的内容，即html代码的字符串形式</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'连接失败'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fillUnivList</span><span class="params">(ulist, html)</span>:</span></span><br><span class="line">    soup = BeautifulSoup(html, <span class="string">"html.parser"</span>)</span><br><span class="line">    <span class="keyword">for</span> tr <span class="keyword">in</span> soup.find(<span class="string">'tbody'</span>).children:</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># soup.find('tbody')返回的是bs4.element.Tag类型</span></span><br><span class="line">        <span class="comment"># soup.find('tbody').children返回的是list_iterator类型</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> isinstance(tr, bs4.element.Tag): <span class="comment"># import bs4 库，使用标签类型</span></span><br><span class="line">            tds = tr(<span class="string">'td'</span>) <span class="comment"># 简写形式，等价于 tr.find_all('td')</span></span><br><span class="line">            ulist.append([tds[<span class="number">0</span>].string, tds[<span class="number">1</span>].string, tds[<span class="number">3</span>].string])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printUnivList</span><span class="params">(ulist, num)</span>:</span></span><br><span class="line">    tplt = <span class="string">"&#123;0:^10&#125;\t&#123;1:&#123;3&#125;^10&#125;\t&#123;2:^10&#125;"</span></span><br><span class="line">    print(tplt.format(<span class="string">"排名"</span>,<span class="string">"学校名称"</span>,<span class="string">"总分"</span>,chr(<span class="number">12288</span>)))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        u=ulist[i]</span><br><span class="line">        print(tplt.format(u[<span class="number">0</span>],u[<span class="number">1</span>],u[<span class="number">2</span>],chr(<span class="number">12288</span>)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    uinfo = []</span><br><span class="line">    url = <span class="string">'http://www.zuihaodaxue.cn/zuihaodaxuepaiming2016.html'</span></span><br><span class="line">    html = getHTMLText(url)</span><br><span class="line">    fillUnivList(uinfo, html)</span><br><span class="line">    printUnivList(uinfo, <span class="number">20</span>)  <span class="comment"># 20 univs</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python爬虫_05</title>
+    <url>/2020/07/01/Python%E7%88%AC%E8%99%AB-05/</url>
+    <content><![CDATA[<p>本篇总结<strong>正则</strong>在python爬虫中的应用。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>之前有过总结，不再赘述，也可以阅读一篇非常有名的博客叫<a href="https://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">《正则表达式30分钟入门教程》</a>。</p>
+<p>这里做一些概要的总结，供以后使用时参阅。</p>
+<h2 id="正则表达式的常用操作符"><a href="#正则表达式的常用操作符" class="headerlink" title="正则表达式的常用操作符"></a>正则表达式的常用操作符</h2><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/1.png" class>
+
+<img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/2.png" class>
+
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/3.png" class>
+
+<h3 id="IP地址的匹配"><a href="#IP地址的匹配" class="headerlink" title="IP地址的匹配"></a>IP地址的匹配</h3><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/4.png" class>
+
+<h1 id="Re库"><a href="#Re库" class="headerlink" title="Re库"></a>Re库</h1><p>Re库是python的标准库，主要用于字符串匹配。调用方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
+
+<h2 id="正则表达式的表示类型"><a href="#正则表达式的表示类型" class="headerlink" title="正则表达式的表示类型"></a>正则表达式的表示类型</h2><p>采用<code>raw string</code>类型（原生字符串类型），表示为<code>r&#39;text&#39;</code>，如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">r'[1-9]\d&#123;5&#125;'</span> <span class="comment"># 六位邮政编码</span></span><br><span class="line"><span class="string">r'\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;'</span></span><br></pre></td></tr></table></figure>
+
+<p><code>raw string</code>是不包含<strong>转义符</strong>的字符串</p>
+<p>正则表达式也可以用string类型，但较为繁琐，因为<code>\</code>会被理解为转义符。</p>
+<h2 id="Re库的主要功能函数"><a href="#Re库的主要功能函数" class="headerlink" title="Re库的主要功能函数"></a>Re库的主要功能函数</h2><p>主要有六个功能函数。</p>
+<img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/5.png" class>
+
+<p>下面依次介绍。</p>
+<h3 id="1、re-search-pattern-string-flags-0"><a href="#1、re-search-pattern-string-flags-0" class="headerlink" title="1、re.search(pattern, string, flags=0)"></a>1、re.search(<strong>pattern</strong>, <strong>string</strong>, <strong>flags=0</strong>)</h3><p>在一个字符串中搜索匹配正则表达式的第一个位置，返回<strong>match</strong>对象。</p>
+<p>参数：</p>
+<ul>
+<li><p><strong>pattern</strong> : 正则表达式的字符串或原生字符串表示。</p>
+</li>
+<li><p><strong>string</strong> : 待匹配字符串</p>
+</li>
+<li><p><strong>flags</strong> : 正则表达式使用时的控制标记</p>
+<img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/6.png" class>
+
+</li>
+</ul>
+<h3 id="2、re-match-pattern-string-flags-0"><a href="#2、re-match-pattern-string-flags-0" class="headerlink" title="2、re.match(pattern, string, flags=0)"></a>2、re.match(<strong>pattern</strong>, <strong>string</strong>, <strong>flags=0</strong>)</h3><p>从一个字符串的开始位置起匹配正则表达式，返回<strong>match</strong>对象</p>
+<p>参数同上。</p>
+<p>但需要<strong>注意</strong>，这是从待匹配字符串的第一个位置开始，即第一个字符不符合匹配条件，就得不到结果。</p>
+<h3 id="3、re-findall-pattern-string-flags-0"><a href="#3、re-findall-pattern-string-flags-0" class="headerlink" title="3、re.findall(pattern, string, flags=0)"></a>3、re.findall(<strong>pattern</strong>, <strong>string</strong>, <strong>flags=0</strong>)</h3><p>搜索字符串，以列表类型返回全部能匹配的子串</p>
+<p>参数同上。</p>
+<p><strong>注意</strong>：返回的是列表形式，每个元素为匹配成功的字符串。</p>
+<h3 id="4、re-split-pattern-string-maxsplit-0-flags-0"><a href="#4、re-split-pattern-string-maxsplit-0-flags-0" class="headerlink" title="4、re.split(pattern, string, maxsplit=0, flags=0)"></a>4、re.split(<strong>pattern</strong>, <strong>string</strong>, <strong>maxsplit=0</strong>, <strong>flags=0</strong>)</h3><p>将一个字符串按照正则表达式匹配结果进行分割，返回列表类型</p>
+<p>参数：</p>
+<ul>
+<li><strong>maxsplit</strong>: 最大分割数，剩余部分作为最后一个元素输出</li>
+</ul>
+<p><strong>举例</strong>：</p>
+<img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/7.png" class>
+
+<h3 id="5、re-finditer-pattern-string-flags-0"><a href="#5、re-finditer-pattern-string-flags-0" class="headerlink" title="5、re.finditer(pattern, string, flags=0)"></a>5、re.finditer(<strong>pattern</strong>, <strong>string</strong>, <strong>flags=0</strong>)</h3><p>搜索字符串，返回一个匹配结果的迭代类型，每个迭代元素是match对象</p>
+<h3 id="6、re-sub-pattern-repl-string-count-0-flags-0"><a href="#6、re-sub-pattern-repl-string-count-0-flags-0" class="headerlink" title="6、re.sub(pattern, repl, string, count=0, flags=0)"></a>6、re.sub(<strong>pattern</strong>, <strong>repl</strong>, <strong>string</strong>, <strong>count=0</strong>, <strong>flags=0</strong>)</h3><p>在一个字符串中替换所有匹配正则表达式的子串返回替换后的字符串</p>
+<p>参数：</p>
+<ul>
+<li><strong>repl</strong> : 替换匹配字符串的字符串</li>
+<li><strong>count</strong> : 匹配的最大替换次数</li>
+</ul>
+<p><strong>举例</strong></p>
+<img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/8.png" class>
+
+<h2 id="Re库的另一种等价用法"><a href="#Re库的另一种等价用法" class="headerlink" title="Re库的另一种等价用法"></a>Re库的另一种等价用法</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 函数式用法：一次性操作</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>rst = re.search(<span class="string">r'[1‐9]\d&#123;5&#125;'</span>, <span class="string">'BIT 100081'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上下两种方法等价</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 面向对象用法：编译后的多次操作</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pat = re.compile(<span class="string">r'[1‐9]\d&#123;5&#125;'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>rst = pat.search(<span class="string">'BIT 100081'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>为此介绍如下方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">regex = re.compile(pattern, flags=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>将正则表达式的字符串形式编译成正则表达式对象 <code>regex</code>。</p>
+<p>然后结合相应的六种方法。</p>
+<img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/9.png" class>
+
+<h1 id="Re库的Match对象"><a href="#Re库的Match对象" class="headerlink" title="Re库的Match对象"></a>Re库的Match对象</h1><p>Match对象是一次匹配的结果，包含匹配的很多信息</p>
+<h2 id="Match对象的属性"><a href="#Match对象的属性" class="headerlink" title="Match对象的属性"></a>Match对象的属性</h2><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/10.png" class>
+
+<h2 id="Match对象的方法"><a href="#Match对象的方法" class="headerlink" title="Match对象的方法"></a>Match对象的方法</h2><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/11.png" class>
+
+<p><strong>实例：</strong></p>
+<img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/12.png" class>]]></content>
       <categories>
         <category>Python</category>
       </categories>
