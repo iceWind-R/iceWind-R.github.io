@@ -5121,7 +5121,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Python爬虫_06</title>
+    <title>Python爬虫_06(淘宝股票)</title>
     <url>/2020/07/01/Python%E7%88%AC%E8%99%AB-06/</url>
     <content><![CDATA[<p>本篇总结是两个案例的实际应用尝试： <strong>淘宝商品比价</strong> 和 <strong>股票</strong> 的定向爬虫。</p>
 <a id="more"></a>
@@ -5137,17 +5137,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Python爬虫_07</title>
+    <title>Python爬虫_07(Scrapy介绍)</title>
     <url>/2020/07/02/Python%E7%88%AC%E8%99%AB-07/</url>
-    <content><![CDATA[<p>本篇总结python爬虫的重要<strong>框架</strong>——<strong>scrapy</strong>。</p>
+    <content><![CDATA[<p>本篇总结python爬虫的重要<strong>框架</strong>——<strong>Scrapy</strong>。</p>
 <a id="more"></a>
 
 <hr>
 <h1 id="Scrapy爬虫框架介绍"><a href="#Scrapy爬虫框架介绍" class="headerlink" title="Scrapy爬虫框架介绍"></a>Scrapy爬虫框架介绍</h1><p>Scrapy是一个快速功能强大的网络爬虫框架。</p>
 <h2 id="Scrapy的安装"><a href="#Scrapy的安装" class="headerlink" title="Scrapy的安装"></a>Scrapy的安装</h2><p>以管理员身份运行Scrapy平台，输入以下命令即可。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install scrapy</span><br></pre></td></tr></table></figure>
-
-
 
 <h2 id="Scrapy爬虫框架结构"><a href="#Scrapy爬虫框架结构" class="headerlink" title="Scrapy爬虫框架结构"></a>Scrapy爬虫框架结构</h2><p>Scrapy不是一个函数功能库，而是一个爬虫框架。</p>
 <h3 id="什么是爬虫框架？"><a href="#什么是爬虫框架？" class="headerlink" title="什么是爬虫框架？"></a>什么是爬虫框架？</h3><ul>
@@ -5206,8 +5204,117 @@
 
 <h2 id="Scrapy常用命令"><a href="#Scrapy常用命令" class="headerlink" title="Scrapy常用命令"></a>Scrapy常用命令</h2><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-07/7.png" class>
 
-<h2 id="为什么Scrapy采用命令行创建和运行爬虫？"><a href="#为什么Scrapy采用命令行创建和运行爬虫？" class="headerlink" title="为什么Scrapy采用命令行创建和运行爬虫？"></a>为什么Scrapy采用命令行创建和运行爬虫？</h2><p>命令行（不是图形界面）更容易自动化，适合脚本控制 本质上，Scrapy是给程序员用的，功能（而不是界面）更重要</p>
+<h2 id="为什么Scrapy采用命令行创建和运行爬虫？"><a href="#为什么Scrapy采用命令行创建和运行爬虫？" class="headerlink" title="为什么Scrapy采用命令行创建和运行爬虫？"></a>为什么Scrapy采用命令行创建和运行爬虫？</h2><ul>
+<li><p>命令行（不是图形界面）更容易自动化，适合脚本控制 </p>
+</li>
+<li><p>本质上，Scrapy是给程序员用的，功能（而不是界面）更重要</p>
+</li>
+</ul>
 ]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Planan_02(第二周)</title>
+    <url>/2020/07/02/Plan-02-%E7%AC%AC%E4%BA%8C%E5%91%A8/</url>
+    <content><![CDATA[<p>这是暑假的第二周，务必不要拖延，每天进步一点。</p>
+<a id="more"></a>
+
+<hr>
+]]></content>
+      <categories>
+        <category>Plan</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python爬虫_08(Scrapy初步使用)</title>
+    <url>/2020/07/03/python%E7%88%AC%E8%99%AB-08/</url>
+    <content><![CDATA[<p>本篇是python<strong>框架Scrapy</strong>的初步使用。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="创建Scrapy爬虫工程"><a href="#创建Scrapy爬虫工程" class="headerlink" title="创建Scrapy爬虫工程"></a>创建Scrapy爬虫工程</h1><p>演示HTML页面地址：<a href="http://python123.io/ws/demo.html" target="_blank" rel="noopener">http://python123.io/ws/demo.html</a></p>
+<p>文件名称：demo.html</p>
+<h2 id="创建步骤"><a href="#创建步骤" class="headerlink" title="创建步骤"></a>创建步骤</h2><p>应用Scrapy爬虫框架主要是编写<strong>配置型代码</strong>.</p>
+<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>建立一个Scrapy爬虫工程。选取一个目录，cmd打开命令行运行下述代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scrapy startproject python123demo   <span class="comment"># python123demo为工程名</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>生成的工程目录</strong></p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/1.png" class>
+
+<p>其中spiders/ 目录下的内容为：</p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/2.png" class>
+
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在工程中产生一个Scrapy爬虫。进入工程目录（\python123demo目录下），然后执行如下命令：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scrapy genspider demo python123.io</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/3.png" class>
+
+<p>该命令作用：</p>
+<p>(1) 生成一个名称为demo的spider</p>
+<p>(2) 在spiders目录下增加代码文件demo.py</p>
+<blockquote>
+<p>该命令仅用于生成demo.py，该文件也可以手工生成.</p>
+</blockquote>
+<p><strong>demo.py文件</strong></p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/4.png" class>
+
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>配置产生的spider爬虫。</p>
+<p>配置：（1）初始URL地址 （2）获取页面后的解析方式</p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/5.png" class>
+
+<h3 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h3><p>运行爬虫，获取网页</p>
+<p>在命令行下，执行如下命令：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scrapy crawl demo</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/6.png" class>
+
+<p>demo爬虫被执行，捕获页面存储在demo.html</p>
+<h2 id="demo-py代码的完整版本"><a href="#demo-py代码的完整版本" class="headerlink" title="demo.py代码的完整版本"></a>demo.py代码的完整版本</h2><img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/7.png" class>
+
+<p><strong>demo.py两个等价版本的区别</strong></p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/8.png" class>
+
+<h1 id="yield关键字的使用"><a href="#yield关键字的使用" class="headerlink" title="yield关键字的使用"></a>yield关键字的使用</h1><img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/9.png" class>
+
+<p>生成器每调用一次在yield位置产生一个值，直到函数执行结束.</p>
+<h2 id="为何要有生成器？"><a href="#为何要有生成器？" class="headerlink" title="为何要有生成器？"></a>为何要有生成器？</h2><img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/10.png" class>
+
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/11.png" class>
+
+<p><strong>demo.py</strong></p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/12.png" class>
+
+<h1 id="Scrapy爬虫的基本使用"><a href="#Scrapy爬虫的基本使用" class="headerlink" title="Scrapy爬虫的基本使用"></a>Scrapy爬虫的基本使用</h1><h2 id="Scrapy爬虫的使用步骤"><a href="#Scrapy爬虫的使用步骤" class="headerlink" title="Scrapy爬虫的使用步骤"></a>Scrapy爬虫的使用步骤</h2><p>步骤1：创建一个工程和Spider模板</p>
+<p>步骤2：编写Spider</p>
+<p>步骤3：编写Item Pipeline</p>
+<p>步骤4：优化配置策略</p>
+<h2 id="Scrapy爬虫的数据类型"><a href="#Scrapy爬虫的数据类型" class="headerlink" title="Scrapy爬虫的数据类型"></a>Scrapy爬虫的数据类型</h2><h3 id="Request类"><a href="#Request类" class="headerlink" title="Request类"></a>Request类</h3><p><code>class scrapy.http.Request()</code></p>
+<p>Request对象表示一个HTTP请求，由Spider生成，由Downloader执行。</p>
+<p><strong>属性和方法</strong></p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/13.png" class>
+
+<h3 id="Response类"><a href="#Response类" class="headerlink" title="Response类"></a>Response类</h3><p><code>class scrapy.http.Response()</code></p>
+<p>Response对象表示一个HTTP响应，由Downloader生成，由Spider处理。</p>
+<p><strong>属性和方法</strong></p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/14.png" class>
+
+<h3 id="Item类"><a href="#Item类" class="headerlink" title="Item类"></a>Item类</h3><p><code>class scrapy.item.Item()</code></p>
+<p>Item对象表示一个从HTML页面中提取的信息内容</p>
+<p>由Spider生成，由Item Pipeline处理</p>
+<p>Item类似字典类型，可以按照字典类型操作</p>
+<h2 id="Scrapy爬虫提取信息的方法"><a href="#Scrapy爬虫提取信息的方法" class="headerlink" title="Scrapy爬虫提取信息的方法"></a>Scrapy爬虫提取信息的方法</h2><img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/15.png" class>
+
+<p>重点介绍<strong>CSS Selector</strong>的基本使用。</p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/16.png" class>]]></content>
       <categories>
         <category>Python</category>
       </categories>
