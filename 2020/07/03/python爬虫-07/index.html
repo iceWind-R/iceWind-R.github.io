@@ -22,20 +22,20 @@
     var CONFIG = {"hostname":"icewind-r.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本篇总结是两个案例的实际应用尝试： 淘宝商品比价 和 股票 的定向爬虫。">
+  <meta name="description" content="本篇是python框架Scrapy的初步使用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python爬虫_06(淘宝股票)">
-<meta property="og:url" content="http://icewind-r.github.io/2020/07/01/Python%E7%88%AC%E8%99%AB-06/index.html">
+<meta property="og:title" content="python爬虫_07(Scrapy初步使用)">
+<meta property="og:url" content="http://icewind-r.github.io/2020/07/03/python%E7%88%AC%E8%99%AB-07/index.html">
 <meta property="og:site_name" content="Thorine">
-<meta property="og:description" content="本篇总结是两个案例的实际应用尝试： 淘宝商品比价 和 股票 的定向爬虫。">
-<meta property="article:published_time" content="2020-07-01T11:14:31.000Z">
-<meta property="article:modified_time" content="2020-07-02T23:15:32.983Z">
+<meta property="og:description" content="本篇是python框架Scrapy的初步使用。">
+<meta property="article:published_time" content="2020-07-02T23:15:49.000Z">
+<meta property="article:modified_time" content="2020-07-03T08:24:44.230Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="Learning">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://icewind-r.github.io/2020/07/01/Python%E7%88%AC%E8%99%AB-06/">
+<link rel="canonical" href="http://icewind-r.github.io/2020/07/03/python%E7%88%AC%E8%99%AB-07/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>Python爬虫_06(淘宝股票) | Thorine</title>
+  <title>python爬虫_07(Scrapy初步使用) | Thorine</title>
   
 
 
@@ -207,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2020/07/01/Python%E7%88%AC%E8%99%AB-06/">
+    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2020/07/03/python%E7%88%AC%E8%99%AB-07/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang01.jpg">
@@ -220,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Python爬虫_06(淘宝股票)
+          python爬虫_07(Scrapy初步使用)
         </h1>
 
         <div class="post-meta">
@@ -229,16 +229,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-07-01 19:14:31" itemprop="dateCreated datePublished" datetime="2020-07-01T19:14:31+08:00">2020-07-01</time>
+              <time title="创建时间：2020-07-03 07:15:49 / 修改时间：16:24:44" itemprop="dateCreated datePublished" datetime="2020-07-03T07:15:49+08:00">2020-07-03</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-03 07:15:32" itemprop="dateModified" datetime="2020-07-03T07:15:32+08:00">2020-07-03</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -250,7 +244,7 @@
             </span>
 
           
-            <span id="/2020/07/01/Python%E7%88%AC%E8%99%AB-06/" class="post-meta-item leancloud_visitors" data-flag-title="Python爬虫_06(淘宝股票)" title="阅读次数">
+            <span id="/2020/07/03/python%E7%88%AC%E8%99%AB-07/" class="post-meta-item leancloud_visitors" data-flag-title="python爬虫_07(Scrapy初步使用)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -272,8 +266,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/07/01/Python%E7%88%AC%E8%99%AB-06/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/01/Python%E7%88%AC%E8%99%AB-06/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/07/03/python%E7%88%AC%E8%99%AB-07/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/03/python%E7%88%AC%E8%99%AB-07/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -283,14 +277,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>40</span>
+              <span>912</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -302,11 +296,84 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本篇总结是两个案例的实际应用尝试： <strong>淘宝商品比价</strong> 和 <strong>股票</strong> 的定向爬虫。</p>
+        <p>本篇是python<strong>框架Scrapy</strong>的初步使用。</p>
 <a id="more"></a>
 
 <hr>
-<h1 id="淘宝商品比价"><a href="#淘宝商品比价" class="headerlink" title="淘宝商品比价"></a>淘宝商品比价</h1><h1 id="股票"><a href="#股票" class="headerlink" title="股票"></a>股票</h1>
+<h1 id="创建Scrapy爬虫工程"><a href="#创建Scrapy爬虫工程" class="headerlink" title="创建Scrapy爬虫工程"></a>创建Scrapy爬虫工程</h1><p>演示HTML页面地址：<a href="http://python123.io/ws/demo.html" target="_blank" rel="noopener">http://python123.io/ws/demo.html</a></p>
+<p>文件名称：demo.html</p>
+<h2 id="创建步骤"><a href="#创建步骤" class="headerlink" title="创建步骤"></a>创建步骤</h2><p>应用Scrapy爬虫框架主要是编写<strong>配置型代码</strong>.</p>
+<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>建立一个Scrapy爬虫工程。选取一个目录，cmd打开命令行运行下述代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject python123demo   <span class="comment"># python123demo为工程名</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>生成的工程目录</strong></p>
+
+
+<p>其中spiders/ 目录下的内容为：</p>
+
+
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在工程中产生一个Scrapy爬虫。进入工程目录（\python123demo目录下），然后执行如下命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy genspider demo python123.io</span><br></pre></td></tr></table></figure>
+
+
+
+<p>该命令作用：</p>
+<p>(1) 生成一个名称为demo的spider</p>
+<p>(2) 在spiders目录下增加代码文件demo.py</p>
+<blockquote>
+<p>该命令仅用于生成demo.py，该文件也可以手工生成.</p>
+</blockquote>
+<p><strong>demo.py文件</strong></p>
+
+
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>配置产生的spider爬虫。</p>
+<p>配置：（1）初始URL地址 （2）获取页面后的解析方式</p>
+
+
+<h3 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h3><p>运行爬虫，获取网页</p>
+<p>在命令行下，执行如下命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl demo</span><br></pre></td></tr></table></figure>
+
+
+
+<p>demo爬虫被执行，捕获页面存储在demo.html</p>
+<h2 id="demo-py代码的完整版本"><a href="#demo-py代码的完整版本" class="headerlink" title="demo.py代码的完整版本"></a>demo.py代码的完整版本</h2>
+
+<p><strong>demo.py两个等价版本的区别</strong></p>
+
+
+<h1 id="yield关键字的使用"><a href="#yield关键字的使用" class="headerlink" title="yield关键字的使用"></a>yield关键字的使用</h1>
+
+<p>生成器每调用一次在yield位置产生一个值，直到函数执行结束.</p>
+<h2 id="为何要有生成器？"><a href="#为何要有生成器？" class="headerlink" title="为何要有生成器？"></a>为何要有生成器？</h2>
+
+
+
+<p><strong>demo.py</strong></p>
+
+
+<h1 id="Scrapy爬虫的基本使用"><a href="#Scrapy爬虫的基本使用" class="headerlink" title="Scrapy爬虫的基本使用"></a>Scrapy爬虫的基本使用</h1><h2 id="Scrapy爬虫的使用步骤"><a href="#Scrapy爬虫的使用步骤" class="headerlink" title="Scrapy爬虫的使用步骤"></a>Scrapy爬虫的使用步骤</h2><p>步骤1：创建一个工程和Spider模板</p>
+<p>步骤2：编写Spider</p>
+<p>步骤3：编写Item Pipeline</p>
+<p>步骤4：优化配置策略</p>
+<h2 id="Scrapy爬虫的数据类型"><a href="#Scrapy爬虫的数据类型" class="headerlink" title="Scrapy爬虫的数据类型"></a>Scrapy爬虫的数据类型</h2><h3 id="Request类"><a href="#Request类" class="headerlink" title="Request类"></a>Request类</h3><p><code>class scrapy.http.Request()</code></p>
+<p>Request对象表示一个HTTP请求，由Spider生成，由Downloader执行。</p>
+<p><strong>属性和方法</strong></p>
+
+
+<h3 id="Response类"><a href="#Response类" class="headerlink" title="Response类"></a>Response类</h3><p><code>class scrapy.http.Response()</code></p>
+<p>Response对象表示一个HTTP响应，由Downloader生成，由Spider处理。</p>
+<p><strong>属性和方法</strong></p>
+
+
+<h3 id="Item类"><a href="#Item类" class="headerlink" title="Item类"></a>Item类</h3><p><code>class scrapy.item.Item()</code></p>
+<p>Item对象表示一个从HTML页面中提取的信息内容</p>
+<p>由Spider生成，由Item Pipeline处理</p>
+<p>Item类似字典类型，可以按照字典类型操作</p>
+<h2 id="Scrapy爬虫提取信息的方法"><a href="#Scrapy爬虫提取信息的方法" class="headerlink" title="Scrapy爬虫提取信息的方法"></a>Scrapy爬虫提取信息的方法</h2>
+
+<p>重点介绍<strong>CSS Selector</strong>的基本使用。</p>
+
     </div>
 
     
@@ -351,13 +418,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/" rel="prev" title="Python爬虫_05(正则表达式)">
-      <i class="fa fa-chevron-left"></i> Python爬虫_05(正则表达式)
+    <a href="/2020/07/02/Plan-02-%E7%AC%AC%E4%BA%8C%E5%91%A8/" rel="prev" title="Planan_02(第二周)">
+      <i class="fa fa-chevron-left"></i> Planan_02(第二周)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/02/Python%E7%88%AC%E8%99%AB-07/" rel="next" title="Python爬虫_07(Scrapy介绍)">
-      Python爬虫_07(Scrapy介绍) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -418,7 +482,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#淘宝商品比价"><span class="nav-number">1.</span> <span class="nav-text">淘宝商品比价</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#股票"><span class="nav-number">2.</span> <span class="nav-text">股票</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建Scrapy爬虫工程"><span class="nav-number">1.</span> <span class="nav-text">创建Scrapy爬虫工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建步骤"><span class="nav-number">1.1.</span> <span class="nav-text">创建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步"><span class="nav-number">1.1.1.</span> <span class="nav-text">第一步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步"><span class="nav-number">1.1.2.</span> <span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步"><span class="nav-number">1.1.3.</span> <span class="nav-text">第三步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步"><span class="nav-number">1.1.4.</span> <span class="nav-text">第四步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demo-py代码的完整版本"><span class="nav-number">1.2.</span> <span class="nav-text">demo.py代码的完整版本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#yield关键字的使用"><span class="nav-number">2.</span> <span class="nav-text">yield关键字的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为何要有生成器？"><span class="nav-number">2.1.</span> <span class="nav-text">为何要有生成器？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Scrapy爬虫的基本使用"><span class="nav-number">3.</span> <span class="nav-text">Scrapy爬虫的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrapy爬虫的使用步骤"><span class="nav-number">3.1.</span> <span class="nav-text">Scrapy爬虫的使用步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrapy爬虫的数据类型"><span class="nav-number">3.2.</span> <span class="nav-text">Scrapy爬虫的数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Request类"><span class="nav-number">3.2.1.</span> <span class="nav-text">Request类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Response类"><span class="nav-number">3.2.2.</span> <span class="nav-text">Response类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item类"><span class="nav-number">3.2.3.</span> <span class="nav-text">Item类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrapy爬虫提取信息的方法"><span class="nav-number">3.3.</span> <span class="nav-text">Scrapy爬虫提取信息的方法</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -500,12 +564,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">61k</span>
+    <span title="站点总字数">64k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:24</span>
+    <span title="站点阅读时长">3:32</span>
 </div>
 
 <!--

@@ -2587,14 +2587,6 @@
 <td>!=</td>
 <td>不等于（等价于数学中的 ≠），如果<code>!=</code>两边的值不相等，则返回 True，否则返回 False。</td>
 </tr>
-<tr>
-<td>is</td>
-<td>判断两个变量所引用的对象是否相同，如果相同则返回 True，否则返回 False。</td>
-</tr>
-<tr>
-<td>is not</td>
-<td>判断两个变量所引用的对象是否不相同，如果不相同则返回 True，否则返回 False。</td>
-</tr>
 </tbody></table>
 <h2 id="5、逻辑运算符"><a href="#5、逻辑运算符" class="headerlink" title="5、逻辑运算符"></a>5、逻辑运算符</h2><table>
 <thead>
@@ -2637,6 +2629,45 @@
 
 <p>应该理解为：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a <span class="keyword">if</span> a&gt;b <span class="keyword">else</span> ( c <span class="keyword">if</span> c&gt;d <span class="keyword">else</span> d )</span><br></pre></td></tr></table></figure>
+
+<h2 id="7、成员运算符"><a href="#7、成员运算符" class="headerlink" title="7、成员运算符"></a>7、成员运算符</h2><table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">描述</th>
+<th align="left">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">in</td>
+<td align="left">如果在指定的<strong>序列</strong>中找到值返回 True，否则返回 False。</td>
+<td align="left">x 在 y 序列中 , 如果 x 在 y 序列中返回 True。</td>
+</tr>
+<tr>
+<td align="left">not in</td>
+<td align="left">如果在指定的<strong>序列</strong>中没有找到值返回 True，否则返回 False。</td>
+<td align="left">x 不在 y 序列中 , 如果 x 不在 y 序列中返回 True。</td>
+</tr>
+</tbody></table>
+<h2 id="8、身份运算符"><a href="#8、身份运算符" class="headerlink" title="8、身份运算符"></a>8、身份运算符</h2><table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">描述</th>
+<th align="left">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">is</td>
+<td align="left">is是判断两个标识符是不是引用自一个对象</td>
+<td align="left">x is y, 如果 id(x) 等于 id(y) , <strong>is</strong> 返回结果 1</td>
+</tr>
+<tr>
+<td align="left">is not</td>
+<td align="left">is not是判断两个标识符是不是引用自不同对象</td>
+<td align="left">x is not y, 如果 id(x) 不等于 id(y). <strong>is not</strong> 返回结果 1</td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>Python</category>
@@ -2736,13 +2767,13 @@
 <a id="more"></a>
 
 <hr>
-<h2 id="一、if-else选择"><a href="#一、if-else选择" class="headerlink" title="一、if-else选择"></a>一、if-else选择</h2><h3 id="1、if-else语法"><a href="#1、if-else语法" class="headerlink" title="1、if-else语法"></a>1、if-else语法</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> 条件:</span><br><span class="line">	条件成立执行的代码<span class="number">1</span></span><br><span class="line">    条件成立执行的代码<span class="number">2</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> 条件:</span><br><span class="line">        此为嵌套</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">elif</span> 条件<span class="number">2</span>:</span><br><span class="line">    代码</span><br><span class="line"><span class="keyword">elif</span> 条件<span class="number">3</span>:</span><br><span class="line">    代码</span><br><span class="line">...</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    代码<span class="number">3</span></span><br><span class="line">    代码<span class="number">4</span></span><br><span class="line">代码<span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h1 id="一、if-else选择"><a href="#一、if-else选择" class="headerlink" title="一、if-else选择"></a>一、if-else选择</h1><h2 id="1、if-else语法"><a href="#1、if-else语法" class="headerlink" title="1、if-else语法"></a>1、if-else语法</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> 条件:</span><br><span class="line">	条件成立执行的代码<span class="number">1</span></span><br><span class="line">    条件成立执行的代码<span class="number">2</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> 条件:</span><br><span class="line">        此为嵌套</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">elif</span> 条件<span class="number">2</span>:</span><br><span class="line">    代码</span><br><span class="line"><span class="keyword">elif</span> 条件<span class="number">3</span>:</span><br><span class="line">    代码</span><br><span class="line">...</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    代码<span class="number">3</span></span><br><span class="line">    代码<span class="number">4</span></span><br><span class="line">代码<span class="number">5</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>注意：</strong>if条件成立，执行后面带缩进的代码，而代码5则不属于if-else的语句块，与条件成立与否无关。</p>
 <p><strong>案例</strong>：猜拳</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1、出拳</span></span><br><span class="line"><span class="comment"># 玩家</span></span><br><span class="line">player = int(input(<span class="string">'请出拳(0--石头，1--剪刀，2--布):'</span>))</span><br><span class="line"><span class="comment">#电脑</span></span><br><span class="line">computer = random.randint(<span class="number">0</span>,<span class="number">2</span>)</span><br><span class="line">print(computer)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2、判断输赢</span></span><br><span class="line"><span class="comment">#获胜</span></span><br><span class="line"><span class="keyword">if</span>((player == <span class="number">0</span>) <span class="keyword">and</span> (computer == <span class="number">1</span>)) <span class="keyword">or</span> ((player == <span class="number">1</span>) <span class="keyword">and</span> (computer == <span class="number">2</span>)) <span class="keyword">or</span> ((player == <span class="number">2</span>) <span class="keyword">and</span> (computer == <span class="number">0</span>)):</span><br><span class="line">    print(<span class="string">'玩家获胜'</span>)</span><br><span class="line"><span class="comment">#平局</span></span><br><span class="line"><span class="keyword">elif</span> player == computer:</span><br><span class="line">    print(<span class="string">'平局'</span>)</span><br><span class="line"><span class="comment">#失败</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'失败'</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="2、三目运算符"><a href="#2、三目运算符" class="headerlink" title="2、三目运算符"></a>2、三目运算符</h3><p>语法：</p>
+<h2 id="2、三目运算符"><a href="#2、三目运算符" class="headerlink" title="2、三目运算符"></a>2、三目运算符</h2><p>语法：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">条件成立执行的表达式 <span class="keyword">if</span> 条件 <span class="keyword">else</span> 条件不成立的表达式</span><br><span class="line">c = a <span class="keyword">if</span> a&gt;b <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure>
 
 <p><strong>案例：计算三角形面积</strong></p>
@@ -2751,17 +2782,17 @@
 <blockquote>
 <p> <strong>说明：</strong> 上面使用的通过边长计算三角形面积的公式叫做<a href="https://zh.wikipedia.org/zh-hans/海伦公式" target="_blank" rel="noopener">海伦公式</a>。</p>
 </blockquote>
-<h2 id="二、循环"><a href="#二、循环" class="headerlink" title="二、循环"></a>二、循环</h2><p>包括while和for循环。</p>
-<h3 id="1、while循环"><a href="#1、while循环" class="headerlink" title="1、while循环"></a>1、while循环</h3><p>语法</p>
+<h1 id="二、循环"><a href="#二、循环" class="headerlink" title="二、循环"></a>二、循环</h1><p>包括while和for循环。</p>
+<h2 id="1、while循环"><a href="#1、while循环" class="headerlink" title="1、while循环"></a>1、while循环</h2><p>语法</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> 条件:</span><br><span class="line">    条件成立执行的代码</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
 
-<h3 id="2、for循环"><a href="#2、for循环" class="headerlink" title="2、for循环"></a>2、for循环</h3><p>语法</p>
+<h2 id="2、for循环"><a href="#2、for循环" class="headerlink" title="2、for循环"></a>2、for循环</h2><p>语法</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> 临时变量 <span class="keyword">in</span> 序列:</span><br><span class="line">    重复执行的代码</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
 
 <p>例如：循环输出字符串中的每个字符。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str = <span class="string">'hello world'</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> str:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
 
-<h3 id="3、while…else-for…else"><a href="#3、while…else-for…else" class="headerlink" title="3、while…else/for…else"></a>3、while…else/for…else</h3><p>语法</p>
+<h2 id="3、while…else-for…else"><a href="#3、while…else-for…else" class="headerlink" title="3、while…else/for…else"></a>3、while…else/for…else</h2><p>语法</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> 条件:</span><br><span class="line">    条件成立执行的代码</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    循环正常结束执行的代码</span><br></pre></td></tr></table></figure>
 
 <p>只有在循环正常结束时才会执行else里的内容，如果while里用break中止循环，则不会执行else里的语句。反之，continue可以执行else里的内容。</p>
@@ -2769,12 +2800,15 @@
 <p><strong>案例</strong>：求两个数的最大公约数和最小公倍数</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x &#x3D; int(input(&#39;x &#x3D; &#39;))</span><br><span class="line">y &#x3D; int(input(&#39;y &#x3D; &#39;))</span><br><span class="line"># 如果x大于y就交换x和y的值</span><br><span class="line">if x &gt; y:</span><br><span class="line">    # 通过下面的操作将y的值赋给x, 将x的值赋给y</span><br><span class="line">    x, y &#x3D; y, x</span><br><span class="line"># 从两个数中较的数开始做递减的循环</span><br><span class="line">for factor in range(x, 0, -1):</span><br><span class="line">    if x % factor &#x3D;&#x3D; 0 and y % factor &#x3D;&#x3D; 0:</span><br><span class="line">        print(&#39;%d和%d的最大公约数是%d&#39; % (x, y, factor))</span><br><span class="line">        print(&#39;%d和%d的最小公倍数是%d&#39; % (x, y, x * y &#x2F;&#x2F; factor))</span><br><span class="line">        break</span><br></pre></td></tr></table></figure>
 
-<h2 id="三、字符串"><a href="#三、字符串" class="headerlink" title="三、字符串"></a>三、字符串</h2><h3 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h3><p>有三种方法，单引、双引和三引。 在三引号里回车换行会原样显示。</p>
-<h3 id="2、下标"><a href="#2、下标" class="headerlink" title="2、下标"></a>2、下标</h3><p>在python中，可以用下标查询字符串中的相应字符。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str = <span class="string">'hello world'</span></span><br><span class="line">print(str[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<h1 id="三、字符串"><a href="#三、字符串" class="headerlink" title="三、字符串"></a>三、字符串</h1><h2 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h2><p>有三种方法，单引、双引和三引。 在三引号里回车换行会原样显示。</p>
+<blockquote>
+<p>注意：注释也有三引号的写法，完全一致。</p>
+</blockquote>
+<h2 id="2、下标"><a href="#2、下标" class="headerlink" title="2、下标"></a>2、下标</h2><p>在python中，可以用下标查询字符串中的相应字符。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str = <span class="string">'hello world'</span></span><br><span class="line">print(str[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：字符串不可通过下标修改</span></span><br><span class="line"><span class="comment"># str[1] = 'w' 报错</span></span><br><span class="line"><span class="comment"># str[:1] = 'Splat' 报错</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="3、切片"><a href="#3、切片" class="headerlink" title="3、切片"></a>3、切片</h3><p>切片是指对操作的对象截取其中一部分的操作。字符串、列表和元组都支持切片操作。</p>
-<h4 id="1）语法"><a href="#1）语法" class="headerlink" title="1）语法"></a>1）语法</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">序列[开始位置下标:结束位置下标:步长]</span><br></pre></td></tr></table></figure>
+<h2 id="3、切片"><a href="#3、切片" class="headerlink" title="3、切片"></a>3、切片</h2><p>切片是指对操作的对象截取其中一部分的操作。字符串、列表和元组都支持切片操作。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">序列[开始位置下标:结束位置下标:步长]</span><br></pre></td></tr></table></figure>
 
 <p><strong>注意：</strong></p>
 <ul>
@@ -2783,8 +2817,8 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str = <span class="string">'01234567'</span></span><br><span class="line">print(str[<span class="number">2</span>:<span class="number">5</span>:<span class="number">1</span>])   <span class="comment">#234</span></span><br><span class="line">print(str[<span class="number">2</span>:<span class="number">5</span>:<span class="number">2</span>])   <span class="comment">#24</span></span><br><span class="line">print(str[<span class="number">2</span>:<span class="number">5</span>])     <span class="comment">#234</span></span><br><span class="line">print(str[:<span class="number">5</span>])      <span class="comment">#01234</span></span><br><span class="line">print(str[<span class="number">2</span>:])      <span class="comment">#234567</span></span><br><span class="line">print(str[:])       <span class="comment">#01234567</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#负数测试</span></span><br><span class="line">print(str[::<span class="number">-1</span>])    <span class="comment">#76543210 如果步长为负数，表示倒叙选取</span></span><br><span class="line">print(str[<span class="number">-4</span>:<span class="number">-1</span>])   <span class="comment">#456 表示从-4到-1位置输出，即倒数第四个到倒数第1个</span></span><br><span class="line"></span><br><span class="line">print(str[<span class="number">-4</span>:<span class="number">-1</span>:<span class="number">-1</span>])<span class="comment">#不能选取出数据：从-4开始到-1结束，选取方向为从左到右，但步长为-1，代表从右向左选取</span></span><br><span class="line"><span class="comment">#如果选取方向（下标开始到结束的方向）和 步长的方向冲突，则无法选取数据。</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="4、字符串的常用操作方法"><a href="#4、字符串的常用操作方法" class="headerlink" title="4、字符串的常用操作方法"></a>4、字符串的常用操作方法</h3><p>主要包括查找、修改和判断三大类。</p>
-<h4 id="1）查找"><a href="#1）查找" class="headerlink" title="1）查找"></a>1）查找</h4><p>查找子串在字符串中的位置或者出现的次数。</p>
+<h2 id="4、字符串的常用操作方法"><a href="#4、字符串的常用操作方法" class="headerlink" title="4、字符串的常用操作方法"></a>4、字符串的常用操作方法</h2><p>主要包括查找、修改和判断三大类。</p>
+<h3 id="1）查找"><a href="#1）查找" class="headerlink" title="1）查找"></a>1）查找</h3><p>查找子串在字符串中的位置或者出现的次数。</p>
 <ul>
 <li><p>find()：检查某个子串是否包含在这个字符串中，如果存在返回这个子串开始的位置下标，否则则返回-1。</p>
 <p><strong>语法</strong></p>
@@ -2801,7 +2835,7 @@
 <li><p>rfind()，rindex()：用法一致，查找顺序从右边开始。</p>
 </li>
 </ul>
-<h4 id="2）修改"><a href="#2）修改" class="headerlink" title="2）修改"></a>2）修改</h4><ul>
+<h3 id="2）修改"><a href="#2）修改" class="headerlink" title="2）修改"></a>2）修改</h3><ul>
 <li><p>replace：替换</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.replace(旧子串,新子串,替换次数)</span><br></pre></td></tr></table></figure>
 
@@ -2832,7 +2866,7 @@
 <p>strip()：删除字符串两侧空白字符。</p>
 </li>
 </ul>
-<h4 id="3）判断"><a href="#3）判断" class="headerlink" title="3）判断"></a>3）判断</h4><p>判断真假，返回布尔的真假。</p>
+<h3 id="3）判断"><a href="#3）判断" class="headerlink" title="3）判断"></a>3）判断</h3><p>判断真假，返回布尔的真假。</p>
 <ul>
 <li><p>startwith()：检查字符串是否以指定子串开头，是则返回True。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.startwith(子串,开始位置下标,结束位置下标)</span><br></pre></td></tr></table></figure>
@@ -2849,14 +2883,61 @@
 <li><p>isspace()：如果字符串只包含空白。</p>
 </li>
 </ul>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>可以使用<code>*</code>运算符来重复一个字符串的内容，可以使用<code>in</code>和<code>not in</code>来判断一个字符串是否包含另外一个字符串（成员运算）</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>可以使用<code>*</code>运算符来重复一个字符串的内容，可以使用<code>in</code>和<code>not in</code>来判断一个字符串是否包含另外一个字符串（成员运算）</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s1 = <span class="string">'hello '</span> * <span class="number">3</span></span><br><span class="line">print(s1) <span class="comment"># hello hello hello</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'ll'</span> <span class="keyword">in</span> s1) <span class="comment"># True</span></span><br><span class="line">print(<span class="string">'good'</span> <span class="keyword">in</span> s1) <span class="comment"># False</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str1 = <span class="string">'hello, world!'</span></span><br><span class="line">print(<span class="string">'字符串的长度是:'</span>, len(str1))</span><br><span class="line">print(<span class="string">'单词首字母大写: '</span>, str1.title())</span><br><span class="line">print(<span class="string">'字符串变大写: '</span>, str1.upper())</span><br><span class="line"><span class="comment"># str1 = str1.upper()</span></span><br><span class="line">print(<span class="string">'字符串是不是大写: '</span>, str1.isupper())</span><br><span class="line">print(<span class="string">'字符串是不是以hello开头: '</span>, str1.startswith(<span class="string">'hello'</span>))</span><br><span class="line">print(<span class="string">'字符串是不是以hello结尾: '</span>, str1.endswith(<span class="string">'hello'</span>))</span><br><span class="line">print(<span class="string">'字符串是不是以感叹号开头: '</span>, str1.startswith(<span class="string">'!'</span>))</span><br><span class="line">print(<span class="string">'字符串是不是一感叹号结尾: '</span>, str1.endswith(<span class="string">'!'</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str1 = <span class="string">'hello, world!'</span></span><br><span class="line">print(<span class="string">'字符串的长度是:'</span>, len(str1))</span><br><span class="line">print(<span class="string">'单词首字母大写: '</span>, str1.title())</span><br><span class="line">print(<span class="string">'字符串变大写: '</span>, str1.upper())</span><br><span class="line"><span class="comment"># str1 = str1.upper()</span></span><br><span class="line">print(<span class="string">'字符串是不是大写: '</span>, str1.isupper())</span><br><span class="line">print(<span class="string">'字符串是不是以hello开头: '</span>, str1.startswith(<span class="string">'hello'</span>))</span><br><span class="line">print(<span class="string">'字符串是不是以hello结尾: '</span>, str1.endswith(<span class="string">'hello'</span>))</span><br><span class="line">print(<span class="string">'字符串是不是以感叹号开头: '</span>, str1.startswith(<span class="string">'!'</span>))</span><br><span class="line">print(<span class="string">'字符串是不是一感叹号结尾: '</span>, str1.endswith(<span class="string">'!'</span>))</span><br></pre></td></tr></table></figure>
 
 <p><strong>结果</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串的长度是: <span class="number">13</span></span><br><span class="line">单词首字母大写:  Hello, World!</span><br><span class="line">字符串变大写:  HELLO, WORLD!</span><br><span class="line">字符串是不是大写:  <span class="literal">False</span></span><br><span class="line">字符串是不是以hello开头:  <span class="literal">True</span></span><br><span class="line">字符串是不是以hello结尾:  <span class="literal">False</span></span><br><span class="line">字符串是不是以感叹号开头:  <span class="literal">False</span></span><br><span class="line">字符串是不是一感叹号结尾:  <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-]]></content>
+
+<h1 id="字符串的format格式化"><a href="#字符串的format格式化" class="headerlink" title="字符串的format格式化"></a>字符串的format格式化</h1><h2 id="一、简单运用"><a href="#一、简单运用" class="headerlink" title="一、简单运用"></a>一、简单运用</h2><p>字符串类型格式化采用format()方法，基本使用格式是：</p>
+<p>   <strong>&lt;模板字符串&gt;.format(&lt;逗号分隔的参数&gt;)</strong></p>
+<p>调用format()方法后会返回一个新的字符串，参数从0开始编号。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"&#123;&#125;&#123;&#125;&#123;&#125;"</span>.format(<span class="string">"圆周率是"</span>,<span class="number">3.1415926</span>,<span class="string">"..."</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span> <span class="string">'圆周率是3.1415926...'</span></span><br><span class="line"> </span><br><span class="line"><span class="string">"圆周率&#123;&#123;&#123;1&#125;&#123;2&#125;&#125;&#125;是&#123;0&#125;"</span>.format(<span class="string">"无理数"</span>,<span class="number">3.1415926</span>,<span class="string">"..."</span>) <span class="comment"># 输出大括号</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span> <span class="string">'圆周率&#123;3.1415926...&#125;是无理数'</span></span><br><span class="line"> </span><br><span class="line">s=<span class="string">"圆周率&#123;&#123;&#123;1&#125;&#123;2&#125;&#125;&#125;是&#123;0&#125;"</span> <span class="comment">#大括号本身是字符串的一部分</span></span><br><span class="line"> </span><br><span class="line">s</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span> <span class="string">'圆周率&#123;&#123;&#123;1&#125;&#123;2&#125;&#125;&#125;是&#123;0&#125;'</span>	 <span class="comment"># 格式化模板</span></span><br><span class="line"> </span><br><span class="line">s.format(<span class="string">"无理数"</span>,<span class="number">3.1415926</span>,<span class="string">"..."</span>)	 <span class="comment"># 当调用format()时解析大括号</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span> <span class="string">'圆周率&#123;3.1415926...&#125;是无理数'</span></span><br></pre></td></tr></table></figure>
+
+<p>二、格式控制信息 format()方法中 <strong>&lt;模板字符串&gt;</strong> 的槽除了包括参数序号，还可以包括格式控制信息。此时，槽的内部样式如下：<br>     <code>{&lt;参数序号&gt;: &lt;格式控制标记&gt;}</code></p>
+<ul>
+<li><p><strong>&lt;参数序号&gt;</strong>：指定的位置，从0开始。</p>
+</li>
+<li><p><strong>&lt;格式控制标记&gt; **：用来控制参数显示时的格式。包括：</strong>&lt;填充&gt;,&lt;对齐&gt;,&lt;宽度&gt;,&lt;.精度&gt;,&lt;类型&gt;** 6 个字段，这些字段都是可选的，可以组合使用，逐一介绍如下。</p>
+</li>
+</ul>
+<img src="/2020/03/17/Python-2/1.png" class>
+
+<h2 id="lt-宽度-gt"><a href="#lt-宽度-gt" class="headerlink" title="&lt;宽度&gt;"></a>&lt;宽度&gt;</h2><p>指当前槽的设定输出字符宽度，如果该槽对应的format()参数长度比&lt;宽度&gt;设定值大，则使用参数实际长度。如果该值的实际位数小于指定宽度，则位数将被<strong>默认以空格字符补充</strong>。</p>
+<h2 id="lt-对齐-gt"><a href="#lt-对齐-gt" class="headerlink" title="&lt;对齐&gt;"></a>&lt;对齐&gt;</h2><p>指参数在&lt;宽度&gt;内输出时的对齐方式，分别使用&lt;、&gt;和^三个符号表示左对齐、右对齐和居中对齐。</p>
+<h2 id="lt-填充-gt"><a href="#lt-填充-gt" class="headerlink" title="&lt;填充&gt;"></a>&lt;填充&gt;</h2><p>指&lt;宽度&gt;内除了参数外的字符采用什么方式表示，默认采用空格，可以通过&lt;填充&gt;更换。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="string">"PYTHON"</span></span><br><span class="line"> </span><br><span class="line"><span class="string">"&#123;0:30&#125;"</span>.format(s)</span><br><span class="line">Out[<span class="number">17</span>]: <span class="string">'PYTHON                        '</span></span><br><span class="line"> </span><br><span class="line"><span class="string">"&#123;0:&gt;30&#125;"</span>.format(s)</span><br><span class="line">Out[<span class="number">18</span>]: <span class="string">'                        PYTHON'</span></span><br><span class="line"> </span><br><span class="line"><span class="string">"&#123;0:*^30&#125;"</span>.format(s)</span><br><span class="line">Out[<span class="number">19</span>]: <span class="string">'************PYTHON************'</span></span><br><span class="line"> </span><br><span class="line"><span class="string">"&#123;0:-^30&#125;"</span>.format(s)</span><br><span class="line">Out[<span class="number">20</span>]: <span class="string">'------------PYTHON------------'</span></span><br><span class="line"> </span><br><span class="line"><span class="string">"&#123;0:3&#125;"</span>.format(s)</span><br><span class="line">Out[<span class="number">21</span>]: <span class="string">'PYTHON'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="逗号（，）"><a href="#逗号（，）" class="headerlink" title="逗号（，）"></a>逗号（，）</h2><p>&lt;格式控制标记&gt;中逗号（，）用于显示数字的千位分隔符，例如:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"&#123;0:-^20,&#125;"</span>.format(<span class="number">1234567890</span>)</span><br><span class="line">Out[<span class="number">24</span>]: <span class="string">'---1,234,567,890----'</span></span><br><span class="line"> </span><br><span class="line"><span class="string">"&#123;0:-^20&#125;"</span>.format(<span class="number">1234567890</span>) <span class="comment"># 对比输出</span></span><br><span class="line">Out[<span class="number">25</span>]: <span class="string">'-----1234567890-----'</span></span><br><span class="line"> </span><br><span class="line"><span class="string">"&#123;0:-^20,&#125;"</span>.format(<span class="number">12345.67890</span>)</span><br><span class="line">Out[<span class="number">26</span>]: <span class="string">'----12,345.6789-----'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="lt-精度-gt"><a href="#lt-精度-gt" class="headerlink" title="&lt;.精度&gt;"></a>&lt;.精度&gt;</h2><p>表示两个含义，由小数点（.）开头。对于浮点数，精度表示小数部分输出的有效位数。对于字符串，精度表示输出的最大长度。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"&#123;0:.2f&#125;"</span>.format(<span class="number">12345.67890</span>)</span><br><span class="line">Out[<span class="number">29</span>]: <span class="string">'12345.68'</span></span><br><span class="line"> </span><br><span class="line"><span class="string">"&#123;0:H^20.3f&#125;"</span>.format(<span class="number">12345.67890</span>)</span><br><span class="line">Out[<span class="number">30</span>]: <span class="string">'HHHHH12345.679HHHHHH'</span></span><br><span class="line"> </span><br><span class="line"><span class="string">"&#123;0:.4&#125;"</span>.format(<span class="string">"PYTHON"</span>)</span><br><span class="line">Out[<span class="number">31</span>]: <span class="string">'PYTH'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="lt-类型-gt"><a href="#lt-类型-gt" class="headerlink" title="&lt;类型&gt;"></a>&lt;类型&gt;</h2><p>表示输出整数和浮点数类型的格式规则。对于<strong>整数</strong>类型，输出格式包括6 种：</p>
+<ul>
+<li>b: 输出整数的二进制方式；</li>
+<li>c: 输出整数对应的 Unicode 字符；</li>
+<li>d: 输出整数的十进制方式；</li>
+<li>o: 输出整数的八进制方式；</li>
+<li>x: 输出整数的小写十六进制方式；</li>
+<li>X: 输出整数的大写十六进制方式</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"&#123;0:b&#125;,&#123;0:c&#125;,&#123;0:d&#125;,&#123;0:o&#125;,&#123;0:x&#125;,&#123;0:X&#125;"</span>.format(<span class="number">425</span>)</span><br><span class="line">Out[<span class="number">32</span>]: <span class="string">'110101001,Ʃ,425,651,1a9,1A9'</span></span><br></pre></td></tr></table></figure>
+
+<p>对于<strong>浮点数</strong>类型，输出格式包括4 种：</p>
+<ul>
+<li>e: 输出浮点数对应的小写字母 e 的指数形式；</li>
+<li>E: 输出浮点数对应的大写字母 E 的指数形式；</li>
+<li>f: 输出浮点数的标准浮点形式；</li>
+<li>%: 输出浮点数的百分形式。</li>
+</ul>
+<blockquote>
+<p> 浮点数输出时尽量使用&lt;.精度&gt;表示小数部分的宽度，有助于更好控制输出格式。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"&#123;0:e&#125;,&#123;0:E&#125;,&#123;0:f&#125;,&#123;0:%&#125;"</span>.format(<span class="number">3.14</span>)</span><br><span class="line">Out[<span class="number">33</span>]: <span class="string">'3.140000e+00,3.140000E+00,3.140000,314.000000%'</span></span><br><span class="line"> </span><br><span class="line"><span class="string">"&#123;0:.2e&#125;,&#123;0:.2E&#125;,&#123;0:.2f&#125;,&#123;0:.2%&#125;"</span>.format(<span class="number">3.14</span>)</span><br><span class="line">Out[<span class="number">34</span>]: <span class="string">'3.14e+00,3.14E+00,3.14,314.00%'</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Python</category>
       </categories>
@@ -4930,7 +5011,7 @@
   <entry>
     <title>Python爬虫_04(信息提取)</title>
     <url>/2020/07/01/Python%E7%88%AC%E8%99%AB-04/</url>
-    <content><![CDATA[<p>本篇总结爬取时 <strong>信息标记 *<em>与 *</em>提取方法</strong> 。</p>
+    <content><![CDATA[<p>本篇总结爬取时 <strong>信息标记</strong> 和 <strong>提取方法</strong> 。</p>
 <a id="more"></a>
 
 <hr>
@@ -5121,13 +5202,80 @@
       </tags>
   </entry>
   <entry>
-    <title>Python爬虫_06(淘宝股票)</title>
-    <url>/2020/07/01/Python%E7%88%AC%E8%99%AB-06/</url>
-    <content><![CDATA[<p>本篇总结是两个案例的实际应用尝试： <strong>淘宝商品比价</strong> 和 <strong>股票</strong> 的定向爬虫。</p>
+    <title>Python爬虫_06(Scrapy介绍)</title>
+    <url>/2020/07/02/Python%E7%88%AC%E8%99%AB-06/</url>
+    <content><![CDATA[<p>本篇总结python爬虫的重要<strong>框架</strong>——<strong>Scrapy</strong>。</p>
 <a id="more"></a>
 
 <hr>
-<h1 id="淘宝商品比价"><a href="#淘宝商品比价" class="headerlink" title="淘宝商品比价"></a>淘宝商品比价</h1><h1 id="股票"><a href="#股票" class="headerlink" title="股票"></a>股票</h1>]]></content>
+<h1 id="Scrapy爬虫框架介绍"><a href="#Scrapy爬虫框架介绍" class="headerlink" title="Scrapy爬虫框架介绍"></a>Scrapy爬虫框架介绍</h1><p>Scrapy是一个快速功能强大的网络爬虫框架。</p>
+<h2 id="Scrapy的安装"><a href="#Scrapy的安装" class="headerlink" title="Scrapy的安装"></a>Scrapy的安装</h2><p>以管理员身份运行Scrapy平台，输入以下命令即可。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install scrapy</span><br></pre></td></tr></table></figure>
+
+<h2 id="Scrapy爬虫框架结构"><a href="#Scrapy爬虫框架结构" class="headerlink" title="Scrapy爬虫框架结构"></a>Scrapy爬虫框架结构</h2><p>Scrapy不是一个函数功能库，而是一个爬虫框架。</p>
+<h3 id="什么是爬虫框架？"><a href="#什么是爬虫框架？" class="headerlink" title="什么是爬虫框架？"></a>什么是爬虫框架？</h3><ul>
+<li>爬虫框架是实现爬虫功能的一个软件结构和功能组件集合。 </li>
+<li>爬虫框架是一个半成品，能够帮助用户实现专业网络爬虫。</li>
+</ul>
+<h3 id="5-2-结构"><a href="#5-2-结构" class="headerlink" title="5+2 结构"></a>5+2 结构</h3><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/1.png" class>
+
+<h3 id="数据流的三种路径"><a href="#数据流的三种路径" class="headerlink" title="数据流的三种路径"></a>数据流的三种路径</h3><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/2.png" class>
+
+<img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/3.png" class>
+
+<img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/4.png" class>
+
+<h3 id="数据流的出入口"><a href="#数据流的出入口" class="headerlink" title="数据流的出入口"></a>数据流的出入口</h3><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/5.png" class>
+
+<p>需要注意的是：scrapy的五个模块中，DOWNLOADER、SCHEDULER和ENGINE三个已经实现，用户只需编写配置SPIDERS和ITEM PIPELINES两个模块即可。</p>
+<h1 id="Scrapy爬虫框架解析"><a href="#Scrapy爬虫框架解析" class="headerlink" title="Scrapy爬虫框架解析"></a>Scrapy爬虫框架解析</h1><p>主要是对五个模块和两个中间键。</p>
+<h2 id="Engine"><a href="#Engine" class="headerlink" title="Engine"></a>Engine</h2><p>(1) 控制所有模块之间的数据流</p>
+<p>(2) 根据条件触发事件 </p>
+<p>不需要用户修改</p>
+<h2 id="Downloader"><a href="#Downloader" class="headerlink" title="Downloader"></a>Downloader</h2><p>根据请求下载网页 不需要用户修改</p>
+<h2 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a>Scheduler</h2><p>对所有爬取请求进行调度管理 不需要用户修改</p>
+<h2 id="Downloader-Middleware"><a href="#Downloader-Middleware" class="headerlink" title="Downloader Middleware"></a>Downloader Middleware</h2><p><strong>目的</strong>：实施Engine、Scheduler和Downloader 之间进行用户可配置的控制 </p>
+<p><strong>功能</strong>：修改、丢弃、新增请求或响应 </p>
+<p>用户可以编写配置代码</p>
+<h2 id="Spider"><a href="#Spider" class="headerlink" title="Spider"></a>Spider</h2><p>(1) 解析Downloader返回的响应（Response）</p>
+<p>(2) 产生爬取项（scraped item） </p>
+<p>(3) 产生额外的爬取请求（Request） </p>
+<p>需要用户编写配置代码</p>
+<h2 id="Item-Pipelines"><a href="#Item-Pipelines" class="headerlink" title="Item Pipelines"></a>Item Pipelines</h2><p>(1) 以流水线方式处理Spider产生的爬取项 </p>
+<p>(2) 由一组操作顺序组成，类似流水线，每个操 作是一个Item Pipeline类型 </p>
+<p>(3) 可能操作包括：清理、检验和查重爬取项中 的HTML数据、将数据存储到数据库 </p>
+<p>需要用户编写配置代码</p>
+<h2 id="Spider-Middleware"><a href="#Spider-Middleware" class="headerlink" title="Spider Middleware"></a>Spider Middleware</h2><p><strong>目的</strong>：对请求和爬取项的再处理 </p>
+<p><strong>功能</strong>：修改、丢弃、新增请求或爬取项 </p>
+<p>用户可以编写配置代码</p>
+<h1 id="requests库和Scrapy爬虫的比较"><a href="#requests库和Scrapy爬虫的比较" class="headerlink" title="requests库和Scrapy爬虫的比较"></a>requests库和Scrapy爬虫的比较</h1><h2 id="相同点："><a href="#相同点：" class="headerlink" title="相同点："></a>相同点：</h2><ul>
+<li><p>两者都可以进行页面请求和爬取，Python爬虫的两个重要技术路线 </p>
+</li>
+<li><p>两者可用性都好，文档丰富，入门简单 </p>
+</li>
+<li><p>两者都没有处理js、提交表单、应对验证码等功能（可扩展）</p>
+</li>
+</ul>
+<h2 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h2><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/6.png" class>
+
+<h2 id="如何选择呢？"><a href="#如何选择呢？" class="headerlink" title="如何选择呢？"></a>如何选择呢？</h2><p>面临一个爬取需求，我们该选用requests库还是Scrapy库呢？</p>
+<ul>
+<li>非常小的需求，requests库 </li>
+<li>不太小的需求，Scrapy框架 </li>
+<li>定制程度很高的需求（不考虑规模），自搭框架，requests &gt; Scrapy</li>
+</ul>
+<h1 id="Scrapy爬虫的常用命令"><a href="#Scrapy爬虫的常用命令" class="headerlink" title="Scrapy爬虫的常用命令"></a>Scrapy爬虫的常用命令</h1><p>Scrapy是为持续运行设计的专业爬虫框架，提供操作的Scrapy命令行，主要通过cmd命令行实现。</p>
+<h2 id="Scrapy命令行格式"><a href="#Scrapy命令行格式" class="headerlink" title="Scrapy命令行格式"></a>Scrapy命令行格式</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;scrapy &lt;command&gt; [options] [args]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Scrapy常用命令"><a href="#Scrapy常用命令" class="headerlink" title="Scrapy常用命令"></a>Scrapy常用命令</h2><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/7.png" class>
+
+<h2 id="为什么Scrapy采用命令行创建和运行爬虫？"><a href="#为什么Scrapy采用命令行创建和运行爬虫？" class="headerlink" title="为什么Scrapy采用命令行创建和运行爬虫？"></a>为什么Scrapy采用命令行创建和运行爬虫？</h2><ul>
+<li><p>命令行（不是图形界面）更容易自动化，适合脚本控制 </p>
+</li>
+<li><p>本质上，Scrapy是给程序员用的，功能（而不是界面）更重要</p>
+</li>
+</ul>
+]]></content>
       <categories>
         <category>Python</category>
       </categories>
@@ -5211,13 +5359,6 @@
 </li>
 </ul>
 ]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-        <tag>Python</tag>
-      </tags>
   </entry>
   <entry>
     <title>Planan_02(第二周)</title>
@@ -5235,8 +5376,8 @@
       </tags>
   </entry>
   <entry>
-    <title>python爬虫_08(Scrapy初步使用)</title>
-    <url>/2020/07/03/python%E7%88%AC%E8%99%AB-08/</url>
+    <title>python爬虫_07(Scrapy初步使用)</title>
+    <url>/2020/07/03/python%E7%88%AC%E8%99%AB-07/</url>
     <content><![CDATA[<p>本篇是python<strong>框架Scrapy</strong>的初步使用。</p>
 <a id="more"></a>
 
@@ -5248,15 +5389,15 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scrapy startproject python123demo   <span class="comment"># python123demo为工程名</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>生成的工程目录</strong></p>
-<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/1.png" class>
+
 
 <p>其中spiders/ 目录下的内容为：</p>
-<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/2.png" class>
+
 
 <h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在工程中产生一个Scrapy爬虫。进入工程目录（\python123demo目录下），然后执行如下命令：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scrapy genspider demo python123.io</span><br></pre></td></tr></table></figure>
 
-<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/3.png" class>
+
 
 <p>该命令作用：</p>
 <p>(1) 生成一个名称为demo的spider</p>
@@ -5265,33 +5406,33 @@
 <p>该命令仅用于生成demo.py，该文件也可以手工生成.</p>
 </blockquote>
 <p><strong>demo.py文件</strong></p>
-<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/4.png" class>
+
 
 <h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>配置产生的spider爬虫。</p>
 <p>配置：（1）初始URL地址 （2）获取页面后的解析方式</p>
-<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/5.png" class>
+
 
 <h3 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h3><p>运行爬虫，获取网页</p>
 <p>在命令行下，执行如下命令：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scrapy crawl demo</span><br></pre></td></tr></table></figure>
 
-<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/6.png" class>
+
 
 <p>demo爬虫被执行，捕获页面存储在demo.html</p>
-<h2 id="demo-py代码的完整版本"><a href="#demo-py代码的完整版本" class="headerlink" title="demo.py代码的完整版本"></a>demo.py代码的完整版本</h2><img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/7.png" class>
+<h2 id="demo-py代码的完整版本"><a href="#demo-py代码的完整版本" class="headerlink" title="demo.py代码的完整版本"></a>demo.py代码的完整版本</h2>
 
 <p><strong>demo.py两个等价版本的区别</strong></p>
-<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/8.png" class>
 
-<h1 id="yield关键字的使用"><a href="#yield关键字的使用" class="headerlink" title="yield关键字的使用"></a>yield关键字的使用</h1><img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/9.png" class>
+
+<h1 id="yield关键字的使用"><a href="#yield关键字的使用" class="headerlink" title="yield关键字的使用"></a>yield关键字的使用</h1>
 
 <p>生成器每调用一次在yield位置产生一个值，直到函数执行结束.</p>
-<h2 id="为何要有生成器？"><a href="#为何要有生成器？" class="headerlink" title="为何要有生成器？"></a>为何要有生成器？</h2><img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/10.png" class>
+<h2 id="为何要有生成器？"><a href="#为何要有生成器？" class="headerlink" title="为何要有生成器？"></a>为何要有生成器？</h2>
 
-<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/11.png" class>
+
 
 <p><strong>demo.py</strong></p>
-<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/12.png" class>
+
 
 <h1 id="Scrapy爬虫的基本使用"><a href="#Scrapy爬虫的基本使用" class="headerlink" title="Scrapy爬虫的基本使用"></a>Scrapy爬虫的基本使用</h1><h2 id="Scrapy爬虫的使用步骤"><a href="#Scrapy爬虫的使用步骤" class="headerlink" title="Scrapy爬虫的使用步骤"></a>Scrapy爬虫的使用步骤</h2><p>步骤1：创建一个工程和Spider模板</p>
 <p>步骤2：编写Spider</p>
@@ -5300,21 +5441,21 @@
 <h2 id="Scrapy爬虫的数据类型"><a href="#Scrapy爬虫的数据类型" class="headerlink" title="Scrapy爬虫的数据类型"></a>Scrapy爬虫的数据类型</h2><h3 id="Request类"><a href="#Request类" class="headerlink" title="Request类"></a>Request类</h3><p><code>class scrapy.http.Request()</code></p>
 <p>Request对象表示一个HTTP请求，由Spider生成，由Downloader执行。</p>
 <p><strong>属性和方法</strong></p>
-<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/13.png" class>
+
 
 <h3 id="Response类"><a href="#Response类" class="headerlink" title="Response类"></a>Response类</h3><p><code>class scrapy.http.Response()</code></p>
 <p>Response对象表示一个HTTP响应，由Downloader生成，由Spider处理。</p>
 <p><strong>属性和方法</strong></p>
-<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/14.png" class>
+
 
 <h3 id="Item类"><a href="#Item类" class="headerlink" title="Item类"></a>Item类</h3><p><code>class scrapy.item.Item()</code></p>
 <p>Item对象表示一个从HTML页面中提取的信息内容</p>
 <p>由Spider生成，由Item Pipeline处理</p>
 <p>Item类似字典类型，可以按照字典类型操作</p>
-<h2 id="Scrapy爬虫提取信息的方法"><a href="#Scrapy爬虫提取信息的方法" class="headerlink" title="Scrapy爬虫提取信息的方法"></a>Scrapy爬虫提取信息的方法</h2><img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/15.png" class>
+<h2 id="Scrapy爬虫提取信息的方法"><a href="#Scrapy爬虫提取信息的方法" class="headerlink" title="Scrapy爬虫提取信息的方法"></a>Scrapy爬虫提取信息的方法</h2>
 
 <p>重点介绍<strong>CSS Selector</strong>的基本使用。</p>
-<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-08/16.png" class>]]></content>
+]]></content>
       <categories>
         <category>Python</category>
       </categories>
