@@ -2844,7 +2844,12 @@
 <li><p>split()：分割，返回一个列表，丢失分割字符。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.split(分割字符,num)</span><br></pre></td></tr></table></figure>
 
-<p>num表示的是分割字符出现的次数，即将来返回数据个数为num+1个。</p>
+<ul>
+<li><p>num表示的是分割字符出现的次数，即将来返回数据个数为num+1个。</p>
+</li>
+<li><p>不写参数，默认以空格为分隔符，包括\n \t。</p>
+</li>
+</ul>
 </li>
 <li><p>join()：合并列表里的字符串数据为一个大字符串。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符或子串.join(多字符串组成的序列)</span><br></pre></td></tr></table></figure>
@@ -2868,10 +2873,10 @@
 </ul>
 <h3 id="3）判断"><a href="#3）判断" class="headerlink" title="3）判断"></a>3）判断</h3><p>判断真假，返回布尔的真假。</p>
 <ul>
-<li><p>startwith()：检查字符串是否以指定子串开头，是则返回True。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.startwith(子串,开始位置下标,结束位置下标)</span><br></pre></td></tr></table></figure>
+<li><p>startswith()：检查字符串是否以指定子串开头，是则返回True。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串序列.startswith(子串,开始位置下标,结束位置下标)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>endwith()：检查字符串是否以指定子串结尾，是则返回True。</p>
+<li><p>endswith()：检查字符串是否以指定子串结尾，是则返回True。</p>
 </li>
 <li><p>其他函数：</p>
 <ul>
@@ -2890,6 +2895,8 @@
 
 <p><strong>结果</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串的长度是: <span class="number">13</span></span><br><span class="line">单词首字母大写:  Hello, World!</span><br><span class="line">字符串变大写:  HELLO, WORLD!</span><br><span class="line">字符串是不是大写:  <span class="literal">False</span></span><br><span class="line">字符串是不是以hello开头:  <span class="literal">True</span></span><br><span class="line">字符串是不是以hello结尾:  <span class="literal">False</span></span><br><span class="line">字符串是不是以感叹号开头:  <span class="literal">False</span></span><br><span class="line">字符串是不是一感叹号结尾:  <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="迅速去掉字符串的空格符、制表符和换行符"><a href="#迅速去掉字符串的空格符、制表符和换行符" class="headerlink" title="迅速去掉字符串的空格符、制表符和换行符"></a>迅速去掉字符串的空格符、制表符和换行符</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">aStr = <span class="string">'hello  wel\rcome \t   to   \t  zy \n  oYeah'</span></span><br><span class="line">print(<span class="string">''</span>.join(aStr.split()))</span><br></pre></td></tr></table></figure>
 
 <h1 id="字符串的format格式化"><a href="#字符串的format格式化" class="headerlink" title="字符串的format格式化"></a>字符串的format格式化</h1><h2 id="一、简单运用"><a href="#一、简单运用" class="headerlink" title="一、简单运用"></a>一、简单运用</h2><p>字符串类型格式化采用format()方法，基本使用格式是：</p>
 <p>   <strong>&lt;模板字符串&gt;.format(&lt;逗号分隔的参数&gt;)</strong></p>
@@ -4928,12 +4935,10 @@
 <img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-02/5.png" class>
 
 <p>代码中，<code>r.content</code>是内容的二进制形式，写入目标文件可得到相应图片。</p>
-<blockquote>
-<p>补充：如果遇到url的拼接问题，建议使用 ``urllib.parse<code>的</code>urljoin` 方法。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;<span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urljoin</span><br><span class="line"></span><br><span class="line">&gt;url = <span class="string">'http://www.youtube.com/'</span></span><br><span class="line">&gt;path = <span class="string">'/index.html'</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;&gt; urljoin(url, path)</span><br><span class="line">&gt;<span class="string">'http://www.youtube.com/index.html'</span></span><br><span class="line">&gt;&gt;&gt;&gt; url + path</span><br><span class="line">&gt;<span class="string">'http://www.youtube.com//index.html'</span></span><br></pre></td></tr></table></figure>
+<h1 id="补充（url拼接）"><a href="#补充（url拼接）" class="headerlink" title="补充（url拼接）"></a>补充（url拼接）</h1><p>如果遇到url的拼接问题，建议使用 ``urllib.parse<code>的</code>urljoin` 方法。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urljoin</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://www.youtube.com/'</span></span><br><span class="line">path = <span class="string">'/index.html'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>urljoin(url, path)</span><br><span class="line"><span class="string">'http://www.youtube.com/index.html'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>url + path</span><br><span class="line"><span class="string">'http://www.youtube.com//index.html'</span></span><br></pre></td></tr></table></figure>
 
 <p>可以解决一些url 用 + 连接符产生的问题。</p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Python</category>
@@ -5276,7 +5281,7 @@
 <h2 id="Scrapy常用命令"><a href="#Scrapy常用命令" class="headerlink" title="Scrapy常用命令"></a>Scrapy常用命令</h2><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/7.png" class>
 
 <h2 id="为什么Scrapy采用命令行创建和运行爬虫？"><a href="#为什么Scrapy采用命令行创建和运行爬虫？" class="headerlink" title="为什么Scrapy采用命令行创建和运行爬虫？"></a>为什么Scrapy采用命令行创建和运行爬虫？</h2><ul>
-<li><p>命令行（不是图形界面）更容易自动化，适合脚本控制 </p>
+<li><p>命令行（不是图形界面）更容易自动化，适合脚本控制</p>
 </li>
 <li><p>本质上，Scrapy是给程序员用的，功能（而不是界面）更重要</p>
 </li>
@@ -5408,6 +5413,17 @@
   <entry>
     <title>Python爬虫_08</title>
     <url>/2020/07/05/Python%E7%88%AC%E8%99%AB-08/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>本篇是python<strong>框架Scrapy</strong>的初步使用。</p>
+<a id="more"></a>
+
+<hr>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Python</tag>
+      </tags>
   </entry>
 </search>
