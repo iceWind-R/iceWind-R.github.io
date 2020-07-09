@@ -3282,7 +3282,11 @@
   <entry>
     <title>We Are All Fighters</title>
     <url>/2020/03/03/We-Are-All-Fighters/</url>
-    <content><![CDATA[<iframe src="//player.bilibili.com/player.html?aid=90376384&cid=154346256&page=1" width="100%" height="450" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    <content><![CDATA[<p>一个video。</p>
+<a id="more"></a>
+
+<hr>
+<iframe src="//player.bilibili.com/player.html?aid=90376384&cid=154346256&page=1" width="100%" height="450" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 ​          <p align="right"> <b>  ————To the battle we are fighting</b></p>]]></content>
       <categories>
         <category>video</category>
@@ -4309,23 +4313,6 @@
       </tags>
   </entry>
   <entry>
-    <title>没来得及好好过的大二</title>
-    <url>/2020/06/17/%E6%B2%A1%E6%9D%A5%E5%BE%97%E5%8F%8A%E5%A5%BD%E5%A5%BD%E8%BF%87%E7%9A%84%E5%A4%A7%E4%BA%8C/</url>
-    <content><![CDATA[<p>转瞬即逝。</p>
-<a id="more"></a>
-
-<hr>
-<p>结束才觉得一切都太快了</p>
-<p>得好好规划暑假啊</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>清明</title>
     <url>/2020/04/04/%E6%B8%85%E6%98%8E/</url>
     <content><![CDATA[<p>记录已经过完的四分之一个2020年。</p>
@@ -4886,7 +4873,24 @@
 <p><strong>∙</strong> <strong>data</strong> : 字典、字节序列或文件，Request的内容</p>
 <p><strong>∙</strong> **kwargs: 12个控制访问的参数</p>
 <h2 id="7-requests-delete-url-kwargs"><a href="#7-requests-delete-url-kwargs" class="headerlink" title="7. requests.delete(url, \kwargs)"></a>7. requests.delete(<strong>url</strong>, <strong><em>\</em>kwargs</strong>)</h2><p><strong>∙</strong> <strong>url</strong> : 拟删除页面的url链接</p>
-<p><strong>∙</strong> **kwargs: 12个控制访问的参数</p>
+<p><strong>∙</strong> **kwargs: 12个控制访问的参数 </p>
+<h1 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h1><h2 id="HTTP请求头常见参数"><a href="#HTTP请求头常见参数" class="headerlink" title="HTTP请求头常见参数"></a>HTTP请求头常见参数</h2><ol>
+<li><code>User-Agent</code>:浏览器名称，如果我们使用爬虫发送请求，那么我们的<code>User-Agent</code>就是<code>Python</code>,很容易被反爬虫检测到；</li>
+<li><code>Referer</code>:表明当前请求是从哪个URL过来的，这个一般也可以用来做反爬虫技术。如果不是从指定页面过来的，那么就不做相关的响应。</li>
+<li><code>Cookie</code>:<code>http</code>协议视无状态的，也就是从一个人发送了两次请求，服务器没有能力知道这两个请求是否来自同一个人。因此这时候就用<code>cookie</code>来做标识。一般如果想要做登录后才能访问的网站，那么就需要发送<code>cookie</code>信息了。</li>
+</ol>
+<h2 id="常见响应状态码"><a href="#常见响应状态码" class="headerlink" title="常见响应状态码"></a>常见响应状态码</h2><ol>
+<li><code>200</code>:请求正常，服务器正常返回数据；</li>
+<li><code>301</code>:永久重定向，比如在访问<code>www.jingdong.com</code>的时候回重定向到<code>www.jd.com</code>；</li>
+<li><code>302</code>:临时重定向，比如在访问一个需要登录的页面的时候，而此时没有登录，那么就会重定向到登录界面；</li>
+<li><code>400</code>:请求的<code>url</code>在服务器上找不到，换句话说就是请求<code>url</code>错误；</li>
+<li><code>403</code>:服务器拒绝访问，权限不够；</li>
+<li><code>500</code>:服务器内部错误，可能是服务器出现<code>bug</code>了。</li>
+</ol>
+<h2 id="Cookies和Session"><a href="#Cookies和Session" class="headerlink" title="Cookies和Session"></a>Cookies和Session</h2><h3 id="cookies"><a href="#cookies" class="headerlink" title="cookies"></a>cookies</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">r = requests.get(<span class="string">'http://www.baidu.com'</span>) <span class="comment"># 获取百度的cookies</span></span><br><span class="line">print(r.cookies)    <span class="comment"># &lt;RequestsCookieJar[&lt;Cookie BDORZ=27315 for .baidu.com/&gt;]&gt;</span></span><br><span class="line"></span><br><span class="line">print(r.cookies.get_dict()) <span class="comment"># get_dict()方法得到cookies的字典信息： &#123;'BDORZ': '27315'&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://www.renren.com/PLogin.do'</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">'email'</span>:<span class="string">'13287857692'</span>,</span><br><span class="line">    <span class="string">'password'</span>:<span class="string">'密码'</span></span><br><span class="line">&#125;</span><br><span class="line">headers = &#123;<span class="string">'user-agent'</span>:<span class="string">'Mozilla/5.0'</span>&#125;</span><br><span class="line"></span><br><span class="line">session = requests.session()</span><br><span class="line">session.post(url, data = data, headers = headers)</span><br><span class="line"></span><br><span class="line">response = session.get(<span class="string">'http://www.renren.com/974726184/profile'</span>)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'renrne.html'</span>, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(response.text)</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Python</category>
@@ -4951,7 +4955,7 @@
   <entry>
     <title>Python爬虫_03(BeautifulSoup库的使用)</title>
     <url>/2020/06/30/Python%E7%88%AC%E8%99%AB-03/</url>
-    <content><![CDATA[<p>本篇总结 <strong>BeautifulSoup</strong> 库的安装使用。</p>
+    <content><![CDATA[<p>本篇总结 <strong>BeautifulSoup</strong> 库的安装使用（补充了<strong>Xpath</strong>）。</p>
 <a id="more"></a>
 
 <hr>
@@ -5010,7 +5014,27 @@
 <h2 id="bs4库的prettify-方法"><a href="#bs4库的prettify-方法" class="headerlink" title="bs4库的prettify()方法"></a>bs4库的prettify()方法</h2><p>可以使读取的html内容格式化输出</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 用于文本和标签</span></span><br><span class="line">soup.prettify() </span><br><span class="line">soup.a.prettify()</span><br></pre></td></tr></table></figure>
 
-<h1 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h1><img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-03/10.png" class>]]></content>
+<h1 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h1><img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-03/10.png" class>
+
+<h1 id="补充：Xpath"><a href="#补充：Xpath" class="headerlink" title="补充：Xpath"></a>补充：Xpath</h1><p>Xpath在Scrapy框架中常用。</p>
+<h2 id="Xpath语法"><a href="#Xpath语法" class="headerlink" title="Xpath语法"></a>Xpath语法</h2><p>其实只分为3类</p>
+<ul>
+<li>层级：<code>/</code>直接子级，<code>//</code>跳级</li>
+<li>属性：<code>@</code> 属性访问</li>
+<li>函数：<code>contains()</code>、<code>text()</code>等。<ul>
+<li>contains()：检测某个属性并不是完全等于某个值，而是<strong>包含</strong>某个值。</li>
+<li>text()：对标签内的文字结点进行提取。</li>
+</ul>
+</li>
+</ul>
+<h2 id="在Scrapy中的应用"><a href="#在Scrapy中的应用" class="headerlink" title="在Scrapy中的应用"></a>在Scrapy中的应用</h2><p>scrapy中支持Xpath的使用，<code>response.xpath()</code>直接调用即可。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">	result =  	response.xpath(<span class="string">"//ol[@class='kw']/li//p[contains(@class,'sss')]/text()"</span>).extract()</span><br><span class="line">    print(<span class="string">''</span>.join(result))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>extract()：解析</p>
+<p>符合Xpath的可能有多条，解析后是所有结果的列表形式。</p>
+</blockquote>
+]]></content>
       <categories>
         <category>Python</category>
       </categories>
@@ -5322,7 +5346,7 @@
       </tags>
   </entry>
   <entry>
-    <title>python爬虫_07(Scrapy初步使用)</title>
+    <title>Python爬虫_07(Scrapy初步使用)</title>
     <url>/2020/07/03/python%E7%88%AC%E8%99%AB-07/</url>
     <content><![CDATA[<p>本篇是python<strong>框架Scrapy</strong>的初步使用。</p>
 <a id="more"></a>
@@ -5331,76 +5355,109 @@
 <h1 id="创建Scrapy爬虫工程"><a href="#创建Scrapy爬虫工程" class="headerlink" title="创建Scrapy爬虫工程"></a>创建Scrapy爬虫工程</h1><p>演示HTML页面地址：<a href="http://python123.io/ws/demo.html" target="_blank" rel="noopener">http://python123.io/ws/demo.html</a></p>
 <p>文件名称：demo.html</p>
 <h2 id="创建步骤"><a href="#创建步骤" class="headerlink" title="创建步骤"></a>创建步骤</h2><p>应用Scrapy爬虫框架主要是编写<strong>配置型代码</strong>.</p>
-<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>建立一个Scrapy爬虫工程。选取一个目录，cmd打开命令行运行下述代码：</p>
+<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p><strong>建立一个Scrapy爬虫工程</strong>。选取一个目录，cmd打开命令行运行下述代码：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scrapy startproject python123demo   <span class="comment"># python123demo为工程名</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>生成的工程目录</strong></p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/1.png" class>
 
+<ol>
+<li>item.py：用来存储爬虫爬取下来的数据模型。</li>
+<li>middlewares.py：用来存放各种中间件的文件。</li>
+<li>pipelines.py：用来将items模型存储到本地磁盘中。</li>
+<li>settings.py：本爬虫的一些配置信息（比如请求头、多久发送一次请求、ip代理池等）</li>
+<li>scrapy.cfg：项目的 配置文件。</li>
+<li>spider文件夹：所有的爬虫代码文件。</li>
+</ol>
+<p>其中spiders/ 目录下的内容为：（后续生成的demo.py便在此文件下）</p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/2.png" class>
 
-<p>其中spiders/ 目录下的内容为：</p>
-
-
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在工程中产生一个Scrapy爬虫。进入工程目录（\python123demo目录下），然后执行如下命令：</p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p><strong>在工程中产生一个Scrapy爬虫</strong>。进入工程目录（\python123demo目录下），然后执行如下命令：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scrapy genspider demo python123.io</span><br></pre></td></tr></table></figure>
 
-
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/3.png" class>
 
 <p>该命令作用：</p>
-<p>(1) 生成一个名称为demo的spider</p>
-<p>(2) 在spiders目录下增加代码文件demo.py</p>
+<p>(1) 生成一个名称为demo的spider（不能与项目名一致）</p>
+<p>(2) 爬取网站的url为 python123.io</p>
+<p>(3) 在spiders目录下增加代码文件demo.py</p>
 <blockquote>
 <p>该命令仅用于生成demo.py，该文件也可以手工生成.</p>
 </blockquote>
 <p><strong>demo.py文件</strong></p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/4.png" class>
 
+<blockquote>
+<p>类名为DemoSpider（demo为自己命名的demo文件），且继承自 <code>scrapy.Spider</code></p>
+<p>name = “Demo”，当前爬虫名为Demo</p>
+<p>allowed_domains: 是最开始在命令行中写入的域名，表示只能爬取该域名以下的相关链接</p>
+<p>start_urls: 爬虫启动时最开始的url链接。是包含一个或多个url 的列表</p>
+<p>parse：一个解析页面的空方法</p>
+</blockquote>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>设置<code>settings.py</code>，设置了两个地方，第一是不遵守robots.txt协议（设为False）；第二是设置请求头，添加了user-agent选项。</p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/17.png" class>
 
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>配置产生的spider爬虫。</p>
+<h3 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h3><p><strong>配置产生的spider爬虫</strong>。主要是对<code>demo.py</code>文件的编写修改。（这里的案例以爬取相关网址，获得html，并存储在文件中作为演示）</p>
 <p>配置：（1）初始URL地址 （2）获取页面后的解析方式</p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/5.png" class>
 
-
-<h3 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h3><p>运行爬虫，获取网页</p>
+<h3 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h3><p>运行爬虫，获取网页</p>
 <p>在命令行下，执行如下命令：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scrapy crawl demo</span><br></pre></td></tr></table></figure>
 
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/6.png" class>
 
-
+<p>parse方法中：</p>
+<ul>
+<li><code>fname = response.url.split(&#39;/&#39;)[-1]</code>，意为：从response响应中提取url，把最后的名字（即 ‘/’ 后的名字）作为待存储的本地文件名。</li>
+<li></li>
+</ul>
 <p>demo爬虫被执行，捕获页面存储在demo.html</p>
-<h2 id="demo-py代码的完整版本"><a href="#demo-py代码的完整版本" class="headerlink" title="demo.py代码的完整版本"></a>demo.py代码的完整版本</h2>
+<h2 id="demo-py代码的完整版本"><a href="#demo-py代码的完整版本" class="headerlink" title="demo.py代码的完整版本"></a>demo.py代码的完整版本</h2><img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/7.png" class>
 
 <p><strong>demo.py两个等价版本的区别</strong></p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/8.png" class>
 
-
-<h1 id="yield关键字的使用"><a href="#yield关键字的使用" class="headerlink" title="yield关键字的使用"></a>yield关键字的使用</h1>
+<h1 id="yield关键字的使用"><a href="#yield关键字的使用" class="headerlink" title="yield关键字的使用"></a>yield关键字的使用</h1><img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/9.png" class>
 
 <p>生成器每调用一次在yield位置产生一个值，直到函数执行结束.</p>
-<h2 id="为何要有生成器？"><a href="#为何要有生成器？" class="headerlink" title="为何要有生成器？"></a>为何要有生成器？</h2>
+<h2 id="为何要有生成器？"><a href="#为何要有生成器？" class="headerlink" title="为何要有生成器？"></a>为何要有生成器？</h2><img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/10.png" class>
 
-
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/11.png" class>
 
 <p><strong>demo.py</strong></p>
-
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/12.png" class>
 
 <h1 id="Scrapy爬虫的基本使用"><a href="#Scrapy爬虫的基本使用" class="headerlink" title="Scrapy爬虫的基本使用"></a>Scrapy爬虫的基本使用</h1><h2 id="Scrapy爬虫的使用步骤"><a href="#Scrapy爬虫的使用步骤" class="headerlink" title="Scrapy爬虫的使用步骤"></a>Scrapy爬虫的使用步骤</h2><p>步骤1：创建一个工程和Spider模板</p>
 <p>步骤2：编写Spider</p>
-<p>步骤3：编写Item Pipeline</p>
+<p>步骤3：编写Item Pipeline：对Spider提取信息的后续处理做相关的定义</p>
 <p>步骤4：优化配置策略</p>
-<h2 id="Scrapy爬虫的数据类型"><a href="#Scrapy爬虫的数据类型" class="headerlink" title="Scrapy爬虫的数据类型"></a>Scrapy爬虫的数据类型</h2><h3 id="Request类"><a href="#Request类" class="headerlink" title="Request类"></a>Request类</h3><p><code>class scrapy.http.Request()</code></p>
+<h2 id="Scrapy爬虫的数据类型"><a href="#Scrapy爬虫的数据类型" class="headerlink" title="Scrapy爬虫的数据类型"></a>Scrapy爬虫的数据类型</h2><p>注意：这里的request类和response类是Scrapy库的，和requests库的不是完全一致，但几乎相同。</p>
+<h3 id="Request类"><a href="#Request类" class="headerlink" title="Request类"></a>Request类</h3><p><code>class scrapy.http.Request()</code></p>
 <p>Request对象表示一个HTTP请求，由Spider生成，由Downloader执行。</p>
 <p><strong>属性和方法</strong></p>
-
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/13.png" class>
 
 <h3 id="Response类"><a href="#Response类" class="headerlink" title="Response类"></a>Response类</h3><p><code>class scrapy.http.Response()</code></p>
 <p>Response对象表示一个HTTP响应，由Downloader生成，由Spider处理。</p>
 <p><strong>属性和方法</strong></p>
-
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/14.png" class>
 
 <h3 id="Item类"><a href="#Item类" class="headerlink" title="Item类"></a>Item类</h3><p><code>class scrapy.item.Item()</code></p>
 <p>Item对象表示一个从HTML页面中提取的信息内容</p>
 <p>由Spider生成，由Item Pipeline处理</p>
 <p>Item类似字典类型，可以按照字典类型操作</p>
-<h2 id="Scrapy爬虫提取信息的方法"><a href="#Scrapy爬虫提取信息的方法" class="headerlink" title="Scrapy爬虫提取信息的方法"></a>Scrapy爬虫提取信息的方法</h2>
+<blockquote>
+<p>在scrapy爬虫中，Spider爬取网页，得到的信息以键值对的形式封装成字典，这种字典就是<code>Item</code>类</p>
+</blockquote>
+<h2 id="Scrapy爬虫提取信息的方法"><a href="#Scrapy爬虫提取信息的方法" class="headerlink" title="Scrapy爬虫提取信息的方法"></a>Scrapy爬虫提取信息的方法</h2><img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/15.png" class>
 
 <p>重点介绍<strong>CSS Selector</strong>的基本使用。</p>
+<img src="/2020/07/03/python%E7%88%AC%E8%99%AB-07/16.png" class>
+
+<blockquote>
+<p>该方法在scrapy框架中十分常见，比较简单，需要掌握。</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>Python</category>
@@ -5411,19 +5468,49 @@
       </tags>
   </entry>
   <entry>
-    <title>Python爬虫_08</title>
+    <title>Python爬虫_08(股票数据Scrapy爬虫)</title>
     <url>/2020/07/05/Python%E7%88%AC%E8%99%AB-08/</url>
-    <content><![CDATA[<p>本篇是python<strong>框架Scrapy</strong>的初步使用。</p>
+    <content><![CDATA[<p>本篇是python实例编写：<strong>股票数据Scrapy爬虫</strong>。</p>
 <a id="more"></a>
 
 <hr>
-]]></content>
+<h1 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h1><p>目标：获取上交所和深交所所有股票的名称和交易信息 </p>
+<p>输出：保存到文件中</p>
+<h1 id="编写步骤"><a href="#编写步骤" class="headerlink" title="编写步骤"></a>编写步骤</h1><p>编写<strong>spider</strong>处理链接爬取和页面解析，编写<strong>pipelines</strong>处理信息存储</p>
+<h2 id="步骤1：建立工程和Spider模板"><a href="#步骤1：建立工程和Spider模板" class="headerlink" title="步骤1：建立工程和Spider模板"></a>步骤1：建立工程和Spider模板</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">\&gt;scrapy startproject BaiduStocks</span><br><span class="line">\&gt;cd BaiduStocks</span><br><span class="line">\&gt;scrapy genspider stocks baidu.com</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/07/05/Python%E7%88%AC%E8%99%AB-08/1.png" class>
+
+<p>进一步修改spiders/stocks.py文件</p>
+<h2 id="步骤2：编写Spider"><a href="#步骤2：编写Spider" class="headerlink" title="步骤2：编写Spider"></a>步骤2：编写Spider</h2><h2 id="步骤3：编写ITEM-Pipelines"><a href="#步骤3：编写ITEM-Pipelines" class="headerlink" title="步骤3：编写ITEM Pipelines"></a>步骤3：编写ITEM Pipelines</h2>]]></content>
       <categories>
         <category>Python</category>
       </categories>
       <tags>
         <tag>Learning</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>绝境里的高考</title>
+    <url>/2020/07/07/%E7%BB%9D%E5%A2%83%E9%87%8C%E7%9A%84%E9%AB%98%E8%80%83/</url>
+    <content><![CDATA[<p>2020年7月7日~2020年7月8日高考。</p>
+<a id="more"></a>
+
+<hr>
+<p>今年真是命运多舛的一年，就在今天下午，本应所有高三考生紧张答题的时候，却传来了南方载有考生的大巴车出事，21人死亡。真是令人心痛，最美的年纪，可命运对他们并不公平。</p>
+<blockquote>
+<p>那会难受的想跳河，不过我使劲儿的控制住自己了。</p>
+</blockquote>
+<p>每个人都在努力过好自己的生活，但有些时候，真的很难。</p>
+<p>除了生老病死，其他都是小事。</p>
+<p>生活很难，但请务必坚持</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
       </tags>
   </entry>
 </search>

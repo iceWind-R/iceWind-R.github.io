@@ -47,7 +47,7 @@
 <meta property="og:image" content="http://icewind-r.github.io/2020/06/30/Python%E7%88%AC%E8%99%AB-01/17.png">
 <meta property="og:image" content="http://icewind-r.github.io/2020/06/30/Python%E7%88%AC%E8%99%AB-01/18.png">
 <meta property="article:published_time" content="2020-06-30T04:26:28.000Z">
-<meta property="article:modified_time" content="2020-07-01T11:17:17.411Z">
+<meta property="article:modified_time" content="2020-07-08T02:12:39.769Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="Learning">
 <meta property="article:tag" content="Python">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-01 19:17:17" itemprop="dateModified" datetime="2020-07-01T19:17:17+08:00">2020-07-01</time>
+                <time title="修改时间：2020-07-08 10:12:39" itemprop="dateModified" datetime="2020-07-08T10:12:39+08:00">2020-07-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -302,14 +302,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -430,7 +430,24 @@
 <p><strong>∙</strong> <strong>data</strong> : 字典、字节序列或文件，Request的内容</p>
 <p><strong>∙</strong> **kwargs: 12个控制访问的参数</p>
 <h2 id="7-requests-delete-url-kwargs"><a href="#7-requests-delete-url-kwargs" class="headerlink" title="7. requests.delete(url, \kwargs)"></a>7. requests.delete(<strong>url</strong>, <strong><em>\</em>kwargs</strong>)</h2><p><strong>∙</strong> <strong>url</strong> : 拟删除页面的url链接</p>
-<p><strong>∙</strong> **kwargs: 12个控制访问的参数</p>
+<p><strong>∙</strong> **kwargs: 12个控制访问的参数 </p>
+<h1 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h1><h2 id="HTTP请求头常见参数"><a href="#HTTP请求头常见参数" class="headerlink" title="HTTP请求头常见参数"></a>HTTP请求头常见参数</h2><ol>
+<li><code>User-Agent</code>:浏览器名称，如果我们使用爬虫发送请求，那么我们的<code>User-Agent</code>就是<code>Python</code>,很容易被反爬虫检测到；</li>
+<li><code>Referer</code>:表明当前请求是从哪个URL过来的，这个一般也可以用来做反爬虫技术。如果不是从指定页面过来的，那么就不做相关的响应。</li>
+<li><code>Cookie</code>:<code>http</code>协议视无状态的，也就是从一个人发送了两次请求，服务器没有能力知道这两个请求是否来自同一个人。因此这时候就用<code>cookie</code>来做标识。一般如果想要做登录后才能访问的网站，那么就需要发送<code>cookie</code>信息了。</li>
+</ol>
+<h2 id="常见响应状态码"><a href="#常见响应状态码" class="headerlink" title="常见响应状态码"></a>常见响应状态码</h2><ol>
+<li><code>200</code>:请求正常，服务器正常返回数据；</li>
+<li><code>301</code>:永久重定向，比如在访问<code>www.jingdong.com</code>的时候回重定向到<code>www.jd.com</code>；</li>
+<li><code>302</code>:临时重定向，比如在访问一个需要登录的页面的时候，而此时没有登录，那么就会重定向到登录界面；</li>
+<li><code>400</code>:请求的<code>url</code>在服务器上找不到，换句话说就是请求<code>url</code>错误；</li>
+<li><code>403</code>:服务器拒绝访问，权限不够；</li>
+<li><code>500</code>:服务器内部错误，可能是服务器出现<code>bug</code>了。</li>
+</ol>
+<h2 id="Cookies和Session"><a href="#Cookies和Session" class="headerlink" title="Cookies和Session"></a>Cookies和Session</h2><h3 id="cookies"><a href="#cookies" class="headerlink" title="cookies"></a>cookies</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">r = requests.get(<span class="string">'http://www.baidu.com'</span>) <span class="comment"># 获取百度的cookies</span></span><br><span class="line">print(r.cookies)    <span class="comment"># &lt;RequestsCookieJar[&lt;Cookie BDORZ=27315 for .baidu.com/&gt;]&gt;</span></span><br><span class="line"></span><br><span class="line">print(r.cookies.get_dict()) <span class="comment"># get_dict()方法得到cookies的字典信息： &#123;'BDORZ': '27315'&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://www.renren.com/PLogin.do'</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">'email'</span>:<span class="string">'13287857692'</span>,</span><br><span class="line">    <span class="string">'password'</span>:<span class="string">'密码'</span></span><br><span class="line">&#125;</span><br><span class="line">headers = &#123;<span class="string">'user-agent'</span>:<span class="string">'Mozilla/5.0'</span>&#125;</span><br><span class="line"></span><br><span class="line">session = requests.session()</span><br><span class="line">session.post(url, data = data, headers = headers)</span><br><span class="line"></span><br><span class="line">response = session.get(<span class="string">'http://www.renren.com/974726184/profile'</span>)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'renrne.html'</span>, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(response.text)</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -543,7 +560,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#get-方法"><span class="nav-number">1.</span> <span class="nav-text">get()方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Response对象"><span class="nav-number">1.1.</span> <span class="nav-text">Response对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Response对象的属性"><span class="nav-number">1.1.1.</span> <span class="nav-text">Response对象的属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#爬取网页的通用代码框架"><span class="nav-number">2.</span> <span class="nav-text">爬取网页的通用代码框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Request对象的异常"><span class="nav-number">2.0.1.</span> <span class="nav-text">Request对象的异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Response对象的异常"><span class="nav-number">2.0.2.</span> <span class="nav-text">Response对象的异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬取页面的通用代码框架"><span class="nav-number">2.1.</span> <span class="nav-text">爬取页面的通用代码框架</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP协议及requests库方法"><span class="nav-number">3.</span> <span class="nav-text">HTTP协议及requests库方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Requests库的主要方法解析"><span class="nav-number">4.</span> <span class="nav-text">Requests库的主要方法解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-requests-request-method-url-kwargs"><span class="nav-number">4.1.</span> <span class="nav-text">1. requests.request(method, url, \kwargs)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#method的7种"><span class="nav-number">4.1.1.</span> <span class="nav-text">method的7种</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kwargs-控制访问的参数，均为可选项"><span class="nav-number">4.1.2.</span> <span class="nav-text">kwargs**: 控制访问的参数，均为可选项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-requests-get-url-params-None-kwargs"><span class="nav-number">4.2.</span> <span class="nav-text">2. requests.get(url, params&#x3D;None, \kwargs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-requests-head-url-kwargs"><span class="nav-number">4.3.</span> <span class="nav-text">3. requests.head(url, \kwargs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-requests-post-url-data-None-json-None-kwargs"><span class="nav-number">4.4.</span> <span class="nav-text">4. requests.post(url, data&#x3D;None, json&#x3D;None, \kwargs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-requests-put-url-data-None-kwargs"><span class="nav-number">4.5.</span> <span class="nav-text">5. requests.put(url, data&#x3D;None, \kwargs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-requests-patch-url-data-None-kwargs"><span class="nav-number">4.6.</span> <span class="nav-text">6. requests.patch(url, data&#x3D;None, \kwargs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-requests-delete-url-kwargs"><span class="nav-number">4.7.</span> <span class="nav-text">7. requests.delete(url, \kwargs)</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#get-方法"><span class="nav-number">1.</span> <span class="nav-text">get()方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Response对象"><span class="nav-number">1.1.</span> <span class="nav-text">Response对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Response对象的属性"><span class="nav-number">1.1.1.</span> <span class="nav-text">Response对象的属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#爬取网页的通用代码框架"><span class="nav-number">2.</span> <span class="nav-text">爬取网页的通用代码框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Request对象的异常"><span class="nav-number">2.0.1.</span> <span class="nav-text">Request对象的异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Response对象的异常"><span class="nav-number">2.0.2.</span> <span class="nav-text">Response对象的异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬取页面的通用代码框架"><span class="nav-number">2.1.</span> <span class="nav-text">爬取页面的通用代码框架</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP协议及requests库方法"><span class="nav-number">3.</span> <span class="nav-text">HTTP协议及requests库方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Requests库的主要方法解析"><span class="nav-number">4.</span> <span class="nav-text">Requests库的主要方法解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-requests-request-method-url-kwargs"><span class="nav-number">4.1.</span> <span class="nav-text">1. requests.request(method, url, \kwargs)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#method的7种"><span class="nav-number">4.1.1.</span> <span class="nav-text">method的7种</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kwargs-控制访问的参数，均为可选项"><span class="nav-number">4.1.2.</span> <span class="nav-text">kwargs**: 控制访问的参数，均为可选项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-requests-get-url-params-None-kwargs"><span class="nav-number">4.2.</span> <span class="nav-text">2. requests.get(url, params&#x3D;None, \kwargs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-requests-head-url-kwargs"><span class="nav-number">4.3.</span> <span class="nav-text">3. requests.head(url, \kwargs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-requests-post-url-data-None-json-None-kwargs"><span class="nav-number">4.4.</span> <span class="nav-text">4. requests.post(url, data&#x3D;None, json&#x3D;None, \kwargs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-requests-put-url-data-None-kwargs"><span class="nav-number">4.5.</span> <span class="nav-text">5. requests.put(url, data&#x3D;None, \kwargs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-requests-patch-url-data-None-kwargs"><span class="nav-number">4.6.</span> <span class="nav-text">6. requests.patch(url, data&#x3D;None, \kwargs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-requests-delete-url-kwargs"><span class="nav-number">4.7.</span> <span class="nav-text">7. requests.delete(url, \kwargs)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他注意事项"><span class="nav-number">5.</span> <span class="nav-text">其他注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP请求头常见参数"><span class="nav-number">5.1.</span> <span class="nav-text">HTTP请求头常见参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见响应状态码"><span class="nav-number">5.2.</span> <span class="nav-text">常见响应状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookies和Session"><span class="nav-number">5.3.</span> <span class="nav-text">Cookies和Session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookies"><span class="nav-number">5.3.1.</span> <span class="nav-text">cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Session"><span class="nav-number">5.3.2.</span> <span class="nav-text">Session</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -625,12 +642,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">63k</span>
+    <span title="站点总字数">64k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:29</span>
+    <span title="站点阅读时长">3:35</span>
 </div>
 
 <!--
