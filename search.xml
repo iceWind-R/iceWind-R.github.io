@@ -5016,23 +5016,7 @@
 
 <h1 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h1><img src="/2020/06/30/Python%E7%88%AC%E8%99%AB-03/10.png" class>
 
-<h1 id="补充：Xpath"><a href="#补充：Xpath" class="headerlink" title="补充：Xpath"></a>补充：Xpath</h1><p>Xpath在Scrapy框架中常用。</p>
-<h2 id="Xpath语法"><a href="#Xpath语法" class="headerlink" title="Xpath语法"></a>Xpath语法</h2><p>其实只分为3类</p>
-<ul>
-<li>层级：<code>/</code>直接子级，<code>//</code>跳级</li>
-<li>属性：<code>@</code> 属性访问</li>
-<li>函数：<code>contains()</code>、<code>text()</code>等。<ul>
-<li>contains()：检测某个属性并不是完全等于某个值，而是<strong>包含</strong>某个值。</li>
-<li>text()：对标签内的文字结点进行提取。</li>
-</ul>
-</li>
-</ul>
-<h2 id="在Scrapy中的应用"><a href="#在Scrapy中的应用" class="headerlink" title="在Scrapy中的应用"></a>在Scrapy中的应用</h2><p>scrapy中支持Xpath的使用，<code>response.xpath()</code>直接调用即可。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">	result =  	response.xpath(<span class="string">"//ol[@class='kw']/li//p[contains(@class,'sss')]/text()"</span>).extract()</span><br><span class="line">    print(<span class="string">''</span>.join(result))</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>extract()：解析</p>
-<p>符合Xpath的可能有多条，解析后是所有结果的列表形式。</p>
 </blockquote>
 ]]></content>
       <categories>
@@ -5458,6 +5442,20 @@
 <blockquote>
 <p>该方法在scrapy框架中十分常见，比较简单，需要掌握。</p>
 </blockquote>
+<h1 id="补充：Xpath"><a href="#补充：Xpath" class="headerlink" title="补充：Xpath"></a>补充：Xpath</h1><p>Xpath在Scrapy框架中常用。</p>
+<h2 id="Xpath语法"><a href="#Xpath语法" class="headerlink" title="Xpath语法"></a>Xpath语法</h2><p>其实只分为3类</p>
+<ul>
+<li>层级：<code>/</code>直接子级，<code>//</code>跳级</li>
+<li>属性：<code>@</code> 属性访问</li>
+<li>函数：<code>contains()</code>、<code>text()</code>等。<ul>
+<li>contains()：检测某个属性并不是完全等于某个值，而是<strong>包含</strong>某个值。</li>
+<li>text()：对标签内的文字结点进行提取。</li>
+</ul>
+</li>
+</ul>
+<h2 id="在Scrapy中的应用"><a href="#在Scrapy中的应用" class="headerlink" title="在Scrapy中的应用"></a>在Scrapy中的应用</h2><p>scrapy中支持Xpath的使用，<code>response.xpath()</code>直接调用即可。</p>
+<p><strong>案例</strong>：糗事百科，提取作者、文章详情页的url，和文章内容</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urljoin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QsbkSpiderSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'qsbk_spider'</span></span><br><span class="line">    allowed_domains = [<span class="string">'qiushibaike.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://qiushibaike.com/text/page/1/'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="comment"># selectorList 类型</span></span><br><span class="line">        duanziDivs = response.xpath(<span class="string">"//div[@class='col1 old-style-col1']/div"</span>)</span><br><span class="line">        <span class="keyword">for</span> div <span class="keyword">in</span> duanziDivs:</span><br><span class="line">            <span class="comment"># div: Selector类型</span></span><br><span class="line">            <span class="comment"># div.xpath()：selectorList类型</span></span><br><span class="line">            author = div.xpath(<span class="string">".//h2/text()"</span>).get().strip()</span><br><span class="line">            <span class="comment"># get()函数，取到第一个结果（str类型）, get()&lt;=&gt;extract_first()</span></span><br><span class="line">            <span class="comment"># extract(): 提取所有结果组成列表，每个元素是str类型</span></span><br><span class="line">            <span class="comment"># strip(): 去掉前后的空格</span></span><br><span class="line"></span><br><span class="line">            href = div.xpath(<span class="string">'./a/@href'</span>).get() <span class="comment"># 获取a标签内的href的属性值</span></span><br><span class="line">            url = urljoin(self.start_urls[<span class="number">0</span>],href) <span class="comment"># 跳转到详情页</span></span><br><span class="line"></span><br><span class="line">            content = div.xpath(<span class="string">".//div[@class='content']//text()"</span>).extract()</span><br><span class="line">            <span class="comment"># html中该div下有span标签，span中才是内容，//text()直接提取该内容</span></span><br><span class="line"></span><br><span class="line">            content = <span class="string">''</span>.join(content).strip()</span><br><span class="line"></span><br><span class="line">            tplt = <span class="string">"&#123;0:&#123;2&#125;&lt;20&#125;\t&#123;1:^50&#125;"</span></span><br><span class="line">            print(tplt.format(author,url,chr(<span class="number">12288</span>)))</span><br><span class="line">            print(content)</span><br><span class="line">            print(<span class="string">'='</span> * <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Python</category>
