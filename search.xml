@@ -3685,7 +3685,7 @@
 <p>4、<code>apt-get install default-jdk</code></p>
 <p>5、<code>cd /usr/local</code>该目录下一般装一些自己的软件</p>
 <p>6、<code>wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-9/v9.0.31/bin/apache-tomcat-9.0.31.tar.gz</code>   wget一般用于下载一些网络地址的资源（此处资源为Tomcat9）</p>
-<p>7、<code>ll -s</code>  查看当前文件夹的内容</p>
+<p>7、<code>ll -s</code>  查看当前文件夹的内容    </p>
 <img src="/2020/03/01/web%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/1.png" class>
 
 <p>如图，蓝色代表文件夹，红色表示压缩包，浅蓝色代表快捷方式。</p>
