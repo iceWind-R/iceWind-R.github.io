@@ -4428,7 +4428,7 @@
 <a id="more"></a>
 
 <hr>
-<h2 id="电脑初始化前的操作"><a href="#电脑初始化前的操作" class="headerlink" title="电脑初始化前的操作"></a>电脑初始化前的操作</h2><p>不能着急，需要把电脑中的资料提前保存，预计是百度网盘，记得开会员。要保存的资料有：</p>
+<h2 id="电脑初始化前的操作"><a href="#电脑初始化前的操作" class="headerlink" title="电脑初始化前的操作"></a>电脑初始化前的操作</h2><p>不能着急，需要把电脑中的资料提前保存，预计是百度网盘（手机号登录），记得开会员。要保存的资料有：</p>
 <ul>
 <li>MyBlog</li>
 <li>每个编译器存放的代码</li>
@@ -4438,31 +4438,41 @@
 <li>谷歌浏览助手</li>
 <li>额滴小心肝</li>
 <li>chrome中Tempermonkey的插件</li>
+<li>浏览器的标签</li>
 </ul>
 <h2 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h2><p>首先是要给系统的磁盘分好类。</p>
 <ol>
-<li>D盘（软件盘）：一级目录为application、server、MyBlog。（把download文件夹移到E盘）</li>
+<li>D盘（软件盘）：一级目录为application、server、MyBlog。（把download文件夹移到E盘）<ul>
+<li>application：放所有的应用文件。</li>
+<li>server：放所有的环境等。<ul>
+<li>编程语言环境：JDK，python，php</li>
+<li>服务器：tomcat，mysql，redis</li>
+<li>虚拟机和虚拟环境：VM，Genymotion，python等</li>
+<li>其他：node.js、git或者工具包（SDK等）</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>E盘（文档盘）：包括学习资料、我的工具，同时把桌面、document等等移到此盘下（先建一个大文件夹（我的文件：注意，文件名换个英文的），然后把每一项移动进来）。</li>
 <li>F盘（游戏盘）：每个公司一个文件夹。Steam，Wegame，uplay等。</li>
 </ol>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Java、PHP（php_study）</p>
-<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><h3 id="学习类"><a href="#学习类" class="headerlink" title="学习类"></a>学习类</h3><h4 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h4><p>IDEA、PyCharm、PHPStorm、AS、CodeBlocks、Eclipse、VS、VSCode</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Java（JDK版本仔细考虑）、PHP（php_study）、python</p>
+<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><h3 id="学习类"><a href="#学习类" class="headerlink" title="学习类"></a>学习类</h3><h4 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h4><p>IDEA、PyCharm、PHPStorm、AS、CodeBlocks、Eclipse、VS（不装）、VSCode</p>
 <p>（与Github绑定）</p>
 <h4 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h4><p>HBulider、Notepad++、Sublime Text</p>
-<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>MySQL、Redis、SQL server、Navicat For MySQL、SQLiteStudio</p>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>MySQL、Redis、SQL server（不装）、Navicat For MySQL、SQLiteStudio</p>
 <p>php_study中有MySQL，了解后使用</p>
 <h4 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h4><p>VM、Genymotion</p>
 <h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>Xftp、Xshell</p>
 <h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>MatLab、RegexBuddy、Cisco Packet Tracer</p>
 <h3 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h3><p>chrome、Firefox</p>
 <p>WPS、Everything、印象笔记、bandzip、欧路翻译、</p>
-<p>Iris（护眼）、百度网盘（使用微信登录）、</p>
+<p>Iris（护眼）、百度网盘（使用微信登录）、火绒安全</p>
 <p>格式工厂、PS，PR、ScreenToGif、达芬奇、PotPlayer（百度网盘中下载，<a href="https://www.zhihu.com/question/20710497/answer/1076773103" target="_blank" rel="noopener">如何使用</a>）、小蝴蝶</p>
 <h3 id="娱乐类"><a href="#娱乐类" class="headerlink" title="娱乐类"></a>娱乐类</h3><p>微信、TIM、QQ、网易云音乐、腾讯视频、</p>
-<p>网易加速、雷神加速、Steam、WeGame、暴雪战网、Epic</p>
+<p>网易加速、雷神加速、Steam、WeGame、暴雪战网（炉石官方插件）、Epic</p>
 <h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>VM中建立自己的Linux系统。</p>
-<p>tomcat、</p>
-<p>apache、MySQL、phpMyadmin、PHP等由phpstudy提供</p>
+<p>tomcat、apache、MySQL、phpMyadmin、PHP等由phpstudy提供</p>
 <p>配置虚拟主机</p>
 <p>Maven的安装和IDEA中Maven的配置</p>
 ]]></content>
@@ -5658,6 +5668,372 @@
       <tags>
         <tag>Learning</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSDN的markdown格式</title>
+    <url>/2020/02/29/CSDN%E7%9A%84markdown%E6%A0%BC%E5%BC%8F/</url>
+    <content><![CDATA[<p>@<a href="CSDN的markdown格式">TOC</a></p>
+<h1 id="欢迎使用Markdown编辑器"><a href="#欢迎使用Markdown编辑器" class="headerlink" title="欢迎使用Markdown编辑器"></a>欢迎使用Markdown编辑器</h1><p>你好！ 这是你第一次使用 <strong>Markdown编辑器</strong> 所展示的欢迎页。如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，了解一下Markdown的基本语法知识。</p>
+<h2 id="新的改变"><a href="#新的改变" class="headerlink" title="新的改变"></a>新的改变</h2><p>我们对Markdown编辑器进行了一些功能拓展与语法支持，除了标准的Markdown编辑器功能，我们增加了如下几点新功能，帮助你用它写博客：</p>
+<ol>
+<li><strong>全新的界面设计</strong> ，将会带来全新的写作体验；</li>
+<li>在创作中心设置你喜爱的代码高亮样式，Markdown <strong>将代码片显示选择的高亮样式</strong> 进行展示；</li>
+<li>增加了 <strong>图片拖拽</strong> 功能，你可以将本地的图片直接拖拽到编辑区域直接展示；</li>
+<li>全新的 <strong>KaTeX数学公式</strong> 语法；</li>
+<li>增加了支持<strong>甘特图的mermaid语法<a href="[mermaid语法说明](https://mermaidjs.github.io/)">^1</a></strong> 功能；</li>
+<li>增加了 <strong>多屏幕编辑</strong> Markdown文章功能；</li>
+<li>增加了 <strong>焦点写作模式、预览模式、简洁写作模式、左右区域同步滚轮设置</strong> 等功能，功能按钮位于编辑区域与预览区域中间；</li>
+<li>增加了 <strong>检查列表</strong> 功能。</li>
+</ol>
+<h2 id="功能快捷键"><a href="#功能快捷键" class="headerlink" title="功能快捷键"></a><strong>功能快捷键</strong></h2><p>撤销：<kbd>Ctrl/Command</kbd> + <kbd>Z</kbd><br>重做：<kbd>Ctrl/Command</kbd> + <kbd>Y</kbd><br>加粗：<kbd>Ctrl/Command</kbd> + <kbd>B</kbd><br>斜体：<kbd>Ctrl/Command</kbd> + <kbd>I</kbd><br>标题：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd><br>无序列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd><br>有序列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd><br>检查列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd><br>插入代码：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd><br>插入链接：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd><br>插入图片：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd><br>查找：<kbd>Ctrl/Command</kbd> + <kbd>F</kbd><br>替换：<kbd>Ctrl/Command</kbd> + <kbd>G</kbd></p>
+<h2 id="合理的创建标题，有助于目录的生成"><a href="#合理的创建标题，有助于目录的生成" class="headerlink" title="合理的创建标题，有助于目录的生成"></a>合理的创建标题，有助于目录的生成</h2><p>直接输入1次<kbd>#</kbd>，并按下<kbd>space</kbd>后，将生成1级标题。<br>输入2次<kbd>#</kbd>，并按下<kbd>space</kbd>后，将生成2级标题。<br>以此类推，我们支持6级标题。有助于使用<code>TOC</code>语法后生成一个完美的目录。</p>
+<h2 id="如何改变文本的样式"><a href="#如何改变文本的样式" class="headerlink" title="如何改变文本的样式"></a>如何改变文本的样式</h2><p><em>强调文本</em> <em>强调文本</em></p>
+<p><strong>加粗文本</strong> <strong>加粗文本</strong></p>
+<p>==标记文本==</p>
+<p><del>删除文本</del></p>
+<blockquote>
+<p>引用文本</p>
+</blockquote>
+<p>H<del>2</del>O is是液体。</p>
+<p>2^10^ 运算结果是 1024.</p>
+<h3 id="插入链接与图片"><a href="#插入链接与图片" class="headerlink" title="插入链接与图片"></a>插入链接与图片</h3><p>链接: <a href="https://mp.csdn.net" target="_blank" rel="noopener">link</a>.</p>
+<p>图片: <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" alt="Alt"></p>
+<p>带尺寸的图片: ![Alt](<a href="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" target="_blank" rel="noopener">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw</a> =30x30)</p>
+<p>居中的图片: <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center" alt="Alt"></p>
+<p>居中并且带尺寸的图片: ![Alt](<a href="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center" target="_blank" rel="noopener">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center</a> =30x30)</p>
+<p>当然，我们为了让用户更加便捷，我们增加了图片拖拽功能。</p>
+<h2 id="如何插入一段漂亮的代码片"><a href="#如何插入一段漂亮的代码片" class="headerlink" title="如何插入一段漂亮的代码片"></a>如何插入一段漂亮的代码片</h2><p>去<a href="https://mp.csdn.net/configure" target="_blank" rel="noopener">博客设置</a>页面，选择一款你喜欢的代码片高亮样式，下面展示同样高亮的 <code>代码片</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// An highlighted block</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="string">'bar'</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成一个适合你的列表"><a href="#生成一个适合你的列表" class="headerlink" title="生成一个适合你的列表"></a>生成一个适合你的列表</h2><ul>
+<li>项目<ul>
+<li>项目<ul>
+<li>项目</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ol>
+<ul>
+<li><input disabled type="checkbox"> 计划任务</li>
+<li><input checked disabled type="checkbox"> 完成任务</li>
+</ul>
+<h2 id="创建一个表格"><a href="#创建一个表格" class="headerlink" title="创建一个表格"></a>创建一个表格</h2><p>一个简单的表格是这么创建的：<br>| 项目 | Value |<br>| —- | —– |<br>| 电脑 | $1600 |<br>| 手机 | $12   |<br>| 导管 | $1    |</p>
+<h3 id="设定内容居中、居左、居右"><a href="#设定内容居中、居左、居右" class="headerlink" title="设定内容居中、居左、居右"></a>设定内容居中、居左、居右</h3><p>使用<code>:---------:</code>居中<br>使用<code>:----------</code>居左<br>使用<code>----------:</code>居右<br>|     第一列     |         第二列 | 第三列         |<br>| :————: | ————-: | :————- |<br>| 第一列文本居中 | 第二列文本居右 | 第三列文本居左 |</p>
+<h3 id="SmartyPants"><a href="#SmartyPants" class="headerlink" title="SmartyPants"></a>SmartyPants</h3><p>SmartyPants将ASCII标点字符转换为“智能”印刷标点HTML实体。例如：<br>|    TYPE   |ASCII                          |HTML<br>|—————-|——————————-|—————————–|<br>|Single backticks|<code>&#39;Isn&#39;t this fun?&#39;</code>            |’Isn’t this fun?’            |<br>|Quotes          |<code>&quot;Isn&#39;t this fun?&quot;</code>            |”Isn’t this fun?”            |<br>|Dashes          |<code>-- is en-dash, --- is em-dash</code>|– is en-dash, — is em-dash|</p>
+<h2 id="创建一个自定义列表"><a href="#创建一个自定义列表" class="headerlink" title="创建一个自定义列表"></a>创建一个自定义列表</h2><dl><dt>Markdown</dt><dd>Text-to-HTML conversion tool</dd></dl><dl><dt>Authors<br>:  John</dt><dd>Luke</dd></dl><h2 id="如何创建一个注脚"><a href="#如何创建一个注脚" class="headerlink" title="如何创建一个注脚"></a>如何创建一个注脚</h2><p>一个具有注脚的文本。<a href="注脚的解释">^2</a></p>
+<h2 id="注释也是必不可少的"><a href="#注释也是必不可少的" class="headerlink" title="注释也是必不可少的"></a>注释也是必不可少的</h2><p>Markdown将文本转换为 HTML。</p>
+<p>*[HTML]:   超文本标记语言</p>
+<h2 id="KaTeX数学公式"><a href="#KaTeX数学公式" class="headerlink" title="KaTeX数学公式"></a>KaTeX数学公式</h2><p>您可以使用渲染LaTeX数学表达式 <a href="https://khan.github.io/KaTeX/" target="_blank" rel="noopener">KaTeX</a>:</p>
+<p>Gamma公式展示 $\Gamma(n) = (n-1)!\quad\forall<br>n\in\mathbb N$ 是通过欧拉积分</p>
+<p>$$<br>\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt,.<br>$$</p>
+<blockquote>
+<p>你可以找到更多关于的信息 <strong>LaTeX</strong> 数学表达式<a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">here</a>.</p>
+</blockquote>
+<h2 id="新的甘特图功能，丰富你的文章"><a href="#新的甘特图功能，丰富你的文章" class="headerlink" title="新的甘特图功能，丰富你的文章"></a>新的甘特图功能，丰富你的文章</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gantt</span><br><span class="line">        dateFormat  YYYY-MM-DD</span><br><span class="line">        title Adding GANTT diagram functionality to mermaid</span><br><span class="line">        section 现有任务</span><br><span class="line">        已完成               :done,    des1, 2014-01-06,2014-01-08</span><br><span class="line">        进行中               :active,  des2, 2014-01-09, 3d</span><br><span class="line">        计划一               :         des3, after des2, 5d</span><br><span class="line">        计划二               :         des4, after des3, 5d</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关于 <strong>甘特图</strong> 语法，参考 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">这儿</a>,</li>
+</ul>
+<h2 id="UML-图表"><a href="#UML-图表" class="headerlink" title="UML 图表"></a>UML 图表</h2><p>可以使用UML图表进行渲染。 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">Mermaid</a>. 例如下面产生的一个序列图：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">张三 -&gt;&gt; 李四: 你好！李四, 最近怎么样?</span><br><span class="line">李四--&gt;&gt;王五: 你最近怎么样，王五？</span><br><span class="line">李四--x 张三: 我很好，谢谢!</span><br><span class="line">李四-x 王五: 我很好，谢谢!</span><br><span class="line">Note right of 王五: 李四想了很长时间, 文字太长了&lt;br&#x2F;&gt;不适合放在一行.</span><br><span class="line"></span><br><span class="line">李四--&gt;&gt;张三: 打量着王五...</span><br><span class="line">张三-&gt;&gt;王五: 很好... 王五, 你怎么样?</span><br></pre></td></tr></table></figure>
+
+<p>这将产生一个流程图。:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[长方形] -- 链接 --&gt; B((圆))</span><br><span class="line">A --&gt; C(圆角长方形)</span><br><span class="line">B --&gt; D&#123;菱形&#125;</span><br><span class="line">C --&gt; D</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于 <strong>Mermaid</strong> 语法，参考 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">这儿</a>,</li>
+</ul>
+<h2 id="FLowchart流程图"><a href="#FLowchart流程图" class="headerlink" title="FLowchart流程图"></a>FLowchart流程图</h2><p>我们依旧会支持flowchart的流程图：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flowchat</span><br><span class="line">st&#x3D;&gt;start: 开始</span><br><span class="line">e&#x3D;&gt;end: 结束</span><br><span class="line">op&#x3D;&gt;operation: 我的操作</span><br><span class="line">cond&#x3D;&gt;condition: 确认？</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于 <strong>Flowchart流程图</strong> 语法，参考 <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">这儿</a>.</li>
+</ul>
+<h2 id="导出与导入"><a href="#导出与导入" class="headerlink" title="导出与导入"></a>导出与导入</h2><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><p>如果你想尝试使用此编辑器, 你可以在此篇文章任意编辑。当你完成了一篇文章的写作, 在上方工具栏找到 <strong>文章导出</strong> ，生成一个.md文件或者.html文件进行本地保存。</p>
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><p>如果你想加载一篇你写过的.md文件，在上方工具栏可以选择导入功能进行对应扩展名的文件导入，<br>继续你的创作。</p>
+]]></content>
+      <categories>
+        <category>HEXO</category>
+      </categories>
+      <tags>
+        <tag>experience</tag>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git基本工作流程</title>
+    <url>/2020/03/02/Git%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="Git基本工作流程："><a href="#Git基本工作流程：" class="headerlink" title="Git基本工作流程："></a>Git基本工作流程：</h2><h3 id="Git工作区域"><a href="#Git工作区域" class="headerlink" title="Git工作区域"></a>Git工作区域</h3><p>1、Git Repository（Git仓库）最终确定的文件保存到仓库，成为一个新的版本，并对他人可见<br>2、暂存区 暂存已经修改的文件最后统一提交到Git仓库中<br>3、工作区（Working Directory）添加、编辑、修改文件等动作</p>
+<h3 id="一些需要记住的命令"><a href="#一些需要记住的命令" class="headerlink" title="一些需要记住的命令"></a>一些需要记住的命令</h3><ul>
+<li>git status：确定文件当前所处Git工作区域；</li>
+</ul>
+<p>这里假设在工作区有文件 <code>HelloWorld.cpp</code></p>
+<ol>
+<li>工作区转入暂存区：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line">git add HelloWorld.cpp；</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>暂存区转入Git 仓库：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line">git commit –m &#39;提交描述&#39;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>确定文件是否已在Git仓库中：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>删除工作区文件：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git rm –f 文件名</span><br></pre></td></tr></table></figure>
+
+<p>例如：<code>git rm –f a.txt</code></p>
+<ol>
+<li>修改文件：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi 文件名</span><br></pre></td></tr></table></figure>
+
+<p>例如 <code>vi a.txt</code>进入vim修改文件（退出使用：<code>wq</code>）</p>
+<blockquote>
+<p>如果对vim操作理解有困难的还是建议看一下视频，视频讲了增删改查的相应操作，看一下vim操作指南，对vim操作有全面的认识</p>
+</blockquote>
+<h2 id="Git基础设置："><a href="#Git基础设置：" class="headerlink" title="Git基础设置："></a>Git基础设置：</h2><ol>
+<li>设置用户名</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config –-global user.name &#39;这里填写自己的用户名&#39;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>设置用户名邮箱</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config –-global user.email &#39;这里填写自己的用户名邮箱&#39;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>查看设置</li>
+</ol>
+<blockquote>
+<p>注意：该设置在GitHub仓库主页显示谁提交了该文件，注意这里的 - 数目为2！</p>
+</blockquote>
+<h2 id="初始化一个新的Git仓库："><a href="#初始化一个新的Git仓库：" class="headerlink" title="初始化一个新的Git仓库："></a>初始化一个新的Git仓库：</h2><ol>
+<li>创建文件夹</li>
+<li>在文件夹内初始化Git（创建Git 仓库）</li>
+</ol>
+<p>命令行进入当前目录，使用 <code>git init</code>命令，成功会显示<code>.git</code>文件</p>
+<ol>
+<li>向仓库中添加文件</li>
+</ol>
+<h2 id="Git远程仓库"><a href="#Git远程仓库" class="headerlink" title="Git远程仓库"></a>Git远程仓库</h2><p><strong>使用目的</strong>：备份、实现代码共享集中化管理</p>
+<p><a href="https://github.com/yezhaodan/-Git/blob/master/images/git.png" target="_blank" rel="noopener"><img src="https://github.com/yezhaodan/-Git/raw/master/images/git.png" alt="git远程仓库"></a></p>
+<p>如何将本地仓库同步到远程仓库中：</p>
+<ol>
+<li>将远程仓库（github对应的项目）复制到本地：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone 仓库地址</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：仓库地址在clone or download按钮下取得</p>
+</blockquote>
+<ol>
+<li>进行文件增删改查，并添加到Git仓库中</li>
+<li>将本地仓库同步到远程仓库中 使用命令：<code>git push</code></li>
+</ol>
+]]></content>
+      <categories>
+        <category>HEXO</category>
+      </categories>
+      <tags>
+        <tag>experience</tag>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pyhthon虚拟环境</title>
+    <url>/2020/07/18/Pyhthon%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<p>Python学习还有一个很重要的知识点便是虚拟环境的使用。</p>
+<a id="more"></a>
+
+<hr>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git基本工作流程</title>
+    <url>/2020/03/03/Typora%E7%BC%96%E8%BE%91%E5%99%A8%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E4%B9%A6%E5%86%99%E5%8D%B3%E4%B8%BA%E7%BE%8E%E5%AD%A6/</url>
+    <content><![CDATA[<h1 id="Typora编辑器————书写即为美学"><a href="#Typora编辑器————书写即为美学" class="headerlink" title="Typora编辑器————书写即为美学"></a>Typora编辑器————书写即为美学</h1><p> 发表于 2018-02-08 | <a href="https://baka943.coding.me/2018/02/08/2018-02-08-TyporaSimpleDoc/#comments" target="_blank" rel="noopener">0</a></p>
+<p>我也是初学者，公认个人经验总结，不保证质量。</p>
+<p>考虑到hexo渲染和Typora渲染差异很大，建议复制<a href="https://paste.ubuntu.com/26540980/" target="_blank" rel="noopener">此处</a>原始码，在本机上测试效果。</p>
+<p>官方网站：<a href="https://www.typora.io/" target="_blank" rel="noopener">https</a> : <a href="https://www.typora.io/" target="_blank" rel="noopener">//www.typora.io/</a></p>
+<p>支持平台：</p>
+<ul>
+<li>视窗</li>
+<li>的Linux</li>
+<li>OSX</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>完美支持Github的Markdown语法；</li>
+<li>人性化的书写方式：<ul>
+<li>表格的书写，挪动；</li>
+<li>图片，超链接，网页表格复制；</li>
+<li>目录生成；</li>
+</ul>
+</li>
+<li>支持LeTex公式书写；</li>
+<li>支持流程图，美人鱼等流程图图；</li>
+<li>emoji，高亮，备注，上标，下标等书写；</li>
+<li>生成网页，pdf，图片，甚至单词，LeTex等格式。</li>
+</ul>
+<h2 id="基本的带快捷键的Markdown书写演示"><a href="#基本的带快捷键的Markdown书写演示" class="headerlink" title="基本的带快捷键的Markdown书写演示"></a>基本的带快捷键的Markdown书写演示</h2><p><code>Ctrl 0</code>到<code>Ctrl 4</code>：普通文本，一级〜四级标题；</p>
+<p><code>Ctrl B</code>：加粗，<strong>加粗测试</strong>；</p>
+<p><code>Ctrl I</code>：斜体，<em>斜体测试</em>；</p>
+<p><code>Ctrl U</code>：下划线，下划线测试；</p>
+<p><code>Shift Alt 5</code>：删除线，<del>删除线测试</del>；</p>
+<p><code>Shift Ctrl Tab键上面那个键</code>：行内代码块，<code>行内代码块测试</code>；</p>
+<p><code>Ctrl K</code>：超链接，<a href="https://baka943.coding.me/2018/02/08/2018-02-08-TyporaSimpleDoc/www.baidu.com" target="_blank" rel="noopener">超链接测试</a>；还支持文章内锚点，请<code>Ctrl</code>点击此处：arrow_right：[第二节](<a href="https://baka943.coding.me/2018/02/08/2018-02-08-TyporaSimpleDoc/#基本的不带快捷键" target="_blank" rel="noopener">https://baka943.coding.me/2018/02/08/2018-02-08-TyporaSimpleDoc/#基本的不带快捷键</a> Markdown 书写演示)；</p>
+<p><code>Ctrl T</code>：表格，支持拖拽移动，网页端表格复制转换：</p>
+<table>
+<thead>
+<tr>
+<th align="center">标题</th>
+<th align="center">数据一<br>山东</th>
+<th align="center">数据二</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">表格测试</td>
+<td align="center">943</td>
+<td align="center">巴卡</td>
+</tr>
+</tbody></table>
+<p><code>Ctrl Shift Q</code>：引用：</p>
+<blockquote>
+<p>我需要三件东西：爱情，友谊和图书。而这三者之间何其相通！</p>
+<p>炽热的爱情可以充实图书的内容，图书又是人们最忠实的朋友。</p>
+<p>-蒙田</p>
+</blockquote>
+<p><code>Shift Ctrl I</code>：图片：</p>
+<p><a href="https://static.pexels.com/photos/461797/pexels-photo-461797.jpeg" target="_blank" rel="noopener"><img src="https://static.pexels.com/photos/461797/pexels-photo-461797.jpeg" alt="风景"></a></p>
+<p><code>Shift Ctrl M</code>：公示块，快捷输入LeTex公式：<br>$$<br>Euler的身份：e ^ {i \ pi} + 1 = 0<br>$$</p>
+<h2 id="基本的不带快捷键Markdown书写演示"><a href="#基本的不带快捷键Markdown书写演示" class="headerlink" title="基本的不带快捷键Markdown书写演示"></a>基本的不带快捷键Markdown书写演示</h2><p><strong>部分功能需要现在配置文件中开启才能使用</strong></p>
+<p>代码块（我居然不能转义那个字符，就Tab键上面那个）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">！＃在&#x2F; usr &#x2F; bin中&#x2F; python3 </span><br><span class="line">进口 OS </span><br><span class="line">与开放（&#39;LIST.TXT&#39; ，&#39;W&#39; ）为 F：对于我在范围（10）：		f.writelines（STR（I））   	印刷（“成功写入数列&#39;）os.system（&#39;rm .&#x2F;List.txt&#39;）print（&#39;成功删除文件&#39;）</span><br></pre></td></tr></table></figure>
+
+<p>无序，有序，任务列表：</p>
+<ul>
+<li>酒石酸菌</li>
+<li>玄墨之蝶</li>
+</ul>
+<ol>
+<li>的HTML</li>
+<li>Python 3</li>
+</ol>
+<ul>
+<li>1.12.2教程计划</li>
+<li>Weblate翻译计划</li>
+<li>所有The Mods 3实况计划</li>
+</ul>
+<p>参考链接：</p>
+<p>通过培养试验研究了有机酸对铅，镉的毒害影响，结果表明柠檬酸对铅[^ 1]，酒石酸对镉有较明显的解毒作用[^ 2]。使用逐步提取法研究萝卜根叶内重金属存在的化学形态，有机酸处理并不影响各形态铅的优势顺序，但各形态铅的浓度或相对百分率发生了变化。</p>
+<p>[^ 1]：陈苏。污染土壤中镉，铅的活化及植物有效研究[D]。中国科学院沉阳应用生态研究所，2007。<br>[^ 2]：陈英旭，林琦，陆芳等。关键词：有机酸对铅，镉植株危害的解毒作用研究 环境科学学报，2000，20（4）：467-472。</p>
+<p>上标下标：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">上标：X ^ 2 ^ </span><br><span class="line">下标：H〜2〜O</span><br></pre></td></tr></table></figure>
+
+<p>X ^ 2 ^，H〜2〜O</p>
+<p>高亮：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">本节课重点：&#x3D;&#x3D;第六，七章不考&#x3D;&#x3D;，第三章出题之处，&#x3D;&#x3D;平时分占30％&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>本节课重点：==第六，七章不考==，第三章出题之处，==平时分占30％==</p>
+<p>注释：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;！-这一段不要显示出来-&gt;</span><br></pre></td></tr></table></figure>
+
+<p>内联公式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ e ^ &#123;i \ pi&#125; + 1 &#x3D; 0 $</span><br></pre></td></tr></table></figure>
+
+<p>$ e ^ {i \ pi} + 1 = 0 $</p>
+<p>分割线：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>我绝不会弃坑的！</p>
+<hr>
+<p>：arrow_up：上面的都是假话</p>
+<p>emoji图标：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">：arrow_heading_down：：arrow_heading_up：：</span><br><span class="line">ab：：blue_heart：：jack_o_lantern </span><br><span class="line">：：ballot_box_with_check：：fork_and_knife：</span><br></pre></td></tr></table></figure>
+
+<p>：arrow_heading_down：：arrow_heading_up：：<br>ab：：blue_heart：：jack_o_lantern<br>：：ballot_box_with_check：：fork_and_knife：</p>
+<p>目录生成：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[目录]</span><br></pre></td></tr></table></figure>
+
+<p>[目录]</p>
+<h1 id="Markdown拓展功能"><a href="#Markdown拓展功能" class="headerlink" title="Markdown拓展功能"></a>Markdown拓展功能</h1><p>HTML原生支持，目前只支持img标签，可以自定义图片大小和缩放：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;img src &#x3D;“ https:&#x2F;&#x2F;static.pexels.com&#x2F;photos&#x2F;461797&#x2F;pexels-photo-461797.jpeg width &#x3D;” 550px“ alt &#x3D;” test“&gt; &lt;&#x2F; img&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://static.pexels.com/photos/461797/pexels-photo-461797.jpeg" target="_blank" rel="noopener"><img src="https://static.pexels.com/photos/461797/pexels-photo-461797.jpeg" alt="测试"></a></p>
+<p>LaTex公式支持，包括mhchem，AMSmath，BBox：</p>
+<p>mhchem：<br>$$<br>\ ce {SO4 ^ 2- + Ba ^ 2 +-&gt; BaSO4 v}<br>$$<br>BBox：<br>$$<br>\ bbox [5px，border：2px纯红色] {AB ^ 2 + AC ^ 2 = BC ^ 2 }<br>$$</p>
+<p>流程图支持，内置了流程图，序列，美人鱼引擎，支持多种多样的流程图，时序图，甘特图：</p>
+<ul>
+<li>流程图（流程图）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">st &#x3D;&gt;开始：开始：&gt; http:&#x2F;&#x2F;www.google.com [空白] </span><br><span class="line">e &#x3D;&gt;结束：&gt; http:&#x2F;&#x2F;www.google.com </span><br><span class="line">op1 &#x3D;&gt;操作：“我的操作” </span><br><span class="line">子1 &#x3D;&gt;子例程：“我的子例程” </span><br><span class="line">条件&#x3D;&gt;条件：是</span><br><span class="line">或否？：&gt; http:&#x2F;&#x2F;www.google.com </span><br><span class="line">io &#x3D;&gt; inputoutput：抓住了一些东西...</span><br><span class="line"></span><br><span class="line">st-&gt; op1-&gt; cond </span><br><span class="line">cond（yes）-&gt; io-&gt; e </span><br><span class="line">cond（no）-&gt; sub1（right）-&gt; op1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>流程图（美人鱼）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">图TD; </span><br><span class="line">    开始-&gt;条件B; </span><br><span class="line">    条件A-&gt;条件C; </span><br><span class="line">    条件B-&gt;条件D; </span><br><span class="line">    条件C-&gt;条件D; </span><br><span class="line">    条件A-&gt;条件D; </span><br><span class="line">    开始-&gt;条件C; </span><br><span class="line">    开始-&gt;条件A; </span><br><span class="line">    条件D-&gt;结束;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>时序图（美人鱼）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sequenceDiagram </span><br><span class="line">    参与者Alice </span><br><span class="line">    参与者Bob </span><br><span class="line">    Alice-&gt;&gt; John：约翰你好，你好吗？</span><br><span class="line">    循环健康检查</span><br><span class="line">        John-&gt;&gt; John：对抗软骨垂体病</span><br><span class="line">    终结</span><br><span class="line">    注意John的权利：理性思想&lt;br&#x2F;&gt; ... </span><br><span class="line">    John-&gt;&gt; Alice：太好了！</span><br><span class="line">    John-&gt;&gt; Bob：你呢？</span><br><span class="line">    鲍勃（Bob）-&gt;&gt;约翰（John）：很好！</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>时序图（序列）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">爱丽丝-&gt;&gt;约翰：约翰你好，你好吗？</span><br><span class="line">注意约翰的权利：理性思想</span><br><span class="line">约翰-&gt;&gt;爱丽丝：太好了！</span><br><span class="line">John-&gt;&gt; Bob：你呢？</span><br><span class="line">鲍勃（Bob）-&gt;&gt;约翰（John）：很好！</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>甘特图（美人鱼）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gantt </span><br><span class="line">        dateFormat YYYY-MM-DD </span><br><span class="line">        标题为人鱼</span><br><span class="line">        节A节添加GANTT图功能</span><br><span class="line">        已完成的任务：done，des1、2014-01-06、2014-01-08 </span><br><span class="line">        活动任务：active，des2、2014-01-09、3d </span><br><span class="line">        Future任务：DES3，DES2后，5D </span><br><span class="line">        未来TASK2：des4，DES3后，5D </span><br><span class="line">        部分关键任务</span><br><span class="line">        已完成任务的临界线：暴击，完成后，2014-01-06,24h </span><br><span class="line">        实现解析器和jison：暴击，完成，DES1后， 2d </span><br><span class="line">        为解析器：crit，active，3d创建测试</span><br><span class="line">        关键行：crit，5d中的未来任务</span><br><span class="line">        为渲染器：2d创建测试</span><br><span class="line">        添加到美人鱼：1d</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>其他美人鱼图（目前还有点问题，不建议使用）</li>
+<li>类图</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">classDiagram </span><br><span class="line">Class01 &lt;|-AveryLongClass：Cool </span><br><span class="line">Class03 *-Class04 </span><br><span class="line">Class05 o-- Class06 </span><br><span class="line">Class07 .. Class08 </span><br><span class="line">Class09-&gt; C2：我在哪里？</span><br><span class="line">Class09-* C3 </span><br><span class="line">Class09-|&gt; Class07 </span><br><span class="line">Class07：equals（）</span><br><span class="line">Class07：Object [] elementData </span><br><span class="line">Class01：size（）</span><br><span class="line">Class01：int </span><br><span class="line">chimp Class01：int gorilla </span><br><span class="line">Class08 &lt;-&gt; C2：酷标签</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>吉特</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gitGraph：</span><br><span class="line">选项</span><br><span class="line">&#123; </span><br><span class="line">    “nodeSpacing”：100，</span><br><span class="line">    “nodeRadius”：10 </span><br><span class="line">&#125; </span><br><span class="line">端</span><br><span class="line">提交</span><br><span class="line">分支newbranch </span><br><span class="line">结帐newbranch </span><br><span class="line">提交</span><br><span class="line">提交</span><br><span class="line">结帐主</span><br><span class="line">提交</span><br><span class="line">提交</span><br><span class="line">合并newbranch</span><br></pre></td></tr></table></figure>
+
+<h2 id="主题替换"><a href="#主题替换" class="headerlink" title="主题替换"></a>主题替换</h2><p>访问：<a href="http://theme.typora.io/" target="_blank" rel="noopener">http</a> : <a href="http://theme.typora.io/" target="_blank" rel="noopener">//theme.typora.io/</a></p>
+<h2 id="文章总结"><a href="#文章总结" class="headerlink" title="文章总结"></a>文章总结</h2><ul>
+<li>图片（非常适合手机阅读）</li>
+<li>PDF格式</li>
+<li>HTML（可选是否带样式表）</li>
+<li>其他需要第三方库支持</li>
+</ul>
+]]></content>
+      <categories>
+        <category>HEXO</category>
+      </categories>
+      <tags>
+        <tag>experience</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
 </search>
