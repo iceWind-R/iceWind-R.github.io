@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-07-20T08:32:47.168Z</updated>
+  <updated>2020-07-18T05:20:10.760Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://icewind-r.github.io/2020/07/20/hello-world/"/>
-    <id>http://icewind-r.github.io/2020/07/20/hello-world/</id>
-    <published>2020-07-20T08:32:47.168Z</published>
-    <updated>2020-07-20T08:32:47.168Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
   
   <entry>
     <title>Pyhthon虚拟环境</title>
@@ -506,6 +484,31 @@
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
       <category term="Python" scheme="http://iceWind-R.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客搭建总结（二）</title>
+    <link href="http://icewind-r.github.io/2020/06/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://icewind-r.github.io/2020/06/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</id>
+    <published>2020-06-21T12:41:08.000Z</published>
+    <updated>2020-06-22T04:36:31.841Z</updated>
+    
+    <content type="html"><![CDATA[<p>前文已经利用GitHub搭建了基本的博客， 此篇总结一些服务器，Linux的知识点，为之后的部署到服务器做好准备。</p><a id="more"></a><hr><p>1、静态博客：hexo,hugo等框架搭建起来的博客，内部生成固定的html页面代码，每个人访问的内容都完全一致。</p><p>2、动态博客：wordpress，halo，有着后台应用服务的博客，需要单独应用服务器的承载，比如登录功能。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前文已经利用GitHub搭建了基本的博客， 此篇总结一些服务器，Linux的知识点，为之后的部署到服务器做好准备。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="HEXO" scheme="http://iceWind-R.github.io/categories/HEXO/"/>
+    
+    
+      <category term="experience" scheme="http://iceWind-R.github.io/tags/experience/"/>
+    
+      <category term="blog" scheme="http://iceWind-R.github.io/tags/blog/"/>
     
   </entry>
   
