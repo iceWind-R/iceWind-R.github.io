@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-07-18T05:20:10.760Z</updated>
+  <updated>2020-07-21T00:10:36.175Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Test</title>
+    <link href="http://icewind-r.github.io/2020/07/21/Test/"/>
+    <id>http://icewind-r.github.io/2020/07/21/Test/</id>
+    <published>2020-07-21T00:10:36.000Z</published>
+    <updated>2020-07-21T00:10:36.175Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Pyhthon虚拟环境</title>
@@ -467,7 +482,7 @@
     <link href="http://icewind-r.github.io/2020/06/22/Python-4/"/>
     <id>http://icewind-r.github.io/2020/06/22/Python-4/</id>
     <published>2020-06-22T11:52:42.000Z</published>
-    <updated>2020-06-29T06:29:45.256Z</updated>
+    <updated>2020-06-29T10:07:25.076Z</updated>
     
     <content type="html"><![CDATA[<p>基于上次的<strong>列表</strong>和<strong>元组</strong>，这次总结<strong>字典</strong>和<strong>集合</strong>的基本操作</p><a id="more"></a><hr><h1 id="一、字典"><a href="#一、字典" class="headerlink" title="一、字典"></a>一、字典</h1><p>字典的数据是以键值对形式出现。</p><h2 id="1、创建字典"><a href="#1、创建字典" class="headerlink" title="1、创建字典"></a>1、创建字典</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span>:<span class="string">'Tom'</span>,<span class="string">'age'</span>:<span class="number">20</span>,<span class="string">'gender'</span>:<span class="string">'男'</span>&#125; <span class="comment">#有数据字典</span></span><br><span class="line">dict2 = &#123;&#125; <span class="comment">#空字典</span></span><br><span class="line">dict3 = dict() <span class="comment">#空字典</span></span><br></pre></td></tr></table></figure><h2 id="2、字典常见操作"><a href="#2、字典常见操作" class="headerlink" title="2、字典常见操作"></a>2、字典常见操作</h2><h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p>写法：<code>字典序列[key] = 值</code></p><blockquote><p>注意：如果key存在则修改这个key对应的值；如果key不存在则新增此键值对</p></blockquote><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><ul><li>del() / del：删除字典或字典中指定键值对</li><li>clear()：清空字典</li></ul><h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>字典序列[key] = 值</p><h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><h4 id="key值查找"><a href="#key值查找" class="headerlink" title="key值查找"></a>key值查找</h4><p><code>dict1[&#39;name&#39;]</code></p><blockquote><p>如果key存在则返回相应值；否则报错</p></blockquote><h4 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h4><ul><li><p>语法</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字典序列.get(key, 默认值)</span><br></pre></td></tr></table></figure><blockquote><p>注意：如果当前查找的key不存在，则返回第二个参数，如果省略第二个参数，则返回None</p></blockquote></li></ul><h4 id="keys"><a href="#keys" class="headerlink" title="keys()"></a>keys()</h4><p>查找字典中所有的key，返回可迭代对象</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(dict1.keys()) <span class="comment"># dict_keys(['name','age','gender'])</span></span><br></pre></td></tr></table></figure><h4 id="values"><a href="#values" class="headerlink" title="values()"></a>values()</h4><p>查找字典中所有的value，返回可迭代对象</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(dict1.values()) <span class="comment"># dict_values(['Tom','20','男'])</span></span><br></pre></td></tr></table></figure><h4 id="items"><a href="#items" class="headerlink" title="items()"></a>items()</h4><p>查找字典中所有的键值对，返回可迭代对象，里面的数据是元组，元组数据1是key，2是value</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(dict1.items()) <span class="comment"># dict_items([('name','Tom'),('age',20),('gender','男')])</span></span><br></pre></td></tr></table></figure><h2 id="3、字典的循环遍历"><a href="#3、字典的循环遍历" class="headerlink" title="3、字典的循环遍历"></a>3、字典的循环遍历</h2><h3 id="遍历字典的key"><a href="#遍历字典的key" class="headerlink" title="遍历字典的key"></a>遍历字典的key</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> dict1.keys():</span><br><span class="line">    print(key)</span><br><span class="line"><span class="comment"># 结果：name age gender</span></span><br></pre></td></tr></table></figure><h3 id="遍历字典的value"><a href="#遍历字典的value" class="headerlink" title="遍历字典的value"></a>遍历字典的value</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> dict1.values():</span><br><span class="line">print(value)</span><br><span class="line"><span class="comment"># 结果 Tom 20 男</span></span><br></pre></td></tr></table></figure><h3 id="遍历字典的元素"><a href="#遍历字典的元素" class="headerlink" title="遍历字典的元素"></a>遍历字典的元素</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> dict1.items():</span><br><span class="line">    print(item)</span><br><span class="line">结果 (<span class="string">'name'</span>,<span class="string">'tom'</span>) (<span class="string">'age'</span>,<span class="number">20</span>) (<span class="string">'gender'</span>,<span class="string">'男'</span>)</span><br></pre></td></tr></table></figure><h3 id="遍历字典的键值对-拆包"><a href="#遍历字典的键值对-拆包" class="headerlink" title="遍历字典的键值对(拆包)"></a>遍历字典的键值对(拆包)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> dict1.items():</span><br><span class="line">    print(<span class="string">f'<span class="subst">&#123;key&#125;</span> = <span class="subst">&#123;value&#125;</span>'</span>)</span><br></pre></td></tr></table></figure><h1 id="二、集合"><a href="#二、集合" class="headerlink" title="二、集合"></a>二、集合</h1><h2 id="1、创建集合"><a href="#1、创建集合" class="headerlink" title="1、创建集合"></a>1、创建集合</h2><p>创建集合使用<code>{}</code>或<code>set()</code>，但是如果要创建空集合只能使用set()，因为<code>{}</code>用来创建空字典</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">s2 = set(<span class="string">'ads'</span>)</span><br><span class="line">s3 = set() <span class="comment"># set</span></span><br><span class="line">s4 = &#123;&#125; <span class="comment">#dict</span></span><br></pre></td></tr></table></figure><h2 id="2、操作"><a href="#2、操作" class="headerlink" title="2、操作"></a>2、操作</h2><h3 id="增加-1"><a href="#增加-1" class="headerlink" title="增加"></a>增加</h3><ul><li><p>add()</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s1 = &#123;<span class="number">1</span>,<span class="number">2</span>&#125;</span><br><span class="line">s1.add(<span class="number">3</span>)</span><br><span class="line">s1.add(<span class="number">1</span>) <span class="comment"># &#123;1,2,3&#125;</span></span><br></pre></td></tr></table></figure><blockquote><p>集合有去重功能，所以当向集合内追加的数据是当前集合已有数据的话，则不进行任何操作。</p></blockquote></li><li><p>update()：追加的数据是序列。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s1 = &#123;<span class="number">1</span>,<span class="number">2</span>&#125;</span><br><span class="line">s1.update(<span class="number">3</span>) <span class="comment">#报错 </span></span><br><span class="line">s1.update([<span class="number">100</span>,<span class="number">200</span>])</span><br><span class="line">s1.update(<span class="string">'abc'</span>)</span><br></pre></td></tr></table></figure></li></ul><h3 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h3><ul><li>remove()：删除指定数据，如果数据不存在报错</li><li>discard()：删除指定数据，如果数据不存在不报错</li><li>pop()：随机删除某个数据，并返回该值</li></ul><h3 id="查找-1"><a href="#查找-1" class="headerlink" title="查找"></a>查找</h3><ul><li>in</li><li>not in</li></ul><h2 id="3、交并补"><a href="#3、交并补" class="headerlink" title="3、交并补"></a>3、交并补</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 集合的交集、并集、差集、对称差运算</span></span><br><span class="line">print(set1 &amp; set2)</span><br><span class="line"><span class="comment"># print(set1.intersection(set2))</span></span><br><span class="line">print(set1 | set2)</span><br><span class="line"><span class="comment"># print(set1.union(set2))</span></span><br><span class="line">print(set1 - set2)</span><br><span class="line"><span class="comment"># print(set1.difference(set2))</span></span><br><span class="line">print(set1 ^ set2)</span><br><span class="line"><span class="comment"># print(set1.symmetric_difference(set2))</span></span><br><span class="line"><span class="comment"># 判断子集和超集</span></span><br><span class="line">print(set2 &lt;= set1)</span><br><span class="line"><span class="comment"># print(set2.issubset(set1))</span></span><br><span class="line">print(set3 &lt;= set1)</span><br><span class="line"><span class="comment"># print(set3.issubset(set1))</span></span><br><span class="line">print(set1 &gt;= set2)</span><br><span class="line"><span class="comment"># print(set1.issuperset(set2))</span></span><br><span class="line">print(set1 &gt;= set3)</span><br><span class="line"><span class="comment"># print(set1.issuperset(set3))</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -484,31 +499,6 @@
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
       <category term="Python" scheme="http://iceWind-R.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客搭建总结（二）</title>
-    <link href="http://icewind-r.github.io/2020/06/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://icewind-r.github.io/2020/06/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</id>
-    <published>2020-06-21T12:41:08.000Z</published>
-    <updated>2020-06-22T04:36:31.841Z</updated>
-    
-    <content type="html"><![CDATA[<p>前文已经利用GitHub搭建了基本的博客， 此篇总结一些服务器，Linux的知识点，为之后的部署到服务器做好准备。</p><a id="more"></a><hr><p>1、静态博客：hexo,hugo等框架搭建起来的博客，内部生成固定的html页面代码，每个人访问的内容都完全一致。</p><p>2、动态博客：wordpress，halo，有着后台应用服务的博客，需要单独应用服务器的承载，比如登录功能。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前文已经利用GitHub搭建了基本的博客， 此篇总结一些服务器，Linux的知识点，为之后的部署到服务器做好准备。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="HEXO" scheme="http://iceWind-R.github.io/categories/HEXO/"/>
-    
-    
-      <category term="experience" scheme="http://iceWind-R.github.io/tags/experience/"/>
-    
-      <category term="blog" scheme="http://iceWind-R.github.io/tags/blog/"/>
     
   </entry>
   
