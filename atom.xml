@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-07-21T00:10:36.175Z</updated>
+  <updated>2020-07-18T05:20:10.760Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,21 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Test</title>
-    <link href="http://icewind-r.github.io/2020/07/21/Test/"/>
-    <id>http://icewind-r.github.io/2020/07/21/Test/</id>
-    <published>2020-07-21T00:10:36.000Z</published>
-    <updated>2020-07-21T00:10:36.175Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-  </entry>
   
   <entry>
     <title>Pyhthon虚拟环境</title>
@@ -499,6 +484,31 @@
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
       <category term="Python" scheme="http://iceWind-R.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客搭建总结（二）</title>
+    <link href="http://icewind-r.github.io/2020/06/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://icewind-r.github.io/2020/06/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</id>
+    <published>2020-06-21T12:41:08.000Z</published>
+    <updated>2020-06-22T04:36:31.841Z</updated>
+    
+    <content type="html"><![CDATA[<p>前文已经利用GitHub搭建了基本的博客， 此篇总结一些服务器，Linux的知识点，为之后的部署到服务器做好准备。</p><a id="more"></a><hr><p>1、静态博客：hexo,hugo等框架搭建起来的博客，内部生成固定的html页面代码，每个人访问的内容都完全一致。</p><p>2、动态博客：wordpress，halo，有着后台应用服务的博客，需要单独应用服务器的承载，比如登录功能。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前文已经利用GitHub搭建了基本的博客， 此篇总结一些服务器，Linux的知识点，为之后的部署到服务器做好准备。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="HEXO" scheme="http://iceWind-R.github.io/categories/HEXO/"/>
+    
+    
+      <category term="experience" scheme="http://iceWind-R.github.io/tags/experience/"/>
+    
+      <category term="blog" scheme="http://iceWind-R.github.io/tags/blog/"/>
     
   </entry>
   
