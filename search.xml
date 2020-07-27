@@ -2486,22 +2486,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Pyhthon虚拟环境</title>
-    <url>/2020/07/18/Pyhthon%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<p>Python学习还有一个很重要的知识点便是虚拟环境的使用。</p>
-<a id="more"></a>
-
-<hr>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Plan_01（6.21~6.28）</title>
     <url>/2020/06/21/Plan-01-%E7%AC%AC%E4%B8%80%E5%91%A8/</url>
     <content><![CDATA[<p>这是暑假的第一周，务必不要拖延，每天进步一点。</p>
@@ -2569,7 +2553,7 @@
   <entry>
     <title>Python_2(选择循环字符串)</title>
     <url>/2020/03/17/Python-2/</url>
-    <content><![CDATA[<p>基于上篇博客介绍了一些很基本的Python语法，<strong>如数据类型</strong>，<strong>输入输出</strong>，<strong>运算符</strong>等等，此篇博客继续总结<strong>选择</strong>、<strong>循环</strong>等结构。</p>
+    <content><![CDATA[<p>基于上篇博客介绍了一些很基本的Python语法，<strong>如数据类型</strong>，<strong>输入输出</strong>，<strong>运算符</strong>等等，此篇博客继续总结<strong>选择</strong>、<strong>循环</strong>等结构，和最重要的 <strong>字符串</strong> 类型介绍。</p>
 <a id="more"></a>
 
 <hr>
@@ -2704,7 +2688,15 @@
 
 <h3 id="迅速去掉字符串的空格符、制表符和换行符"><a href="#迅速去掉字符串的空格符、制表符和换行符" class="headerlink" title="迅速去掉字符串的空格符、制表符和换行符"></a>迅速去掉字符串的空格符、制表符和换行符</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">aStr = <span class="string">'hello  wel\rcome \t   to   \t  zy \n  oYeah'</span></span><br><span class="line">print(<span class="string">''</span>.join(aStr.split()))</span><br></pre></td></tr></table></figure>
 
-<h1 id="字符串的format格式化"><a href="#字符串的format格式化" class="headerlink" title="字符串的format格式化"></a>字符串的format格式化</h1><h2 id="一、简单运用"><a href="#一、简单运用" class="headerlink" title="一、简单运用"></a>一、简单运用</h2><p>字符串类型格式化采用format()方法，基本使用格式是：</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>字符串的编码解码：用到方法：<code>encode()</code> 和 <code>decode()</code>。编码解码主要针对中文</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str = <span class="string">'董奥250,a good man'</span></span><br><span class="line"></span><br><span class="line">a = str.encode() <span class="comment"># 函数可以写参数，utf-8 或 gbk，表示以相应的编码格式编码</span></span><br><span class="line"></span><br><span class="line">print(a) <span class="comment"># b'\xe8\x91\xa3\xe5\xa5\xa5250,a good man' 以b开头，表示字节流</span></span><br><span class="line"></span><br><span class="line">b = a.decode(<span class="string">'utf-8'</span>) <span class="comment"># 表示以相应的解码格式解码</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>总结</strong>：</p>
+<ul>
+<li>str 使用 <code>encode()</code> 方法转换为 bytes</li>
+<li>bytes 通过 <code>decode()</code> 方法转换为 str</li>
+</ul>
+<h1 id="四、字符串的format格式化"><a href="#四、字符串的format格式化" class="headerlink" title="四、字符串的format格式化"></a>四、字符串的format格式化</h1><h2 id="一、简单运用"><a href="#一、简单运用" class="headerlink" title="一、简单运用"></a>一、简单运用</h2><p>字符串类型格式化采用format()方法，基本使用格式是：</p>
 <p>   <strong>&lt;模板字符串&gt;.format(&lt;逗号分隔的参数&gt;)</strong></p>
 <p>调用format()方法后会返回一个新的字符串，参数从0开始编号。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"&#123;&#125;&#123;&#125;&#123;&#125;"</span>.format(<span class="string">"圆周率是"</span>,<span class="number">3.1415926</span>,<span class="string">"..."</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span> <span class="string">'圆周率是3.1415926...'</span></span><br><span class="line"> </span><br><span class="line"><span class="string">"圆周率&#123;&#123;&#123;1&#125;&#123;2&#125;&#125;&#125;是&#123;0&#125;"</span>.format(<span class="string">"无理数"</span>,<span class="number">3.1415926</span>,<span class="string">"..."</span>) <span class="comment"># 输出大括号</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span> <span class="string">'圆周率&#123;3.1415926...&#125;是无理数'</span></span><br><span class="line"> </span><br><span class="line">s=<span class="string">"圆周率&#123;&#123;&#123;1&#125;&#123;2&#125;&#125;&#125;是&#123;0&#125;"</span> <span class="comment">#大括号本身是字符串的一部分</span></span><br><span class="line"> </span><br><span class="line">s</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span> <span class="string">'圆周率&#123;&#123;&#123;1&#125;&#123;2&#125;&#125;&#125;是&#123;0&#125;'</span>	 <span class="comment"># 格式化模板</span></span><br><span class="line"> </span><br><span class="line">s.format(<span class="string">"无理数"</span>,<span class="number">3.1415926</span>,<span class="string">"..."</span>)	 <span class="comment"># 当调用format()时解析大括号</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span> <span class="string">'圆周率&#123;3.1415926...&#125;是无理数'</span></span><br></pre></td></tr></table></figure>
@@ -4916,19 +4908,6 @@
 </ul>
 <h1 id="发送POST请求"><a href="#发送POST请求" class="headerlink" title="发送POST请求"></a>发送POST请求</h1><p>有时我们想要在请求数据的时候发送POST请求，那么这时候需要使用 <code>Request</code> 的子类 <code>FormRequest</code> 来实现（专门为表单提交设计的类）。如果想要在爬虫一开始的时候就发送POST请求，那么需要在爬虫类中重写 <code>start_requests(self)</code> 方法，并且不再调用 <code>start_url</code> 里的URL。</p>
 <h2 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h2><h3 id="案例一：模拟人人网登录"><a href="#案例一：模拟人人网登录" class="headerlink" title="案例一：模拟人人网登录"></a>案例一：模拟人人网登录</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RenrenSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'renren'</span></span><br><span class="line">    allowed_domains = [<span class="string">'renren.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://renren.com/'</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 模拟登录，重写该方法(因为在父类中，该方法默认发送GET请求)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></span><br><span class="line">        url = <span class="string">'http://www.renren.com/PLogin.do'</span></span><br><span class="line">        data = &#123;<span class="string">'email'</span>:<span class="string">'13287857692'</span>, <span class="string">'password'</span>:<span class="string">'dongao123'</span>&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 专门发送POST请求，并且携带表单数据</span></span><br><span class="line">        request = scrapy.FormRequest(url, formdata = data, callback = self.parse_page)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">yield</span> request</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_page</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="comment"># with open ('renren.html', 'w', encoding='utf-8') as f:</span></span><br><span class="line">        <span class="comment">#     f.write(response.text)</span></span><br><span class="line">        <span class="comment"># 请求只有登录才能访问的个人主页</span></span><br><span class="line">        request = scrapy.Request(url=<span class="string">'http://www.renren.com/974726184/profile'</span>,callback=self.parse_profile)</span><br><span class="line">        <span class="keyword">yield</span> request</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_profile</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'myprofile.html'</span>, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f :</span><br><span class="line">            f.write(response.text)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
 ]]></content>
       <categories>
         <category>Python</category>
