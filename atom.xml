@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-07-27T02:18:48.304Z</updated>
+  <updated>2020-08-03T14:37:53.699Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Shell基础命令</title>
+    <link href="http://icewind-r.github.io/2020/08/03/Shell%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/"/>
+    <id>http://icewind-r.github.io/2020/08/03/Shell%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</id>
+    <published>2020-08-03T12:03:06.000Z</published>
+    <updated>2020-08-03T14:37:53.699Z</updated>
+    
+    <content type="html"><![CDATA[<p>总结Linux中的shell命令</p><hr><h2 id="1、基本语法"><a href="#1、基本语法" class="headerlink" title="1、基本语法"></a>1、基本语法</h2><p>使用vi编辑器新建一个文件 hello.sh</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash<span class="comment"># 开头固定</span></span></span><br><span class="line">echo "Hello world!"</span><br></pre></td></tr></table></figure><h3 id="执行方式"><a href="#执行方式" class="headerlink" title="执行方式"></a>执行方式</h3><ol><li><p><code>sh hello.sh</code></p></li><li><pre><code class="shell">chmod +x ./hello.sh    # 使脚本具有执行权限./hello.sh            # 执行脚本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 3、变量</span><br><span class="line"></span><br><span class="line">### 局部变量</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;shell</span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">str&#x3D;&quot;hello&quot;</span><br><span class="line">echo $&#123;str&#125;world# helloworld</span><br></pre></td></tr></table></figure></code></pre></li></ol><h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo $PATH</span><br><span class="line">echo $HOME</span><br></pre></td></tr></table></figure><p>若想查看所有的环境变量，使用命令：<code>env</code></p><p>编辑环境变量，在/etc/profile 中，通过 export 关键字。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export MYENV=/root/myenv</span><br></pre></td></tr></table></figure><h2 id="4、特殊字符"><a href="#4、特殊字符" class="headerlink" title="4、特殊字符"></a>4、特殊字符</h2><table><thead><tr><th>符号</th><th>含义</th></tr></thead><tbody><tr><td>$#</td><td>传递到将本的参数个数</td></tr><tr><td>$*</td><td>以一个但字符串显示所有向脚本传递的参数</td></tr><tr><td>$$</td><td>脚本运行的当前进程ID号</td></tr><tr><td>$!</td><td>后台运行的最后一个进程的ID号</td></tr><tr><td>$@</td><td>与$*相同，但是使用时加引号，并在引号中返回每个参数</td></tr><tr><td>$?</td><td>显示最后命令的退出状态，0表示没有错误，其他任何值表示有错误</td></tr></tbody></table><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">echo "第一个参数为： $1"</span><br><span class="line">echo "参数个数为：$#"</span><br><span class="line">echo "传递的参数作为一个字符串显示：$*"</span><br></pre></td></tr></table></figure><p>执行：./test.sh 1 2 3</p><h2 id="5、运算符"><a href="#5、运算符" class="headerlink" title="5、运算符"></a>5、运算符</h2><p>以加法 + 为例。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line">a=1;</span><br><span class="line">b=2;</span><br><span class="line">echo `expr $a + $b`;</span><br><span class="line">echo $((a+b));</span><br><span class="line">echo $[a+b];</span><br></pre></td></tr></table></figure><h2 id="6、if语句"><a href="#6、if语句" class="headerlink" title="6、if语句"></a>6、if语句</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">read -p "Please input your name:" NAME # read命令用于从控制台读取输入的数据，然后存入NAME变量</span><br><span class="line">if [ $NAME = root ]</span><br><span class="line">then</span><br><span class="line">echo "hello $&#123;NAME&#125;"</span><br><span class="line">elif [ $NAME = dongao ]</span><br><span class="line">then</span><br><span class="line">echo "hello $&#123;NAME&#125;"</span><br><span class="line">else</span><br><span class="line">echo "Get out"</span><br><span class="line">fi</span><br></pre></td></tr></table></figure><h2 id="7、for语句"><a href="#7、for语句" class="headerlink" title="7、for语句"></a>7、for语句</h2><p>方式1：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">for N in 1 2 3</span><br><span class="line">do</span><br><span class="line">echo $N</span><br><span class="line">done</span><br></pre></td></tr></table></figure><p>方式2：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">for ((i = 0; i &lt;= 5; i++))</span><br><span class="line">do</span><br><span class="line">echo "$i"</span><br><span class="line">done</span><br></pre></td></tr></table></figure><h2 id="8、函数"><a href="#8、函数" class="headerlink" title="8、函数"></a>8、函数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">funWithReturn()&#123;</span><br><span class="line">echo "输入第一个字"</span><br><span class="line">read aNum</span><br><span class="line">echo "输入第二个字"</span><br><span class="line">read bNum</span><br><span class="line">return $(($aNum+$bNum))</span><br><span class="line">&#125;</span><br><span class="line">funWithReturn         # 调用函数</span><br><span class="line">echo "输入的两个数字之和为 $? " # $? 提取上一个返回值</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;总结Linux中的shell命令&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;1、基本语法&quot;&gt;&lt;a href=&quot;#1、基本语法&quot; class=&quot;headerlink&quot; title=&quot;1、基本语法&quot;&gt;&lt;/a&gt;1、基本语法&lt;/h2&gt;&lt;p&gt;使用vi编辑器新建一个文件 hello.sh&lt;/p
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://iceWind-R.github.io/categories/Linux/"/>
+    
+    
+      <category term="Shell" scheme="http://iceWind-R.github.io/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python数据分析_01</title>
+    <link href="http://icewind-r.github.io/2020/07/27/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-01/"/>
+    <id>http://icewind-r.github.io/2020/07/27/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-01/</id>
+    <published>2020-07-27T02:31:09.000Z</published>
+    <updated>2020-07-27T03:17:14.857Z</updated>
+    
+    <content type="html"><![CDATA[<p>本篇开始学习python中重要的数据分析技术，它是python数据科学的技术，是机器学习课程的基础。</p><a id="more"></a><hr><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="什么是数据分析"><a href="#什么是数据分析" class="headerlink" title="什么是数据分析"></a>什么是数据分析</h2><p>数据分析是用适当的方法对收集来的大量数据进行分析，帮助人们做出判断，以便采取适当行动。</p><h2 id="数据分析的流程"><a href="#数据分析的流程" class="headerlink" title="数据分析的流程"></a>数据分析的流程</h2><p>提出问题 –&gt; 准备数据 –&gt; <strong>分析数据</strong> –&gt; 获得结论 –&gt; 成果可视化</p><h2 id="两个工具环境的安装"><a href="#两个工具环境的安装" class="headerlink" title="两个工具环境的安装"></a>两个工具环境的安装</h2><h3 id="CONDA环境安装"><a href="#CONDA环境安装" class="headerlink" title="CONDA环境安装"></a>CONDA环境安装</h3><p>里面有大量的安装包等内容，几乎可以解决pip下载失败的所有问题。</p><h3 id="jupyter-notebook"><a href="#jupyter-notebook" class="headerlink" title="jupyter notebook"></a>jupyter notebook</h3><p>是一款编程/文档/笔记/展示软件。</p><img src="/2020/07/27/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-01/1.png" class><h1 id="认识-matplotlib"><a href="#认识-matplotlib" class="headerlink" title="认识 matplotlib"></a>认识 matplotlib</h1><h2 id="为什么学习matplotlib？"><a href="#为什么学习matplotlib？" class="headerlink" title="为什么学习matplotlib？"></a>为什么学习matplotlib？</h2><ol><li>能够将数据进行可视化，更直观的呈现</li><li>使数据更加客观，更具说服力</li></ol><h2 id="什么是matplotlib？"><a href="#什么是matplotlib？" class="headerlink" title="什么是matplotlib？"></a>什么是matplotlib？</h2><p>最流行的python底层绘图库，主要做数据可视化图表，名字取材于matlab。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本篇开始学习python中重要的数据分析技术，它是python数据科学的技术，是机器学习课程的基础。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://iceWind-R.github.io/categories/Python/"/>
+    
+    
+      <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
+    
+      <category term="Python" scheme="http://iceWind-R.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Python爬虫_09(CrawlSpider)</title>
@@ -459,54 +512,6 @@
       <category term="Learning" scheme="http://iceWind-R.github.io/tags/Learning/"/>
     
       <category term="Python" scheme="http://iceWind-R.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客搭建总结（二）</title>
-    <link href="http://icewind-r.github.io/2020/06/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://icewind-r.github.io/2020/06/21/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</id>
-    <published>2020-06-21T12:41:08.000Z</published>
-    <updated>2020-06-22T04:36:31.841Z</updated>
-    
-    <content type="html"><![CDATA[<p>前文已经利用GitHub搭建了基本的博客， 此篇总结一些服务器，Linux的知识点，为之后的部署到服务器做好准备。</p><a id="more"></a><hr><p>1、静态博客：hexo,hugo等框架搭建起来的博客，内部生成固定的html页面代码，每个人访问的内容都完全一致。</p><p>2、动态博客：wordpress，halo，有着后台应用服务的博客，需要单独应用服务器的承载，比如登录功能。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前文已经利用GitHub搭建了基本的博客， 此篇总结一些服务器，Linux的知识点，为之后的部署到服务器做好准备。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="HEXO" scheme="http://iceWind-R.github.io/categories/HEXO/"/>
-    
-    
-      <category term="experience" scheme="http://iceWind-R.github.io/tags/experience/"/>
-    
-      <category term="blog" scheme="http://iceWind-R.github.io/tags/blog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Plan_01（6.21~6.28）</title>
-    <link href="http://icewind-r.github.io/2020/06/21/Plan-01-%E7%AC%AC%E4%B8%80%E5%91%A8/"/>
-    <id>http://icewind-r.github.io/2020/06/21/Plan-01-%E7%AC%AC%E4%B8%80%E5%91%A8/</id>
-    <published>2020-06-21T10:47:02.000Z</published>
-    <updated>2020-06-27T09:14:31.712Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是暑假的第一周，务必不要拖延，每天进步一点。</p><a id="more"></a><hr><p><strong>整体计划：</strong></p><ol><li>python</li><li>Android</li><li>服务器</li><li>英语</li><li>阅读</li><li>知乎收藏</li></ol><p><strong>周一（6.22）计划</strong></p><p>四个服务器的视频看完，服务器搭建博客完成</p><p>python第七天视频学习完成</p><p><strong>本周知乎总结：</strong></p><ol><li><strong>为人处世</strong><ol><li>不要让自己每天的时间分散，碎片化是效率的生死大敌，少刷朋友圈，少水群，因为这只会浪费你的时间。</li><li>改变自己最高效的方法，就是去做你害怕的事，不作为比失败更可怕。</li><li>能定期和父母联系是一项很棒的能力。</li><li>不喜欢当下的工作，马上换，每拖一分你勇气就少一分。你多学一点本事，将来就能少开口求人一次。</li><li>学会果断拒绝，而不是犹豫后拒绝。</li><li>最短的距离是从嘴到手，最长的距离是从说到做。</li></ol></li><li><strong>大学学习</strong><ol><li>你花大量时间，重复着最容易的环节。</li></ol></li><li></li></ol><p><strong>人是怎么废掉的？</strong></p><ol><li><p><strong>沉溺于「轻易获得高成就感」的事情</strong>：有意无意地寻求用很小付出获得很大「回报」的偏方，哪怕回报是虚拟的。这种行为会提升自己的「兴奋阈值」，让人越来越不容易拥有成就感，从而越来越依赖虚拟的成就感，陷入恶性循环。症状轻的：<strong>沉溺游戏</strong>（在虚拟世界中加快时间流逝的速度，使得「成功」来得更快）、<strong>种马小说</strong>（意淫人能轻易获得想要的东西）；症状重甚至犯法的：<strong>赌博</strong>（轻易获得「金钱」）、<strong>吸毒</strong>（轻易获得「爽」的感觉）等。</p></li><li><p><strong>只接收「低信息密度」的信息源</strong>：只愿意接收信息密度低的信息（如无需太多动脑的视频、图片，以及深度较浅的娱乐、八卦、体育新闻等），不愿意接收信息密度高、需要思考后才能吸收的信息（如课程、知识框架、分析报告等）。由于真正有价值、能让人进步的信息大多是需要思考和消化的，所以如果完全隔离了这部分内容，基本也就隔离了进步的可能。</p></li><li><p><strong>习惯用「错位成就感」麻痹自己</strong>：有两类：① 习惯于拿自己擅长的东西和别人不擅长的东西比较，从来获得「比别人强」的错觉（如：和运动员比学习成绩，和学霸比体育）；② 习惯于拿别人做事情 A 的时间来做事情 B，来假装自己在事情 B 上做得好（如：「炫耀」自己在节假日做了比别人更多的工作，但也仅仅是在节假日才能如此）。</p></li><li><p><strong>过度依赖「既有可行路径」</strong>：在工作中，习惯了一件事情的流程后再也没想过如何改进，只会机械地重复，然后骗自己很充实。没有改进，便也没有剔除糟粕的意识，于是需要重复的东西越来越多，消耗时间也越来越长，到最后，看上去每天做了很多事情，但其实不仅一点进步都没有，还挤占了进步的空间。</p></li><li><p><strong>封闭「强化学习」的通道</strong>：在学习或接受信息中，只愿意执行最简单的第一步，却不愿意执行接下来更为复杂的巩固和应用流程，只听不说、只看不写、只学不练，还麻痹自己说学到了很多东西，而实际上，这种「浅层」的学习遗忘极快，有时还不如不学。比如，天天学英语，却从不写英语文章；再比如，天天花大量时间刷知乎，却从不写答案、写总结。</p></li></ol><p><strong>等自己变优秀了再去追女生还来得及吗</strong>？</p><p>1、喜欢就去追求，如果没有自信就放弃，不要在模糊状态长期停留，这是你生命的癌细胞，对生命的质量没有任何意义。</p><p>2、要么去恋爱，要么勇敢的面对失恋的痛苦，这本身就是勇气。</p><p>3、女孩子去买新衣服，买化妆品，花无数的时间去梳妆打扮，是希望自己讨人喜欢。你要明白这一点，并不存在没有缺点的女神。</p><p>4、能够吸引你的是一种类型的女孩子，如果你征服不了其中一个，那就换一个，这才是正常状态。你要拥有能够整理自己心理的能力，这是一个成年人成熟的标准。</p><p>5、即便你做不到去追求她，但也做不到去忘记她。你起码应该做到的是，不要因为她浪费了你过度的时间和精力，还有资源。然后时间会帮助你解决问题。不是每个女人都是善良的，不要给她养备胎的机会。</p><p>6、只有你去追求，去接触，你们才有真实的互相了解的可能，或许她只是绣花枕头，你接触一段时间就不喜欢了，这时候你是不是会觉得长时间的无理由的暗恋很傻呢？</p><p>7、你可以没有自信，没有勇气，毕竟这是一个进步的过程。但如果你没有常识，那很可能你会失去对自己的主导权。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这是暑假的第一周，务必不要拖延，每天进步一点。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Plan" scheme="http://iceWind-R.github.io/categories/Plan/"/>
-    
-    
-      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
     
   </entry>
   
