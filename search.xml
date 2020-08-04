@@ -378,6 +378,8 @@
     <url>/2020/02/29/CSDN%E7%9A%84markdown%E6%A0%BC%E5%BC%8F/</url>
     <content><![CDATA[<p>@<a href="CSDN的markdown格式">TOC</a></p>
 <h1 id="欢迎使用Markdown编辑器"><a href="#欢迎使用Markdown编辑器" class="headerlink" title="欢迎使用Markdown编辑器"></a>欢迎使用Markdown编辑器</h1><p>你好！ 这是你第一次使用 <strong>Markdown编辑器</strong> 所展示的欢迎页。如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，了解一下Markdown的基本语法知识。</p>
+<a id="more"></a>
+
 <h2 id="新的改变"><a href="#新的改变" class="headerlink" title="新的改变"></a>新的改变</h2><p>我们对Markdown编辑器进行了一些功能拓展与语法支持，除了标准的Markdown编辑器功能，我们增加了如下几点新功能，帮助你用它写博客：</p>
 <ol>
 <li><strong>全新的界面设计</strong> ，将会带来全新的写作体验；</li>
@@ -472,7 +474,9 @@
   <entry>
     <title>Git基本工作流程</title>
     <url>/2020/03/02/Git%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<h2 id="Git基本工作流程："><a href="#Git基本工作流程：" class="headerlink" title="Git基本工作流程："></a>Git基本工作流程：</h2><h3 id="Git工作区域"><a href="#Git工作区域" class="headerlink" title="Git工作区域"></a>Git工作区域</h3><p>1、Git Repository（Git仓库）最终确定的文件保存到仓库，成为一个新的版本，并对他人可见<br>2、暂存区 暂存已经修改的文件最后统一提交到Git仓库中<br>3、工作区（Working Directory）添加、编辑、修改文件等动作</p>
+    <content><![CDATA[<h2 id="Git基本工作流程："><a href="#Git基本工作流程：" class="headerlink" title="Git基本工作流程："></a>Git基本工作流程：</h2><a id="more"></a>
+
+<h3 id="Git工作区域"><a href="#Git工作区域" class="headerlink" title="Git工作区域"></a>Git工作区域</h3><p>1、Git Repository（Git仓库）最终确定的文件保存到仓库，成为一个新的版本，并对他人可见<br>2、暂存区 暂存已经修改的文件最后统一提交到Git仓库中<br>3、工作区（Working Directory）添加、编辑、修改文件等动作</p>
 <h3 id="一些需要记住的命令"><a href="#一些需要记住的命令" class="headerlink" title="一些需要记住的命令"></a>一些需要记住的命令</h3><ul>
 <li>git status：确定文件当前所处Git工作区域；</li>
 </ul>
@@ -4920,7 +4924,9 @@
   <entry>
     <title>Git基本工作流程</title>
     <url>/2020/03/03/Typora%E7%BC%96%E8%BE%91%E5%99%A8%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E4%B9%A6%E5%86%99%E5%8D%B3%E4%B8%BA%E7%BE%8E%E5%AD%A6/</url>
-    <content><![CDATA[<h1 id="Typora编辑器————书写即为美学"><a href="#Typora编辑器————书写即为美学" class="headerlink" title="Typora编辑器————书写即为美学"></a>Typora编辑器————书写即为美学</h1><p> 发表于 2018-02-08 | <a href="https://baka943.coding.me/2018/02/08/2018-02-08-TyporaSimpleDoc/#comments" target="_blank" rel="noopener">0</a></p>
+    <content><![CDATA[<h1 id="Typora编辑器————书写即为美学"><a href="#Typora编辑器————书写即为美学" class="headerlink" title="Typora编辑器————书写即为美学"></a>Typora编辑器————书写即为美学</h1><a id="more"></a>
+
+<p> 发表于 2018-02-08 | <a href="https://baka943.coding.me/2018/02/08/2018-02-08-TyporaSimpleDoc/#comments" target="_blank" rel="noopener">0</a></p>
 <p>我也是初学者，公认个人经验总结，不保证质量。</p>
 <p>考虑到hexo渲染和Typora渲染差异很大，建议复制<a href="https://paste.ubuntu.com/26540980/" target="_blank" rel="noopener">此处</a>原始码，在本机上测试效果。</p>
 <p>官方网站：<a href="https://www.typora.io/" target="_blank" rel="noopener">https</a> : <a href="https://www.typora.io/" target="_blank" rel="noopener">//www.typora.io/</a></p>
@@ -6051,6 +6057,8 @@
     <title>Shell基础命令</title>
     <url>/2020/08/03/Shell%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<p>总结Linux中的shell命令</p>
+<a id="more"></a>
+
 <hr>
 <h2 id="1、基本语法"><a href="#1、基本语法" class="headerlink" title="1、基本语法"></a>1、基本语法</h2><p>使用vi编辑器新建一个文件 hello.sh</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash			<span class="comment"># 开头固定</span></span></span><br><span class="line">echo "Hello world!"</span><br></pre></td></tr></table></figure>
@@ -6124,6 +6132,68 @@
       </categories>
       <tags>
         <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大数据_01(Zookeeper)</title>
+    <url>/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/</url>
+    <content><![CDATA[<p>ZooKeeper是一个<a href="https://baike.baidu.com/item/分布式/19276232" target="_blank" rel="noopener">分布式</a>的，开放源码的<a href="https://baike.baidu.com/item/分布式应用程序/9854429" target="_blank" rel="noopener">分布式应用程序</a>协调服务，是<a href="https://baike.baidu.com/item/Google" target="_blank" rel="noopener">Google</a>的Chubby一个<a href="https://baike.baidu.com/item/开源/246339" target="_blank" rel="noopener">开源</a>的实现，是Hadoop和Hbase的重要组件。重点内容记录如下。</p>
+<a id="more"></a>
+
+<h2 id="Zookeeper概述"><a href="#Zookeeper概述" class="headerlink" title="Zookeeper概述"></a>Zookeeper概述</h2><p>Zookeeper是一个开源的分布式协调服务框架，主要用来解决分布式集群中应用系统的一致性问题和数据管理问题。</p>
+<p>zookeeper是一个集群，可以分布在多台主机上，每台主机都可以看做成一个小型的文件系统，则这个整体就可看作一个分布式文件系统。</p>
+<p>关于存储，zookeeper将这个整体看成一个树形结构，每一个结点都是一个Znode。</p>
+<ul>
+<li>Znode是有路径的，例如：/app2/data.conf，这个路径可以理解为是Znode的Name</li>
+<li>Znode可以携带数据，即 既可表示文件目录，也可表示文件。</li>
+</ul>
+<p>正因为Znode的特性，所以Zookeeper可以对外提供一个类似于文件系统的试图，可以通过操作文件系统的方式操作Zookeeper</p>
+<img src="/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/1.png" class>
+
+<h2 id="Zookeeper的架构"><a href="#Zookeeper的架构" class="headerlink" title="Zookeeper的架构"></a>Zookeeper的架构</h2><p>zookeeper集群是一个基于主从架构的高可用集群，可以24小时不间断工作。</p>
+<img src="/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/2.png" class>
+
+<blockquote>
+<p>其中，客户机发出读取数据的非事务请求 和 写数据的事务性请求，写操作一般由从主机转发给主主机</p>
+</blockquote>
+<p>每个服务器承担如下三种角色中的一种</p>
+<ul>
+<li><strong>Leader</strong>：一个zookeeper集群同一时间只会有一个实际工作的Leader，它会发起并维护各Follower及Observer的心跳。所有的写操作必须要通过Leader完成再由Leader将写操作广播给其他服务器。</li>
+<li><strong>Follower</strong>：一个zookeeper集群可能有多个Followers，它会影响Leader的心跳。Follower可直接处理并返回客户端的读请求，同时将请求转发给Leader处理，并且负责在Leader处理写请求时对请求进行投票。</li>
+<li><strong>Observer</strong>：Observer和Follower类似，但无投票权。</li>
+</ul>
+<img src="/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/3.png" class>
+
+<h2 id="Zookeeper的安装和开启"><a href="#Zookeeper的安装和开启" class="headerlink" title="Zookeeper的安装和开启"></a>Zookeeper的安装和开启</h2><p>下载zookeeper的压缩包，网址：<a href="http://archive.apache.org/dist/" target="_blank" rel="noopener">http://archive.apache.org/dist/</a></p>
+<p>找到zookeeper软件包，下载的是3.4.9版本，下载好.tar.gz压缩包后，传到虚拟机上然后解压到自己定义的安装目录。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /export/softwares</span><br><span class="line">tar -xvf zookeeper-3.4.9.tar.gz -C ../servers</span><br></pre></td></tr></table></figure>
+
+<p>解压好后，修改配置文件。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /export/servers/zookeeper-3.4.9/conf/</span><br><span class="line">cp zoo_sample.cfg zoo.cfg</span><br><span class="line">mkdir -p /export/servers/zookeeper-3.4.9/zkdatas/  # 创建zkdatas文件.里面存入数据</span><br></pre></td></tr></table></figure>
+
+<p>然后对复制的 <code>zoo.cfg</code> 配置文件进行配置。</p>
+<p><code>vi zoo.cfg</code>，修改内容：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dataDir=/export/servers/zookeeper-3.4.9/zkdatas/ # 上面创建的zkdatas目录</span><br><span class="line"><span class="meta">#</span><span class="bash"> 保留多少个快照</span></span><br><span class="line">autopurge.snapRetainCount=3</span><br><span class="line"><span class="meta">#</span><span class="bash"> 日志多少小时清理一次</span></span><br><span class="line">autopurge.purgeInterval=1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 集群服务器设置</span></span><br><span class="line">server.1=bigdata1:2888:3888</span><br><span class="line">server.2=bigdata2:2888:3888</span><br><span class="line">server.3=bigdata3:2888:3888</span><br></pre></td></tr></table></figure>
+
+<p>接下来添加myid配置</p>
+<p>在第一台虚拟机上，在上面创建的zkdatas文件夹下创建myid文件，内容为 1 。</p>
+<p>然后，把配置好的安装包分发给另外两台虚拟机，并且修改它们的myid，分别设置为 2 和 3 。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp -r /export/servers/zookeeper-3.4.9/ bigdata2:/export/servers</span><br><span class="line"></span><br><span class="line">scp -r /export/servers/zookeeper-3.4.9/ bigdata3:/export/servers</span><br></pre></td></tr></table></figure>
+
+<p>启动zookeeper访问</p>
+<p>进入到bin目录，使用命令 <code>./zkServer.sh start</code>启动服务。（启动时需要注意，命令使用规范）</p>
+<p>然后验证是否启动成功可以使用命令 <code>jps</code>。</p>
+<img src="/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/4.png" class>
+
+<p>出现 QuorumPeerMain 表示启动成功。若未启动成功，可能的原因就是上面的zoo.cfg未配置正确。</p>
+<p>然后我们可以用命令 <code>./zkServer.sh status</code> 查看状态，可以发现，虚拟机2为 Leader，1 和 3 为 Follower。</p>
+<p>至此，一个zookeeper集群搭建完成。</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>Zookeeper</tag>
       </tags>
   </entry>
 </search>
