@@ -32,8 +32,12 @@
 <meta property="og:image" content="http://icewind-r.github.io/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/2.png">
 <meta property="og:image" content="http://icewind-r.github.io/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/3.png">
 <meta property="og:image" content="http://icewind-r.github.io/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/4.png">
+<meta property="og:image" content="http://icewind-r.github.io/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/5.png">
+<meta property="og:image" content="http://icewind-r.github.io/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/6.png">
+<meta property="og:image" content="http://icewind-r.github.io/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/7.png">
+<meta property="og:image" content="http://icewind-r.github.io/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/8.png">
 <meta property="article:published_time" content="2020-08-04T00:33:15.000Z">
-<meta property="article:modified_time" content="2020-08-04T04:43:08.608Z">
+<meta property="article:modified_time" content="2020-08-04T08:47:23.502Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="Zookeeper">
 <meta name="twitter:card" content="summary">
@@ -235,7 +239,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-04 08:33:15 / 修改时间：12:43:08" itemprop="dateCreated datePublished" datetime="2020-08-04T08:33:15+08:00">2020-08-04</time>
+              <time title="创建时间：2020-08-04 08:33:15 / 修改时间：16:47:23" itemprop="dateCreated datePublished" datetime="2020-08-04T08:33:15+08:00">2020-08-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -281,14 +285,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>2.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>9 分钟</span>
             </span>
 
         </div>
@@ -303,7 +307,8 @@
         <p>ZooKeeper是一个<a href="https://baike.baidu.com/item/分布式/19276232" target="_blank" rel="noopener">分布式</a>的，开放源码的<a href="https://baike.baidu.com/item/分布式应用程序/9854429" target="_blank" rel="noopener">分布式应用程序</a>协调服务，是<a href="https://baike.baidu.com/item/Google" target="_blank" rel="noopener">Google</a>的Chubby一个<a href="https://baike.baidu.com/item/开源/246339" target="_blank" rel="noopener">开源</a>的实现，是Hadoop和Hbase的重要组件。重点内容记录如下。</p>
 <a id="more"></a>
 
-<h2 id="Zookeeper概述"><a href="#Zookeeper概述" class="headerlink" title="Zookeeper概述"></a>Zookeeper概述</h2><p>Zookeeper是一个开源的分布式协调服务框架，主要用来解决分布式集群中应用系统的一致性问题和数据管理问题。</p>
+<hr>
+<h1 id="Zookeeper的介绍和安装"><a href="#Zookeeper的介绍和安装" class="headerlink" title="Zookeeper的介绍和安装"></a>Zookeeper的介绍和安装</h1><h2 id="Zookeeper概述"><a href="#Zookeeper概述" class="headerlink" title="Zookeeper概述"></a>Zookeeper概述</h2><p>Zookeeper是一个开源的分布式协调服务框架，主要用来解决分布式集群中应用系统的一致性问题和数据管理问题。</p>
 <p>zookeeper是一个集群，可以分布在多台主机上，每台主机都可以看做成一个小型的文件系统，则这个整体就可看作一个分布式文件系统。</p>
 <p>关于存储，zookeeper将这个整体看成一个树形结构，每一个结点都是一个Znode。</p>
 <ul>
@@ -351,6 +356,73 @@
 <p>出现 QuorumPeerMain 表示启动成功。若未启动成功，可能的原因就是上面的zoo.cfg未配置正确。</p>
 <p>然后我们可以用命令 <code>./zkServer.sh status</code> 查看状态，可以发现，虚拟机2为 Leader，1 和 3 为 Follower。</p>
 <p>至此，一个zookeeper集群搭建完成。</p>
+<h1 id="Zookeeper内部结构"><a href="#Zookeeper内部结构" class="headerlink" title="Zookeeper内部结构"></a>Zookeeper内部结构</h1><h2 id="Zookeeper的数据模型"><a href="#Zookeeper的数据模型" class="headerlink" title="Zookeeper的数据模型"></a>Zookeeper的数据模型</h2><ul>
+<li><p>zookeeper的数据模型，在结构上和标准文件系统非常相似，都是采用树形层次结构。</p>
+</li>
+<li><p>zookeeper树中的每个结点被称为一个Znode。</p>
+</li>
+</ul>
+<p>不同之处：</p>
+<ol>
+<li>Znode<strong>兼具</strong>文件和目录两种特点。</li>
+<li>Znode存数据大小有限制，以KB为单位，主要存储状态信息、配置信息。</li>
+<li>Znode通过路径引用。路径必须是绝对的，因此他们必须由斜杠字符来开头（根节点为 / ）。其中 “ /zookeeper ”为系统默认创建的Znode，用以保存管理信息。</li>
+<li>每个Znode由3部分组成：<ol>
+<li>stat：此为状态信息，描述该Znode的版本，权限等信息。</li>
+<li>data：与该Znode关联的数据</li>
+<li>children：该Znode下的子节点</li>
+</ol>
+</li>
+</ol>
+<h2 id="Znode的结点类型"><a href="#Znode的结点类型" class="headerlink" title="Znode的结点类型"></a>Znode的结点类型</h2><p>1、Znode结点有两种，分别为 <strong>临时节点</strong> 和 <strong>永久结点</strong> 。结点的类型在创建时即被确定，并且不能改变。</p>
+<ul>
+<li>临时结点：该节点的生命周期依赖于创建它们的会话。会话结束就会被自动删除。临时结点不允许拥有子节点。。</li>
+<li>永久节点：该节点的生命周期不依赖于会话。</li>
+</ul>
+<p>2、Znode还有序列化的特性，如果创建的时候指定的话，该Znode的名字后面会自动追加一个不断增加的序列号。它的格式为 “ %10d ”（10位数字，没有数值的数位用 0 补充，例如“0000000001”）</p>
+<p>3、这样便会存在四种类型的Znode结点，分别对应：</p>
+<ul>
+<li>PERSISTENT：永久结点</li>
+<li>EPHEMERAL：临时结点</li>
+<li>PERSISTENT_SEQUENTIAL：永久结点、序列化</li>
+<li>EPHEMERAL_SEQUENTIAL：临时结点、序列化</li>
+</ul>
+<h1 id="Zookeeper的Shell客户端操作"><a href="#Zookeeper的Shell客户端操作" class="headerlink" title="Zookeeper的Shell客户端操作"></a>Zookeeper的Shell客户端操作</h1><h2 id="1、登录Zookeeper客户端"><a href="#1、登录Zookeeper客户端" class="headerlink" title="1、登录Zookeeper客户端"></a>1、登录Zookeeper客户端</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zkCli.sh -server 主机名:2181</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/5.png" class>
+
+<p>表示登录成功。</p>
+<p>退出命令 quit。登录时，省略-server及之后的命令，代表登录本主机的客户端。</p>
+<h2 id="2、Zookeeper的常用命令"><a href="#2、Zookeeper的常用命令" class="headerlink" title="2、Zookeeper的常用命令"></a>2、Zookeeper的常用命令</h2><img src="/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/6.png" class>
+
+<p><strong>注意</strong>：create命令：如果不加参数，创建永久性结点；如果加参数 - s，创建永久性序列化结点；如果只用 - e，创建临时结点；都加上代表临时性序列化结点。</p>
+<p><strong>操作实例：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">列出Path下的所有Znode</span><br><span class="line">ls /</span><br><span class="line">创建永久结点</span><br><span class="line">create /hello world</span><br><span class="line">创建临时结点</span><br><span class="line">create -e /abc 123</span><br><span class="line">创建永久序列化结点</span><br><span class="line">create -s /zhangsan boy</span><br><span class="line">创建临时序列化结点</span><br><span class="line">create -e -s /list boy</span><br><span class="line">获取数据</span><br><span class="line">get /hello</span><br><span class="line">修改结点数据</span><br><span class="line">set /hello data</span><br><span class="line">删除结点，如果要删除的结点有子Znode则无法删除</span><br><span class="line">delete /hello</span><br><span class="line">删除结点，如果有子Znode则递归删除</span><br><span class="line">rmr /abc</span><br><span class="line">列出历史记录</span><br><span class="line">history</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、Znode结点属性"><a href="#3、Znode结点属性" class="headerlink" title="3、Znode结点属性"></a>3、Znode结点属性</h2><p>每个Znode都包含了一系列的属性，通过命令get，可以获得结点的属性。</p>
+<img src="/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/7.png" class>
+
+<p>首先第一行是该节点携带的信息。</p>
+<p>dataVersion：数据版本号。每次对结点进行set操作，该值都会增1。</p>
+<p>cversion：子节点的版本号。当Znode的子节点有变化时，cversion的值就会增1。</p>
+<p>aclVersion：ACL的版本号。</p>
+<p>cZxid：Znode创建事务的ID。</p>
+<p>mZxid：Znode被修改的事务ID，即每次对Znode的修改都会更新mZxid。</p>
+<p>ctime：结点创建时的时间戳。</p>
+<p>mtime：最近一次更新的时间。</p>
+<p>ephemeralOwner：如果该节点为临时结点，该值表示与该节点绑定的session id，如果不是，值为 0。</p>
+<h1 id="Zookeeper的watch机制"><a href="#Zookeeper的watch机制" class="headerlink" title="Zookeeper的watch机制"></a>Zookeeper的watch机制</h1><p>类似于数据库中的触发器，对某个Znode设置 <code>Watcher</code>，当Znode发生变化时，<code>WatchManager</code>会调用对应的Watcher。</p>
+<p>当Znode发生删除，修改，创建，子节点的修改时，对应的Watcher会得到通知。</p>
+<p>Watcher的特点</p>
+<ul>
+<li>一次性触发：一个Watcher只会被触发一次，如果需要继续监听，则需要再次添加Watcher。</li>
+<li>事件封装：Watcher得到的事件是被封装过的，包括三个内容 <code>KeeperState</code> ， <code>eventType</code> ， <code>path</code></li>
+</ul>
+<img src="/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/8.png" class>
+
+<p><strong>主要作用</strong>：</p>
+<p>1、发布和订阅</p>
+<p>2、监听集群中主机的存活状态</p>
 
     </div>
 
@@ -459,7 +531,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper概述"><span class="nav-number">1.</span> <span class="nav-text">Zookeeper概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper的架构"><span class="nav-number">2.</span> <span class="nav-text">Zookeeper的架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper的安装和开启"><span class="nav-number">3.</span> <span class="nav-text">Zookeeper的安装和开启</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper的介绍和安装"><span class="nav-number">1.</span> <span class="nav-text">Zookeeper的介绍和安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper概述"><span class="nav-number">1.1.</span> <span class="nav-text">Zookeeper概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper的架构"><span class="nav-number">1.2.</span> <span class="nav-text">Zookeeper的架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper的安装和开启"><span class="nav-number">1.3.</span> <span class="nav-text">Zookeeper的安装和开启</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper内部结构"><span class="nav-number">2.</span> <span class="nav-text">Zookeeper内部结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper的数据模型"><span class="nav-number">2.1.</span> <span class="nav-text">Zookeeper的数据模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Znode的结点类型"><span class="nav-number">2.2.</span> <span class="nav-text">Znode的结点类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper的Shell客户端操作"><span class="nav-number">3.</span> <span class="nav-text">Zookeeper的Shell客户端操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、登录Zookeeper客户端"><span class="nav-number">3.1.</span> <span class="nav-text">1、登录Zookeeper客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、Zookeeper的常用命令"><span class="nav-number">3.2.</span> <span class="nav-text">2、Zookeeper的常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、Znode结点属性"><span class="nav-number">3.3.</span> <span class="nav-text">3、Znode结点属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper的watch机制"><span class="nav-number">4.</span> <span class="nav-text">Zookeeper的watch机制</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -541,12 +613,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">74k</span>
+    <span title="站点总字数">75k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:05</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <!--
