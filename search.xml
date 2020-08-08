@@ -6220,7 +6220,7 @@
 <li>PERSISTENT_SEQUENTIAL：永久结点、序列化</li>
 <li>EPHEMERAL_SEQUENTIAL：临时结点、序列化</li>
 </ul>
-<h1 id="Zookeeper的Shell客户端操作"><a href="#Zookeeper的Shell客户端操作" class="headerlink" title="Zookeeper的Shell客户端操作"></a>Zookeeper的Shell客户端操作</h1><h2 id="1、登录Zookeeper客户端"><a href="#1、登录Zookeeper客户端" class="headerlink" title="1、登录Zookeeper客户端"></a>1、登录Zookeeper客户端</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bin/zkCli.sh -server 主机名:2181</span><br></pre></td></tr></table></figure>
+<h1 id="Zookeeper的Shell客户端操作"><a href="#Zookeeper的Shell客户端操作" class="headerlink" title="Zookeeper的Shell客户端操作"></a>Zookeeper的Shell客户端操作</h1><h2 id="1、登录Zookeeper客户端"><a href="#1、登录Zookeeper客户端" class="headerlink" title="1、登录Zookeeper客户端"></a>1、登录Zookeeper客户端</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./zkCli.sh -server 主机名:2181</span><br></pre></td></tr></table></figure>
 
 <img src="/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/5.png" class>
 
@@ -6256,12 +6256,111 @@
 <p><strong>主要作用</strong>：</p>
 <p>1、发布和订阅</p>
 <p>2、监听集群中主机的存活状态</p>
-]]></content>
+<h1 id="Zookeeper的JavaAPI操作"><a href="#Zookeeper的JavaAPI操作" class="headerlink" title="Zookeeper的JavaAPI操作"></a>Zookeeper的JavaAPI操作</h1><p>这里操作Zookeeper的JavaAPI使用的是一套zookeeper客户端框架Curator，解决了很多Zookeeper客户端非常底层的细节开发工作。</p>
+<p>Curator包含了几个包：</p>
+<ul>
+<li>curator-framework：对zookeeper的底层api的一些封装</li>
+<li>curator-recipes：封装了一些高级特性，如：Cache事件监听、选举、分布式锁、分布式计数器等。</li>
+</ul>
+<p>Maven依赖（使用curator的版本：2.12.0，对应zookeeper的3.4.x版本，如果不对应，可能有兼容性问题，很可能导致结点操作失败）</p>
+<p><strong>实例代码</strong>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.zookeeper_api;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.curator.RetryPolicy;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.framework.CuratorFramework;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.framework.CuratorFrameworkFactory;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.framework.recipes.cache.ChildData;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.framework.recipes.cache.TreeCache;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.framework.recipes.cache.TreeCacheEvent;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.framework.recipes.cache.TreeCacheListener;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.retry.ExponentialBackoffRetry;</span><br><span class="line"><span class="keyword">import</span> org.apache.zookeeper.CreateMode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="meta">@org</span>.junit.Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operateZnode</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//1：定制一个重试策略</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * param1：重试的间隔时间，单位ms</span></span><br><span class="line"><span class="comment">        * param2：重试的最大次数</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        RetryPolicy retryPolicy = <span class="keyword">new</span> ExponentialBackoffRetry(<span class="number">1000</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="comment">//2：获取一个客户端对象</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * param1：要连接的Zookeeper服务器列表</span></span><br><span class="line"><span class="comment">        * param2:会话的超时时间</span></span><br><span class="line"><span class="comment">        * param3：连接的超时时间</span></span><br><span class="line"><span class="comment">        * param4：重试策略</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        String connStr = <span class="string">"bigdata1:2181,bigdata2:2181,bigdata3:2181"</span>; <span class="comment">// 有多个主机时，每个主机之间用逗号连接，并且注意：不要为美观而乱加空格！</span></span><br><span class="line">        CuratorFramework client = CuratorFrameworkFactory.newClient(connStr, <span class="number">3000</span>, <span class="number">3000</span>, retryPolicy);</span><br><span class="line">        <span class="comment">//3：开启客户端</span></span><br><span class="line">        client.start();</span><br><span class="line">        <span class="comment">//4：创建结点</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 客户端创建结点，creatingParentsIfNeeded表示：创建hello，但也会创建父节点Test</span></span><br><span class="line"><span class="comment">        * withMode表示类型，有四种</span></span><br><span class="line"><span class="comment">        * forPath表示结点路径和携带的数据，第二个参数为byte类型</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建永久结点</span></span><br><span class="line">        client.create().creatingParentsIfNeeded().withMode(CreateMode.PERSISTENT).forPath(<span class="string">"/Test/hello4"</span>, <span class="string">"JavaApiTest"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建临时性结点</span></span><br><span class="line">        client.create().creatingParentsIfNeeded().withMode(CreateMode.EPHEMERAL).forPath(<span class="string">"/Test/tmp"</span>, <span class="string">"临时"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 因为临时结点只在会话时有效，为保证看到效果，使程序休眠10s</span></span><br><span class="line">        Thread.sleep(<span class="number">10000</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 修改结点数据</span></span><br><span class="line">        client.setData().forPath(<span class="string">"/Test/hello"</span>, <span class="string">"被修改"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取结点数据</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = client.getData().forPath(<span class="string">"/hello"</span>);</span><br><span class="line">        System.out.println(<span class="keyword">new</span> String(bytes));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//5：关闭客户端</span></span><br><span class="line">        client.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 结点的watch机制</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    <span class="meta">@org</span>.junit.Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">watchZnode</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        RetryPolicy retryPolicy = <span class="keyword">new</span> ExponentialBackoffRetry(<span class="number">3000</span>,<span class="number">1</span>);</span><br><span class="line">        String connStr = <span class="string">"bigdata1:2181,bigdata2:2181,bigdata3:2181"</span>;</span><br><span class="line">        CuratorFramework client = CuratorFrameworkFactory.newClient(connStr, <span class="number">8000</span>, <span class="number">8000</span>, retryPolicy);</span><br><span class="line">        client.start();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建一个TreeCache对象，指定要监控的结点路径</span></span><br><span class="line">        TreeCache treeCache = <span class="keyword">new</span> TreeCache(client, <span class="string">"/hello"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 自定义监听器</span></span><br><span class="line">        treeCache.getListenable().addListener(<span class="keyword">new</span> TreeCacheListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">childEvent</span><span class="params">(CuratorFramework curatorFramework, TreeCacheEvent treeCacheEvent)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                ChildData data = treeCacheEvent.getData();</span><br><span class="line">                <span class="keyword">if</span> (data != <span class="keyword">null</span>)&#123;</span><br><span class="line">                    <span class="keyword">switch</span> (treeCacheEvent.getType())&#123; <span class="comment">//获取事件的触发类型</span></span><br><span class="line">                        <span class="keyword">case</span> NODE_ADDED: <span class="comment">// 表示新增结点触发的watch</span></span><br><span class="line">                            System.out.println(<span class="string">"NODE_ADDED"</span>);</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> NODE_REMOVED:</span><br><span class="line">                            System.out.println(<span class="string">"NODE_REMOVED"</span>);</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> NODE_UPDATED:</span><br><span class="line">                            System.out.println(<span class="string">"NODE_UPDATED"</span>);</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">default</span>:</span><br><span class="line">                            System.out.println(<span class="string">"default"</span>);</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 开始监听</span></span><br><span class="line">        treeCache.start();</span><br><span class="line"></span><br><span class="line">        Thread.sleep(<span class="number">100000</span>);</span><br><span class="line">        <span class="comment">// 之后运行程序，在zookeeper中对指定的结点进行操作时，控制台便会打印相应信息。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>大数据</category>
       </categories>
       <tags>
         <tag>Zookeeper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大数据_02(Hadoop)</title>
+    <url>/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/</url>
+    <content><![CDATA[<p>本篇为入门大数据的Hadoop技术的基础知识总结，包括安装编译。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="Hadoop介绍"><a href="#Hadoop介绍" class="headerlink" title="Hadoop介绍"></a>Hadoop介绍</h1><p><strong>狭义上</strong>，Hadoop就是指Hadoop这个软件，它包括：</p>
+<ul>
+<li>HDFS：分布式文件系统</li>
+<li>MapReduce：分布式计算系统</li>
+<li>Yarn：集群资源管理系统</li>
+</ul>
+<p><strong>广义上</strong>，Hadoop指代大数据的一个生态圈，包括很多其他软件。</p>
+<img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/1.png" class>
+
+<h1 id="Hadoop的安装"><a href="#Hadoop的安装" class="headerlink" title="Hadoop的安装"></a>Hadoop的安装</h1><h2 id="集群规划"><a href="#集群规划" class="headerlink" title="集群规划"></a>集群规划</h2><table>
+<thead>
+<tr>
+<th>服务器IP</th>
+<th>主机名</th>
+<th>NameNode</th>
+<th>SecondaryNameNode</th>
+<th>dataNode</th>
+<th>ResourceManager</th>
+<th>NodeManger</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>192.168.2.128</td>
+<td>bigdata1</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>192.168.2.129</td>
+<td>bigdata2</td>
+<td>否</td>
+<td>否</td>
+<td>是</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>192.168.2.130</td>
+<td>bigdata3</td>
+<td>否</td>
+<td>否</td>
+<td>是</td>
+<td>否</td>
+<td>是</td>
+</tr>
+</tbody></table>
+<p>说明：</p>
+<ul>
+<li><p>NameNode ：是HDFS的主节点。</p>
+</li>
+<li><p>SecondaryNameNode：对 NameNode 做一个辅助管理。</p>
+</li>
+<li><p>dataNode：从结点。</p>
+</li>
+<li><p>ResourceManager：分布式计算MapReduce的主节点。</p>
+</li>
+<li><p>NodeManger：分布式计算MapReduce的从结点。</p>
+</li>
+</ul>
+<h2 id="编译配置过程"><a href="#编译配置过程" class="headerlink" title="编译配置过程"></a>编译配置过程</h2><p>主要是根据 <a href="https://www.bilibili.com/video/BV1JT4y1g7nM?p=45" target="_blank" rel="noopener">B站视频</a> 和 <a href="https://blog.csdn.net/weixin_37490221/article/details/77650388" target="_blank" rel="noopener">一篇博客</a> 完成的。过程较为麻烦，但自己尝试几乎没有踩坑，需要细心细致的编译源码，并进行后面的配置文件的仔细修改。</p>
+<p>这里使用的各个软件的版本号，主机名，目录名等都与教程有些出入，需要自己做出合适修改。</p>
+<img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/2.png" class>
+
+<h1 id="Hadoop集群的启动"><a href="#Hadoop集群的启动" class="headerlink" title="Hadoop集群的启动"></a>Hadoop集群的启动</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /export/servers/hadoop-2.7.7</span><br><span class="line">./bin/hdfs namenode -format</span><br><span class="line">./sbin/start-dfs.sh</span><br><span class="line">./sbin/start-yarn.sh</span><br><span class="line">./sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure>
+
+<p>可以通过查看界面完成是否配置成功。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http://bigdata1:50070/explorer.html#/</span><br><span class="line">http://bigdata1:8088/cluster</span><br><span class="line">http://bigdata1:19888/jobhistory</span><br></pre></td></tr></table></figure>
+
+<p>成功页面：</p>
+<img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/3.png" class>
+
+<img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/4.png" class>
+
+<img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/5.png" class>]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>Hadoop</tag>
       </tags>
   </entry>
 </search>

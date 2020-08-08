@@ -37,7 +37,7 @@
 <meta property="og:image" content="http://icewind-r.github.io/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/7.png">
 <meta property="og:image" content="http://icewind-r.github.io/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/8.png">
 <meta property="article:published_time" content="2020-08-04T00:33:15.000Z">
-<meta property="article:modified_time" content="2020-08-04T08:47:23.502Z">
+<meta property="article:modified_time" content="2020-08-08T04:32:20.574Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="Zookeeper">
 <meta name="twitter:card" content="summary">
@@ -237,10 +237,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-08-04 08:33:15 / 修改时间：16:47:23" itemprop="dateCreated datePublished" datetime="2020-08-04T08:33:15+08:00">2020-08-04</time>
+              <time title="创建时间：2020-08-04 08:33:15" itemprop="dateCreated datePublished" datetime="2020-08-04T08:33:15+08:00">2020-08-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-08 12:32:20" itemprop="dateModified" datetime="2020-08-08T12:32:20+08:00">2020-08-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -285,14 +291,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
+              <span>10 分钟</span>
             </span>
 
         </div>
@@ -387,7 +393,7 @@
 <li>PERSISTENT_SEQUENTIAL：永久结点、序列化</li>
 <li>EPHEMERAL_SEQUENTIAL：临时结点、序列化</li>
 </ul>
-<h1 id="Zookeeper的Shell客户端操作"><a href="#Zookeeper的Shell客户端操作" class="headerlink" title="Zookeeper的Shell客户端操作"></a>Zookeeper的Shell客户端操作</h1><h2 id="1、登录Zookeeper客户端"><a href="#1、登录Zookeeper客户端" class="headerlink" title="1、登录Zookeeper客户端"></a>1、登录Zookeeper客户端</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zkCli.sh -server 主机名:2181</span><br></pre></td></tr></table></figure>
+<h1 id="Zookeeper的Shell客户端操作"><a href="#Zookeeper的Shell客户端操作" class="headerlink" title="Zookeeper的Shell客户端操作"></a>Zookeeper的Shell客户端操作</h1><h2 id="1、登录Zookeeper客户端"><a href="#1、登录Zookeeper客户端" class="headerlink" title="1、登录Zookeeper客户端"></a>1、登录Zookeeper客户端</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./zkCli.sh -server 主机名:2181</span><br></pre></td></tr></table></figure>
 
 <img src="/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/5.png" class>
 
@@ -423,7 +429,15 @@
 <p><strong>主要作用</strong>：</p>
 <p>1、发布和订阅</p>
 <p>2、监听集群中主机的存活状态</p>
-
+<h1 id="Zookeeper的JavaAPI操作"><a href="#Zookeeper的JavaAPI操作" class="headerlink" title="Zookeeper的JavaAPI操作"></a>Zookeeper的JavaAPI操作</h1><p>这里操作Zookeeper的JavaAPI使用的是一套zookeeper客户端框架Curator，解决了很多Zookeeper客户端非常底层的细节开发工作。</p>
+<p>Curator包含了几个包：</p>
+<ul>
+<li>curator-framework：对zookeeper的底层api的一些封装</li>
+<li>curator-recipes：封装了一些高级特性，如：Cache事件监听、选举、分布式锁、分布式计数器等。</li>
+</ul>
+<p>Maven依赖（使用curator的版本：2.12.0，对应zookeeper的3.4.x版本，如果不对应，可能有兼容性问题，很可能导致结点操作失败）</p>
+<p><strong>实例代码</strong>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.zookeeper_api;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.curator.RetryPolicy;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.framework.CuratorFramework;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.framework.CuratorFrameworkFactory;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.framework.recipes.cache.ChildData;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.framework.recipes.cache.TreeCache;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.framework.recipes.cache.TreeCacheEvent;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.framework.recipes.cache.TreeCacheListener;</span><br><span class="line"><span class="keyword">import</span> org.apache.curator.retry.ExponentialBackoffRetry;</span><br><span class="line"><span class="keyword">import</span> org.apache.zookeeper.CreateMode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="meta">@org</span>.junit.Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operateZnode</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//1：定制一个重试策略</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * param1：重试的间隔时间，单位ms</span></span><br><span class="line"><span class="comment">        * param2：重试的最大次数</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        RetryPolicy retryPolicy = <span class="keyword">new</span> ExponentialBackoffRetry(<span class="number">1000</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="comment">//2：获取一个客户端对象</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * param1：要连接的Zookeeper服务器列表</span></span><br><span class="line"><span class="comment">        * param2:会话的超时时间</span></span><br><span class="line"><span class="comment">        * param3：连接的超时时间</span></span><br><span class="line"><span class="comment">        * param4：重试策略</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        String connStr = <span class="string">"bigdata1:2181,bigdata2:2181,bigdata3:2181"</span>; <span class="comment">// 有多个主机时，每个主机之间用逗号连接，并且注意：不要为美观而乱加空格！</span></span><br><span class="line">        CuratorFramework client = CuratorFrameworkFactory.newClient(connStr, <span class="number">3000</span>, <span class="number">3000</span>, retryPolicy);</span><br><span class="line">        <span class="comment">//3：开启客户端</span></span><br><span class="line">        client.start();</span><br><span class="line">        <span class="comment">//4：创建结点</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 客户端创建结点，creatingParentsIfNeeded表示：创建hello，但也会创建父节点Test</span></span><br><span class="line"><span class="comment">        * withMode表示类型，有四种</span></span><br><span class="line"><span class="comment">        * forPath表示结点路径和携带的数据，第二个参数为byte类型</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建永久结点</span></span><br><span class="line">        client.create().creatingParentsIfNeeded().withMode(CreateMode.PERSISTENT).forPath(<span class="string">"/Test/hello4"</span>, <span class="string">"JavaApiTest"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建临时性结点</span></span><br><span class="line">        client.create().creatingParentsIfNeeded().withMode(CreateMode.EPHEMERAL).forPath(<span class="string">"/Test/tmp"</span>, <span class="string">"临时"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 因为临时结点只在会话时有效，为保证看到效果，使程序休眠10s</span></span><br><span class="line">        Thread.sleep(<span class="number">10000</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 修改结点数据</span></span><br><span class="line">        client.setData().forPath(<span class="string">"/Test/hello"</span>, <span class="string">"被修改"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取结点数据</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = client.getData().forPath(<span class="string">"/hello"</span>);</span><br><span class="line">        System.out.println(<span class="keyword">new</span> String(bytes));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//5：关闭客户端</span></span><br><span class="line">        client.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 结点的watch机制</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    <span class="meta">@org</span>.junit.Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">watchZnode</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        RetryPolicy retryPolicy = <span class="keyword">new</span> ExponentialBackoffRetry(<span class="number">3000</span>,<span class="number">1</span>);</span><br><span class="line">        String connStr = <span class="string">"bigdata1:2181,bigdata2:2181,bigdata3:2181"</span>;</span><br><span class="line">        CuratorFramework client = CuratorFrameworkFactory.newClient(connStr, <span class="number">8000</span>, <span class="number">8000</span>, retryPolicy);</span><br><span class="line">        client.start();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建一个TreeCache对象，指定要监控的结点路径</span></span><br><span class="line">        TreeCache treeCache = <span class="keyword">new</span> TreeCache(client, <span class="string">"/hello"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 自定义监听器</span></span><br><span class="line">        treeCache.getListenable().addListener(<span class="keyword">new</span> TreeCacheListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">childEvent</span><span class="params">(CuratorFramework curatorFramework, TreeCacheEvent treeCacheEvent)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                ChildData data = treeCacheEvent.getData();</span><br><span class="line">                <span class="keyword">if</span> (data != <span class="keyword">null</span>)&#123;</span><br><span class="line">                    <span class="keyword">switch</span> (treeCacheEvent.getType())&#123; <span class="comment">//获取事件的触发类型</span></span><br><span class="line">                        <span class="keyword">case</span> NODE_ADDED: <span class="comment">// 表示新增结点触发的watch</span></span><br><span class="line">                            System.out.println(<span class="string">"NODE_ADDED"</span>);</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> NODE_REMOVED:</span><br><span class="line">                            System.out.println(<span class="string">"NODE_REMOVED"</span>);</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> NODE_UPDATED:</span><br><span class="line">                            System.out.println(<span class="string">"NODE_UPDATED"</span>);</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">default</span>:</span><br><span class="line">                            System.out.println(<span class="string">"default"</span>);</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 开始监听</span></span><br><span class="line">        treeCache.start();</span><br><span class="line"></span><br><span class="line">        Thread.sleep(<span class="number">100000</span>);</span><br><span class="line">        <span class="comment">// 之后运行程序，在zookeeper中对指定的结点进行操作时，控制台便会打印相应信息。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -470,7 +484,10 @@
     <a href="/2020/08/03/Shell%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" rel="prev" title="Shell基础命令">
       <i class="fa fa-chevron-left"></i> Shell基础命令
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/" rel="next" title="大数据_02(Hadoop)">
+      大数据_02(Hadoop) <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -531,7 +548,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper的介绍和安装"><span class="nav-number">1.</span> <span class="nav-text">Zookeeper的介绍和安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper概述"><span class="nav-number">1.1.</span> <span class="nav-text">Zookeeper概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper的架构"><span class="nav-number">1.2.</span> <span class="nav-text">Zookeeper的架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper的安装和开启"><span class="nav-number">1.3.</span> <span class="nav-text">Zookeeper的安装和开启</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper内部结构"><span class="nav-number">2.</span> <span class="nav-text">Zookeeper内部结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper的数据模型"><span class="nav-number">2.1.</span> <span class="nav-text">Zookeeper的数据模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Znode的结点类型"><span class="nav-number">2.2.</span> <span class="nav-text">Znode的结点类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper的Shell客户端操作"><span class="nav-number">3.</span> <span class="nav-text">Zookeeper的Shell客户端操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、登录Zookeeper客户端"><span class="nav-number">3.1.</span> <span class="nav-text">1、登录Zookeeper客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、Zookeeper的常用命令"><span class="nav-number">3.2.</span> <span class="nav-text">2、Zookeeper的常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、Znode结点属性"><span class="nav-number">3.3.</span> <span class="nav-text">3、Znode结点属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper的watch机制"><span class="nav-number">4.</span> <span class="nav-text">Zookeeper的watch机制</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper的介绍和安装"><span class="nav-number">1.</span> <span class="nav-text">Zookeeper的介绍和安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper概述"><span class="nav-number">1.1.</span> <span class="nav-text">Zookeeper概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper的架构"><span class="nav-number">1.2.</span> <span class="nav-text">Zookeeper的架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper的安装和开启"><span class="nav-number">1.3.</span> <span class="nav-text">Zookeeper的安装和开启</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper内部结构"><span class="nav-number">2.</span> <span class="nav-text">Zookeeper内部结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Zookeeper的数据模型"><span class="nav-number">2.1.</span> <span class="nav-text">Zookeeper的数据模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Znode的结点类型"><span class="nav-number">2.2.</span> <span class="nav-text">Znode的结点类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper的Shell客户端操作"><span class="nav-number">3.</span> <span class="nav-text">Zookeeper的Shell客户端操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、登录Zookeeper客户端"><span class="nav-number">3.1.</span> <span class="nav-text">1、登录Zookeeper客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、Zookeeper的常用命令"><span class="nav-number">3.2.</span> <span class="nav-text">2、Zookeeper的常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、Znode结点属性"><span class="nav-number">3.3.</span> <span class="nav-text">3、Znode结点属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper的watch机制"><span class="nav-number">4.</span> <span class="nav-text">Zookeeper的watch机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper的JavaAPI操作"><span class="nav-number">5.</span> <span class="nav-text">Zookeeper的JavaAPI操作</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -547,7 +564,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -560,7 +577,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -613,12 +630,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">75k</span>
+    <span title="站点总字数">76k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:10</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
 
 <!--
