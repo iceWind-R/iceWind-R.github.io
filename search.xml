@@ -302,8 +302,8 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Android</tag>
+        <tag>UI</tag>
       </tags>
   </entry>
   <entry>
@@ -369,8 +369,8 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Android</tag>
+        <tag>Jetpack</tag>
       </tags>
   </entry>
   <entry>
@@ -464,11 +464,10 @@
 <h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><p>如果你想加载一篇你写过的.md文件，在上方工具栏可以选择导入功能进行对应扩展名的文件导入，<br>继续你的创作。</p>
 ]]></content>
       <categories>
-        <category>HEXO</category>
+        <category>Blog</category>
       </categories>
       <tags>
         <tag>experience</tag>
-        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -552,11 +551,10 @@
 </ol>
 ]]></content>
       <categories>
-        <category>HEXO</category>
+        <category>Blog</category>
       </categories>
       <tags>
         <tag>experience</tag>
-        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -772,7 +770,6 @@
         <category>MATLAB</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>MATLAB</tag>
       </tags>
   </entry>
@@ -1143,7 +1140,6 @@
         <category>MATLAB</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>MATLAB</tag>
       </tags>
   </entry>
@@ -1410,7 +1406,6 @@
         <category>MATLAB</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>MATLAB</tag>
       </tags>
   </entry>
@@ -1514,7 +1509,6 @@
         <category>MATLAB</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>MATLAB</tag>
       </tags>
   </entry>
@@ -1636,7 +1630,6 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>PHP</tag>
       </tags>
   </entry>
@@ -1764,7 +1757,6 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>PHP</tag>
       </tags>
   </entry>
@@ -1898,7 +1890,6 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>PHP</tag>
       </tags>
   </entry>
@@ -2125,7 +2116,6 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>PHP</tag>
       </tags>
   </entry>
@@ -2182,7 +2172,6 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>PHP</tag>
       </tags>
   </entry>
@@ -2206,10 +2195,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>Plan</category>
+        <category>Learning</category>
       </categories>
       <tags>
-        <tag>idea</tag>
+        <tag>plan</tag>
       </tags>
   </entry>
   <entry>
@@ -2485,7 +2474,6 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>PHP</tag>
       </tags>
   </entry>
@@ -2548,10 +2536,10 @@
 <p>7、你可以没有自信，没有勇气，毕竟这是一个进步的过程。但如果你没有常识，那很可能你会失去对自己的主导权。</p>
 ]]></content>
       <categories>
-        <category>Plan</category>
+        <category>Learning</category>
       </categories>
       <tags>
-        <tag>idea</tag>
+        <tag>plan</tag>
       </tags>
   </entry>
   <entry>
@@ -2751,7 +2739,6 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -3208,7 +3195,6 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -3308,7 +3294,6 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -3473,7 +3458,6 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -3620,7 +3604,6 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -3760,7 +3743,6 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -3843,7 +3825,6 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -4055,7 +4036,6 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -4241,7 +4221,6 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -4303,7 +4282,6 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -4355,8 +4333,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -4494,8 +4472,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -4569,8 +4547,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -4672,8 +4650,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -4764,8 +4742,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -4847,8 +4825,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -4917,8 +4895,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -5084,11 +5062,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>HEXO</category>
+        <category>Blog</category>
       </categories>
       <tags>
         <tag>experience</tag>
-        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -5123,10 +5100,10 @@
 <p>真的觉得世界都黑暗了，不知道该干什么，什么都干不好。</p>
 ]]></content>
       <categories>
-        <category>Reinvent</category>
+        <category>Learning</category>
       </categories>
       <tags>
-        <tag>idea</tag>
+        <tag>reinvent</tag>
       </tags>
   </entry>
   <entry>
@@ -5261,8 +5238,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -5289,7 +5266,7 @@
 <p>将端口改为80，保存退出。</p>
 ]]></content>
       <categories>
-        <category>PHP</category>
+        <category>WEB</category>
       </categories>
       <tags>
         <tag>云服务器</tag>
@@ -5307,11 +5284,11 @@
 <p>2、动态博客：wordpress，halo，有着后台应用服务的博客，需要单独应用服务器的承载，比如登录功能。</p>
 ]]></content>
       <categories>
-        <category>HEXO</category>
+        <category>Blog</category>
       </categories>
       <tags>
         <tag>experience</tag>
-        <tag>blog</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -5323,7 +5300,7 @@
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=3222803102&auto=1&height=430"></iframe>
 [网易云歌单链接]: https://music.163.com/#/playlist?id=3222803102&amp;userid=42466756]]></content>
       <categories>
-        <category>娱乐</category>
+        <category>随笔</category>
       </categories>
       <tags>
         <tag>music</tag>
@@ -5372,11 +5349,11 @@
 <h3 id="5、搜索功能"><a href="#5、搜索功能" class="headerlink" title="5、搜索功能"></a>5、搜索功能</h3><p>参考博客：<a href="https://www.jianshu.com/p/202c9e789c8f" target="_blank" rel="noopener">https://www.jianshu.com/p/202c9e789c8f</a></p>
 ]]></content>
       <categories>
-        <category>HEXO</category>
+        <category>Blog</category>
       </categories>
       <tags>
         <tag>experience</tag>
-        <tag>blog</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -5679,10 +5656,9 @@
 </tbody></table>
 ]]></content>
       <categories>
-        <category>正则表达式</category>
+        <category>Learning</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>正则表达式</tag>
       </tags>
   </entry>
@@ -5783,10 +5759,10 @@
 <p>Maven的安装和IDEA中Maven的配置</p>
 ]]></content>
       <categories>
-        <category>随笔</category>
+        <category>Computer</category>
       </categories>
       <tags>
-        <tag>idea</tag>
+        <tag>experience</tag>
       </tags>
   </entry>
   <entry>
@@ -5864,10 +5840,10 @@
 <p><strong>从今天起，每天做好属于自己的事情，总结记录，每天反思，望坚持。</strong></p>
 ]]></content>
       <categories>
-        <category>Reinvent</category>
+        <category>Learning</category>
       </categories>
       <tags>
-        <tag>idea</tag>
+        <tag>revient</tag>
       </tags>
   </entry>
   <entry>
@@ -5978,8 +5954,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -6049,8 +6025,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Learning</tag>
         <tag>Python</tag>
+        <tag>数据分析</tag>
       </tags>
   </entry>
   <entry>
@@ -6273,9 +6249,9 @@
       </tags>
   </entry>
   <entry>
-    <title>大数据_02(Hadoop)</title>
+    <title>大数据_02(Hadoop概述与安装)</title>
     <url>/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/</url>
-    <content><![CDATA[<p>本篇为入门大数据的Hadoop技术的基础知识总结，包括安装编译。</p>
+    <content><![CDATA[<p>本篇为大数据的Hadoop技术入门，主要是环境的安装和Hadoop的编译。</p>
 <a id="more"></a>
 
 <hr>
@@ -6356,6 +6332,138 @@
 <img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/4.png" class>
 
 <img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/5.png" class>]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大数据_03</title>
+    <url>/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/</url>
+    <content><![CDATA[<p>本篇开始学习大数据Hadoop技术中的<strong>核心</strong>之一 —— HDFS。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="HDFS概述"><a href="#HDFS概述" class="headerlink" title="HDFS概述"></a>HDFS概述</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>HDFS （Hadoop Distributed File System）是Hadoop抽象文件系统的一种实现。Hadoop抽象文件系统可以与本地系统、Amazon S3等集成，甚至可以通过Web协议（webhsfs）来操作。HDFS的文件分布在集群机器上，同时提供副本进行容错及可靠性保证。例如客户端写入读取文件的直接操作都是分布在集群各个机器上的，没有单点性能压力。</p>
+<h2 id="HDFS设计原则"><a href="#HDFS设计原则" class="headerlink" title="HDFS设计原则"></a>HDFS设计原则</h2><h3 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h3><ul>
+<li><strong>存储非常大的文件</strong>：这里非常大指的是几百M、G、或者TB级别。实际应用中已有很多集群存储的数据达到PB级别。根据Hadoop官网，Yahoo！的Hadoop集群约有10万颗CPU，运行在4万个机器节点上。更多世界上的Hadoop集群使用情况，参考<a href="https://wiki.apache.org/hadoop/PoweredBy" target="_blank" rel="noopener">Hadoop官网</a>.</li>
+<li><strong>采用流式的数据访问方式</strong>: HDFS基于这样的一个假设：最有效的数据处理模式是一次写入、多次读取数据集经常从数据源生成或者拷贝一次，然后在其上做很多分析工作<br>分析工作经常读取其中的大部分数据，即使不是全部。 因此读取整个数据集所需时间比读取第一条记录的延时更重要。</li>
+<li><strong>运行于商业硬件上</strong>: Hadoop不需要特别贵的、reliable的（可靠的）机器，可运行于普通商用机器（可以从多家供应商采购） ，商用机器不代表低端机器。在集群中（尤其是大的集群），节点失败率是比较高的HDFS的目标是确保集群在节点失败的时候不会让用户感觉到明显的中断。</li>
+</ul>
+<h3 id="HDFS不适合的应用类型"><a href="#HDFS不适合的应用类型" class="headerlink" title="HDFS不适合的应用类型"></a>HDFS不适合的应用类型</h3><p>有些场景不适合使用HDFS来存储数据。下面列举几个：</p>
+<p>1） <strong>低延时的数据访问</strong><br>对延时要求在毫秒级别的应用，不适合采用HDFS。HDFS是为高吞吐数据传输设计的,因此可能牺牲延时HBase更适合低延时的数据访问。</p>
+<p>2）<strong>大量小文件</strong><br>文件的元数据（如目录结构，文件block的节点列表，block-node mapping）保存在NameNode的内存中， 整个文件系统的文件数量会受限于NameNode的内存大小。<br>经验而言，一个文件/目录/文件块一般占有150字节的元数据内存空间。如果有100万个文件，每个文件占用1个文件块，则需要大约300M的内存。因此十亿级别的文件数量在现有商用机器上难以支持。</p>
+<p>3）<strong>多方读写，需要任意的文件修改</strong><br>HDFS采用追加（append-only）的方式写入数据。不支持文件任意offset的修改。不支持多个写入器（writer）。</p>
+<h1 id="HDFS的架构"><a href="#HDFS的架构" class="headerlink" title="HDFS的架构"></a>HDFS的架构</h1><p>HDFS是一个 主 / 从（Master / Slave）体系结构。</p>
+<p>HDFS由四部分组成，HDFS Client、NameNode，DataNode 和 Secondary NameNode。</p>
+<h2 id="1、Client：就是客户端"><a href="#1、Client：就是客户端" class="headerlink" title="1、Client：就是客户端"></a>1、Client：就是客户端</h2><ul>
+<li>文件切片。文件上传到HDFS时，Client将文件切分成一个一个的 Block进行存储。</li>
+<li>与NameNode交互，获取文件的位置信息。</li>
+<li>与DataNode交互，读取或者写入数据。</li>
+<li>Client提供一些命令来管理和访问HDFS，比如启动或关闭HDFS。</li>
+</ul>
+<h2 id="2、NameNode：就是Master，是一个主管、管理者"><a href="#2、NameNode：就是Master，是一个主管、管理者" class="headerlink" title="2、NameNode：就是Master，是一个主管、管理者"></a>2、NameNode：就是Master，是一个主管、管理者</h2><ul>
+<li>管理HDFS的名称空间 和 文件数据块（Block）的映射信息，整个HDFS可存储的文件数受限于NameNode的内存大小。在内存中加载文件系统中每个文件和每个数据块的引用关系（文件、Block 和 DataNode之间的映射关系），数据会定期保存在本地磁盘（fsImage 镜像 文件 和 edits 日志 文件）。</li>
+<li>配置副本策略：文件数据块到底存放到那些DataNode上，是由NameNode决定的，它根据全局情况做出放置副本的决定。</li>
+<li>处理客户端读写请求。数据流不经过NameNode，会询问它与那个DataNode联系</li>
+<li>NameNode心跳机制：DataNode定期发给NameNode一个个包，称为心跳机制。若NameNode没有收到，则认为相应的DataNode已经宕机，这时候NN准备要把DN上的数据块进行重新复制</li>
+</ul>
+<h2 id="3、DataNode-：就是Slave。"><a href="#3、DataNode-：就是Slave。" class="headerlink" title="3、DataNode ：就是Slave。"></a>3、DataNode ：就是Slave。</h2><p>Name Node下达命令，DataNode执行</p>
+<ul>
+<li>存储实际的数据块</li>
+<li>执行数据的 读/写 操作</li>
+<li>周期性的向NameNode汇报心跳信息、数据块信息 和 缓存数据块信息</li>
+</ul>
+<h2 id="4、Secondary-NameNode"><a href="#4、Secondary-NameNode" class="headerlink" title="4、Secondary NameNode"></a>4、Secondary NameNode</h2><p>并非NameNode的热备。当NameNode挂掉时，它并不能马上替换NameNode并提供服务。</p>
+<ul>
+<li>辅助NameNode，分担其工作量。</li>
+<li>定期合并fsimage 和 fsedits，并推送给NameNode。</li>
+</ul>
+<img src="/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/1.gif" class>
+
+<h1 id="HDFS的副本机制和机架感知"><a href="#HDFS的副本机制和机架感知" class="headerlink" title="HDFS的副本机制和机架感知"></a>HDFS的副本机制和机架感知</h1><h2 id="HDFS文件副本机制"><a href="#HDFS文件副本机制" class="headerlink" title="HDFS文件副本机制"></a>HDFS文件副本机制</h2><p>所有文件都是以 Block 块的方式存放在HDFS文件系统中，作用如下：</p>
+<ol>
+<li>一个文件可能大于集群中任意一个磁盘，引入块机制分布存储可以解决该问题。</li>
+<li>使用块作为文件存储的逻辑单位可以简化存储子系统</li>
+<li>块非常适用于数据备份进而提供数据容错能力</li>
+</ol>
+<p>Block的块大小可以通过hdfs-site.xml当中的配置文件进行指定，默认128M。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.block.size<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>块大小 以字节为单位<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="机架感知"><a href="#机架感知" class="headerlink" title="机架感知"></a>机架感知</h2><p>HDFS分布式文件系统的内部有一个副本存放策略：以默认的副本数 = 3 为例：</p>
+<p>1、第一个副本块存本机</p>
+<p>2、第二个副本块跟本机同机架内的其他服务器结点</p>
+<p>3、第三个副本块存不同机架的一个服务器结点上</p>
+<h1 id="HDFS的命令行使用"><a href="#HDFS的命令行使用" class="headerlink" title="HDFS的命令行使用"></a>HDFS的命令行使用</h1><p><code>ls</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式：hdfs dfs -ls URI</span><br><span class="line">作用：类似于Linux的ls命令，显示文件列表</span><br><span class="line"></span><br><span class="line">hdfs dfs -ls /</span><br></pre></td></tr></table></figure>
+
+<p><code>ls -R</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式 ： hdfs dfs -ls -R URI</span><br><span class="line">作用 ： 在整个目录下递归执行ls，与UNIX中的ls-R类似</span><br><span class="line"></span><br><span class="line">hdfs dfs -ls -R /</span><br></pre></td></tr></table></figure>
+
+<p><code>mkdir</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式 ： hdfs dfs [-p] -mkdir &lt;paths&gt;</span><br><span class="line">作用 ： 以&lt;paths&gt;中的URI作为参数，创建目录。使用-p参数可以递归创建目录</span><br><span class="line"></span><br><span class="line">hdfs dfs -mkdir /TestDir1</span><br><span class="line">hdfs dfs -mkdir -p /TestDir2/test</span><br></pre></td></tr></table></figure>
+
+<p>在hdfs文件系统中，可以通过50070端口查看文件系统的结构。</p>
+<img src="/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/2.png" class>
+
+<p><code>put</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式 ： hdfs dfs -put &lt;localsrc&gt; ... &lt;dst&gt;</span><br><span class="line">作用 ： 将单个的源文件src或者多个源文件srcs从本地文件系统拷贝到目标文件系统中（&lt;dst&gt;对应的目录）。也可以从标准输入中读取输入，写入目标文件系统中。</span><br><span class="line"></span><br><span class="line">hdfs dfs -put  /home/a.txt  /TestDir1</span><br></pre></td></tr></table></figure>
+
+<p><code>moveFromLocal</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式 ： hdfs dfs -moveFromLocal &lt;localsrc&gt; &lt;dst&gt;</span><br><span class="line">作用 ： 和put命令类似，但put相当于复制，此命令相当于将本地文件 剪切 到hdfs中。</span><br><span class="line"></span><br><span class="line">hdfs dfs -moveFromLocal a.txt /TestDir2</span><br></pre></td></tr></table></figure>
+
+<p><code>get</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式 ： hdfs dfs -get [-ignorecrc] [-crc] &lt;src&gt; &lt;localhost&gt;</span><br><span class="line">作用 ： 将文件拷贝到本地文件系统，CRC 校验失败的文件通过-ignorecrc选项进行忽略 拷贝。</span><br><span class="line"></span><br><span class="line">hdfs dfs -get /TestDir2/a.txt ./</span><br></pre></td></tr></table></figure>
+
+<p><code>mv</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式 ： hdfs dfs -mv URI &lt;dst&gt;</span><br><span class="line">作用 ： 将hdfs上的文件从原路径移动到目标路径（移动之后文件删除），该命令不能跨文件系统</span><br><span class="line"></span><br><span class="line">hdfs dfs -mv /TestDir2/a.txt /TestDir1</span><br></pre></td></tr></table></figure>
+
+<p><code>rm</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式 ： hdfs dfs -rm [-r] [skipTrash] URI [URI...]</span><br><span class="line">作用 ： 删除参数指定的文件，参数可以有多个。 -r 表示删除目录 ， -skipTrash 表示删除后不放入回收站</span><br><span class="line"></span><br><span class="line">hdfs dfs -rm /TestDir1/a.txt</span><br><span class="line">hdfs dfs -rm -r /TestDir1</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/3.png" class>
+
+<p><code>cp</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式 ： hdfs dfs -cp URI [URI ...] &lt;dest&gt;</span><br><span class="line">作用 ： 将文件拷贝到目标路径中，如果&lt;dest&gt;为目录的话，可以将多个文件拷贝到该目录下</span><br><span class="line">-f : 选项将覆盖目标，如果他已经存在。</span><br><span class="line">-p : 选项将保留文件属性(时间戳，所有权，许可，ACL，XAttr)</span><br><span class="line"></span><br><span class="line">hdfs dfs -cp /TestDir1/a.txt /TestDir2/b.txt</span><br></pre></td></tr></table></figure>
+
+<p><code>cat</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hdfs dfs -cat URI [uri...]</span><br><span class="line">作用 ： 将参数所指示的文件内容输出到控制台</span><br><span class="line"></span><br><span class="line">hdfs dfs -cat /TestDir1/a.txt</span><br></pre></td></tr></table></figure>
+
+<p><code>chmod</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式 ： hdfs dfs -chmod [-R] URI[URI...]</span><br><span class="line">作用 ： 改变文件权限。如果使用 -R 选项，则对整个目录有效递归执行。使用这一命令的用户必须是文件的所属用户，或者超级用户。</span><br><span class="line"></span><br><span class="line">hdfs dfs -chmod -R 777 /TestDir1</span><br></pre></td></tr></table></figure>
+
+<p><code>chown</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式 ： hdfs dfs -chmod [-R] URI[URI...]</span><br><span class="line">作用 ： 改变文件的所属用户和用户组。如果使用 -R 选项，则对整个目录有效递归执行。使用这一命令必须是文件的所属用户或者超级管理员。</span><br><span class="line"></span><br><span class="line">hdfs dfs -chown hadoop:hadoop /TestDir2/test</span><br></pre></td></tr></table></figure>
+
+<p><code>appendToFile</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式 ： hdfs dfs -appendToFile &lt;localsrc&gt; ... &lt;dest&gt;</span><br><span class="line">作用 ： 追加一个或者多个文件到hdfs指定文件中。也可以从命令行读取输入</span><br><span class="line"></span><br><span class="line">hdfs dfs -appendToFile a.xml b.xml /TestDir2/big.xml</span><br><span class="line">将本地的a b文件合并一起，存为TestDir2下的 big.xml</span><br></pre></td></tr></table></figure>
+
+<h1 id="HDFS的高级使用命令"><a href="#HDFS的高级使用命令" class="headerlink" title="HDFS的高级使用命令"></a>HDFS的高级使用命令</h1><h2 id="HDFS文件限额配置"><a href="#HDFS文件限额配置" class="headerlink" title="HDFS文件限额配置"></a>HDFS文件限额配置</h2><p>在多人共用HDFS的 环境下，配置设置非常重要。特别是在Hadoop处理大量资料的环境，如果没有配额管理，很容易把所有空间用完造成别人无法存取。HDFS的配额设定是针对目录而不是账号，可以让每个账号仅操作某一个目录，然后对目录设置配置。</p>
+<p>HDFS文件的限额配置允许我们以文件个数，或者文件大小来限制我们在某个目录上传的 文件数量或者文件内容总量，以便达到我们类似网盘等限制每个用户允许上传的最大的文件的量。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hdfs dfs -mkdir /user/root/dir</span><br><span class="line"></span><br><span class="line">hdfs dfs -count -q -h dir # 查看某个目录是否具有限额配置</span><br><span class="line">其中路径可以用绝对路径/user/root/dir，相对路径则直接写dir，因为HDFS默认即在user/root/目录下</span><br></pre></td></tr></table></figure>
+
+<h3 id="数量限额"><a href="#数量限额" class="headerlink" title="数量限额"></a>数量限额</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hdfs dfsadmin -setQuota 2 dir # 设置该文件下最多只能上传两个文件</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：设置为2，但只能上传 1 个文件，设置为 n，上传 n - 1</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hdfs dfsadmin -clrQuota dir # 清除文件数量限额</span><br></pre></td></tr></table></figure>
+
+<h3 id="空间大小限额"><a href="#空间大小限额" class="headerlink" title="空间大小限额"></a>空间大小限额</h3><p>在设置空间配额时，设置的 空间至少是Block_size * 3（128 * 3 = 384M）大小</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hdfs dfsadmin -setSpaceQuota 4k /user/root/dir # 限制空间大小4KB，报错，至少384M</span><br><span class="line"></span><br><span class="line">hdfs dfsadmin -clrSpaceQuota dir # 清除空间限额配置</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 生成任意大小的文件命令：</span></span><br><span class="line">dd if=/dev/zero of=1.txt bs=129M count=1 # bs * count 便是想要文件的大小</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>分析：129M需要被分为两个Block（128M 和 1M），空间限额至少为 2 * 3 * Block_size = 768M。</p>
+</blockquote>
+<h2 id="HDFS的安全模式"><a href="#HDFS的安全模式" class="headerlink" title="HDFS的安全模式"></a>HDFS的安全模式</h2><p>安全模式是Hadoop的一种保护机制，用于保证集群中的数据块的安全性。当集群启动时，会首先进入安全模式。当系统出于安全模式时会检查数据块的完整性。</p>
+<p>假设我们设置的副本数（即参数dfs.replication）是 3，那么在DataNode上就应该有 3 个副本，若只存在 2 个副本，那么比例就是 2 / 3 , HDFS默认的副本率为0.999，小于副本率，系统会自动的复制副本到其他DataNode。若系统超过我们设定的副本数，那么系统也会删除多余的副本。</p>
+<p>在安全模式下，文件系统只接受<strong>读</strong>数据请求，而不接受删除、修改等变更请求。当整个系统达到安全标准时，HDFS会自动离开安全模式。</p>
+<p><strong>安全模式操作命令</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hdfs dfsadmin -safemode get		# 查看安全模式状态</span><br><span class="line">hdfs dfsadmin -safemode enter	# 进入安全模式</span><br><span class="line">hdfs dfsadmin -safemode leave	# 离开安全模式</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>大数据</category>
       </categories>
