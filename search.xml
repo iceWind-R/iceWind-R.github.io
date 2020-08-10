@@ -6340,7 +6340,7 @@
       </tags>
   </entry>
   <entry>
-    <title>大数据_03</title>
+    <title>大数据_03(HDFS基础)</title>
     <url>/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/</url>
     <content><![CDATA[<p>本篇开始学习大数据Hadoop技术中的<strong>核心</strong>之一 —— HDFS。</p>
 <a id="more"></a>
@@ -6463,6 +6463,78 @@
 <p><strong>安全模式操作命令</strong></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hdfs dfsadmin -safemode get		# 查看安全模式状态</span><br><span class="line">hdfs dfsadmin -safemode enter	# 进入安全模式</span><br><span class="line">hdfs dfsadmin -safemode leave	# 离开安全模式</span><br></pre></td></tr></table></figure>
 
+<h2 id="HDFS基准测试"><a href="#HDFS基准测试" class="headerlink" title="HDFS基准测试"></a>HDFS基准测试</h2><p>实际生产环境中，Hadoop环境搭建完成后，第一件事情就是进行压力测试，测试我们的集群的读取和写入速度，测试我们的网络带宽是否满足一些测试基准</p>
+<h3 id="测试写入速度"><a href="#测试写入速度" class="headerlink" title="测试写入速度"></a>测试写入速度</h3><p>向HDFS文件系统中写入数据，10文件，每个文件 10M ，文件存放的地点：／benchmarks/TestDFSIO中。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /export/servers/ # 测试会生成结果文件，放到该目录下</span><br><span class="line">hadoop jar /export/servers/hadoop-2.7.7/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-2.7.7.jar TestDFSIO -write -nrFiles 10 -fileSize 10MB</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> TestDFSIO：测试DFS的IO</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -write：测试写</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> nrFiles：写入文件数</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> fileSize：每个文件的大小</span></span><br></pre></td></tr></table></figure>
+
+<p>命令执行完，该目录下生成测试结果的文件<code>TestDFSIO_results.log</code>，可以通过vi命令查看。</p>
+<img src="/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/4.png" class>
+
+<p>也可通过命令查看写入速度结果</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hdfs dfs -text /benchmarks/TestDFSIO/io_write/part-00000</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试读取速度"><a href="#测试读取速度" class="headerlink" title="测试读取速度"></a>测试读取速度</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop jar /export/servers/hadoop-2.7.7/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-2.7.7.jar TestDFSIO -read -nrFiles 10 -fileSize 10MB</span><br></pre></td></tr></table></figure>
+
+<p>只需把 write 改为 read即可，其他文件查看等与上步一致。</p>
+<h3 id="清除测试数据"><a href="#清除测试数据" class="headerlink" title="清除测试数据"></a>清除测试数据</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop jar /export/servers/hadoop-2.7.7/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-2.7.7.jar TestDFSIO clean</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：清除的是测试文件，但benchmarks还在，里面的数据清空；同样，TestDFSIO_results.log 也在。</p>
+</blockquote>
+<h1 id="HDFS的写入和读取过程"><a href="#HDFS的写入和读取过程" class="headerlink" title="HDFS的写入和读取过程"></a>HDFS的写入和读取过程</h1><h2 id="写入过程"><a href="#写入过程" class="headerlink" title="写入过程"></a>写入过程</h2><img src="/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/5.png" class>
+
+<h2 id="读取过程"><a href="#读取过程" class="headerlink" title="读取过程"></a>读取过程</h2><img src="/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/6.png" class>
+
+<h1 id="HDFS的元数据辅助管理"><a href="#HDFS的元数据辅助管理" class="headerlink" title="HDFS的元数据辅助管理"></a>HDFS的元数据辅助管理</h1><p>当Hadoop的集群中，NameNode的所有元数据信息都保存在了FsImage 与 Edits 文件当中。元数据信息的 保存目录配置在了hdfs-site.xml当中。</p>
+<h2 id="FsImage-和-Edits-详解"><a href="#FsImage-和-Edits-详解" class="headerlink" title="FsImage 和 Edits 详解"></a>FsImage 和 Edits 详解</h2><h3 id="edits"><a href="#edits" class="headerlink" title="edits"></a>edits</h3><ul>
+<li>edits 存放了客户端最近一段时间的操作日志</li>
+<li>客户端对HDFS进行写文件时会首先被记录在edits文件中</li>
+<li>edits修改时元数据也会更新</li>
+</ul>
+<h3 id="fsimage"><a href="#fsimage" class="headerlink" title="fsimage"></a>fsimage</h3><ul>
+<li>NameNode中关于元数据的镜像，一般称为检查点，fsimage存放了一份比较完整的元数据信息</li>
+<li>因为fsimage是NameNode的完整镜像，如果每次都加载进就非常损耗内存和CPU，所以一般开始时对NameNode的操作都放在edits中</li>
+<li>随着edits内容增大，就需要在一定时间点和fsimage合并</li>
+</ul>
+<h2 id="fsimage中的文件信息查看"><a href="#fsimage中的文件信息查看" class="headerlink" title="fsimage中的文件信息查看"></a>fsimage中的文件信息查看</h2><p>使用命令 <code>hdfs oiv</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /export/servers/hadoop-2.7.7/hadoopDatas/namenodeDatas/current</span><br><span class="line">hdfs oiv -i fsimage_0000000000000000165 -p XML -o Test.xml</span><br><span class="line">vi Test.xml</span><br></pre></td></tr></table></figure>
+
+<h2 id="edits文件信息查看"><a href="#edits文件信息查看" class="headerlink" title="edits文件信息查看"></a>edits文件信息查看</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /export/servers/hadoop-2.7.7/hadoopDatas/nn/edits/current/</span><br><span class="line">hdfs oev -i edits_0000000000000000166-0000000000000000234 -p XML -o myEdits.xml</span><br><span class="line"> vi myEdits.xml</span><br></pre></td></tr></table></figure>
+
+<h2 id="SecondaryNameNode如何辅助管理fsimage和-edits文件？"><a href="#SecondaryNameNode如何辅助管理fsimage和-edits文件？" class="headerlink" title="SecondaryNameNode如何辅助管理fsimage和 edits文件？"></a>SecondaryNameNode如何辅助管理fsimage和 edits文件？</h2><p>只有在NameNode重启时，edit logs才会合并到fsimage文件中，从而得到一个文件系统的最新快照。但是在产品集群中NameNode是很少重启的，这也意味着当NameNode运行了很长时间后，edit logs文件会变得很大。在这种情况下就会出现下面一些问题：</p>
+<ol>
+<li>edit logs文件会变的很大，怎么去管理这个文件是一个挑战。</li>
+<li>NameNode的重启会花费很长时间，因为有很多改动[笔者注:在edit logs中]要合并到fsimage文件上。</li>
+<li>如果NameNode挂掉了，那我们就丢失了很多改动因为此时的fsimage文件非常旧。[笔者注: 笔者认为在这个情况下丢失的改动不会很多, 因为丢失的改动应该是还在内存中但是没有写到edit logs的这部分。]</li>
+</ol>
+<p>现在我们明白了NameNode的功能和所面临的挑战 - 保持文件系统最新的元数据。那么，这些跟Secondary NameNode又有什么关系呢？</p>
+<p>SecondaryNameNode就是来帮助解决上述问题的。SecondaryNameNode定期合并fsimage 和 edits，把 edits 控制在一个范围内。</p>
+<img src="/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/7.png" class>
+
+<p>上面的图片展示了Secondary NameNode是<strong>怎么工作</strong>的。</p>
+<ol>
+<li>首先，它定时到NameNode去获取edit logs，并更新到fsimage上。[笔者注：Secondary NameNode自己的fsimage]</li>
+<li>一旦它有了新的fsimage文件，它将其拷贝回NameNode中。</li>
+<li>NameNode在下次重启时会使用这个新的fsimage文件，从而减少重启的时间。</li>
+</ol>
+<p>Secondary NameNode的整个目的是在HDFS中提供一个检查点。它只是NameNode的一个助手节点。这也是它在社区内被认为是检查点节点的原因。</p>
+<p>现在，我们明白了Secondary NameNode所做的不过是在文件系统中设置一个检查点来帮助NameNode更好的工作。它不是要取代掉NameNode也不是NameNode的备份。所以从现在起，让我们养成一个习惯，称呼它为<strong>检查点节点</strong>吧。</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大数据_04(HDFSAPI操作)</title>
+    <url>/2020/08/10/%E5%A4%A7%E6%95%B0%E6%8D%AE-04/</url>
+    <content><![CDATA[<p>本篇总结HDFS在windows操作系统Java环境下的API操作。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="配置Windows下的-Hadoop环境"><a href="#配置Windows下的-Hadoop环境" class="headerlink" title="配置Windows下的 Hadoop环境"></a>配置Windows下的 Hadoop环境</h1><p>在Windows系统需要配置Hadoop运行环境，相当于Windows是一个Hadoop客户端。</p>
 ]]></content>
       <categories>
         <category>大数据</category>
