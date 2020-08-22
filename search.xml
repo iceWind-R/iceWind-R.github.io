@@ -6833,7 +6833,7 @@
       </tags>
   </entry>
   <entry>
-    <title>大数据_08(Hive)</title>
+    <title>大数据_08(Hive介绍和安装)</title>
     <url>/2020/08/21/%E5%A4%A7%E6%95%B0%E6%8D%AE-08/</url>
     <content><![CDATA[<p>本篇总结Hive（数据仓库）数据仓库和 Hive 的基本概念。</p>
 <a id="more"></a>
@@ -6905,6 +6905,32 @@
 <img src="/2020/08/21/%E5%A4%A7%E6%95%B0%E6%8D%AE-08/5.jpg" class>
 
 <p><strong>总结：</strong>hive具有sql数据库的外表，但应用场景完全不同，hive只适合用来做批量数据统计分析</p>
+<h1 id="Hive-的安装和配置"><a href="#Hive-的安装和配置" class="headerlink" title="Hive 的安装和配置"></a>Hive 的安装和配置</h1><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="下载Hive"><a href="#下载Hive" class="headerlink" title="下载Hive"></a>下载Hive</h3><ul>
+<li><p>下载Hive安装包：这里我们选用hive的版本是 <strong>2.1.1</strong> 下载地址为：<a href="http://archive.apache.org/dist/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz" target="_blank" rel="noopener">http://archive.apache.org/dist/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz</a></p>
+</li>
+<li><p>解压到相应安装目录：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /export/softwares/</span><br><span class="line">tar -zxvf apache-hive-2.1.1-bin.tar.gz -C ../servers/</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget http://repo.mysql.com/mysql57-community-release-el7-9.noarch.rpm</span><br><span class="line">sudo rpm -ivh mysql57-community-release-el7-9.noarch.rpm</span><br><span class="line"></span><br><span class="line">yum install mysql mysql-server</span><br><span class="line"></span><br><span class="line">mysql_secure_installation</span><br><span class="line"></span><br><span class="line">grant all privileges on *.* to 'root'@'%' identified by '123456' with grant option;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改hive的配置文件"><a href="#修改hive的配置文件" class="headerlink" title="修改hive的配置文件"></a>修改hive的配置文件</h3><p><strong>修改hive-env.sh</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /export/servers/apache-hive-2.1.1-bin/conf</span><br><span class="line">cp hive-env.sh.template hive-env.sh</span><br></pre></td></tr></table></figure>
+
+<p>修改内容：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">HADOOP_HOME=/export/servers/hadoop-2.7.5</span><br><span class="line">export HIVE_CONF_DIR=/export/servers/apache-hive-2.1.1-bin/conf</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改hive-site.xml</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /export/servers/apache-hive-2.1.1-bin/conf</span><br><span class="line">vim hive-site.xml</span><br></pre></td></tr></table></figure>
+
+<p>修改内容</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml-stylesheet type="text/xsl" href="configuration.xsl"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionUserName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>root<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionPassword<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>123456<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://node03:3306/hive?createDatabaseIfNotExist=true<span class="symbol">&amp;amp;</span>useSSL=false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionDriverName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.schema.verification<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>datanucleus.schema.autoCreateAll<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.server2.thrift.bind.host<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>node03<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="添加mysql的连接驱动包到hive的lib目录下"><a href="#添加mysql的连接驱动包到hive的lib目录下" class="headerlink" title="添加mysql的连接驱动包到hive的lib目录下"></a>添加mysql的连接驱动包到hive的lib目录下</h3><p>将mysql 的 驱动 mysql-connector-java-5.1.18-bin.jar 添加 hive的lib目录下即可。</p>
+<h3 id="配置hive的环境变量"><a href="#配置hive的环境变量" class="headerlink" title="配置hive的环境变量"></a>配置hive的环境变量</h3><p> 在 /etc/profile 中添加如下内容</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export HIVE_HOME=/export/servers/apache-hive-2.1.1-bin    (安装目录)</span><br><span class="line">export PATH=:$HIVE_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>大数据</category>
@@ -6912,5 +6938,10 @@
       <tags>
         <tag>Hadoop</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>大数据_09</title>
+    <url>/2020/08/22/%E5%A4%A7%E6%95%B0%E6%8D%AE-09/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
