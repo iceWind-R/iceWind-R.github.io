@@ -22,16 +22,16 @@
     var CONFIG = {"hostname":"icewind-r.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一个热爱编程的大二小白">
+  <meta name="description" content="本篇总结Hive的交互方式和基本操作命令。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大数据_09">
+<meta property="og:title" content="大数据_09(Hive基本操作)">
 <meta property="og:url" content="http://icewind-r.github.io/2020/08/22/%E5%A4%A7%E6%95%B0%E6%8D%AE-09/index.html">
 <meta property="og:site_name" content="Thorine">
-<meta property="og:description" content="一个热爱编程的大二小白">
+<meta property="og:description" content="本篇总结Hive的交互方式和基本操作命令。">
 <meta property="article:published_time" content="2020-08-22T02:48:33.000Z">
-<meta property="article:modified_time" content="2020-08-22T02:48:33.314Z">
+<meta property="article:modified_time" content="2020-08-24T08:20:26.655Z">
 <meta property="article:author" content="大雪初晴丶">
-<meta property="article:tag" content="大学生">
+<meta property="article:tag" content="Hive">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://icewind-r.github.io/2020/08/22/%E5%A4%A7%E6%95%B0%E6%8D%AE-09/">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>大数据_09 | Thorine</title>
+  <title>大数据_09(Hive基本操作) | Thorine</title>
   
 
 
@@ -219,7 +219,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          大数据_09
+          大数据_09(Hive基本操作)
         </h1>
 
         <div class="post-meta">
@@ -231,9 +231,25 @@
 
               <time title="创建时间：2020-08-22 10:48:33" itemprop="dateCreated datePublished" datetime="2020-08-22T10:48:33+08:00">2020-08-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-24 16:20:26" itemprop="dateModified" datetime="2020-08-24T16:20:26+08:00">2020-08-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+                </span>
+            </span>
 
           
-            <span id="/2020/08/22/%E5%A4%A7%E6%95%B0%E6%8D%AE-09/" class="post-meta-item leancloud_visitors" data-flag-title="大数据_09" title="阅读次数">
+            <span id="/2020/08/22/%E5%A4%A7%E6%95%B0%E6%8D%AE-09/" class="post-meta-item leancloud_visitors" data-flag-title="大数据_09(Hive基本操作)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -266,14 +282,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>9 分钟</span>
             </span>
 
         </div>
@@ -285,7 +301,343 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>本篇总结Hive的交互方式和<strong>基本操作命令</strong>。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="Hive-的交互方式"><a href="#Hive-的交互方式" class="headerlink" title="Hive 的交互方式"></a>Hive 的交互方式</h1><h2 id="第一种交互方式：-bin-hive"><a href="#第一种交互方式：-bin-hive" class="headerlink" title="第一种交互方式：./bin/hive"></a>第一种交互方式：./bin/hive</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database if not exists mytest;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二种交互方式：使用-sql-语句或者-sql-脚本进行交互"><a href="#第二种交互方式：使用-sql-语句或者-sql-脚本进行交互" class="headerlink" title="第二种交互方式：使用 sql 语句或者 sql 脚本进行交互"></a>第二种交互方式：使用 sql 语句或者 sql 脚本进行交互</h2><p>不进入hive的客户端直接执行hive的hql语句</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/hive -e "create database if not exists mytest;"</span><br></pre></td></tr></table></figure>
+
+<p>或者我们可以将我们的hql语句写成一个sql脚本执行，通过hive -f 来执行我们的sql脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/hive -f /export/servers/hive.sql</span><br></pre></td></tr></table></figure>
+
+<h1 id="Hive-的基本操作"><a href="#Hive-的基本操作" class="headerlink" title="Hive 的基本操作"></a>Hive 的基本操作</h1><h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><p><strong>创建数据库：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> myhive;</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建数据库并指定位置：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> myhive location <span class="string">'/myhive'</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>设置数据库键值对信息：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> foo <span class="keyword">with</span> dbproperties (<span class="string">'owner'</span>=<span class="string">'itcast'</span>,<span class="string">'date'</span>=<span class="string">'20190120'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看数据库更多详细信息：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">desc database extended myhive;</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除数据库：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> myhive;</span><br></pre></td></tr></table></figure>
+
+<p>​    强制删除数据库，包含数据库下面的表一起删除：（效果相当于 rm -rf，慎用！！！）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> myhive <span class="keyword">cascade</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据库表的操作"><a href="#数据库表的操作" class="headerlink" title="数据库表的操作"></a>数据库表的操作</h2><h3 id="创建表的语法"><a href="#创建表的语法" class="headerlink" title="创建表的语法"></a><strong>创建表的语法</strong></h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> [<span class="keyword">external</span>] <span class="keyword">table</span> [<span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span>] table_name (</span><br><span class="line">col_name data_type [<span class="keyword">comment</span> <span class="string">'字段描述信息'</span>]</span><br><span class="line">col_name data_type [<span class="keyword">comment</span> <span class="string">'字段描述信息'</span>])</span><br><span class="line">[<span class="keyword">comment</span> <span class="string">'表的描述信息'</span>]</span><br><span class="line">[partitioned <span class="keyword">by</span> (col_name data_type,...)]</span><br><span class="line">[clustered <span class="keyword">by</span> (col_name,col_name,...)]</span><br><span class="line">[sorted <span class="keyword">by</span> (col_name [<span class="keyword">asc</span>|<span class="keyword">desc</span>],...) <span class="keyword">into</span> num_buckets buckets]</span><br><span class="line">[<span class="keyword">row</span> <span class="keyword">format</span> row_format]</span><br><span class="line">[storted <span class="keyword">as</span> ....]</span><br><span class="line">[location <span class="string">'指定表的路径'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<blockquote>
+<ol>
+<li><p><a href="https://blog.csdn.net/chipeize/article/details/100364057" target="_blank" rel="noopener">create table</a></p>
+<p>创建一个指定名字的表。如果相同名字的表已经存在，则抛出异常；用户可以用 IF NOT EXISTS 选项来忽略这个异常。</p>
+</li>
+<li><p><a href="https://blog.csdn.net/chipeize/article/details/100364057" target="_blank" rel="noopener">external</a></p>
+<p>可以让用户创建一个外部表，在建表的同时指定一个指向实际数据的路径（LOCATION），Hive 创建内部表时，会将数据移动到数据仓库指向的路径；若创建外部表，仅记录数据所在的路径，不对数据的位置做任何改变。在删除表的时候，内部表的元数据和数据会被一起删除，而外部表只删除元数据，不删除数据。</p>
+</li>
+<li><p><a href="https://blog.csdn.net/chipeize/article/details/100364057" target="_blank" rel="noopener">comment</a></p>
+<p>表示注释,默认不能使用中文</p>
+</li>
+<li><p><a href="https://blog.csdn.net/chipeize/article/details/100364057" target="_blank" rel="noopener">partitioned by</a></p>
+<p>表示使用表分区,一个表可以拥有一个或者多个分区，每一个分区单独存在一个目录下 .</p>
+</li>
+<li><p><a href="https://blog.csdn.net/chipeize/article/details/100364057" target="_blank" rel="noopener">clustered by</a></p>
+<p>对于每一个表分文件， Hive可以进一步组织成桶，也就是说桶是更为细粒度的数据范围划分。Hive也是 针对某一列进行桶的组织。</p>
+</li>
+<li><p><a href="https://blog.csdn.net/chipeize/article/details/100364057" target="_blank" rel="noopener">sorted by</a></p>
+<p>指定排序字段和排序规则</p>
+</li>
+<li><p><a href="https://blog.csdn.net/chipeize/article/details/100364057" target="_blank" rel="noopener">row format</a></p>
+<p>指定表文件字段分隔符</p>
+</li>
+<li><p><a href="https://blog.csdn.net/chipeize/article/details/100364057" target="_blank" rel="noopener">storted as</a></p>
+<p>指定表文件的存储格式, 常用格式:SEQUENCEFILE, TEXTFILE, RCFILE,如果文件数据是纯文本，可以使用 STORED AS TEXTFILE。如果数据需要压缩，使用 storted as SEQUENCEFILE。</p>
+</li>
+<li><p><a href="https://blog.csdn.net/chipeize/article/details/100364057" target="_blank" rel="noopener">location</a></p>
+<p>指定表文件的存储路径</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="内部表操作"><a href="#内部表操作" class="headerlink" title="内部表操作"></a>内部表操作</h3><p>创建表时，如果没有使用external关键字，则该表是内部表（管理表，managed table）。</p>
+<p><strong>Hive 建表字段类型</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">分类</th>
+<th align="left">类型</th>
+<th align="left">描述</th>
+<th align="left">字面量示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">原始类型</td>
+<td align="left">BOOLEAN</td>
+<td align="left">true/false</td>
+<td align="left">TRUE</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">TINYINT</td>
+<td align="left">1字节的有符号整数, -128~127</td>
+<td align="left">1Y</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">SMALLINT</td>
+<td align="left">2个字节的有符号整数，-32768~32767</td>
+<td align="left">1S</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">INT</td>
+<td align="left">4个字节的带符号整数</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">BIGINT</td>
+<td align="left">8字节带符号整数</td>
+<td align="left">1L</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">FLOAT</td>
+<td align="left">4字节单精度浮点数</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">DOUBLE</td>
+<td align="left">8字节双精度浮点数</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">DEICIMAL</td>
+<td align="left">任意精度的带符号小数</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">STRING</td>
+<td align="left">字符串，变长</td>
+<td align="left">“a”,’b’</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">VARCHAR</td>
+<td align="left">变长字符串</td>
+<td align="left">“a”,’b’</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">CHAR</td>
+<td align="left">固定长度字符串</td>
+<td align="left">“a”,’b’</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">BINARY</td>
+<td align="left">字节数组</td>
+<td align="left">无法表示</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">TIMESTAMP</td>
+<td align="left">时间戳，毫秒值精度</td>
+<td align="left">122327493795</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">DATE</td>
+<td align="left">日期</td>
+<td align="left">‘2016-03-29’</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">INTERVAL</td>
+<td align="left">时间频率间隔</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">复杂类型</td>
+<td align="left">ARRAY</td>
+<td align="left">有序的的同类型的集合</td>
+<td align="left">array(1,2)</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">MAP</td>
+<td align="left">key-value,key必须为原始类型，value可以任意类型</td>
+<td align="left">map(‘a’,1,’b’,2)</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">STRUCT</td>
+<td align="left">字段集合,类型可以不同</td>
+<td align="left">struct(‘1’,1,1.0), named_stract(‘col1’,’1’,’col2’,1,’clo3’,1.0)</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">UNION</td>
+<td align="left">在有限取值范围内的一个值</td>
+<td align="left">create_union(1,’a’,63)</td>
+</tr>
+</tbody></table>
+<p><strong>建表入门</strong>：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> myhive;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> stu(<span class="keyword">id</span> <span class="built_in">int</span>,<span class="keyword">name</span> <span class="keyword">string</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> stu <span class="keyword">values</span> (<span class="number">1</span>,<span class="string">"zhangsan"</span>);  <span class="comment">#插入数据</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> stu;</span><br></pre></td></tr></table></figure>
+
+<p>创建表并指定字段之间的分隔符，默认为 <code>\001</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span>  <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> stu2(<span class="keyword">id</span> <span class="built_in">int</span> ,<span class="keyword">name</span> <span class="keyword">string</span>) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建表并指定表文件的存放路径</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span>  <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> stu2(<span class="keyword">id</span> <span class="built_in">int</span> ,<span class="keyword">name</span> <span class="keyword">string</span>) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span> location <span class="string">'/user/stu2'</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据查询结果创建表</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过复制表结构和表内容创建新表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> stu3 <span class="keyword">as</span> <span class="keyword">select</span> * <span class="keyword">from</span> stu2;</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据已经存在的表结构创建表</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> stu4 <span class="keyword">like</span> stu;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询表的详细信息</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">desc formatted stu2;</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除表</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> stu;</span><br></pre></td></tr></table></figure>
+
+<h3 id="外部表的操作"><a href="#外部表的操作" class="headerlink" title="外部表的操作"></a><strong>外部表的操作</strong></h3><p>外部表因为是指定其他的hdfs路径的数据加载到表当中来，所以hive表会认为自己不完全独占这份数据，所以删除hive表的时候，数据仍然存放在hdfs当中，不会删掉.</p>
+<p><strong>内部表和外部表的使用场景</strong></p>
+<p>每天将收集到的网站日志定期流入HDFS文本文件。在外部表（原始日志表）的基础上做大量的统计分析，用到的中间表、结果表使用内部表存储，数据通过SELECT+INSERT进入内部表。</p>
+<h4 id="操作案例"><a href="#操作案例" class="headerlink" title="操作案例"></a>操作案例</h4><p>分别创建老师与学生外部表，并向表中加载数据。</p>
+<p><strong>创建老师表</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> teacher(t_id <span class="keyword">string</span>,t_name <span class="keyword">string</span>) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建学生表</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> student (s_id <span class="keyword">string</span>,s_name <span class="keyword">string</span>,s_birth <span class="keyword">string</span> , s_sex <span class="keyword">string</span> ) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>加载数据</strong></p>
+<ol>
+<li><p>可以直接把指定结构的文件上传到hdfs文件系统的表目录下。</p>
+<p>比如之前的teacher表有两个string字段，分隔符为 \t，我们可以建如下文件，teacher.txt，内容为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>	zhangsan</span><br><span class="line"><span class="number">2</span>	lisi</span><br><span class="line"><span class="number">3</span>	wangwu           <span class="comment"># 分割符为 \t</span></span><br></pre></td></tr></table></figure>
+
+<p>即可在hive命令下，使用select查询得到如上结果。</p>
+</li>
+<li><p>本地加载，可以加载本地的文件读入到hive数据仓库中。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/export/servers/hivedatas/student.csv'</span> <span class="keyword">into</span> <span class="keyword">table</span> student;</span><br><span class="line"></span><br><span class="line">加载本地路径下的csv文件到student表中。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>我们可以在此验证外部表：通过drop删除表后，select不能查询，但是hdfs系统的数据文件仍在，通过之前的建表语句再次建表，就可查询成功。可见，外部表只是与真实数据的一种映射关系。</p>
+</blockquote>
+</li>
+<li><p>加载数据并覆盖已有数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load data local inpath '/export/servers/hivedatas/student.csv' overwrite into table student;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从hdfs文件系统向表中加载数据（需要提前将数据上传到hdfs文件系统）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load data inpath '/student.csv' into table student;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="分区表的操作"><a href="#分区表的操作" class="headerlink" title="分区表的操作"></a><strong>分区表的操作</strong></h3><p>​    在大数据中，最常用的一种思想就是分治，我们可以把大的文件切割划分成一个个的小的文件，这样每次操作一个小的文件就会很容易了，同样的道理，在hive当中也是支持这种思想的，就是我们可以把大的数据，按照每月，或者天进行切分成一个个的小的文件,存放在不同的文件夹中.</p>
+<p><strong>创建分区表语法</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> score(s_id <span class="keyword">string</span>,c_id <span class="keyword">string</span>, s_score <span class="built_in">int</span>) partitioned <span class="keyword">by</span> (<span class="keyword">month</span> <span class="keyword">string</span>) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建一个表带多个分区</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create table score2 (s_id string,c_id string, s_score int) partitioned by (year string,month string,day string) row format delimited fields terminated by &#39;\t&#39;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>加载数据到分区表中</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/export/servers/hivedatas/score.csv'</span> <span class="keyword">into</span> <span class="keyword">table</span> score <span class="keyword">partition</span> (<span class="keyword">month</span>=<span class="string">'201806'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>加载数据到多分区表中</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/export/servers/hivedatas/score.csv'</span> <span class="keyword">into</span> <span class="keyword">table</span> score2 <span class="keyword">partition</span>(<span class="keyword">year</span>=<span class="string">'2018'</span>,<span class="keyword">month</span>=<span class="string">'06'</span>,<span class="keyword">day</span>=<span class="string">'01'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>多分区表联合查询（使用union all）</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> score <span class="keyword">where</span> <span class="keyword">month</span> = <span class="string">'201806'</span> <span class="keyword">union</span> <span class="keyword">all</span> <span class="keyword">select</span> * <span class="keyword">from</span> score <span class="keyword">where</span> <span class="keyword">month</span> = <span class="string">'201806'</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看分区</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span>  <span class="keyword">partitions</span>  score;</span><br></pre></td></tr></table></figure>
+
+<p><strong>添加一个分区</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> score <span class="keyword">add</span> <span class="keyword">partition</span>(<span class="keyword">month</span>=<span class="string">'201805'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除分区</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> score <span class="keyword">drop</span> <span class="keyword">partition</span>(<span class="keyword">month</span> = <span class="string">'201806'</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="分区表综合练习"><a href="#分区表综合练习" class="headerlink" title="分区表综合练习"></a>分区表综合练习</h3><p><strong>需求描述：</strong></p>
+<p> 现在有一个文件score.csv文件，存放在集群的这个目录下/scoredatas/month=201806，这个文件每天都会生成，存放到对应的日期文件夹下面去，文件别人也需要公用，不能移动。需求，创建hive对应的表，并将数据加载到表中，进行数据统计分析，且删除表之后，数据不能删除</p>
+<p><strong>数据准备：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -mkdir -p /scoredatas/month=201806</span><br><span class="line">hdfs dfs -put score.csv /scoredatas/month=201806/</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建外部分区表，并指定文件数据存放目录</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create external table score4(s_id string, c_id string,s_score int) partitioned by (month string) row format delimited fields terminated by '\t' location '/scoredatas';</span><br></pre></td></tr></table></figure>
+
+<p><strong>进行表的修复(建立表与数据文件之间的一个关系映射)</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msck repair table score4;</span><br></pre></td></tr></table></figure>
+
+<p>之后便可select查询该表验证结果。</p>
+<h3 id="分桶表操作"><a href="#分桶表操作" class="headerlink" title="分桶表操作"></a>分桶表操作</h3><p>分桶，就是将数据按照指定的字段进行划分到多个文件当中去,分桶就是MapReduce中的分区.</p>
+<p><strong>开启 Hive 的分桶功能</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> hive.enforce.bucketing=<span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>设置 Reduce 个数</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> mapreduce.job.reduces=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建分桶表</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> course (c_id <span class="keyword">string</span>,c_name <span class="keyword">string</span>,t_id <span class="keyword">string</span>) clustered <span class="keyword">by</span>(c_id) <span class="keyword">into</span> <span class="number">3</span> buckets <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建普通表</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> course_common (c_id <span class="keyword">string</span>,c_name <span class="keyword">string</span>,t_id <span class="keyword">string</span>) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>普通表中加载数据</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/export/servers/hivedatas/course.csv'</span> <span class="keyword">into</span> <span class="keyword">table</span> course_common;</span><br></pre></td></tr></table></figure>
+
+<p><strong>通过insert overwrite给桶表中加载数据</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> course <span class="keyword">select</span> * <span class="keyword">from</span> course_common cluster <span class="keyword">by</span>(c_id);</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改表结构"><a href="#修改表结构" class="headerlink" title="修改表结构"></a>修改表结构</h3><p><strong>重命名</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span>  <span class="keyword">table</span>  old_table_name  <span class="keyword">rename</span>  <span class="keyword">to</span>  new_table_name;</span><br></pre></td></tr></table></figure>
+
+<p>把表score4修改成score5</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> score4 <span class="keyword">rename</span> <span class="keyword">to</span> score5;</span><br></pre></td></tr></table></figure>
+
+<p><strong>增加/修改列信息:</strong></p>
+<ul>
+<li>查询表结构</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">desc score5;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>添加列</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> score5 <span class="keyword">add</span> <span class="keyword">columns</span> (mycol <span class="keyword">string</span>, mysco <span class="built_in">int</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更新列</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> score5 <span class="keyword">change</span> <span class="keyword">column</span> mysco mysconew <span class="built_in">int</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除表</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> score5;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Hive表中加载数据"><a href="#Hive表中加载数据" class="headerlink" title="Hive表中加载数据"></a>Hive表中加载数据</h2><p><strong>直接向分区表中插入数据</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> score3 <span class="keyword">like</span> score;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span> score3 <span class="keyword">partition</span>(<span class="keyword">month</span> =<span class="string">'201807'</span>) <span class="keyword">values</span> (<span class="string">'001'</span>,<span class="string">'002'</span>,<span class="string">'100'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>通过load方式加载数据</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/export/servers/hivedatas/score.csv'</span> overwrite <span class="keyword">into</span> <span class="keyword">table</span> score <span class="keyword">partition</span>(<span class="keyword">month</span>=<span class="string">'201806'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>通过查询方式加载数据</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> score4 <span class="keyword">like</span> score;</span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> score4 <span class="keyword">partition</span>(<span class="keyword">month</span> = <span class="string">'201806'</span>) <span class="keyword">select</span> s_id,c_id,s_score <span class="keyword">from</span> score;</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -318,6 +670,10 @@
 </div>
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Hive/" rel="tag"><i class="fa fa-tag"></i> Hive</a>
+          </div>
 
         
 
@@ -328,7 +684,10 @@
     <a href="/2020/08/21/%E5%A4%A7%E6%95%B0%E6%8D%AE-08/" rel="prev" title="大数据_08(Hive介绍和安装)">
       <i class="fa fa-chevron-left"></i> 大数据_08(Hive介绍和安装)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE-10/" rel="next" title="大数据_10(查询、函数)">
+      大数据_10(查询、函数) <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -389,6 +748,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hive-的交互方式"><span class="nav-number">1.</span> <span class="nav-text">Hive 的交互方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一种交互方式：-bin-hive"><span class="nav-number">1.1.</span> <span class="nav-text">第一种交互方式：.&#x2F;bin&#x2F;hive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二种交互方式：使用-sql-语句或者-sql-脚本进行交互"><span class="nav-number">1.2.</span> <span class="nav-text">第二种交互方式：使用 sql 语句或者 sql 脚本进行交互</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hive-的基本操作"><span class="nav-number">2.</span> <span class="nav-text">Hive 的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库操作"><span class="nav-number">2.1.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库表的操作"><span class="nav-number">2.2.</span> <span class="nav-text">数据库表的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建表的语法"><span class="nav-number">2.2.1.</span> <span class="nav-text">创建表的语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部表操作"><span class="nav-number">2.2.2.</span> <span class="nav-text">内部表操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外部表的操作"><span class="nav-number">2.2.3.</span> <span class="nav-text">外部表的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作案例"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">操作案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分区表的操作"><span class="nav-number">2.2.4.</span> <span class="nav-text">分区表的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分区表综合练习"><span class="nav-number">2.2.5.</span> <span class="nav-text">分区表综合练习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分桶表操作"><span class="nav-number">2.2.6.</span> <span class="nav-text">分桶表操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改表结构"><span class="nav-number">2.2.7.</span> <span class="nav-text">修改表结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hive表中加载数据"><span class="nav-number">2.3.</span> <span class="nav-text">Hive表中加载数据</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -404,7 +764,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -417,7 +777,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -470,12 +830,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">91k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:02</span>
+    <span title="站点阅读时长">5:23</span>
 </div>
 
 <!--
