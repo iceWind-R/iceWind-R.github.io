@@ -5897,11 +5897,12 @@
       </tags>
   </entry>
   <entry>
-    <title>大数据_10(查询、函数)</title>
+    <title>大数据_10(查询、Shell参数)</title>
     <url>/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE-10/</url>
-    <content><![CDATA[<p>本篇总结Hive的查询语法、Shell命令 及 函数的定义和使用。</p>
+    <content><![CDATA[<p>本篇总结Hive的查询语法、Shell命令。</p>
 <a id="more"></a>
 
+<hr>
 <h1 id="Hive-查询语法"><a href="#Hive-查询语法" class="headerlink" title="Hive 查询语法"></a>Hive 查询语法</h1><h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [<span class="keyword">ALL</span> | <span class="keyword">DISTINCT</span>] select_expr, select_expr, ...</span><br><span class="line"><span class="keyword">FROM</span> table_reference</span><br><span class="line">[<span class="keyword">WHERE</span> where_condition]</span><br><span class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> col_list [<span class="keyword">HAVING</span> condition]]</span><br><span class="line">[CLUSTER <span class="keyword">BY</span> col_list</span><br><span class="line">| [<span class="keyword">DISTRIBUTE</span> <span class="keyword">BY</span> col_list] [<span class="keyword">SORT</span> <span class="keyword">BY</span>| <span class="keyword">ORDER</span> <span class="keyword">BY</span> col_list]</span><br><span class="line">]</span><br><span class="line">[<span class="keyword">LIMIT</span> <span class="built_in">number</span>]</span><br></pre></td></tr></table></figure>
 
 <ol>
@@ -6184,9 +6185,7 @@
 </ol>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> student s <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> score sco <span class="keyword">ON</span> s.s_id = sco.s_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> sco.s_score <span class="keyword">DESC</span>;</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li>查询学生的成绩，并按照分数升序排列</li>
-</ol>
+<p>​    2. 查询学生的成绩，并按照分数升序排列</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> student s <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> score sco <span class="keyword">ON</span> s.s_id = sco.s_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> sco.s_score <span class="keyword">asc</span>;</span><br></pre></td></tr></table></figure>
 
 </li>
@@ -6257,11 +6256,11 @@
 <p>另外，Hive也会读入Hadoop的配置，因为Hive是作为Hadoop的客户端启动的，Hive的配置会覆盖Hadoop的配置。</p>
 <p>配置文件的设定对本机启动的所有Hive进程都有效。</p>
 <p><code>命令行参数：</code>启动Hive（客户端或Server方式）时，可以在命令行添加-hiveconf param=value来设定参数，例如：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">bin/hive -hiveconf hive.root.logger=INFO,console</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">bin/hive -hiveconf hive.root.logger=INFO,console</span><br></pre></td></tr></table></figure>
 
 <p>这一设定对本次启动的Session（对于Server方式启动，则是所有请求的Sessions）有效。</p>
 <p><code>参数声明</code>：可以在HQL中使用SET关键字设定参数，例如：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> mapred.reduce.tasks=<span class="number">100</span>;</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> mapred.reduce.tasks=<span class="number">100</span>;</span><br></pre></td></tr></table></figure>
 
 <p>这一设定的作用域也是session级的。</p>
 <p>上述三种设定方式的优先级依次递增。即参数声明覆盖命令行参数，命令行参数覆盖配置文件设定。注意某些系统级的参数，例如log4j相关的设定，必须用前两种方式设定，因为那些参数的读取在Session建立以前已经完成了。</p>
@@ -7661,6 +7660,96 @@
       </categories>
       <tags>
         <tag>experience</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大数据_11(函数,数据压缩存储,调优)</title>
+    <url>/2020/08/29/%E5%A4%A7%E6%95%B0%E6%8D%AE-11/</url>
+    <content><![CDATA[<p>本篇总结Hive的函数、数据压缩和数据存储格式 以及 Hive调优等。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="Hive函数"><a href="#Hive函数" class="headerlink" title="Hive函数"></a>Hive函数</h1><h2 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h2><p>内容较多，见<a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF" target="_blank" rel="noopener">《Hive官方文档》</a>。</p>
+<ol>
+<li><p>查看系统自带的函数</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">hive&gt;</span><span class="bash"> show <span class="built_in">functions</span>;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示自带的函数的用法</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">hive&gt;</span><span class="bash"> desc <span class="keyword">function</span> upper;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>详细显示自带的函数的用法</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">hive&gt;</span><span class="bash"> desc <span class="keyword">function</span> extended upper;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="常用内置函数"><a href="#常用内置函数" class="headerlink" title="常用内置函数"></a>常用内置函数</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">字符串连接函数： concat </span></span><br><span class="line">  select concat('abc','def’,'gh');</span><br><span class="line"><span class="meta">#</span><span class="bash">带分隔符字符串连接函数： concat_ws </span></span><br><span class="line">  select concat_ws(',','abc','def','gh');</span><br><span class="line"><span class="meta">#</span><span class="bash">cast类型转换</span></span><br><span class="line">  select cast(1.5 as int);</span><br><span class="line"><span class="meta">#</span><span class="bash">get_json_object(json 解析函数，用来处理json，必须是json格式)</span></span><br><span class="line">   select get_json_object('&#123;"name":"jack","age":"20"&#125;','$.name');</span><br><span class="line"><span class="meta">#</span><span class="bash">URL解析函数</span></span><br><span class="line">   select parse_url('http://facebook.com/path1/p.php?k1=v1&amp;k2=v2#Ref1', 'HOST');</span><br><span class="line"><span class="meta">#</span><span class="bash">explode：把map集合中每个键值对或数组中的每个元素都单独生成一行的形式</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ol>
+<li>Hive 自带了一些函数，比如：max/min等，当Hive提供的内置函数无法满足你的业务处理需要时，此时就可以考虑使用用户自定义函数(UDF).</li>
+<li>根据用户自定义函数类别分为以下三种：<ol>
+<li>UDF（User-Defined-Function）<ul>
+<li>一进一出</li>
+</ul>
+</li>
+<li>UDAF（User-Defined Aggregation Function）<ul>
+<li>聚集函数，多进一出</li>
+<li>类似于：<code>count</code>/<code>max</code>/<code>min</code></li>
+</ul>
+</li>
+<li>UDTF（User-Defined Table-Generating Functions）<ul>
+<li>一进多出</li>
+<li>如 <code>lateral</code> <code>view</code> <code>explore()</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>编程步骤：<ol>
+<li>继承org.apache.hadoop.hive.ql.UDF</li>
+<li>需要实现evaluate函数；evaluate函数支持重载；</li>
+</ol>
+</li>
+<li>注意事项<ol>
+<li>UDF必须要有返回类型，可以返回null，但是返回类型不能为void；</li>
+<li>UDF中常用Text/LongWritable等类型，不推荐使用java类型；</li>
+</ol>
+</li>
+</ol>
+<h3 id="UDF-开发实例"><a href="#UDF-开发实例" class="headerlink" title="UDF 开发实例"></a>UDF 开发实例</h3><p>需求，建立的自己的my_upper方法，将输入的字符串第一个字符大写。</p>
+<h4 id="1、创建maven工程"><a href="#1、创建maven工程" class="headerlink" title="1、创建maven工程"></a>1、创建maven工程</h4><p>其中的pom.xml文件如下：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.apache.hive/hive-exec --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hive<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hive-exec<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hadoop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hadoop-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：这一步踩了坑，hive-exec坐标引用后爆红（org\pentaho\pentaho-aggdesigner-algorithm\5.1.5-jhyde.jar有红线），<strong>解决方法：</strong></p>
+<ul>
+<li><p>进入<a href="https://mvnrepository.com/artifact/org.pentaho/pentaho-aggdesigner-algorithm/5.1.5-jhyde下载相应jar包" target="_blank" rel="noopener">https://mvnrepository.com/artifact/org.pentaho/pentaho-aggdesigner-algorithm/5.1.5-jhyde下载相应jar包</a></p>
+</li>
+<li><p>放入本地maven仓库中（我的目录为D:\Server\Tools\maven_repository\org\pentaho\pentaho-aggdesigner-algorithm\5.1.5-jhyde）</p>
+</li>
+<li><p>重启IDEA，并在pom.xml中导入以下依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.pentaho<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pentaho-aggdesigner-algorithm<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.5-jhyde<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>完成。</p>
+</li>
+</ul>
+<h4 id="2、编写程序代码"><a href="#2、编写程序代码" class="headerlink" title="2、编写程序代码"></a>2、编写程序代码</h4><p><strong>开发 Java 类集成 UDF</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyUDF</span>  <span class="keyword">extends</span> <span class="title">UDF</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Text <span class="title">evaluate</span><span class="params">(<span class="keyword">final</span> Text str)</span></span>&#123;</span><br><span class="line">        String tmp_str = str.toString();</span><br><span class="line">        <span class="keyword">if</span>(str != <span class="keyword">null</span> &amp;&amp; !tmp_str.equals(<span class="string">""</span>))&#123;</span><br><span class="line">          String str_ret = tmp_str.substring(<span class="number">0</span>, <span class="number">1</span>).toUpperCase() + tmp_str.substring(<span class="number">1</span>);</span><br><span class="line">          <span class="keyword">return</span>  <span class="keyword">new</span> Text(str_ret);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>  <span class="keyword">new</span> Text(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、项目打包"><a href="#3、项目打包" class="headerlink" title="3、项目打包"></a>3、项目打包</h4><p>利用maven 的package命令打成jar包，并上传到集群（bigdata3）的hive的lib目录下。</p>
+<h4 id="4、添加jar包到hive中"><a href="#4、添加jar包到hive中" class="headerlink" title="4、添加jar包到hive中"></a>4、添加jar包到hive中</h4><p>重命名我们的jar包名称</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /export/servers/apache-hive-2.7.5-bin/lib</span><br><span class="line">mv hive-1.0-SNAPSHOT.jar my_upper.jar</span><br></pre></td></tr></table></figure>
+
+<p>hive的客户端添加我们的jar包</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">hive&gt;</span><span class="bash"> add jar /<span class="built_in">export</span>/servers/apache-hive-2.7.5-bin/lib/my_upper.jar;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5、设置函数与我们的自定义函数关联"><a href="#5、设置函数与我们的自定义函数关联" class="headerlink" title="5、设置函数与我们的自定义函数关联"></a>5、设置函数与我们的自定义函数关联</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">hive&gt; create temporary function my_upper as 'udf.MyUDF';</span><br></pre></td></tr></table></figure>
+
+<h4 id="6、使用自定义函数"><a href="#6、使用自定义函数" class="headerlink" title="6、使用自定义函数"></a>6、使用自定义函数</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> my_upper(<span class="string">'hello world!'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果 Hello world!</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="数据压缩、数据存储格式"><a href="#数据压缩、数据存储格式" class="headerlink" title="数据压缩、数据存储格式"></a>数据压缩、数据存储格式</h1>]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>Hive</tag>
       </tags>
   </entry>
 </search>

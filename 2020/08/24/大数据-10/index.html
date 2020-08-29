@@ -22,14 +22,14 @@
     var CONFIG = {"hostname":"icewind-r.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本篇总结Hive的查询语法、Shell命令 及 函数的定义和使用。">
+  <meta name="description" content="本篇总结Hive的查询语法、Shell命令。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大数据_10(查询、函数)">
+<meta property="og:title" content="大数据_10(查询、Shell参数)">
 <meta property="og:url" content="http://icewind-r.github.io/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE-10/index.html">
 <meta property="og:site_name" content="Thorine">
-<meta property="og:description" content="本篇总结Hive的查询语法、Shell命令 及 函数的定义和使用。">
+<meta property="og:description" content="本篇总结Hive的查询语法、Shell命令。">
 <meta property="article:published_time" content="2020-08-24T08:14:15.000Z">
-<meta property="article:modified_time" content="2020-08-24T11:33:04.131Z">
+<meta property="article:modified_time" content="2020-08-29T01:35:36.068Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="Hive">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>大数据_10(查询、函数) | Thorine</title>
+  <title>大数据_10(查询、Shell参数) | Thorine</title>
   
 
 
@@ -219,7 +219,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          大数据_10(查询、函数)
+          大数据_10(查询、Shell参数)
         </h1>
 
         <div class="post-meta">
@@ -228,10 +228,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-08-24 16:14:15 / 修改时间：19:33:04" itemprop="dateCreated datePublished" datetime="2020-08-24T16:14:15+08:00">2020-08-24</time>
+              <time title="创建时间：2020-08-24 16:14:15" itemprop="dateCreated datePublished" datetime="2020-08-24T16:14:15+08:00">2020-08-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-29 09:35:36" itemprop="dateModified" datetime="2020-08-29T09:35:36+08:00">2020-08-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -243,7 +249,7 @@
             </span>
 
           
-            <span id="/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE-10/" class="post-meta-item leancloud_visitors" data-flag-title="大数据_10(查询、函数)" title="阅读次数">
+            <span id="/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE-10/" class="post-meta-item leancloud_visitors" data-flag-title="大数据_10(查询、Shell参数)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -295,9 +301,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本篇总结Hive的查询语法、Shell命令 及 函数的定义和使用。</p>
+        <p>本篇总结Hive的查询语法、Shell命令。</p>
 <a id="more"></a>
 
+<hr>
 <h1 id="Hive-查询语法"><a href="#Hive-查询语法" class="headerlink" title="Hive 查询语法"></a>Hive 查询语法</h1><h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [<span class="keyword">ALL</span> | <span class="keyword">DISTINCT</span>] select_expr, select_expr, ...</span><br><span class="line"><span class="keyword">FROM</span> table_reference</span><br><span class="line">[<span class="keyword">WHERE</span> where_condition]</span><br><span class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> col_list [<span class="keyword">HAVING</span> condition]]</span><br><span class="line">[CLUSTER <span class="keyword">BY</span> col_list</span><br><span class="line">| [<span class="keyword">DISTRIBUTE</span> <span class="keyword">BY</span> col_list] [<span class="keyword">SORT</span> <span class="keyword">BY</span>| <span class="keyword">ORDER</span> <span class="keyword">BY</span> col_list]</span><br><span class="line">]</span><br><span class="line">[<span class="keyword">LIMIT</span> <span class="built_in">number</span>]</span><br></pre></td></tr></table></figure>
 
 <ol>
@@ -580,9 +587,7 @@
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> student s <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> score sco <span class="keyword">ON</span> s.s_id = sco.s_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> sco.s_score <span class="keyword">DESC</span>;</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li>查询学生的成绩，并按照分数升序排列</li>
-</ol>
+<p>​    2. 查询学生的成绩，并按照分数升序排列</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> student s <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> score sco <span class="keyword">ON</span> s.s_id = sco.s_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> sco.s_score <span class="keyword">asc</span>;</span><br></pre></td></tr></table></figure>
 
 </li>
@@ -653,11 +658,11 @@
 <p>另外，Hive也会读入Hadoop的配置，因为Hive是作为Hadoop的客户端启动的，Hive的配置会覆盖Hadoop的配置。</p>
 <p>配置文件的设定对本机启动的所有Hive进程都有效。</p>
 <p><code>命令行参数：</code>启动Hive（客户端或Server方式）时，可以在命令行添加-hiveconf param=value来设定参数，例如：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin/hive -hiveconf hive.root.logger=INFO,console</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hive -hiveconf hive.root.logger=INFO,console</span><br></pre></td></tr></table></figure>
 
 <p>这一设定对本次启动的Session（对于Server方式启动，则是所有请求的Sessions）有效。</p>
 <p><code>参数声明</code>：可以在HQL中使用SET关键字设定参数，例如：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> mapred.reduce.tasks=<span class="number">100</span>;</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> mapred.reduce.tasks=<span class="number">100</span>;</span><br></pre></td></tr></table></figure>
 
 <p>这一设定的作用域也是session级的。</p>
 <p>上述三种设定方式的优先级依次递增。即参数声明覆盖命令行参数，命令行参数覆盖配置文件设定。注意某些系统级的参数，例如log4j相关的设定，必须用前两种方式设定，因为那些参数的读取在Session建立以前已经完成了。</p>
@@ -708,7 +713,10 @@
     <a href="/2020/08/22/%E5%A4%A7%E6%95%B0%E6%8D%AE-09/" rel="prev" title="大数据_09(Hive基本操作)">
       <i class="fa fa-chevron-left"></i> 大数据_09(Hive基本操作)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/29/%E5%A4%A7%E6%95%B0%E6%8D%AE-11/" rel="next" title="大数据_11(函数,数据压缩存储,调优)">
+      大数据_11(函数,数据压缩存储,调优) <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -785,7 +793,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -851,12 +859,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">97k</span>
+    <span title="站点总字数">98k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:23</span>
+    <span title="站点阅读时长">5:27</span>
 </div>
 
 <!--
