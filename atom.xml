@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-08-29T02:01:53.487Z</updated>
+  <updated>2020-09-04T05:00:38.740Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>停歇_在此靠岸</title>
+    <link href="http://icewind-r.github.io/2020/09/04/%E5%81%9C%E6%AD%87-%E5%9C%A8%E6%AD%A4%E9%9D%A0%E5%B2%B8/"/>
+    <id>http://icewind-r.github.io/2020/09/04/%E5%81%9C%E6%AD%87-%E5%9C%A8%E6%AD%A4%E9%9D%A0%E5%B2%B8/</id>
+    <published>2020-09-04T04:53:07.000Z</published>
+    <updated>2020-09-04T05:00:38.740Z</updated>
+    
+    <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=522353195&auto=1&height=66"></iframe>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=
+      
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://iceWind-R.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
+    
+  </entry>
   
   <entry>
     <title>大数据_11(函数,数据压缩存储,调优)</title>
@@ -450,31 +476,6 @@
     <summary type="html">
     
       &lt;p&gt;本篇总结python爬虫的重要&lt;strong&gt;框架&lt;/strong&gt;——&lt;strong&gt;Scrapy&lt;/strong&gt;。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://iceWind-R.github.io/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://iceWind-R.github.io/tags/Python/"/>
-    
-      <category term="爬虫" scheme="http://iceWind-R.github.io/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python爬虫_05(正则表达式)</title>
-    <link href="http://icewind-r.github.io/2020/07/01/Python%E7%88%AC%E8%99%AB-05/"/>
-    <id>http://icewind-r.github.io/2020/07/01/Python%E7%88%AC%E8%99%AB-05/</id>
-    <published>2020-07-01T08:41:22.000Z</published>
-    <updated>2020-08-09T01:55:08.559Z</updated>
-    
-    <content type="html"><![CDATA[<p>本篇总结 <strong>正则</strong> 在python爬虫中的应用。</p><a id="more"></a><hr><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>之前有过总结，不再赘述，也可以阅读一篇非常有名的博客叫<a href="https://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">《正则表达式30分钟入门教程》</a>。</p><p>这里做一些概要的总结，供以后使用时参阅。</p><h2 id="正则表达式的常用操作符"><a href="#正则表达式的常用操作符" class="headerlink" title="正则表达式的常用操作符"></a>正则表达式的常用操作符</h2><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/1.png" class><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/2.png" class><h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/3.png" class><h3 id="IP地址的匹配"><a href="#IP地址的匹配" class="headerlink" title="IP地址的匹配"></a>IP地址的匹配</h3><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/4.png" class><h1 id="Re库"><a href="#Re库" class="headerlink" title="Re库"></a>Re库</h1><p>Re库是python的标准库，主要用于字符串匹配。调用方法：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure><h2 id="正则表达式的表示类型"><a href="#正则表达式的表示类型" class="headerlink" title="正则表达式的表示类型"></a>正则表达式的表示类型</h2><p>采用<code>raw string</code>类型（原生字符串类型），表示为<code>r&#39;text&#39;</code>，如：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">r'[1-9]\d&#123;5&#125;'</span> <span class="comment"># 六位邮政编码</span></span><br><span class="line"><span class="string">r'\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;'</span></span><br></pre></td></tr></table></figure><p><code>raw string</code>是不包含<strong>转义符</strong>的字符串</p><p>正则表达式也可以用string类型，但较为繁琐，因为<code>\</code>会被理解为转义符。</p><h2 id="Re库的主要功能函数"><a href="#Re库的主要功能函数" class="headerlink" title="Re库的主要功能函数"></a>Re库的主要功能函数</h2><p>主要有六个功能函数。</p><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/5.png" class><p>下面依次介绍。</p><h3 id="1、re-search-pattern-string-flags-0"><a href="#1、re-search-pattern-string-flags-0" class="headerlink" title="1、re.search(pattern, string, flags=0)"></a>1、re.search(<strong>pattern</strong>, <strong>string</strong>, <strong>flags=0</strong>)</h3><p>在一个字符串中搜索匹配正则表达式的第一个位置，返回<strong>match</strong>对象。</p><p>参数：</p><ul><li><p><strong>pattern</strong> : 正则表达式的字符串或原生字符串表示。</p></li><li><p><strong>string</strong> : 待匹配字符串</p></li><li><p><strong>flags</strong> : 正则表达式使用时的控制标记</p><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/6.png" class></li></ul><h3 id="2、re-match-pattern-string-flags-0"><a href="#2、re-match-pattern-string-flags-0" class="headerlink" title="2、re.match(pattern, string, flags=0)"></a>2、re.match(<strong>pattern</strong>, <strong>string</strong>, <strong>flags=0</strong>)</h3><p>从一个字符串的开始位置起匹配正则表达式，返回<strong>match</strong>对象</p><p>参数同上。</p><p>但需要<strong>注意</strong>，这是从待匹配字符串的第一个位置开始，即第一个字符不符合匹配条件，就得不到结果。</p><h3 id="3、re-findall-pattern-string-flags-0"><a href="#3、re-findall-pattern-string-flags-0" class="headerlink" title="3、re.findall(pattern, string, flags=0)"></a>3、re.findall(<strong>pattern</strong>, <strong>string</strong>, <strong>flags=0</strong>)</h3><p>搜索字符串，以列表类型返回全部能匹配的子串</p><p>参数同上。</p><p><strong>注意</strong>：返回的是列表形式，每个元素为匹配成功的字符串。</p><h3 id="4、re-split-pattern-string-maxsplit-0-flags-0"><a href="#4、re-split-pattern-string-maxsplit-0-flags-0" class="headerlink" title="4、re.split(pattern, string, maxsplit=0, flags=0)"></a>4、re.split(<strong>pattern</strong>, <strong>string</strong>, <strong>maxsplit=0</strong>, <strong>flags=0</strong>)</h3><p>将一个字符串按照正则表达式匹配结果进行分割，返回列表类型</p><p>参数：</p><ul><li><strong>maxsplit</strong>: 最大分割数，剩余部分作为最后一个元素输出</li></ul><p><strong>举例</strong>：</p><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/7.png" class><h3 id="5、re-finditer-pattern-string-flags-0"><a href="#5、re-finditer-pattern-string-flags-0" class="headerlink" title="5、re.finditer(pattern, string, flags=0)"></a>5、re.finditer(<strong>pattern</strong>, <strong>string</strong>, <strong>flags=0</strong>)</h3><p>搜索字符串，返回一个匹配结果的迭代类型，每个迭代元素是match对象</p><h3 id="6、re-sub-pattern-repl-string-count-0-flags-0"><a href="#6、re-sub-pattern-repl-string-count-0-flags-0" class="headerlink" title="6、re.sub(pattern, repl, string, count=0, flags=0)"></a>6、re.sub(<strong>pattern</strong>, <strong>repl</strong>, <strong>string</strong>, <strong>count=0</strong>, <strong>flags=0</strong>)</h3><p>在一个字符串中替换所有匹配正则表达式的子串返回替换后的字符串</p><p>参数：</p><ul><li><strong>repl</strong> : 替换匹配字符串的字符串</li><li><strong>count</strong> : 匹配的最大替换次数</li></ul><p><strong>举例</strong></p><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/8.png" class><h2 id="Re库的另一种等价用法"><a href="#Re库的另一种等价用法" class="headerlink" title="Re库的另一种等价用法"></a>Re库的另一种等价用法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 函数式用法：一次性操作</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>rst = re.search(<span class="string">r'[1‐9]\d&#123;5&#125;'</span>, <span class="string">'BIT 100081'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上下两种方法等价</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 面向对象用法：编译后的多次操作</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pat = re.compile(<span class="string">r'[1‐9]\d&#123;5&#125;'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>rst = pat.search(<span class="string">'BIT 100081'</span>)</span><br></pre></td></tr></table></figure><p>为此介绍如下方法：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regex = re.compile(pattern, flags=<span class="number">0</span>)</span><br></pre></td></tr></table></figure><p>将正则表达式的字符串形式编译成正则表达式对象 <code>regex</code>。</p><p>然后结合相应的六种方法。</p><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/9.png" class><h1 id="Re库的Match对象"><a href="#Re库的Match对象" class="headerlink" title="Re库的Match对象"></a>Re库的Match对象</h1><p>Match对象是一次匹配的结果，包含匹配的很多信息</p><h2 id="Match对象的属性"><a href="#Match对象的属性" class="headerlink" title="Match对象的属性"></a>Match对象的属性</h2><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/10.png" class><h2 id="Match对象的方法"><a href="#Match对象的方法" class="headerlink" title="Match对象的方法"></a>Match对象的方法</h2><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/11.png" class><p><strong>实例：</strong></p><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/12.png" class><h1 id="Re库的贪婪匹配和最小匹配"><a href="#Re库的贪婪匹配和最小匹配" class="headerlink" title="Re库的贪婪匹配和最小匹配"></a>Re库的贪婪匹配和最小匹配</h1><h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><p>同时匹配长短不同的多项，返回哪一个呢？</p><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/13.png" class><h2 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>match = re.search(<span class="string">r'PY.*N'</span>, <span class="string">'PYANBNCNDN'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>match.group(<span class="number">0</span>)</span><br><span class="line"><span class="string">'PYANBNCNDN'</span></span><br></pre></td></tr></table></figure><p>Re库默认采用贪婪匹配，即输出匹配最长的子串</p><h2 id="最小匹配"><a href="#最小匹配" class="headerlink" title="最小匹配"></a>最小匹配</h2><p>加操作符<code>?</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>match = re.search(<span class="string">r'PY.*?N'</span>, <span class="string">'PYANBNCNDN'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>match.group(<span class="number">0</span>)</span><br><span class="line"><span class="string">'PYAN'</span></span><br></pre></td></tr></table></figure><h2 id="最小匹配操作符"><a href="#最小匹配操作符" class="headerlink" title="最小匹配操作符"></a>最小匹配操作符</h2><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/14.png" class><p>只要长度输出可能不同的，都可以通过在操作符后增加<code>?</code>变成最小匹配</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><img src="/2020/07/01/Python%E7%88%AC%E8%99%AB-05/15.png" class>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本篇总结 &lt;strong&gt;正则&lt;/strong&gt; 在python爬虫中的应用。&lt;/p&gt;
     
     </summary>
     
