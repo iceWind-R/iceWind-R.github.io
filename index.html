@@ -204,6 +204,169 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang01.jpg">
+      <meta itemprop="name" content="大雪初晴丶">
+      <meta itemprop="description" content="一个热爱编程的大二小白">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Thorine">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">C++文本操作</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-09 09:09:40 / 修改时间：12:22:05" itemprop="dateCreated datePublished" datetime="2020-09-09T09:09:40+08:00">2020-09-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="post-meta-item leancloud_visitors" data-flag-title="C++文本操作" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>693</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本篇总结 C++ 的文本操作，即C++文件和流的概念。</p>
+<hr>
+<p>到目前为止，我们使用了iostream标准库，它提供了cin 和 cout 方法分别用于从<strong>标准输入读取流</strong>和向<strong>标准输入写入流</strong>。</p>
+<p>如何从<strong>标准输入读取流</strong>和向<strong>标准输入写入流</strong>？这就需要用到 C++ 中另一个标准库fstream，它定义了三个新的数据类型：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ofstream</td>
+<td>该数据类型表示输出文件流，用于创建文件并向文件写入信息</td>
+</tr>
+<tr>
+<td>ifstream</td>
+<td>该数据类型表示输入文件流，用于从文件读取信息</td>
+</tr>
+<tr>
+<td>fstream</td>
+<td>该数据类型通常表示文件流，且同时具有 ofstream 和 ifstream 两种功能，这意味着它可以创建文件，向文件写入信息，从文件读取信息。</td>
+</tr>
+</tbody></table>
+<p>要在C++中进行文件处理，必须在 C++ 代码中包含头文件 <code>&lt;iostream&gt;</code> 和 <code>&lt;fstream&gt;</code></p>
+<h1 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h1><p>在从文件读取信息或者向文件写入信息之前，必须先打开文件。<strong>ofstream</strong> 和 <strong>fstream</strong>对象都可以用来打开文件进行<strong>写</strong>操作；如果只需要打开文件进行<strong>读</strong>操作，则使用 <strong>ifstream</strong> 对象。</p>
+<p>下面是open()函数的标准语法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">open</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *fileName, ios::openmode mode)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>在这里，open()成员函数的第一参数指定要打开的文件名字，第二个参数指定打开文件的模式。</p>
+<table>
+<thead>
+<tr>
+<th>模式标志</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ios::app</td>
+<td>追加模式，所有写入都追加到文件末尾</td>
+</tr>
+<tr>
+<td>ios::ate</td>
+<td>文件打开后定位到文件末尾</td>
+</tr>
+<tr>
+<td>ios::in</td>
+<td>打开文件用于读取</td>
+</tr>
+<tr>
+<td>ios::out</td>
+<td>打开文件用于写入</td>
+</tr>
+<tr>
+<td>ios::trunc</td>
+<td>如果该文件已经存在，其内容将在打开之前被截断，即把文件长度设为0.</td>
+</tr>
+</tbody></table>
+<p>可以把以上两种或两种以上的模式结合使用。例如：如果想要以写入模式打开文件，并希望截断文件，以防文件已经存在，那么可以使用下面的语法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ofstream outFile;</span><br><span class="line">outFile.<span class="built_in">open</span>(<span class="string">"file.dat"</span>, ios::out | ios::trunc );</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2020/09/04/%E5%81%9C%E6%AD%87-%E5%9C%A8%E6%AD%A4%E9%9D%A0%E5%B2%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1224,122 +1387,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang01.jpg">
-      <meta itemprop="name" content="大雪初晴丶">
-      <meta itemprop="description" content="一个热爱编程的大二小白">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Thorine">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/" class="post-title-link" itemprop="url">大数据_03(HDFS基础)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-09 09:45:01" itemprop="dateCreated datePublished" datetime="2020-08-09T09:45:01+08:00">2020-08-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-10 18:11:46" itemprop="dateModified" datetime="2020-08-10T18:11:46+08:00">2020-08-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/" class="post-meta-item leancloud_visitors" data-flag-title="大数据_03(HDFS基础)" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>15 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本篇开始学习大数据Hadoop技术中的<strong>核心</strong>之一 —— HDFS。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/09/%E5%A4%A7%E6%95%B0%E6%8D%AE-03/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1412,20 +1459,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1478,12 +1525,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">99k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:27</span>
+    <span title="站点阅读时长">5:29</span>
 </div>
 
 <!--

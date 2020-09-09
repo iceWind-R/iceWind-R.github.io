@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-09-04T05:00:38.740Z</updated>
+  <updated>2020-09-09T04:22:05.212Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++文本操作</title>
+    <link href="http://icewind-r.github.io/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
+    <id>http://icewind-r.github.io/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/</id>
+    <published>2020-09-09T01:09:40.000Z</published>
+    <updated>2020-09-09T04:22:05.212Z</updated>
+    
+    <content type="html"><![CDATA[<p>本篇总结 C++ 的文本操作，即C++文件和流的概念。</p><hr><p>到目前为止，我们使用了iostream标准库，它提供了cin 和 cout 方法分别用于从<strong>标准输入读取流</strong>和向<strong>标准输入写入流</strong>。</p><p>如何从<strong>标准输入读取流</strong>和向<strong>标准输入写入流</strong>？这就需要用到 C++ 中另一个标准库fstream，它定义了三个新的数据类型：</p><table><thead><tr><th>数据类型</th><th>描述</th></tr></thead><tbody><tr><td>ofstream</td><td>该数据类型表示输出文件流，用于创建文件并向文件写入信息</td></tr><tr><td>ifstream</td><td>该数据类型表示输入文件流，用于从文件读取信息</td></tr><tr><td>fstream</td><td>该数据类型通常表示文件流，且同时具有 ofstream 和 ifstream 两种功能，这意味着它可以创建文件，向文件写入信息，从文件读取信息。</td></tr></tbody></table><p>要在C++中进行文件处理，必须在 C++ 代码中包含头文件 <code>&lt;iostream&gt;</code> 和 <code>&lt;fstream&gt;</code></p><h1 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h1><p>在从文件读取信息或者向文件写入信息之前，必须先打开文件。<strong>ofstream</strong> 和 <strong>fstream</strong>对象都可以用来打开文件进行<strong>写</strong>操作；如果只需要打开文件进行<strong>读</strong>操作，则使用 <strong>ifstream</strong> 对象。</p><p>下面是open()函数的标准语法。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">open</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *fileName, ios::openmode mode)</span></span>;</span><br></pre></td></tr></table></figure><p>在这里，open()成员函数的第一参数指定要打开的文件名字，第二个参数指定打开文件的模式。</p><table><thead><tr><th>模式标志</th><th>描述</th></tr></thead><tbody><tr><td>ios::app</td><td>追加模式，所有写入都追加到文件末尾</td></tr><tr><td>ios::ate</td><td>文件打开后定位到文件末尾</td></tr><tr><td>ios::in</td><td>打开文件用于读取</td></tr><tr><td>ios::out</td><td>打开文件用于写入</td></tr><tr><td>ios::trunc</td><td>如果该文件已经存在，其内容将在打开之前被截断，即把文件长度设为0.</td></tr></tbody></table><p>可以把以上两种或两种以上的模式结合使用。例如：如果想要以写入模式打开文件，并希望截断文件，以防文件已经存在，那么可以使用下面的语法：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ofstream outFile;</span><br><span class="line">outFile.<span class="built_in">open</span>(<span class="string">"file.dat"</span>, ios::out | ios::trunc );</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本篇总结 C++ 的文本操作，即C++文件和流的概念。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;到目前为止，我们使用了iostream标准库，它提供了cin 和 cout 方法分别用于从&lt;strong&gt;标准输入读取流&lt;/strong&gt;和向&lt;strong&gt;标准输入写入流&lt;/strong&gt;。&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://iceWind-R.github.io/categories/C/"/>
+    
+    
+      <category term="文本操作" scheme="http://iceWind-R.github.io/tags/%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>停歇_在此靠岸</title>
@@ -451,31 +479,6 @@
     <summary type="html">
     
       &lt;p&gt;本篇是python&lt;strong&gt;框架Scrapy&lt;/strong&gt;的初步使用。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://iceWind-R.github.io/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://iceWind-R.github.io/tags/Python/"/>
-    
-      <category term="爬虫" scheme="http://iceWind-R.github.io/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python爬虫_06(Scrapy介绍)</title>
-    <link href="http://icewind-r.github.io/2020/07/02/Python%E7%88%AC%E8%99%AB-06/"/>
-    <id>http://icewind-r.github.io/2020/07/02/Python%E7%88%AC%E8%99%AB-06/</id>
-    <published>2020-07-02T06:08:15.000Z</published>
-    <updated>2020-08-09T01:55:38.965Z</updated>
-    
-    <content type="html"><![CDATA[<p>本篇总结python爬虫的重要<strong>框架</strong>——<strong>Scrapy</strong>。</p><a id="more"></a><hr><h1 id="Scrapy爬虫框架介绍"><a href="#Scrapy爬虫框架介绍" class="headerlink" title="Scrapy爬虫框架介绍"></a>Scrapy爬虫框架介绍</h1><p>Scrapy是一个快速功能强大的网络爬虫框架。</p><h2 id="Scrapy的安装"><a href="#Scrapy的安装" class="headerlink" title="Scrapy的安装"></a>Scrapy的安装</h2><p>以管理员身份运行Scrapy平台，输入以下命令即可。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install scrapy</span><br></pre></td></tr></table></figure><h2 id="Scrapy爬虫框架结构"><a href="#Scrapy爬虫框架结构" class="headerlink" title="Scrapy爬虫框架结构"></a>Scrapy爬虫框架结构</h2><p>Scrapy不是一个函数功能库，而是一个爬虫框架。</p><h3 id="什么是爬虫框架？"><a href="#什么是爬虫框架？" class="headerlink" title="什么是爬虫框架？"></a>什么是爬虫框架？</h3><ul><li>爬虫框架是实现爬虫功能的一个软件结构和功能组件集合。 </li><li>爬虫框架是一个半成品，能够帮助用户实现专业网络爬虫。</li></ul><h3 id="5-2-结构"><a href="#5-2-结构" class="headerlink" title="5+2 结构"></a>5+2 结构</h3><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/1.png" class><h3 id="数据流的三种路径"><a href="#数据流的三种路径" class="headerlink" title="数据流的三种路径"></a>数据流的三种路径</h3><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/2.png" class><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/3.png" class><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/4.png" class><h3 id="数据流的出入口"><a href="#数据流的出入口" class="headerlink" title="数据流的出入口"></a>数据流的出入口</h3><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/5.png" class><p>需要注意的是：scrapy的五个模块中，DOWNLOADER、SCHEDULER和ENGINE三个已经实现，用户只需编写配置SPIDERS和ITEM PIPELINES两个模块即可。</p><h1 id="Scrapy爬虫框架解析"><a href="#Scrapy爬虫框架解析" class="headerlink" title="Scrapy爬虫框架解析"></a>Scrapy爬虫框架解析</h1><p>主要是对五个模块和两个中间键。</p><h2 id="Engine"><a href="#Engine" class="headerlink" title="Engine"></a>Engine</h2><p>(1) 控制所有模块之间的数据流</p><p>(2) 根据条件触发事件 </p><p>不需要用户修改</p><h2 id="Downloader"><a href="#Downloader" class="headerlink" title="Downloader"></a>Downloader</h2><p>根据请求下载网页 不需要用户修改</p><h2 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a>Scheduler</h2><p>对所有爬取请求进行调度管理 不需要用户修改</p><h2 id="Downloader-Middleware"><a href="#Downloader-Middleware" class="headerlink" title="Downloader Middleware"></a>Downloader Middleware</h2><p><strong>目的</strong>：实施Engine、Scheduler和Downloader 之间进行用户可配置的控制 </p><p><strong>功能</strong>：修改、丢弃、新增请求或响应 </p><p>用户可以编写配置代码</p><h2 id="Spider"><a href="#Spider" class="headerlink" title="Spider"></a>Spider</h2><p>(1) 解析Downloader返回的响应（Response）</p><p>(2) 产生爬取项（scraped item） </p><p>(3) 产生额外的爬取请求（Request） </p><p>需要用户编写配置代码</p><h2 id="Item-Pipelines"><a href="#Item-Pipelines" class="headerlink" title="Item Pipelines"></a>Item Pipelines</h2><p>(1) 以流水线方式处理Spider产生的爬取项 </p><p>(2) 由一组操作顺序组成，类似流水线，每个操 作是一个Item Pipeline类型 </p><p>(3) 可能操作包括：清理、检验和查重爬取项中 的HTML数据、将数据存储到数据库 </p><p>需要用户编写配置代码</p><h2 id="Spider-Middleware"><a href="#Spider-Middleware" class="headerlink" title="Spider Middleware"></a>Spider Middleware</h2><p><strong>目的</strong>：对请求和爬取项的再处理 </p><p><strong>功能</strong>：修改、丢弃、新增请求或爬取项 </p><p>用户可以编写配置代码</p><h1 id="requests库和Scrapy爬虫的比较"><a href="#requests库和Scrapy爬虫的比较" class="headerlink" title="requests库和Scrapy爬虫的比较"></a>requests库和Scrapy爬虫的比较</h1><h2 id="相同点："><a href="#相同点：" class="headerlink" title="相同点："></a>相同点：</h2><ul><li><p>两者都可以进行页面请求和爬取，Python爬虫的两个重要技术路线 </p></li><li><p>两者可用性都好，文档丰富，入门简单 </p></li><li><p>两者都没有处理js、提交表单、应对验证码等功能（可扩展）</p></li></ul><h2 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h2><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/6.png" class><h2 id="如何选择呢？"><a href="#如何选择呢？" class="headerlink" title="如何选择呢？"></a>如何选择呢？</h2><p>面临一个爬取需求，我们该选用requests库还是Scrapy库呢？</p><ul><li>非常小的需求，requests库 </li><li>不太小的需求，Scrapy框架 </li><li>定制程度很高的需求（不考虑规模），自搭框架，requests &gt; Scrapy</li></ul><h1 id="Scrapy爬虫的常用命令"><a href="#Scrapy爬虫的常用命令" class="headerlink" title="Scrapy爬虫的常用命令"></a>Scrapy爬虫的常用命令</h1><p>Scrapy是为持续运行设计的专业爬虫框架，提供操作的Scrapy命令行，主要通过cmd命令行实现。</p><h2 id="Scrapy命令行格式"><a href="#Scrapy命令行格式" class="headerlink" title="Scrapy命令行格式"></a>Scrapy命令行格式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;scrapy &lt;command&gt; [options] [args]</span><br></pre></td></tr></table></figure><h2 id="Scrapy常用命令"><a href="#Scrapy常用命令" class="headerlink" title="Scrapy常用命令"></a>Scrapy常用命令</h2><img src="/2020/07/02/Python%E7%88%AC%E8%99%AB-06/7.png" class><h2 id="为什么Scrapy采用命令行创建和运行爬虫？"><a href="#为什么Scrapy采用命令行创建和运行爬虫？" class="headerlink" title="为什么Scrapy采用命令行创建和运行爬虫？"></a>为什么Scrapy采用命令行创建和运行爬虫？</h2><ul><li><p>命令行（不是图形界面）更容易自动化，适合脚本控制</p></li><li><p>本质上，Scrapy是给程序员用的，功能（而不是界面）更重要</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本篇总结python爬虫的重要&lt;strong&gt;框架&lt;/strong&gt;——&lt;strong&gt;Scrapy&lt;/strong&gt;。&lt;/p&gt;
     
     </summary>
     

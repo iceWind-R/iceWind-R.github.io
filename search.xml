@@ -7763,4 +7763,76 @@
         <tag>idea</tag>
       </tags>
   </entry>
+  <entry>
+    <title>C++文本操作</title>
+    <url>/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>本篇总结 C++ 的文本操作，即C++文件和流的概念。</p>
+<hr>
+<p>到目前为止，我们使用了iostream标准库，它提供了cin 和 cout 方法分别用于从<strong>标准输入读取流</strong>和向<strong>标准输入写入流</strong>。</p>
+<p>如何从<strong>标准输入读取流</strong>和向<strong>标准输入写入流</strong>？这就需要用到 C++ 中另一个标准库fstream，它定义了三个新的数据类型：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ofstream</td>
+<td>该数据类型表示输出文件流，用于创建文件并向文件写入信息</td>
+</tr>
+<tr>
+<td>ifstream</td>
+<td>该数据类型表示输入文件流，用于从文件读取信息</td>
+</tr>
+<tr>
+<td>fstream</td>
+<td>该数据类型通常表示文件流，且同时具有 ofstream 和 ifstream 两种功能，这意味着它可以创建文件，向文件写入信息，从文件读取信息。</td>
+</tr>
+</tbody></table>
+<p>要在C++中进行文件处理，必须在 C++ 代码中包含头文件 <code>&lt;iostream&gt;</code> 和 <code>&lt;fstream&gt;</code></p>
+<h1 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h1><p>在从文件读取信息或者向文件写入信息之前，必须先打开文件。<strong>ofstream</strong> 和 <strong>fstream</strong>对象都可以用来打开文件进行<strong>写</strong>操作；如果只需要打开文件进行<strong>读</strong>操作，则使用 <strong>ifstream</strong> 对象。</p>
+<p>下面是open()函数的标准语法。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">open</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *fileName, ios::openmode mode)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>在这里，open()成员函数的第一参数指定要打开的文件名字，第二个参数指定打开文件的模式。</p>
+<table>
+<thead>
+<tr>
+<th>模式标志</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ios::app</td>
+<td>追加模式，所有写入都追加到文件末尾</td>
+</tr>
+<tr>
+<td>ios::ate</td>
+<td>文件打开后定位到文件末尾</td>
+</tr>
+<tr>
+<td>ios::in</td>
+<td>打开文件用于读取</td>
+</tr>
+<tr>
+<td>ios::out</td>
+<td>打开文件用于写入</td>
+</tr>
+<tr>
+<td>ios::trunc</td>
+<td>如果该文件已经存在，其内容将在打开之前被截断，即把文件长度设为0.</td>
+</tr>
+</tbody></table>
+<p>可以把以上两种或两种以上的模式结合使用。例如：如果想要以写入模式打开文件，并希望截断文件，以防文件已经存在，那么可以使用下面的语法：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ofstream outFile;</span><br><span class="line">outFile.<span class="built_in">open</span>(<span class="string">"file.dat"</span>, ios::out | ios::trunc );</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>文本操作</tag>
+      </tags>
+  </entry>
 </search>

@@ -22,20 +22,19 @@
     var CONFIG = {"hostname":"icewind-r.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本篇是python中 CrawlSpider 的介绍，还有Scrapy Shell、request 和 response 对象、发送POST请求 等。">
+  <meta name="description" content="本篇总结 C++ 的文本操作，即C++文件和流的概念。  到目前为止，我们使用了iostream标准库，它提供了cin 和 cout 方法分别用于从标准输入读取流和向标准输入写入流。 如何从标准输入读取流和向标准输入写入流？这就需要用到 C++ 中另一个标准库fstream，它定义了三个新的数据类型：    数据类型 描述    ofstream 该数据类型表示输出文件流，用于创建文件并向文件写入">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python爬虫_09(CrawlSpider)">
-<meta property="og:url" content="http://icewind-r.github.io/2020/07/09/Python%E7%88%AC%E8%99%AB-09/index.html">
+<meta property="og:title" content="C++文本操作">
+<meta property="og:url" content="http://icewind-r.github.io/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="Thorine">
-<meta property="og:description" content="本篇是python中 CrawlSpider 的介绍，还有Scrapy Shell、request 和 response 对象、发送POST请求 等。">
-<meta property="article:published_time" content="2020-07-09T07:43:20.000Z">
-<meta property="article:modified_time" content="2020-08-09T01:55:47.294Z">
+<meta property="og:description" content="本篇总结 C++ 的文本操作，即C++文件和流的概念。  到目前为止，我们使用了iostream标准库，它提供了cin 和 cout 方法分别用于从标准输入读取流和向标准输入写入流。 如何从标准输入读取流和向标准输入写入流？这就需要用到 C++ 中另一个标准库fstream，它定义了三个新的数据类型：    数据类型 描述    ofstream 该数据类型表示输出文件流，用于创建文件并向文件写入">
+<meta property="article:published_time" content="2020-09-09T01:09:40.000Z">
+<meta property="article:modified_time" content="2020-09-09T04:22:05.212Z">
 <meta property="article:author" content="大雪初晴丶">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="爬虫">
+<meta property="article:tag" content="文本操作">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://icewind-r.github.io/2020/07/09/Python%E7%88%AC%E8%99%AB-09/">
+<link rel="canonical" href="http://icewind-r.github.io/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/">
 
 
 <script id="page-configurations">
@@ -47,7 +46,7 @@
   };
 </script>
 
-  <title>Python爬虫_09(CrawlSpider) | Thorine</title>
+  <title>C++文本操作 | Thorine</title>
   
 
 
@@ -207,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2020/07/09/Python%E7%88%AC%E8%99%AB-09/">
+    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang01.jpg">
@@ -220,7 +219,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Python爬虫_09(CrawlSpider)
+          C++文本操作
         </h1>
 
         <div class="post-meta">
@@ -229,28 +228,22 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-07-09 15:43:20" itemprop="dateCreated datePublished" datetime="2020-07-09T15:43:20+08:00">2020-07-09</time>
+              <time title="创建时间：2020-09-09 09:09:40 / 修改时间：12:22:05" itemprop="dateCreated datePublished" datetime="2020-09-09T09:09:40+08:00">2020-09-09</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-09 09:55:47" itemprop="dateModified" datetime="2020-08-09T09:55:47+08:00">2020-08-09</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/07/09/Python%E7%88%AC%E8%99%AB-09/" class="post-meta-item leancloud_visitors" data-flag-title="Python爬虫_09(CrawlSpider)" title="阅读次数">
+            <span id="/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="post-meta-item leancloud_visitors" data-flag-title="C++文本操作" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -272,8 +265,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/07/09/Python%E7%88%AC%E8%99%AB-09/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/09/Python%E7%88%AC%E8%99%AB-09/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -283,14 +276,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>693</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -302,64 +295,67 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本篇是python中 <strong>CrawlSpider</strong> 的介绍，还有<strong>Scrapy Shell</strong>、<strong>request 和 response</strong> 对象、<strong>发送POST请求</strong> 等。</p>
-<a id="more"></a>
-
+        <p>本篇总结 C++ 的文本操作，即C++文件和流的概念。</p>
 <hr>
-<h1 id="CrawlSpider"><a href="#CrawlSpider" class="headerlink" title="CrawlSpider"></a>CrawlSpider</h1><p>在之前的爬虫中定义了新的功能，可以定义爬取url的规则，以后scrapy碰到满足条件的url都进行爬取，而不用手动的<code>yield Request</code>。</p>
-<h2 id="创建CrawlSpider"><a href="#创建CrawlSpider" class="headerlink" title="创建CrawlSpider"></a>创建CrawlSpider</h2><p>之前创建爬虫的方式是通过 <code>scrapy genspider [爬虫名] [域名]</code> 的方式创建的。如果想要创建<code>CrawlSpider</code>爬虫，则通过以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy genspider -t crawl [爬虫名] [域名]</span><br></pre></td></tr></table></figure>
+<p>到目前为止，我们使用了iostream标准库，它提供了cin 和 cout 方法分别用于从<strong>标准输入读取流</strong>和向<strong>标准输入写入流</strong>。</p>
+<p>如何从<strong>标准输入读取流</strong>和向<strong>标准输入写入流</strong>？这就需要用到 C++ 中另一个标准库fstream，它定义了三个新的数据类型：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ofstream</td>
+<td>该数据类型表示输出文件流，用于创建文件并向文件写入信息</td>
+</tr>
+<tr>
+<td>ifstream</td>
+<td>该数据类型表示输入文件流，用于从文件读取信息</td>
+</tr>
+<tr>
+<td>fstream</td>
+<td>该数据类型通常表示文件流，且同时具有 ofstream 和 ifstream 两种功能，这意味着它可以创建文件，向文件写入信息，从文件读取信息。</td>
+</tr>
+</tbody></table>
+<p>要在C++中进行文件处理，必须在 C++ 代码中包含头文件 <code>&lt;iostream&gt;</code> 和 <code>&lt;fstream&gt;</code></p>
+<h1 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h1><p>在从文件读取信息或者向文件写入信息之前，必须先打开文件。<strong>ofstream</strong> 和 <strong>fstream</strong>对象都可以用来打开文件进行<strong>写</strong>操作；如果只需要打开文件进行<strong>读</strong>操作，则使用 <strong>ifstream</strong> 对象。</p>
+<p>下面是open()函数的标准语法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">open</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *fileName, ios::openmode mode)</span></span>;</span><br></pre></td></tr></table></figure>
 
-<h2 id="LinkExtractors链接提取器"><a href="#LinkExtractors链接提取器" class="headerlink" title="LinkExtractors链接提取器"></a>LinkExtractors链接提取器</h2><p>使用<code>LinkExtractors</code> 可以不用我们手动提取想要的URL，然后发送请求。这些工作可以交给<code>LinkExtractors</code> ，它会在所有爬的页面中找到满足规则的URL，实现自动爬取。下面是简单介绍：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">scrapy</span>.<span class="title">linkextractors</span>.<span class="title">LinkExtractor</span><span class="params">(</span></span></span><br><span class="line"><span class="class"><span class="params">    allow = <span class="params">()</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    deny = <span class="params">()</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    allow_domains = <span class="params">()</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    deny_domains = <span class="params">()</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    deny_extensions = None,</span></span></span><br><span class="line"><span class="class"><span class="params">    restrict_xpaths = <span class="params">()</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    tags = <span class="params">(<span class="string">'a'</span>, <span class="string">'area'</span>)</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    attrs = <span class="params">(<span class="string">'href'</span>)</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    canonicalize = True,</span></span></span><br><span class="line"><span class="class"><span class="params">    unique = True,</span></span></span><br><span class="line"><span class="class"><span class="params">    process_value = None</span></span></span><br><span class="line"><span class="class"><span class="params">)</span></span></span><br></pre></td></tr></table></figure>
+<p>在这里，open()成员函数的第一参数指定要打开的文件名字，第二个参数指定打开文件的模式。</p>
+<table>
+<thead>
+<tr>
+<th>模式标志</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ios::app</td>
+<td>追加模式，所有写入都追加到文件末尾</td>
+</tr>
+<tr>
+<td>ios::ate</td>
+<td>文件打开后定位到文件末尾</td>
+</tr>
+<tr>
+<td>ios::in</td>
+<td>打开文件用于读取</td>
+</tr>
+<tr>
+<td>ios::out</td>
+<td>打开文件用于写入</td>
+</tr>
+<tr>
+<td>ios::trunc</td>
+<td>如果该文件已经存在，其内容将在打开之前被截断，即把文件长度设为0.</td>
+</tr>
+</tbody></table>
+<p>可以把以上两种或两种以上的模式结合使用。例如：如果想要以写入模式打开文件，并希望截断文件，以防文件已经存在，那么可以使用下面的语法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ofstream outFile;</span><br><span class="line">outFile.<span class="built_in">open</span>(<span class="string">"file.dat"</span>, ios::out | ios::trunc );</span><br></pre></td></tr></table></figure>
 
-<p>主要参数讲解：</p>
-<ul>
-<li>allow：允许的URL，所有满足里面正则表达式的URL都会被提取</li>
-<li>allow_domains：允许的域名，只有这里指定的域名的URL才会被提取</li>
-</ul>
-<h2 id="Rule规则类"><a href="#Rule规则类" class="headerlink" title="Rule规则类"></a>Rule规则类</h2><p>定义爬虫的规则类。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">scrapy</span>.<span class="title">spiders</span>.<span class="title">Rule</span><span class="params">(</span></span></span><br><span class="line"><span class="class"><span class="params">    link_extractor,</span></span></span><br><span class="line"><span class="class"><span class="params">    callback = None,</span></span></span><br><span class="line"><span class="class"><span class="params">    cb_kwargs = None,</span></span></span><br><span class="line"><span class="class"><span class="params">    follow = None,</span></span></span><br><span class="line"><span class="class"><span class="params">    process_links = None,</span></span></span><br><span class="line"><span class="class"><span class="params">    process_request = None</span></span></span><br><span class="line"><span class="class"><span class="params">)</span></span></span><br></pre></td></tr></table></figure>
-
-<p>主要参数讲解：</p>
-<ul>
-<li>link_extractor：一个<code>LinkExtractor</code>对象，用于定义爬取规则。</li>
-<li>callback：满足规则的URL，应该执行哪个回调函数。</li>
-<li>follow：根据该规则，指定response中提取的链接是否需要跟进。</li>
-<li>process_links：从link_extractor中获取的链接会传递给这个函数，用来过滤不需要爬取的链接。</li>
-</ul>
-<h1 id="Scrapy-Shell"><a href="#Scrapy-Shell" class="headerlink" title="Scrapy Shell"></a>Scrapy Shell</h1><p>可以简单的运行Xpath、BeautifulSoup、正则表达式或CSS选择器等，来判断我们的提取规则是否正确。</p>
-<p>在 cmd（或pycharm的Terminal）进入scrapy爬虫的工程目录（可以读取对应项目里的配置信息，若不进入，则只能运行一些通用测试，平常使用足够），运行下述代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy shell 域名</span><br></pre></td></tr></table></figure>
-
-<h1 id="scrapy-中的-request-和-response-对象"><a href="#scrapy-中的-request-和-response-对象" class="headerlink" title="scrapy 中的 request 和 response 对象"></a>scrapy 中的 request 和 response 对象</h1><h2 id="Request对象"><a href="#Request对象" class="headerlink" title="Request对象"></a>Request对象</h2><p>request对象在我们写爬虫，爬取一页的数据，需要重新发送一个请求的时候调用。这个类需要传递一些参数，其中比较常用的参数有：</p>
-<ul>
-<li>url：发送请求的url</li>
-<li>callback：在下载器完成相应的下载任务后执行的回调函数</li>
-<li>method：默认为GET方法</li>
-<li>headers：请求头，固定部分放入setting.py 中，需要改变的再可在发送时指定</li>
-<li>meta：比较常用，用于在不同的请求之间传递数据</li>
-<li>encoding：默认utf-8</li>
-<li>dot_filter：表示不由调度器过滤，在执行多次重复的请求时用的比较多</li>
-<li>errback：在发生错误时执行的函数</li>
-</ul>
-<h2 id="Response对象"><a href="#Response对象" class="headerlink" title="Response对象"></a>Response对象</h2><p>Response对象一般是由scrapy自动生成的，因此我们只需关系如何使用。它有很多属性，主要用来提取数据，依次介绍：</p>
-<ul>
-<li><p>meta：从请求穿过来的meta属性，可以用来保持多个请求之间的数据连接</p>
-</li>
-<li><p>encoding：返回字符串编码和解码格式</p>
-</li>
-<li><p>text：将返回来的数据作为Unicode字符串返回</p>
-</li>
-<li><p>body：将返回来的数据作为Bytes字符串返回</p>
-</li>
-<li><p>xpath：xpath选择器</p>
-</li>
-<li><p>css：css选择器</p>
-</li>
-</ul>
-<h1 id="发送POST请求"><a href="#发送POST请求" class="headerlink" title="发送POST请求"></a>发送POST请求</h1><p>有时我们想要在请求数据的时候发送POST请求，那么这时候需要使用 <code>Request</code> 的子类 <code>FormRequest</code> 来实现（专门为表单提交设计的类）。如果想要在爬虫一开始的时候就发送POST请求，那么需要在爬虫类中重写 <code>start_requests(self)</code> 方法，并且不再调用 <code>start_url</code> 里的URL。</p>
-<h2 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h2><h3 id="案例一：模拟人人网登录"><a href="#案例一：模拟人人网登录" class="headerlink" title="案例一：模拟人人网登录"></a>案例一：模拟人人网登录</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RenrenSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'renren'</span></span><br><span class="line">    allowed_domains = [<span class="string">'renren.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://renren.com/'</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 模拟登录，重写该方法(因为在父类中，该方法默认发送GET请求)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></span><br><span class="line">        url = <span class="string">'http://www.renren.com/PLogin.do'</span></span><br><span class="line">        data = &#123;<span class="string">'email'</span>:<span class="string">'13287857692'</span>, <span class="string">'password'</span>:<span class="string">'dongao123'</span>&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 专门发送POST请求，并且携带表单数据</span></span><br><span class="line">        request = scrapy.FormRequest(url, formdata = data, callback = self.parse_page)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">yield</span> request</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_page</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="comment"># with open ('renren.html', 'w', encoding='utf-8') as f:</span></span><br><span class="line">        <span class="comment">#     f.write(response.text)</span></span><br><span class="line">        <span class="comment"># 请求只有登录才能访问的个人主页</span></span><br><span class="line">        request = scrapy.Request(url=<span class="string">'http://www.renren.com/974726184/profile'</span>,callback=self.parse_profile)</span><br><span class="line">        <span class="keyword">yield</span> request</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_profile</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'myprofile.html'</span>, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f :</span><br><span class="line">            f.write(response.text)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -395,8 +391,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
-              <a href="/tags/%E7%88%AC%E8%99%AB/" rel="tag"><i class="fa fa-tag"></i> 爬虫</a>
+              <a href="/tags/%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/" rel="tag"><i class="fa fa-tag"></i> 文本操作</a>
           </div>
 
         
@@ -405,13 +400,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/07/%E7%BB%9D%E5%A2%83%E9%87%8C%E7%9A%84%E9%AB%98%E8%80%83/" rel="prev" title="The College Entrance Examination in Despair">
-      <i class="fa fa-chevron-left"></i> The College Entrance Examination in Despair
+    <a href="/2020/09/04/%E5%81%9C%E6%AD%87-%E5%9C%A8%E6%AD%A4%E9%9D%A0%E5%B2%B8/" rel="prev" title="停歇_在此靠岸">
+      <i class="fa fa-chevron-left"></i> 停歇_在此靠岸
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/27/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-01/" rel="next" title="Python数据分析_01">
-      Python数据分析_01 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -472,7 +464,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CrawlSpider"><span class="nav-number">1.</span> <span class="nav-text">CrawlSpider</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建CrawlSpider"><span class="nav-number">1.1.</span> <span class="nav-text">创建CrawlSpider</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LinkExtractors链接提取器"><span class="nav-number">1.2.</span> <span class="nav-text">LinkExtractors链接提取器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rule规则类"><span class="nav-number">1.3.</span> <span class="nav-text">Rule规则类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Scrapy-Shell"><span class="nav-number">2.</span> <span class="nav-text">Scrapy Shell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#scrapy-中的-request-和-response-对象"><span class="nav-number">3.</span> <span class="nav-text">scrapy 中的 request 和 response 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Request对象"><span class="nav-number">3.1.</span> <span class="nav-text">Request对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Response对象"><span class="nav-number">3.2.</span> <span class="nav-text">Response对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发送POST请求"><span class="nav-number">4.</span> <span class="nav-text">发送POST请求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模拟登录"><span class="nav-number">4.1.</span> <span class="nav-text">模拟登录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#案例一：模拟人人网登录"><span class="nav-number">4.1.1.</span> <span class="nav-text">案例一：模拟人人网登录</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#打开文件"><span class="nav-number">1.</span> <span class="nav-text">打开文件</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
