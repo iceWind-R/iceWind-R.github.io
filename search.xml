@@ -7767,8 +7767,12 @@
     <title>C++文本操作</title>
     <url>/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>本篇总结 C++ 的文本操作，即C++文件和流的概念。</p>
+<a id="more"></a>
+
 <hr>
 <h1 id="文件流"><a href="#文件流" class="headerlink" title="文件流"></a>文件流</h1><p>到目前为止，我们使用了iostream标准库，它提供了cin 和 cout 方法分别用于从<strong>标准输入读取流</strong>和向<strong>标准输入写入流</strong>。</p>
+<img src="/2020/09/09/C-%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/1.gif" class>
+
 <p>如何从<strong>标准输入读取流</strong>和向<strong>标准输入写入流</strong>？这就需要用到 C++ 中另一个标准库fstream，它定义了三个新的数据类型：</p>
 <table>
 <thead>
@@ -7824,17 +7828,20 @@
 <td>如果该文件已经存在，其内容将在打开之前被截断，即把文件长度设为0.</td>
 </tr>
 </tbody></table>
-<p>可以把以上两种或两种以上的模式结合使用。例如：如果想要以写入模式打开文件，并希望截断文件，以防文件已经存在，那么可以使用下面的语法：</p>
+<p>可以把以上两种或两种以上的模式结合使用，以“或”运算（“|”）的方式。例如：如果想要以写入模式打开文件，并希望截断文件，以防文件已经存在，那么可以使用下面的语法：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ofstream outFile;</span><br><span class="line">outFile.<span class="built_in">open</span>( <span class="string">"file.dat"</span>, ios::out | ios::trunc );</span><br></pre></td></tr></table></figure>
 
 <p>类似的，如果想要打开一个文件用于读写，可以使用下面的语法：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ifstream afile;</span><br><span class="line">afile.<span class="built_in">open</span>(<span class="string">"file.dat"</span>, ios::out | ios::in)</span><br></pre></td></tr></table></figure>
 
+<p>很多程序中，可能会碰到ofstream out(“Hello.txt”), ifstream in(“…”),fstream foi(“…”)这样的的使用，并没有显式的去调用open（）函数就进行文件的操作，直接调用了其默认的打开方式，因为在stream类的构造函数中调用了open()函数,并拥有同样的构造函数，所以在这里可以直接使用流对象进行文件的操作，默认方式如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">ofstream <span class="title">out</span><span class="params">(<span class="string">"..."</span>, ios::out)</span></span>;</span><br><span class="line"><span class="function">ifstream <span class="title">in</span><span class="params">(<span class="string">"..."</span>, ios::in)</span></span>;</span><br><span class="line"><span class="function">fstream <span class="title">foi</span><span class="params">(<span class="string">"..."</span>, ios::in|ios::out)</span></span>;</span><br></pre></td></tr></table></figure>
+
 <h2 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h2><p>使用close() 函数关闭打开的文件，它是 fstream，ifstream 和 ofstream 对象的一个成员。</p>
 <h2 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h2><p>我们使用 流插入运算符（ &lt;&lt; ）向文件写入信息。</p>
 <h2 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h2><p>我们使用 流提取运算符（ &gt;&gt; ）从文件读取信息。</p>
 <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>下面给出一个例子，读取hello.txt文件中的字符串，写入out.txt中：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="function">ifstream <span class="title">myfile</span><span class="params">(<span class="string">"G:\\C++ project\\Read\\hello.txt"</span>)</span></span>; </span><br><span class="line">    <span class="function">ofstream <span class="title">outfile</span><span class="params">(<span class="string">"G:\\C++ project\\Read\\out.txt"</span>, ios::app)</span></span>; </span><br><span class="line">    <span class="built_in">string</span> temp; </span><br><span class="line">    <span class="keyword">if</span> (!myfile.is_open()) </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"未成功打开文件"</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">while</span>(getline(myfile,temp)) </span><br><span class="line">    &#123; </span><br><span class="line">        outfile &lt;&lt; temp; </span><br><span class="line">        outfile &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    myfile.<span class="built_in">close</span>(); </span><br><span class="line">    outfile.<span class="built_in">close</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="function">ifstream <span class="title">myfile</span><span class="params">(<span class="string">"hello.txt"</span>)</span></span>; </span><br><span class="line">    <span class="function">ofstream <span class="title">outfile</span><span class="params">(<span class="string">"out.txt"</span>, ios::app)</span></span>; </span><br><span class="line">    <span class="built_in">string</span> temp; </span><br><span class="line">    <span class="keyword">if</span> (!myfile.is_open()) </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"未成功打开文件"</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">while</span>(getline(myfile,temp)) </span><br><span class="line">    &#123; </span><br><span class="line">        outfile &lt;&lt; temp; </span><br><span class="line">        outfile &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    myfile.<span class="built_in">close</span>(); </span><br><span class="line">    outfile.<span class="built_in">close</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>其中getline(stream, string)函数的功能：按行从输入流中读入字符，存到string变量</p>
 <ul>
@@ -7848,13 +7855,54 @@
 </li>
 </ul>
 <p>如果getline()没有读入字符，将返回false，可用于判断文件是否结束。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> v, w, weight;</span><br><span class="line">ifstream infile;   <span class="comment">//输入流</span></span><br><span class="line"> </span><br><span class="line">infile.<span class="built_in">open</span>(<span class="string">"data.txt"</span>, ios::in); </span><br><span class="line"><span class="keyword">if</span>(!infile.is_open ())</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Open file failure"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">while</span> (!infile.eof())            <span class="comment">// 若未到文件结束一直循环</span></span><br><span class="line">&#123;</span><br><span class="line">    infile &gt;&gt; v &gt;&gt; w &gt;&gt; weight;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; v &lt;&lt; <span class="string">"\t"</span> &lt;&lt; w &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"> infile.<span class="built_in">close</span>();   <span class="comment">//关闭文件</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> v, w, weight;</span><br><span class="line">ifstream infile;   <span class="comment">//输入流</span></span><br><span class="line"> </span><br><span class="line">infile.<span class="built_in">open</span>(<span class="string">"data.txt"</span>, ios::in); </span><br><span class="line"><span class="keyword">if</span>(!infile.is_open ())</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Open file failure"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">while</span> (!infile.eof())            <span class="comment">// 到达文件末尾时返回true</span></span><br><span class="line">&#123;</span><br><span class="line">    infile &gt;&gt; v &gt;&gt; w &gt;&gt; weight;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; v &lt;&lt; <span class="string">"\t"</span> &lt;&lt; w &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"> infile.<span class="built_in">close</span>();   <span class="comment">//关闭文件</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>上述代码的功能是读取data.txt文件的数据，注意，此时要求data.txt文件中的数据是三个一行，每个数据用空格或换行符隔开。</p>
 </blockquote>
+<h2 id="文件指针"><a href="#文件指针" class="headerlink" title="文件指针"></a>文件指针</h2><p> 文件指针位置在c++中的用法：</p>
+<table>
+<thead>
+<tr>
+<th>标准</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ios::beg</td>
+<td>文件头</td>
+</tr>
+<tr>
+<td>ios::end</td>
+<td>文件尾</td>
+</tr>
+<tr>
+<td>ios::cur</td>
+<td>当前位置</td>
+</tr>
+</tbody></table>
+<p>例如：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">file.seekg(<span class="number">0</span>,ios::beg);   <span class="comment">//让文件指针定位到文件开头 </span></span><br><span class="line">file.seekg(<span class="number">0</span>,ios::<span class="built_in">end</span>);   <span class="comment">//让文件指针定位到文件末尾 </span></span><br><span class="line">file.seekg(<span class="number">10</span>,ios::cur);   <span class="comment">//让文件指针从当前位置向文件末方向移动10个字节 </span></span><br><span class="line">file.seekg(<span class="number">-10</span>,ios::cur);   <span class="comment">//让文件指针从当前位置向文件开始方向移动10个字节 </span></span><br><span class="line">file.seekg(<span class="number">10</span>,ios::beg);   <span class="comment">//让文件指针定位到离文件开头10个字节的位置</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：移动的单位是字节，而不是行</strong>。</p>
+<h2 id="状态标志符的验证-Verification-of-state-flags"><a href="#状态标志符的验证-Verification-of-state-flags" class="headerlink" title="状态标志符的验证(Verification of state flags)"></a>状态标志符的验证(Verification of state flags)</h2><p>除了eof()以外，还有一些验证流的状态的成员函数（所有都返回bool型返回值）：</p>
+<ul>
+<li><p><strong>bad()</strong></p>
+<p>如果在读写过程中出错，返回 true 。例如：当我们要对一个不是打开为写状态的文件进行写入时，或者我们要写入的设备没有剩余空间的时候。</p>
+</li>
+<li><p><strong>fail()</strong></p>
+<p>除了与bad() 同样的情况下会返回 true 以外，加上格式错误时也返回true ，例如当想要读入一个整数，而获得了一个字母的时候。</p>
+</li>
+<li><p><strong>eof()</strong></p>
+<p>如果读文件到达文件末尾，返回true。</p>
+</li>
+<li><p><strong>good()</strong></p>
+<p>这是最通用的：如果调用以上任何一个函数返回true 的话，此函数返回 false 。</p>
+</li>
+</ul>
+<p>要想重置以上成员函数所检查的状态标志，你可以使用成员函数clear()，没有参数。</p>
 <h1 id="string流"><a href="#string流" class="headerlink" title="string流"></a>string流</h1><p>string头文件定义了三个类型来支持内存IO，istringstream向string读取数据，ostringstream从string写数据，stringstream既可从string读取数据也可向string写数据，就像string是一个IO流一样。</p>
-<h2 id="1、istringstream的用法"><a href="#1、istringstream的用法" class="headerlink" title="1、istringstream的用法"></a>1、istringstream的用法</h2><p>例子如下：</p>
+<h2 id="istringstream的用法"><a href="#istringstream的用法" class="headerlink" title="istringstream的用法"></a>istringstream的用法</h2><p>例子如下：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;    //使用istringstream所需要的头文件 </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="built_in">string</span> str = <span class="string">"Hello world! I am Lee"</span>; </span><br><span class="line">    <span class="function"><span class="built_in">istringstream</span> <span class="title">is</span><span class="params">(str)</span></span>;    <span class="comment">//将is绑定到str</span></span><br><span class="line">    <span class="built_in">string</span> s; </span><br><span class="line">    <span class="keyword">while</span> (is &gt;&gt; s) </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这相当于把一个句子拆分成单词，联系到前文提到的从文件中读取string的方法，如果读取到的string对象为一个句子，包含很多单词，那么我们就可以运用这种方法把string对象拆分开来。</p>
