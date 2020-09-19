@@ -33,8 +33,9 @@
 <meta property="og:image" content="http://icewind-r.github.io/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/3.png">
 <meta property="og:image" content="http://icewind-r.github.io/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/4.png">
 <meta property="og:image" content="http://icewind-r.github.io/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/5.png">
+<meta property="og:image" content="http://icewind-r.github.io/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/6.png">
 <meta property="article:published_time" content="2020-08-05T00:38:08.000Z">
-<meta property="article:modified_time" content="2020-08-09T01:46:06.667Z">
+<meta property="article:modified_time" content="2020-09-14T02:30:04.187Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="Hadoop">
 <meta name="twitter:card" content="summary">
@@ -242,7 +243,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-09 09:46:06" itemprop="dateModified" datetime="2020-08-09T09:46:06+08:00">2020-08-09</time>
+                <time title="修改时间：2020-09-14 10:30:04" itemprop="dateModified" datetime="2020-09-14T10:30:04+08:00">2020-09-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,7 +289,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>584</span>
+              <span>606</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -377,7 +378,8 @@
 <p>这里使用的各个软件的版本号，主机名，目录名等都与教程有些出入，需要自己做出合适修改。</p>
 <img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/2.png" class>
 
-<h1 id="Hadoop集群的启动"><a href="#Hadoop集群的启动" class="headerlink" title="Hadoop集群的启动"></a>Hadoop集群的启动</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /export/servers/hadoop-2.7.7</span><br><span class="line">./bin/hdfs namenode -format</span><br><span class="line">./sbin/start-dfs.sh</span><br><span class="line">./sbin/start-yarn.sh</span><br><span class="line">./sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure>
+<h1 id="Hadoop集群的启动"><a href="#Hadoop集群的启动" class="headerlink" title="Hadoop集群的启动"></a>Hadoop集群的启动</h1><p>只需在bigdata1上启动即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /export/servers/hadoop-2.7.7</span><br><span class="line">./bin/hdfs namenode -format</span><br><span class="line">./sbin/start-dfs.sh</span><br><span class="line">./sbin/start-yarn.sh</span><br><span class="line">./sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure>
 
 <p>可以通过查看界面完成是否配置成功。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://bigdata1:50070/explorer.html#/</span><br><span class="line">http://bigdata1:8088/cluster</span><br><span class="line">http://bigdata1:19888/jobhistory</span><br></pre></td></tr></table></figure>
@@ -388,6 +390,9 @@
 <img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/4.png" class>
 
 <img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/5.png" class>
+
+<p>进程列表：</p>
+<img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/6.png" class>
     </div>
 
     
@@ -585,7 +590,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:37</span>
+    <span title="站点阅读时长">5:38</span>
 </div>
 
 <!--

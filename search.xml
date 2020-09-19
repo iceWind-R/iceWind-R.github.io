@@ -5365,7 +5365,8 @@
 <p>1、第一个副本块存本机</p>
 <p>2、第二个副本块跟本机同机架内的其他服务器结点</p>
 <p>3、第三个副本块存不同机架的一个服务器结点上</p>
-<h1 id="HDFS的命令行使用"><a href="#HDFS的命令行使用" class="headerlink" title="HDFS的命令行使用"></a>HDFS的命令行使用</h1><p><code>ls</code></p>
+<h1 id="HDFS的命令行使用"><a href="#HDFS的命令行使用" class="headerlink" title="HDFS的命令行使用"></a>HDFS的命令行使用</h1><p>hdfs命令是操作HDFS文件系统上的资源，只要打开了HDFS服务，就可使用命令行操作，与当前所在的Linux目录无关。</p>
+<p><code>ls</code></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式：hdfs dfs -ls URI</span><br><span class="line">作用：类似于Linux的ls命令，显示文件列表</span><br><span class="line"></span><br><span class="line">hdfs dfs -ls /</span><br></pre></td></tr></table></figure>
 
 <p><code>ls -R</code></p>
@@ -5569,7 +5570,8 @@
 <p>这里使用的各个软件的版本号，主机名，目录名等都与教程有些出入，需要自己做出合适修改。</p>
 <img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/2.png" class>
 
-<h1 id="Hadoop集群的启动"><a href="#Hadoop集群的启动" class="headerlink" title="Hadoop集群的启动"></a>Hadoop集群的启动</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /export/servers/hadoop-2.7.7</span><br><span class="line">./bin/hdfs namenode -format</span><br><span class="line">./sbin/start-dfs.sh</span><br><span class="line">./sbin/start-yarn.sh</span><br><span class="line">./sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure>
+<h1 id="Hadoop集群的启动"><a href="#Hadoop集群的启动" class="headerlink" title="Hadoop集群的启动"></a>Hadoop集群的启动</h1><p>只需在bigdata1上启动即可。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /export/servers/hadoop-2.7.7</span><br><span class="line">./bin/hdfs namenode -format</span><br><span class="line">./sbin/start-dfs.sh</span><br><span class="line">./sbin/start-yarn.sh</span><br><span class="line">./sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure>
 
 <p>可以通过查看界面完成是否配置成功。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http://bigdata1:50070/explorer.html#/</span><br><span class="line">http://bigdata1:8088/cluster</span><br><span class="line">http://bigdata1:19888/jobhistory</span><br></pre></td></tr></table></figure>
@@ -5579,7 +5581,10 @@
 
 <img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/4.png" class>
 
-<img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/5.png" class>]]></content>
+<img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/5.png" class>
+
+<p>进程列表：</p>
+<img src="/2020/08/05/%E5%A4%A7%E6%95%B0%E6%8D%AE-02/6.png" class>]]></content>
       <categories>
         <category>大数据</category>
       </categories>
@@ -5811,7 +5816,7 @@
 <img src="/2020/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE-01/4.png" class>
 
 <p>出现 QuorumPeerMain 表示启动成功。若未启动成功，可能的原因就是上面的zoo.cfg未配置正确。</p>
-<p>然后我们可以用命令 <code>./zkServer.sh status</code> 查看状态，可以发现，虚拟机2为 Leader，1 和 3 为 Follower。</p>
+<p>然后我们可以用命令 <code>./zkServer.sh status</code> 查看状态（注意：一定要启动主节点，即bigdata2，可以提前把三个结点的zookeeper都启动）。可以发现，虚拟机2为 Leader，1 和 3 为 Follower。</p>
 <p>至此，一个zookeeper集群搭建完成。</p>
 <h1 id="Zookeeper内部结构"><a href="#Zookeeper内部结构" class="headerlink" title="Zookeeper内部结构"></a>Zookeeper内部结构</h1><h2 id="Zookeeper的数据模型"><a href="#Zookeeper的数据模型" class="headerlink" title="Zookeeper的数据模型"></a>Zookeeper的数据模型</h2><ul>
 <li><p>zookeeper的数据模型，在结构上和标准文件系统非常相似，都是采用树形层次结构。</p>
@@ -7925,6 +7930,8 @@
     <title>我的考研必看</title>
     <url>/2020/09/13/%E6%88%91%E7%9A%84%E8%80%83%E7%A0%94%E5%BF%85%E7%9C%8B/</url>
     <content><![CDATA[<p>为什么考研？自己适合考研吗？这两个问题，想要考研的你，真的思考过吗？</p>
+<a id="more"></a>
+
 <hr>
 <p>给自己定的初步目标：<strong>中下游211本专业</strong></p>
 <p>说到需求，当然就是你考研是想要达到什么目的。我举几个例子，假如说你打算将来考选调生，那么985院校就是目标，专业视具体要求而定；假如你想回老家考个公务员，那选择一个匹配岗位的学校和专业即可；假如你想进入某些知名企业，那么应该调研清楚它的目标院校是什么档次，然后作出选择。</p>
