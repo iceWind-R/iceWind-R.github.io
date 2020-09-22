@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-09-21T14:07:10.807Z</updated>
+  <updated>2020-09-22T13:29:39.640Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Excel表格操作</title>
+    <link href="http://icewind-r.github.io/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/"/>
+    <id>http://icewind-r.github.io/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/</id>
+    <published>2020-09-22T11:28:00.000Z</published>
+    <updated>2020-09-22T13:29:39.640Z</updated>
+    
+    <content type="html"><![CDATA[<p>Excel 的重要性不言而喻，学会使用可以使自己的效率大大提高，今天开始学习，做此纪录。</p><hr><h1 id="Excel入门"><a href="#Excel入门" class="headerlink" title="Excel入门"></a>Excel入门</h1><p>1、<strong>开始</strong> 菜单的 <strong>合并后居中</strong>，可以实现跨单元格的合并居中。</p><p>2、自动匹配单元格长度，双击<strong>表头</strong>，<strong>列头</strong>，可以使该行（列）自动匹配本行（列）最长单元格。</p><p>3、可以选中若干列，点击<strong>开始</strong>，<strong>单元格样式</strong>，对选中的标题进行样式改变。</p><p><img src="/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/C:%5CUsers%5C11655%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200922210314925.png" alt="image-20200922210314925"></p><p>4、可以选中所有列，使其所有单元格宽度相同。（对行同样适用）</p><p><img src="/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/E:%5CMyFile%5C%E6%A1%8C%E9%9D%A2%5C1.gif" alt="1"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Excel 的重要性不言而喻，学会使用可以使自己的效率大大提高，今天开始学习，做此纪录。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;Excel入门&quot;&gt;&lt;a href=&quot;#Excel入门&quot; class=&quot;headerlink&quot; title=&quot;Excel入门&quot;&gt;&lt;/a&gt;Excel入门&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="Offices" scheme="http://iceWind-R.github.io/categories/Offices/"/>
+    
+    
+      <category term="excel" scheme="http://iceWind-R.github.io/tags/excel/"/>
+    
+  </entry>
   
   <entry>
     <title>我的考研必看</title>
@@ -459,29 +487,6 @@
       <category term="Python" scheme="http://iceWind-R.github.io/tags/Python/"/>
     
       <category term="爬虫" scheme="http://iceWind-R.github.io/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Planan_03(7.6~7.12)</title>
-    <link href="http://icewind-r.github.io/2020/07/04/Plan-02-%E7%AC%AC%E4%BA%8C%E5%91%A8/"/>
-    <id>http://icewind-r.github.io/2020/07/04/Plan-02-%E7%AC%AC%E4%BA%8C%E5%91%A8/</id>
-    <published>2020-07-04T10:17:35.000Z</published>
-    <updated>2020-08-09T01:54:01.700Z</updated>
-    
-    <content type="html"><![CDATA[<p>第三周开始了，高考也将至，时间飞逝啊。</p><a id="more"></a><hr><p>本周目标：</p><ul><li><p>Scrapy框架学习，尝试独立完成一个爬取实例。</p></li><li><p>学习小组确定主题，尝试开始或者一起学习，（Github Page搭建官网？）。</p></li><li><p>APP小组尝试开始。</p></li><li><p>python Web？</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;第三周开始了，高考也将至，时间飞逝啊。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Learning" scheme="http://iceWind-R.github.io/categories/Learning/"/>
-    
-    
-      <category term="plan" scheme="http://iceWind-R.github.io/tags/plan/"/>
     
   </entry>
   
