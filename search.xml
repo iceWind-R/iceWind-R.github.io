@@ -78,7 +78,27 @@
 <img src="/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/3.png" class>
 
 <p>9、格式刷的使用，选中被格式的单元格，再选中待格式的单元格即可将复制前者的格式。</p>
-]]></content>
+<p>10、打印表格。可以点击左上角的<strong>打印预览和打印</strong>，在默认情况下只会打印数据，而表格线等则不会打印，可以在 <strong>页面布局</strong>，勾选 <strong>网格线</strong> 下的 <strong>打印</strong> 按钮。即可在打印时出现网格线。</p>
+<img src="/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/4.png" class>
+
+<p>11、关于表格的格线操作。快捷键 按住 <strong>shift</strong>，选中单元格删除格线，<strong>Esc</strong> 退出。</p>
+<img src="/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/4.gif" class>
+
+<p>12、背景图片。在页面布局中添加背景，可以取消<strong>网格线</strong>的<strong>查看</strong>按钮，来不显示图片上的表格线。也可以删除背景。</p>
+<p>13、函数（自动求和 等）。在生成总和的单元格上，点击该按钮，选择被求和的所有单元格，然后enter，即可得到结果。</p>
+<img src="/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/5.png" class>
+
+<p>14、冻结表格栏 与 拆分视窗。在<strong>视图</strong>选项卡操作。</p>
+<img src="/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/5.gif" class>
+
+<p>15、排序。在排序中，选择待排序列的一个单元格即可，不要选择多个。在 <strong>开始</strong> 的右侧，<strong>排序和筛查</strong>。</p>
+<p>要指定多层排序，可以在 <strong>排序和筛查</strong> 中选择 <strong>自定义排序</strong>，如下界面，指定排序即可。</p>
+<img src="/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/6.png" class>
+
+<p>16、自定义序列，在上面的自定义序列中，选择排序次序为自定义，跳到下面选项卡。</p>
+<img src="/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/7.png" class>，输入自定义顺序，以回车间隔。
+
+<img src="/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/6.gif" class>]]></content>
       <categories>
         <category>Offices</category>
       </categories>
