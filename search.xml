@@ -40,6 +40,20 @@
       </tags>
   </entry>
   <entry>
+    <title>大三上_第3周总结</title>
+    <url>/2020/10/07/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E7%AC%AC3%E5%91%A8%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>10.7 ~ 10.10 日</p>
+<hr>
+<p>今天上午逃了刘丹的四节课，想着好好做建民的重大需求，但是竟然，一点进度都没有。明明有着超快的网络，但还是，唉。</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>plan</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Excel表格操作</title>
     <url>/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>Excel 的重要性不言而喻，学会使用可以使自己的效率大大提高，今天开始学习，做此纪录。</p>
@@ -92,7 +106,7 @@
 <img src="/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/5.gif" class>
 
 <p>15、排序。在排序中，选择待排序列的一个单元格即可，不要选择多个。在 <strong>开始</strong> 的右侧，<strong>排序和筛查</strong>。</p>
-<p>要指定多层排序，可以在 <strong>排序和筛查</strong> 中选择 <strong>自定义排序</strong>，如下界面，指定排序即可。</p>
+<p>要指定多层排序，可以在 <strong>排序和筛查</strong> 中选择 <strong>自定义排序</strong>，点击 <strong>添加条件</strong>，实现多条件排序。如下界面。</p>
 <img src="/2020/09/22/Excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/6.png" class>
 
 <p>16、自定义序列，在上面的自定义序列中，选择排序次序为自定义，跳到下面选项卡。</p>
