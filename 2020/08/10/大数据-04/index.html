@@ -30,7 +30,7 @@
 <meta property="og:description" content="本篇总结HDFS在windows操作系统Java环境下的API操作。">
 <meta property="og:image" content="http://icewind-r.github.io/2020/08/10/%E5%A4%A7%E6%95%B0%E6%8D%AE-04/1.png">
 <meta property="article:published_time" content="2020-08-10T10:11:20.000Z">
-<meta property="article:modified_time" content="2020-08-12T02:23:40.927Z">
+<meta property="article:modified_time" content="2020-10-15T06:39:21.883Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="Hadoop">
 <meta name="twitter:card" content="summary">
@@ -244,7 +244,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-12 10:23:40" itemprop="dateModified" datetime="2020-08-12T10:23:40+08:00">2020-08-12</time>
+                <time title="修改时间：2020-10-15 14:39:21" itemprop="dateModified" datetime="2020-10-15T14:39:21+08:00">2020-10-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -290,14 +290,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
 
 
@@ -317,10 +317,10 @@
 <hr>
 <h1 id="HDFS的Java-api操作"><a href="#HDFS的Java-api操作" class="headerlink" title="HDFS的Java_api操作"></a>HDFS的Java_api操作</h1><h2 id="配置Windows下的-Hadoop环境"><a href="#配置Windows下的-Hadoop环境" class="headerlink" title="配置Windows下的 Hadoop环境"></a>配置Windows下的 Hadoop环境</h2><p>在Windows系统需要配置Hadoop运行环境，相当于Windows是一个Hadoop客户端。</p>
 <p>不配置而直接运行代码会出现以下问题：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Could not locate executable null\bin\winutils.exe <span class="keyword">in</span> the hadoop binaries</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Could not locate executable null\bin\winutils.exe <span class="keyword">in</span> the hadoop binaries</span><br></pre></td></tr></table></figure>
 
 <p><strong>原因：</strong> 缺少winutils.exe</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Unable to load native-hadoop library <span class="keyword">for</span> your platform..using <span class="built_in">builtin</span>-Java classes <span class="built_in">where</span> applicable</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Unable to load native-hadoop library <span class="keyword">for</span> your platform..using <span class="built_in">builtin</span>-Java classes <span class="built_in">where</span> applicable</span><br></pre></td></tr></table></figure>
 
 <p><strong>原因：</strong> 缺少hadoop.dll</p>
 <h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p><strong>1、</strong>首先下载Hadoop在Windows上的工具包，下载地址：<a href="https://github.com/steveloughran/winutils" target="_blank" rel="noopener">https://github.com/steveloughran/winutils</a> 。</p>
@@ -354,7 +354,7 @@
 </ul>
 <h3 id="获取FileSystem的四种方式"><a href="#获取FileSystem的四种方式" class="headerlink" title="获取FileSystem的四种方式"></a>获取FileSystem的四种方式</h3><ul>
 <li><p>第一种</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getFileSystem1</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">// 创建一个Configuration对象</span></span><br><span class="line">    Configuration configuration = <span class="keyword">new</span> Configuration();</span><br><span class="line">    <span class="comment">// 设置文件系统类型</span></span><br><span class="line">    configuration.set(<span class="string">"fs.defaultFS"</span>, <span class="string">"hdfs://bigdata1:8020"</span>);</span><br><span class="line">    <span class="comment">// 获取指定的文件系统</span></span><br><span class="line">    FileSystem fileSystem = FileSystem.get(configuration);</span><br><span class="line">    <span class="comment">// 输出 DFS[DFSClient[clientName=DFSClient_NONMAPREDUCE_373282607_1, ugi=11655 (auth:SIMPLE)]]</span></span><br><span class="line">    System.out.println(fileSystem);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getFileSystem1</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">// 创建一个Configuration对象，封装</span></span><br><span class="line">    Configuration configuration = <span class="keyword">new</span> Configuration();</span><br><span class="line">    <span class="comment">// 设置文件系统类型</span></span><br><span class="line">    configuration.set(<span class="string">"fs.defaultFS"</span>, <span class="string">"hdfs://bigdata1:8020"</span>);</span><br><span class="line">    <span class="comment">// 获取指定的文件系统</span></span><br><span class="line">    FileSystem fileSystem = FileSystem.get(configuration);</span><br><span class="line">    <span class="comment">// 输出 DFS[DFSClient[clientName=DFSClient_NONMAPREDUCE_373282607_1, ugi=11655 (auth:SIMPLE)]]</span></span><br><span class="line">    System.out.println(fileSystem);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>第二种</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getFileSystem2</span><span class="params">()</span> <span class="keyword">throws</span> IOException, URISyntaxException </span>&#123;</span><br><span class="line">    FileSystem fileSystem = FileSystem.get(<span class="keyword">new</span> URI(<span class="string">"hdfs://bigdata1:8020"</span>), <span class="keyword">new</span> Configuration());</span><br><span class="line">    System.out.println(fileSystem);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -370,6 +370,12 @@
 <blockquote>
 <p>注意：1、3比较相似，2、4比较相似，主要是get方法和 newInstance方法的使用</p>
 </blockquote>
+<p>这里对Configuration参数对象的加载机制作出解释：</p>
+<ol>
+<li>首先构造时会加载jar包的默认配置，如：xxx-default.xml</li>
+<li>再加载用户配置的文件（必须放在resources资源目录下），如自定义的hdfs-site.xml</li>
+<li>最后可以手动设置，覆盖之前的相同有关配置：configuration.set(“dfs.blocksize”, “64m”);</li>
+</ol>
 <h3 id="遍历HDFS所有文件信息"><a href="#遍历HDFS所有文件信息" class="headerlink" title="遍历HDFS所有文件信息"></a>遍历HDFS所有文件信息</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">listFiles</span><span class="params">()</span> <span class="keyword">throws</span> URISyntaxException, IOException </span>&#123;</span><br><span class="line">    <span class="comment">// 获取FileSystem实例</span></span><br><span class="line">    FileSystem fileSystem = FileSystem.get(<span class="keyword">new</span> URI(<span class="string">"hdfs://bigdata1:8020"</span>), <span class="keyword">new</span> Configuration());</span><br><span class="line">    <span class="comment">// 调用方法listFiles 获取一个目录下的文件信息，为一个迭代器对象</span></span><br><span class="line">    <span class="comment">// 第一个参数：指定目录</span></span><br><span class="line">    <span class="comment">// 第二个参数，是否迭代获取</span></span><br><span class="line">    RemoteIterator&lt;LocatedFileStatus&gt; iterator = fileSystem.listFiles(<span class="keyword">new</span> Path(<span class="string">"/"</span>), <span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//遍历迭代器，获取文件的详细信息</span></span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">        LocatedFileStatus fileStatus = iterator.next();</span><br><span class="line">        <span class="comment">// 获取文件的绝对路径："hdfs://bigdata1:8020/xxx"</span></span><br><span class="line">        System.out.println(fileStatus.getPath() + <span class="string">"  ---  "</span> + fileStatus.getPath().getName());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//文件的Block信息</span></span><br><span class="line">        BlockLocation[] blockLocations = fileStatus.getBlockLocations();</span><br><span class="line">        System.out.println(<span class="string">"Block数："</span> + blockLocations.length);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="HDFS创建文件夹"><a href="#HDFS创建文件夹" class="headerlink" title="HDFS创建文件夹"></a>HDFS创建文件夹</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mkdirs</span><span class="params">()</span> <span class="keyword">throws</span> URISyntaxException, IOException </span>&#123;</span><br><span class="line">    FileSystem fileSystem = FileSystem.get(<span class="keyword">new</span> URI(<span class="string">"hdfs://bigdata1:8020/a.txt"</span>), <span class="keyword">new</span> Configuration());</span><br><span class="line">    <span class="comment">// 创建文件夹</span></span><br><span class="line">    <span class="keyword">boolean</span> bl = fileSystem.mkdirs(<span class="keyword">new</span> Path(<span class="string">"/aaa/bbb/ccc"</span>));</span><br><span class="line">    <span class="comment">//创建文件</span></span><br><span class="line">    fileSystem.create(<span class="keyword">new</span> Path(<span class="string">"/aaa/aaa.txt"</span>));</span><br><span class="line">    <span class="comment">// 两个创建方法都为递归创建</span></span><br><span class="line">    System.out.println(bl);</span><br><span class="line">    fileSystem.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -520,7 +526,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -533,7 +539,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -586,12 +592,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">103k</span>
+    <span title="站点总字数">106k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:42</span>
+    <span title="站点阅读时长">5:53</span>
 </div>
 
 <!--

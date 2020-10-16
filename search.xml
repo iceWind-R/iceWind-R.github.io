@@ -40,6 +40,96 @@
       </tags>
   </entry>
   <entry>
+    <title>HBase_01(HBase概念简介)</title>
+    <url>/2020/10/15/HBase-01/</url>
+    <content><![CDATA[<p>就今天吧，稀里糊涂的，入门学习个HBase！就记些比较重要的、需要重点掌握的知识点吧。别问为什么，死记硬背就完事了！</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="一、HBase简介"><a href="#一、HBase简介" class="headerlink" title="一、HBase简介"></a>一、HBase简介</h1><h2 id="HBase是什么？"><a href="#HBase是什么？" class="headerlink" title="HBase是什么？"></a>HBase是什么？</h2><p>Hbase是一种NoSQL数据库，这意味着它不像传统的RDBMS数据库那样支持SQL作为查询语言。</p>
+<p>HBase是一种构建在HDFS之上的<strong>分布式、面向列</strong>的存储系统。在需要实时读写、随机访问超大规模数据集时，可以使用HBase。</p>
+<h2 id="HBase的特点"><a href="#HBase的特点" class="headerlink" title="HBase的特点"></a>HBase的特点</h2><ol>
+<li><strong>大</strong>：一个表可以有上亿行，上百万列。</li>
+<li><strong>面向列</strong>：面向列表（簇）的存储和权限控制，列（簇）独立检索。</li>
+<li><strong>稀疏</strong>：对于为空（NULL）的列，并不占用存储空间，因此，表可以设计的非常稀疏。</li>
+<li><strong>无模式</strong>：每一行都有一个可以排序的主键和任意多的列，列可以根据需要动态增加，同一张表中不同的行可以有截然不同的列。</li>
+<li><strong>数据多版本</strong>：每个单元中的数据可以有多个版本，默认情况下，版本号自动分配，版本号就是单元格插入时的时间戳。</li>
+<li><strong>数据类型单一</strong>：HBase中的数据都是字符串，没有类型。</li>
+</ol>
+<h1 id="二、数据模型"><a href="#二、数据模型" class="headerlink" title="二、数据模型"></a>二、数据模型</h1><h2 id="1、RowKey"><a href="#1、RowKey" class="headerlink" title="1、RowKey"></a>1、RowKey</h2><p><strong>RowKey</strong> 是一行记录的 <strong>主键</strong> ，用于检索记录数据的。HBase的数据是按照RowKey的 <strong>字典顺序</strong> 进行全局排序的，所有的查询都只能依赖于这一个排序维度。访问 HBase table 中的行，只有三种方式：</p>
+<ol>
+<li><p>通过单个 <strong>RowKey</strong> 访问。</p>
+</li>
+<li><p>通过 <strong>RowKey</strong> 的 range 全表扫描。</p>
+</li>
+<li><p><strong>RowKey</strong> 可以是任意字符串（最大长度是64KB，实际应用中长度一般为 10 ~ 100bytes），在HBase 内部，<strong>RowKey</strong> 保存为字节数组。</p>
+</li>
+</ol>
+<blockquote>
+<p> 通过下面一个例子来说明一下” <strong>字典排序</strong> “的原理：</p>
+<p>RowKey列表{“abc”, “a”, “bdf”, “cdf”, “def”}按字典排序后的结果为{“a”, “abc”, “bdf”, “cdf”, “defg”}</p>
+</blockquote>
+<h2 id="2、Row（行）"><a href="#2、Row（行）" class="headerlink" title="2、Row（行）"></a>2、Row（行）</h2><p>HBase表中的每行数据都是一个RowKey和 多个Column（列）组成，数据是按照RowKey的字典顺序存储的。</p>
+<h2 id="3、Column（列）"><a href="#3、Column（列）" class="headerlink" title="3、Column（列）"></a>3、Column（列）</h2><p>HBase每个列都由列族和列限定符进行限定，例如info：name , info :  age。建表时，只需要指定列族，而列限定符无需预先定义。</p>
+<h2 id="4、Column-Family（列族）"><a href="#4、Column-Family（列族）" class="headerlink" title="4、Column Family（列族）"></a>4、Column Family（列族）</h2><p>如果将Region看成是一个表的 <strong>横向切割</strong> ，那么，一个Region中的数据列的 <strong>纵向切割</strong> ，称之为一个 <strong>Column Family</strong> 。每一个列，都必须归属于一个Column Family，这个归属关系是在写数据时指定的，而不是建表时预先定义。</p>
+<h2 id="5、Cell"><a href="#5、Cell" class="headerlink" title="5、Cell"></a>5、Cell</h2><p>Cell 是由 {RowKey，ColumnFamily : Column Qualifier，TimeStamp} 唯一确定的单元。Cell 中的数据是没有类型的，全部是<strong>字节码</strong>形式存储。</p>
+<h2 id="6、Region"><a href="#6、Region" class="headerlink" title="6、Region"></a>6、Region</h2><p>HBase中采用了”Range分区”，将Key的完整区间切割成一个个的”Key Range” ，每一个”Key Range”称之为一个Region。</p>
+<p>也可以这么理解：将HBase中拥有数亿行的一个大表， <strong>横向切割</strong> 成一个个” <strong>子表</strong> “，这一个个” <strong>子表</strong> “就是 <strong>Region</strong> 。Region是HBase中分布式存储和负载均衡的最小单元，即不同的region可以分别在不同的Region Server上，但同一个Region是不会拆分到多个server上。 </p>
+<p>当一个Region增长到一定大小以后，会自动分裂成两个。</p>
+<p>每个region由以下信息标识：</p>
+<ol>
+<li>&lt; 表名,startRowkey,创建时间&gt;</li>
+<li>由目录表(-ROOT-和.META.)记录该region的endRowkey</li>
+</ol>
+<h2 id="7、TimeStamp（时间戳）"><a href="#7、TimeStamp（时间戳）" class="headerlink" title="7、TimeStamp（时间戳）"></a>7、TimeStamp（时间戳）</h2><p>HBase 中通过 Row 和 Columns 确定的一个存储单元称为 Cell。每个 Cell 都保存着同一份数据的多个版本。 版本通过时间戳来索引，时间戳的类型是 64 位整型。时间戳可以由HBase（在数据写入时自动）赋值，<br>此时时间戳是精确到毫秒的当前系统时间。时间戳也 可以由客户显示赋值。如果应用程序要避免数据版本冲突，就必须自己生成具有唯一性的时间戳。每个 Cell 中，不同版本的数据按照时间倒序排序，即最新的数据排在最前面。</p>
+<p>为了避免数据存在过多版本造成的管理（包括存储和索引）负担，HBase 提供了两种数据版本回收方式。 一是保存数据的最后 n 个版本，二是保存最近一段时间内的版本（比如最近七天）。用户可以针对每个列族进行设置。</p>
+<h2 id="8、稀疏矩阵"><a href="#8、稀疏矩阵" class="headerlink" title="8、稀疏矩阵"></a>8、稀疏矩阵</h2><p>HBase中一个表的数据是按照稀疏矩阵的方式组织的，行与行之间也无须遵循一致的定义，而这种定义恰好符合半结构化数据或非结构化数据的特点。</p>
+<p>HBase定义表是只需要声明 *<em>列族 *</em>即可，不需要声明具体的列，这意味着，往HBase写入数据时，字段可以 动态、按需 指定。</p>
+<h2 id="9、Store"><a href="#9、Store" class="headerlink" title="9、Store"></a>9、Store</h2><p>每一个region由一个或多个store组成，至少是一个store，hbase会把一起访问的数据放在一个store里面，即为每个 ColumnFamily建一个store，如果有几个ColumnFamily，也就有几个Store。一个Store由一个memStore和0或者 多个StoreFile组成。 HBase以store的大小来判断是否需要切分region</p>
+<img src="/2020/10/15/HBase-01/1.png" class>
+
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>Hregion是Hbase中分布式存储和负载均衡的最小单元。最小单元就表示不同的Hregion可以分布在不同的HRegion server上。但一个Hregion是不会拆分到多个server上的。</p>
+<img src="/2020/10/15/HBase-01/3.png" class>
+
+<p>HRegion虽然是分布式存储的最小单元，但并不是存储的最小单元。HRegion由一个或者多个Store组成，每个store保存一个columns family。每个Strore又由一个memStore和0至多个StoreFile组成。如图：</p>
+<img src="/2020/10/15/HBase-01/4.png" class>
+
+<p>StoreFile以HFile格式保存在HDFS上。</p>
+<h1 id="三、HBase系统架构"><a href="#三、HBase系统架构" class="headerlink" title="三、HBase系统架构"></a>三、HBase系统架构</h1><img src="/2020/10/15/HBase-01/5.png" class>
+
+<h2 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h2><p>包含访问hbase的接口，client维护着一些cache来加快对hbase的访问，比如regione的位置信息。</p>
+<h2 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h2><p>1 保证任何时候，集群中只有一个master</p>
+<p>2 存贮所有Region的寻址入口。</p>
+<p>3 实时监控Region Server的状态，将Region server的上线和下线信息实时通知给Master</p>
+<p>4 存储Hbase的schema,包括有哪些table，每个table有哪些column family</p>
+<h2 id="RegionServer"><a href="#RegionServer" class="headerlink" title="RegionServer"></a>RegionServer</h2><p>1 Region server维护Master分配给它的region，处理对这些region的IO请求</p>
+<p>2 Region server负责切分在运行过程中变得过大的region</p>
+<p>Data： get，put，delete （HBase通过时间戳控制每条数据，get最新数据，put写入数据，若没有此条数据则代表插入，有则代表修改，delete删除数据）</p>
+<p>Region：splitRegion（切片），compactRegion（合并）</p>
+<h2 id="Master（高可用）"><a href="#Master（高可用）" class="headerlink" title="Master（高可用）"></a>Master（高可用）</h2><p>1 为Region server分配region</p>
+<p>2 负责region server的负载均衡</p>
+<p>3 发现失效的region server并重新分配其上的region</p>
+<p>4 GFS上的垃圾文件回收</p>
+<p>5 处理schema更新请求</p>
+<p>Table：create，alter，delete</p>
+<p>RegionServer：分配region给每个regionServer，监控每个regionServer的状态</p>
+<img src="/2020/10/15/HBase-01/2.png" class>
+
+<blockquote>
+<p>RegionServer管理着Region，对数据的操作，DML。</p>
+<p>Master管理表的增删改查，以及Region的维护信息，DDL。</p>
+</blockquote>
+<p><strong>总结</strong></p>
+<p>可以看到，client访问hbase上数据的过程并不需要master参与（寻址访问zookeeper和region server，数据读写访问regione server），master仅仅维护者table和region的元数据信息，负载很低。</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>HBase</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>大三上_第3周总结</title>
     <url>/2020/10/07/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E7%AC%AC3%E5%91%A8%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>10.7 ~ 10.10 日</p>
@@ -1430,10 +1520,10 @@
 <hr>
 <h1 id="HDFS的Java-api操作"><a href="#HDFS的Java-api操作" class="headerlink" title="HDFS的Java_api操作"></a>HDFS的Java_api操作</h1><h2 id="配置Windows下的-Hadoop环境"><a href="#配置Windows下的-Hadoop环境" class="headerlink" title="配置Windows下的 Hadoop环境"></a>配置Windows下的 Hadoop环境</h2><p>在Windows系统需要配置Hadoop运行环境，相当于Windows是一个Hadoop客户端。</p>
 <p>不配置而直接运行代码会出现以下问题：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Could not locate executable null\bin\winutils.exe <span class="keyword">in</span> the hadoop binaries</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Could not locate executable null\bin\winutils.exe <span class="keyword">in</span> the hadoop binaries</span><br></pre></td></tr></table></figure>
 
 <p><strong>原因：</strong> 缺少winutils.exe</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Unable to load native-hadoop library <span class="keyword">for</span> your platform..using <span class="built_in">builtin</span>-Java classes <span class="built_in">where</span> applicable</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Unable to load native-hadoop library <span class="keyword">for</span> your platform..using <span class="built_in">builtin</span>-Java classes <span class="built_in">where</span> applicable</span><br></pre></td></tr></table></figure>
 
 <p><strong>原因：</strong> 缺少hadoop.dll</p>
 <h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p><strong>1、</strong>首先下载Hadoop在Windows上的工具包，下载地址：<a href="https://github.com/steveloughran/winutils" target="_blank" rel="noopener">https://github.com/steveloughran/winutils</a> 。</p>
@@ -1467,7 +1557,7 @@
 </ul>
 <h3 id="获取FileSystem的四种方式"><a href="#获取FileSystem的四种方式" class="headerlink" title="获取FileSystem的四种方式"></a>获取FileSystem的四种方式</h3><ul>
 <li><p>第一种</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getFileSystem1</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">// 创建一个Configuration对象</span></span><br><span class="line">    Configuration configuration = <span class="keyword">new</span> Configuration();</span><br><span class="line">    <span class="comment">// 设置文件系统类型</span></span><br><span class="line">    configuration.set(<span class="string">"fs.defaultFS"</span>, <span class="string">"hdfs://bigdata1:8020"</span>);</span><br><span class="line">    <span class="comment">// 获取指定的文件系统</span></span><br><span class="line">    FileSystem fileSystem = FileSystem.get(configuration);</span><br><span class="line">    <span class="comment">// 输出 DFS[DFSClient[clientName=DFSClient_NONMAPREDUCE_373282607_1, ugi=11655 (auth:SIMPLE)]]</span></span><br><span class="line">    System.out.println(fileSystem);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getFileSystem1</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">// 创建一个Configuration对象，封装</span></span><br><span class="line">    Configuration configuration = <span class="keyword">new</span> Configuration();</span><br><span class="line">    <span class="comment">// 设置文件系统类型</span></span><br><span class="line">    configuration.set(<span class="string">"fs.defaultFS"</span>, <span class="string">"hdfs://bigdata1:8020"</span>);</span><br><span class="line">    <span class="comment">// 获取指定的文件系统</span></span><br><span class="line">    FileSystem fileSystem = FileSystem.get(configuration);</span><br><span class="line">    <span class="comment">// 输出 DFS[DFSClient[clientName=DFSClient_NONMAPREDUCE_373282607_1, ugi=11655 (auth:SIMPLE)]]</span></span><br><span class="line">    System.out.println(fileSystem);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>第二种</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getFileSystem2</span><span class="params">()</span> <span class="keyword">throws</span> IOException, URISyntaxException </span>&#123;</span><br><span class="line">    FileSystem fileSystem = FileSystem.get(<span class="keyword">new</span> URI(<span class="string">"hdfs://bigdata1:8020"</span>), <span class="keyword">new</span> Configuration());</span><br><span class="line">    System.out.println(fileSystem);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1483,6 +1573,12 @@
 <blockquote>
 <p>注意：1、3比较相似，2、4比较相似，主要是get方法和 newInstance方法的使用</p>
 </blockquote>
+<p>这里对Configuration参数对象的加载机制作出解释：</p>
+<ol>
+<li>首先构造时会加载jar包的默认配置，如：xxx-default.xml</li>
+<li>再加载用户配置的文件（必须放在resources资源目录下），如自定义的hdfs-site.xml</li>
+<li>最后可以手动设置，覆盖之前的相同有关配置：configuration.set(“dfs.blocksize”, “64m”);</li>
+</ol>
 <h3 id="遍历HDFS所有文件信息"><a href="#遍历HDFS所有文件信息" class="headerlink" title="遍历HDFS所有文件信息"></a>遍历HDFS所有文件信息</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">listFiles</span><span class="params">()</span> <span class="keyword">throws</span> URISyntaxException, IOException </span>&#123;</span><br><span class="line">    <span class="comment">// 获取FileSystem实例</span></span><br><span class="line">    FileSystem fileSystem = FileSystem.get(<span class="keyword">new</span> URI(<span class="string">"hdfs://bigdata1:8020"</span>), <span class="keyword">new</span> Configuration());</span><br><span class="line">    <span class="comment">// 调用方法listFiles 获取一个目录下的文件信息，为一个迭代器对象</span></span><br><span class="line">    <span class="comment">// 第一个参数：指定目录</span></span><br><span class="line">    <span class="comment">// 第二个参数，是否迭代获取</span></span><br><span class="line">    RemoteIterator&lt;LocatedFileStatus&gt; iterator = fileSystem.listFiles(<span class="keyword">new</span> Path(<span class="string">"/"</span>), <span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//遍历迭代器，获取文件的详细信息</span></span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">        LocatedFileStatus fileStatus = iterator.next();</span><br><span class="line">        <span class="comment">// 获取文件的绝对路径："hdfs://bigdata1:8020/xxx"</span></span><br><span class="line">        System.out.println(fileStatus.getPath() + <span class="string">"  ---  "</span> + fileStatus.getPath().getName());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//文件的Block信息</span></span><br><span class="line">        BlockLocation[] blockLocations = fileStatus.getBlockLocations();</span><br><span class="line">        System.out.println(<span class="string">"Block数："</span> + blockLocations.length);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="HDFS创建文件夹"><a href="#HDFS创建文件夹" class="headerlink" title="HDFS创建文件夹"></a>HDFS创建文件夹</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mkdirs</span><span class="params">()</span> <span class="keyword">throws</span> URISyntaxException, IOException </span>&#123;</span><br><span class="line">    FileSystem fileSystem = FileSystem.get(<span class="keyword">new</span> URI(<span class="string">"hdfs://bigdata1:8020/a.txt"</span>), <span class="keyword">new</span> Configuration());</span><br><span class="line">    <span class="comment">// 创建文件夹</span></span><br><span class="line">    <span class="keyword">boolean</span> bl = fileSystem.mkdirs(<span class="keyword">new</span> Path(<span class="string">"/aaa/bbb/ccc"</span>));</span><br><span class="line">    <span class="comment">//创建文件</span></span><br><span class="line">    fileSystem.create(<span class="keyword">new</span> Path(<span class="string">"/aaa/aaa.txt"</span>));</span><br><span class="line">    <span class="comment">// 两个创建方法都为递归创建</span></span><br><span class="line">    System.out.println(bl);</span><br><span class="line">    fileSystem.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1571,7 +1667,10 @@
 <p>1、第一个副本块存本机</p>
 <p>2、第二个副本块跟本机同机架内的其他服务器结点</p>
 <p>3、第三个副本块存不同机架的一个服务器结点上</p>
-<h1 id="HDFS的命令行使用"><a href="#HDFS的命令行使用" class="headerlink" title="HDFS的命令行使用"></a>HDFS的命令行使用</h1><p>hdfs命令是操作HDFS文件系统上的资源，只要打开了HDFS服务，就可使用命令行操作，与当前所在的Linux目录无关。</p>
+<h1 id="HDFS的命令行使用"><a href="#HDFS的命令行使用" class="headerlink" title="HDFS的命令行使用"></a>HDFS的命令行使用</h1><p>首先是服务的启动关闭命令。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 关闭所有服务</span></span><br><span class="line">stop-all.sh</span><br></pre></td></tr></table></figure>
+
+<p>hdfs命令是操作HDFS文件系统上的资源，只要打开了HDFS服务，就可使用命令行操作，与当前所在的Linux目录无关。</p>
 <p><code>ls</code></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">格式：hdfs dfs -ls URI</span><br><span class="line">作用：类似于Linux的ls命令，显示文件列表</span><br><span class="line"></span><br><span class="line">hdfs dfs -ls /</span><br></pre></td></tr></table></figure>
 
