@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <meta name="baidu-site-verification" content="OIvRHPtnvC">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-loading-bar.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"icewind-r.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Spring 入门。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring_01">
+<meta property="og:url" content="http://icewind-r.github.io/2020/11/09/Spring-01/index.html">
+<meta property="og:site_name" content="Thorine">
+<meta property="og:description" content="Spring 入门。">
+<meta property="og:image" content="http://icewind-r.github.io/2020/11/09/Spring-01/1.png">
+<meta property="og:image" content="http://icewind-r.github.io/2020/11/09/Spring-01/1.gif">
+<meta property="article:published_time" content="2020-11-09T11:24:21.000Z">
+<meta property="article:modified_time" content="2020-11-09T14:47:31.623Z">
+<meta property="article:author" content="大雪初晴丶">
+<meta property="article:tag" content="Spring">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://icewind-r.github.io/2020/11/09/Spring-01/1.png">
+
+<link rel="canonical" href="http://icewind-r.github.io/2020/11/09/Spring-01/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Spring_01 | Thorine</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a170e4a05c3a0ce3f8d5a6919dae5d5e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Thorine" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    	<!-- 自己的Github地址 -->
+
+<a href="https://github.com/iceWind-R" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Thorine</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">凡是过往，皆为序章</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2020/11/09/Spring-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang01.jpg">
+      <meta itemprop="name" content="大雪初晴丶">
+      <meta itemprop="description" content="一个热爱编程的大二小白">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Thorine">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring_01
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+
+
+
+                
+                
+
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-09 19:24:21 / 修改时间：22:47:31" itemprop="dateCreated datePublished" datetime="2020-11-09T19:24:21+08:00">2020-11-09</time>
+            </span>
+
+          
+            <span id="/2020/11/09/Spring-01/" class="post-meta-item leancloud_visitors" data-flag-title="Spring_01" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/09/Spring-01/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/Spring-01/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Spring 入门。</p>
+<a id="more"></a>
+
+<hr>
+<p>Spring 全家桶：spring，springMVC，Spring Boot，Spring Cloud，它们都是框架，负责Java开发的各个方面。先开始学习最基础的Spring。</p>
+<h1 id="一、Spring概述"><a href="#一、Spring概述" class="headerlink" title="一、Spring概述"></a>一、Spring概述</h1><p>优点：减轻对项目模块的管理，类和类之间的管理，帮助开发人员创建对象，管理对象之间的关系。</p>
+<p>Spring核心技术：IOC，AOP。能实现模块之间、类之间的解耦合。</p>
+<p>spring是一个开源组织，有很多项目，在官网中可以看到有如下project，每一个project就是一个开源框架。</p>
+<img src="/2020/11/09/Spring-01/1.png" class>
+
+<p>我们学习的spring框架，就是其中的spring framework。</p>
+<h2 id="Spring-优点"><a href="#Spring-优点" class="headerlink" title="Spring 优点"></a>Spring 优点</h2><ul>
+<li><strong>轻量</strong>：核心功能依赖的jar包少，总共3M左右。且占用资源少。</li>
+<li><strong>解耦合</strong>：针对接口编程，提供了IOC控制反转，由容器管理对象之间的依赖关系。原来在程序代码中的对象创建方式，现在由容器完成。</li>
+<li><strong>AOP</strong>：进行面向切面的编程，许多不容易用传统OOP实现的功能可以通过AOP轻松应付。</li>
+<li>方便集成各种优秀的框架：Spring对一些优秀的框架提供了直接的支持。</li>
+<li>声明式事务的支持：只需要通过配置就可以完成对事务的管理，而无须手动编程。</li>
+<li>方便程序的测试：Spring 支持 JUnit4，可以通过注解方便地测试 Spring 程序。</li>
+</ul>
+<h1 id="二、Spring体系结构详解"><a href="#二、Spring体系结构详解" class="headerlink" title="二、Spring体系结构详解"></a>二、Spring体系结构详解</h1><p>Spring框架采用分层架构，根据不同的功能被划分成了多个模块，这些模块大体可分为 Data Access/Integration、Web、AOP、Aspects、Messaging、Instrumentation、Core Container 和 Test。</p>
+<img src="/2020/11/09/Spring-01/1.gif" class>
+
+<p>图中包含了 Spring 框架的所有模块，这些模块可以满足一切企业级应用开发的需求，在开发过程中可以根据需求有选择性地使用所需要的模块。下面分别对这些模块的作用进行简单介绍。</p>
+<h2 id="1-Data-Access-Integration（数据访问／集成）"><a href="#1-Data-Access-Integration（数据访问／集成）" class="headerlink" title="1. Data Access/Integration（数据访问／集成）"></a>1. Data Access/Integration（数据访问／集成）</h2><p>数据访问/集成层包括 JDBC、ORM、OXM、JMS 和 Transactions 模块，具体介绍如下。</p>
+<ul>
+<li>JDBC 模块：提供了一个 JDBC 的抽象层，大幅度减少了在开发过程中对数据库操作的编码。</li>
+<li>ORM 模块：对流行的对象关系映射 API，包括 JPA、JDO、<a href="http://c.biancheng.net/hibernate/" target="_blank" rel="noopener">Hibernate</a> 和 iBatis 提供了的集成层。</li>
+<li>OXM 模块：提供了一个支持对象/XML 映射的抽象层实现，如 JAXB、Castor、XMLBeans、JiBX 和 XStream。</li>
+<li>JMS 模块：指 Java 消息服务，包含的功能为生产和消费的信息。</li>
+<li>Transactions 事务模块：支持编程和声明式事务管理实现特殊接口类，并为所有的 POJO。</li>
+</ul>
+<h2 id="2-Web-模块"><a href="#2-Web-模块" class="headerlink" title="2. Web 模块"></a>2. Web 模块</h2><p>Spring 的 Web 层包括 Web、Servlet、Struts 和 Portlet 组件，具体介绍如下。</p>
+<ul>
+<li>Web 模块：提供了基本的 Web 开发集成特性，例如多文件上传功能、使用的 Servlet 监听器的 IoC 容器初始化以及 Web 应用上下文。</li>
+<li>Servlet模块：包括 Spring 模型—视图—控制器（MVC）实现 Web 应用程序。</li>
+<li>Struts 模块：包含支持类内的 Spring 应用程序，集成了经典的 Struts Web 层。</li>
+<li>Portlet 模块：提供了在 Portlet 环境中使用 MV C实现，类似 Web-Servlet 模块的功能。</li>
+</ul>
+<h2 id="3-Core-Container（核心容器）"><a href="#3-Core-Container（核心容器）" class="headerlink" title="3. Core Container（核心容器）"></a>3. Core Container（核心容器）</h2><p>Spring 的核心容器是其他模块建立的基础，由 Beans 模块、Core 核心模块、Context 上下文模块和 Expression Language 表达式语言模块组成，具体介绍如下。</p>
+<ul>
+<li>Beans 模块：提供了 BeanFactory，是工厂模式的经典实现，Spring 将管理对象称为 Bean。</li>
+<li>Core 核心模块：提供了 Spring 框架的基本组成部分，包括 IoC 和 DI 功能。</li>
+<li>Context 上下文模块：建立在核心和 Beans 模块的基础之上，它是访问定义和配置任何对象的媒介。ApplicationContext 接口是上下文模块的焦点。</li>
+<li>Expression Language 模块：是运行时查询和操作对象图的强大的表达式语言。</li>
+</ul>
+<h2 id="4-其他模块"><a href="#4-其他模块" class="headerlink" title="4. 其他模块"></a>4. 其他模块</h2><p>Spring的其他模块还有 AOP、Aspects、Instrumentation 以及 Test 模块，具体介绍如下。</p>
+<ul>
+<li>AOP 模块：提供了面向切面编程实现，允许定义方法拦截器和切入点，将代码按照功能进行分离，以降低耦合性。</li>
+<li>Aspects 模块：提供与 AspectJ 的集成，是一个功能强大且成熟的面向切面编程（AOP）框架。</li>
+<li>Instrumentation 模块：提供了类工具的支持和类加载器的实现，可以在特定的应用服务器中使用。</li>
+<li>Test 模块：支持 Spring 组件，使用 JUnit 或 TestNG 框架的测试。</li>
+</ul>
+<h1 id="三、Spring-IOC-控制反转"><a href="#三、Spring-IOC-控制反转" class="headerlink" title="三、Spring IOC 控制反转"></a>三、Spring IOC 控制反转</h1><p>控制反转（IoC，Inversion of Control），指将把对象的创建、赋值、管理工作都交给代码之外的容器实现。</p>
+<p>控制：创建对象，对象的属性赋值，对象之间的关系管理。</p>
+<p>正转：使用new关键字构造方法创建对象，开发人员主动管理对象。</p>
+<p>反转：把原来的开发人员管理创建对象的权限转移给代码之外的容器实现，由容器代替开发人员管理对象。</p>
+<p>容器：是一个服务器软件，一个框架，Spring就是这样一个框架。</p>
+<p>为什么IoC：减少对代码的改动，实现解耦合。</p>
+<h2 id="IoC体现"><a href="#IoC体现" class="headerlink" title="IoC体现"></a>IoC体现</h2><p>Tomcat作为容器，里面存放着Servlet，Listener，Filter等对象，不用手动创建对象。</p>
+<h2 id="IoC技术实现"><a href="#IoC技术实现" class="headerlink" title="IoC技术实现"></a>IoC技术实现</h2><p>使用DI（Dependency Injection）实现IoC的功能。</p>
+<p>DI：依赖注入，只需要在程序中提供所使用对象的名称就可以由 DI 自动创建，赋值和查找。使用的是反射机制。</p>
+<h1 id="四、Spring-的第一个程序"><a href="#四、Spring-的第一个程序" class="headerlink" title="四、Spring 的第一个程序"></a>四、Spring 的第一个程序</h1><p>步骤：</p>
+<p>1、创建Maven项目，导入spring 的相关依赖</p>
+<p>2、创建类（接口类和其实现类），和没有使用框架一样，普通的类。</p>
+<p>3、创建spring需要使用的配置文件：声明类的信息，这些类由spring创建和管理。</p>
+<p>4、测试对象创建</p>
+<h2 id="1、新建Maven工程"><a href="#1、新建Maven工程" class="headerlink" title="1、新建Maven工程"></a>1、新建Maven工程</h2><p>导入spring 的 maven依赖。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.2.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、创建接口和实现类"><a href="#2、创建接口和实现类" class="headerlink" title="2、创建接口和实现类"></a>2、创建接口和实现类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">SomeService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doSome</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.thorine.service.SomeService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeServiceImpl</span> <span class="keyword">implements</span> <span class="title">SomeService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSome</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"执行了SomeServiceImpl的 doSome() 方法。"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、创建配置文件"><a href="#3、创建配置文件" class="headerlink" title="3、创建配置文件"></a>3、创建配置文件</h2><p>给Maven项目创建resources资源目录，在该目录下创建spring的xml配置文件，依赖导入成功后，会出现spring xml提示。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        告诉spring创建对象</span></span><br><span class="line"><span class="comment">        声明bean，就是告诉spring创建某个类的对象</span></span><br><span class="line"><span class="comment">        id：对象的自定义名称，符合Java的命名规则，是唯一的。</span></span><br><span class="line"><span class="comment">        class：类的全限定名称（必须是类，不是接口）</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"someService"</span> <span class="attr">class</span>=<span class="string">"com.thorine.service.impl.SomeServiceImpl"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        完成 ：SomeService service = new SomeServiceImpl();</span></span><br><span class="line"><span class="comment">        spring 是把创建好的对象放入map集合中，spring框架有一个map存放对象</span></span><br><span class="line"><span class="comment">        springMap.put(id的值, 对象);</span></span><br><span class="line"><span class="comment">        例如：springMap.put(someService, new SomeServiceImpl());</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        注意：一个bean标签声明一个对象，想声明多个对象，就用多个bean标签</span></span><br><span class="line"><span class="comment">     --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4、测试对象创建"><a href="#4、测试对象创建" class="headerlink" title="4、测试对象创建"></a>4、测试对象创建</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 使用spring容器创建对象</span><br><span class="line">&#x2F;&#x2F; 指定spring配置文件的名称</span><br><span class="line">String config &#x3D; &quot;beans.xml&quot;;</span><br><span class="line">&#x2F;&#x2F; 创建表示spring容器的对象，ApplicationContext，就是表示Spring容器，通过容器获取对象</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;ClassPathXmlApplicationContext 表示从类路径中加载spring的配置文件</span><br><span class="line">ApplicationContext ac &#x3D; new ClassPathXmlApplicationContext(config);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 从容器中获取某个对象，你要调用对象的方法</span><br><span class="line">&#x2F;&#x2F; getBean(&quot;配置文件中的bean的id值&quot;)</span><br><span class="line">SomeService service &#x3D; (SomeService) ac.getBean(&quot;someService&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 使用spring创建好的对象</span><br><span class="line">service.doSome();</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>~感谢你请我吃糖果~</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.JPG" alt="大雪初晴丶 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束，感谢您的阅读，欢迎评论留言！-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Spring/" rel="tag"><i class="fa fa-tag"></i> Spring</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/29/Docker-01/" rel="prev" title="Docker_01">
+      <i class="fa fa-chevron-left"></i> Docker_01
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Spring概述"><span class="nav-number">1.</span> <span class="nav-text">一、Spring概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-优点"><span class="nav-number">1.1.</span> <span class="nav-text">Spring 优点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、Spring体系结构详解"><span class="nav-number">2.</span> <span class="nav-text">二、Spring体系结构详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Data-Access-Integration（数据访问／集成）"><span class="nav-number">2.1.</span> <span class="nav-text">1. Data Access&#x2F;Integration（数据访问／集成）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Web-模块"><span class="nav-number">2.2.</span> <span class="nav-text">2. Web 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Core-Container（核心容器）"><span class="nav-number">2.3.</span> <span class="nav-text">3. Core Container（核心容器）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-其他模块"><span class="nav-number">2.4.</span> <span class="nav-text">4. 其他模块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Spring-IOC-控制反转"><span class="nav-number">3.</span> <span class="nav-text">三、Spring IOC 控制反转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IoC体现"><span class="nav-number">3.1.</span> <span class="nav-text">IoC体现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IoC技术实现"><span class="nav-number">3.2.</span> <span class="nav-text">IoC技术实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、Spring-的第一个程序"><span class="nav-number">4.</span> <span class="nav-text">四、Spring 的第一个程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、新建Maven工程"><span class="nav-number">4.1.</span> <span class="nav-text">1、新建Maven工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、创建接口和实现类"><span class="nav-number">4.2.</span> <span class="nav-text">2、创建接口和实现类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、创建配置文件"><span class="nav-number">4.3.</span> <span class="nav-text">3、创建配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、测试对象创建"><span class="nav-number">4.4.</span> <span class="nav-text">4、测试对象创建</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="大雪初晴丶"
+      src="/images/touxiang01.jpg">
+  <p class="site-author-name" itemprop="name">大雪初晴丶</p>
+  <div class="site-description" itemprop="description">一个热爱编程的大二小白</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/iceWind-R" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;iceWind-R" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:thorine612@gmail.com" title="E-Mail → mailto:thorine612@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/dongao/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;dongao&#x2F;" rel="noopener" target="_blank">博客园</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大雪初晴丶</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">115k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">6:24</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div> -->
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e59d7f2168413b5" async="async"></script>
+  </div>
+
+
+<!-- 网站运行时间 -->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("2/28/2020 8:00:00");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = " Runing "+dnum+" D "; 
+        document.getElementById("times").innerHTML = hnum + " H " + mnum + " M " + snum + " S"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,255,0' opacity='0.8' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'k9OjfFxvrej9ESLrFSCkSv0C-gzGzoHsz',
+      appKey     : '8MwswXHf6uKqdfpB6jYw1s5p',
+      placeholder: "Just go go",
+      avatar     : 'monsterid',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
