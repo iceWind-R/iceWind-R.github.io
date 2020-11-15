@@ -40,6 +40,47 @@
       </tags>
   </entry>
   <entry>
+    <title>Tensorflow_01</title>
+    <url>/2020/11/15/Tensorflow-01/</url>
+    <content><![CDATA[<p>tensorflow 的入门安装。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h1><p>1、安装tensorflow是基于Python的，并且需要从Anaconda仓库中下载。</p>
+<p>2、所以我们的步骤是：先下载Anaconda，再在Anaconda中安装一个Python，(你的电脑里可能本来已经装了一个Python环境，但是Anaconda中的Python是必须再装的)，然后再下载安装tensorflow。</p>
+<p>3、因为anaconda支持的python版本与TensorFlow支持的python版本不一致可能会导致安装出错，因此下载时候一定不能下载最新版本的anaconda，要先查询下tensorflow支持python哪个版本再下。</p>
+<p>4、tensorflow 目前支持Python 2.7和3.5版本。</p>
+<p>5、作者安装时用清华的镜像一直没能成功，知道使用豆瓣镜像才顺利完成。</p>
+<h1 id="一、Anaconda3-的安装"><a href="#一、Anaconda3-的安装" class="headerlink" title="一、Anaconda3 的安装"></a>一、Anaconda3 的安装</h1><p>Anaconda3-4.0.0 下载地址：<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-4.0.0-Windows-x86_64.exe" target="_blank" rel="noopener">Anaconda3-4.0.0-Windows-x86_64.exe</a></p>
+<p>默认安装，路径自选</p>
+<h1 id="二、安装python3-5-虚拟环境"><a href="#二、安装python3-5-虚拟环境" class="headerlink" title="二、安装python3.5 虚拟环境"></a>二、安装python3.5 虚拟环境</h1><p>打开Anaconda Promote。</p>
+<img src="/2020/11/15/Tensorflow-01/2.png" class>
+
+<p>输入命令 ： <code>conda create --name tensorflow python=3.5</code></p>
+<p>即代表创建在Anaconda中创建一个名为tensorflow的虚拟环境，并指定pyhton版本为 3.5.x</p>
+<img src="/2020/11/15/Tensorflow-01/1.png" class>
+
+<p> 完成后根据提示 <code>activate tensorflow</code>，进入 tensorflow 的虚拟环境即可。</p>
+<p>然后可以使用命令 <code>python -m pip install --upgrade pip</code>  ，更新一下pip命令</p>
+<h1 id="三、安装tensorflow"><a href="#三、安装tensorflow" class="headerlink" title="三、安装tensorflow"></a>三、安装tensorflow</h1><p>在上述激活的tensorflow的虚拟环境中，输入命令如下：</p>
+<p><code>pip install tensorflow==2.0.0 -i https://pypi.doubanio.com/simple</code></p>
+<p>等待没有报红，然后下载成功。</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>输入python进入python交互模式，输入以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">print(tf.__version__)</span><br></pre></td></tr></table></figure>
+
+<p>得到结果如下</p>
+<img src="/2020/11/15/Tensorflow-01/3.png" class>
+
+<p>完成！</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>tensorflow</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring_03</title>
     <url>/2020/11/14/Spring-03/</url>
     <content><![CDATA[<p>基于上篇总结的第一种基于XML的DI，本篇总结DI的第二种，也是更为常见和应用更为广泛的基于<strong>注解</strong>的DI。</p>
@@ -50,6 +91,9 @@
 
 <h2 id="定义Bean的注解-Component"><a href="#定义Bean的注解-Component" class="headerlink" title="定义Bean的注解 @Component"></a>定义Bean的注解 @Component</h2><p>需要在类上使用注解 @Component，该注解的value属性用于指定该bean 的id值。</p>
 ]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
       <tags>
         <tag>spring</tag>
       </tags>
@@ -128,6 +172,9 @@
 
 <p>其他代码基本一致，注意把调用的config改为 total.xml 即可。</p>
 ]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
       <tags>
         <tag>spring</tag>
       </tags>
@@ -223,6 +270,9 @@
 <p>​        （2）servlet、listener、filter等由tomcat创建的对象</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
       <tags>
         <tag>Spring</tag>
       </tags>
@@ -8206,7 +8256,7 @@
 <p>将端口改为80，保存退出。</p>
 ]]></content>
       <categories>
-        <category>WEB</category>
+        <category>Web</category>
       </categories>
       <tags>
         <tag>云服务器</tag>
