@@ -40,6 +40,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Docker_02</title>
+    <url>/2020/11/22/Docker-02/</url>
+    <content><![CDATA[<p>Docker 的常用命令合集。</p>
+<a id="more"></a>
+
+<hr>
+]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring_04</title>
     <url>/2020/11/16/Spring-04/</url>
     <content><![CDATA[<p>sd 本节介绍spring 的AOP——面向切片编程</p>
@@ -50,8 +65,38 @@
 <p>简单来说，就是给原来的类增加一些功能，即<strong>功能增强</strong>。</p>
 <h2 id="JDK的动态代理"><a href="#JDK的动态代理" class="headerlink" title="JDK的动态代理"></a>JDK的动态代理</h2><p>动态代理的实现方式常用的有两种:使用JDK的 Proxy，与通过CGLIB生成代理。</p>
 <p>Jdk的动态要求<strong>目标对象必须实现接口</strong>，这是java设计上的要求。</p>
-<p>从jdk1.3以来，java语言通过java.lang.reflect包提供三个类支持代理模式Proxy，Method和InovcationHandler。</p>
-<h1 id="AOP概述"><a href="#AOP概述" class="headerlink" title="AOP概述"></a>AOP概述</h1><h1 id="AOP简介"><a href="#AOP简介" class="headerlink" title="AOP简介"></a>AOP简介</h1><h1 id="面向切片编程有什么好处？"><a href="#面向切片编程有什么好处？" class="headerlink" title="面向切片编程有什么好处？"></a>面向切片编程有什么好处？</h1><h1 id="AOP编程术语"><a href="#AOP编程术语" class="headerlink" title="AOP编程术语"></a>AOP编程术语</h1>]]></content>
+<p>从jdk1.3以来，java语言通过java.lang.reflect包提供三个类支持代理模式 Proxy，Method 和 InovcationHandler 。</p>
+<p>动态代理的作用:</p>
+<p>1) 在目标类源代码不改变的情况下，增加功能。</p>
+<p>2) 减少代码的重复</p>
+<p>3) 专注业务逻辑代码</p>
+<p>4) 解耦合，让你的业务功能和日志，事务非业务功能分离。</p>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>现有 SomeService 接口和它的实现类 SomeServiceImpl，要求使用动态代理，不改变SomeServiceImpl的源码，给类中的doSome 和 doOther() 类添加 时间 和 事务完成代码。具体代码如下</p>
+<p>SomeService 接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">SomeService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doSome</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doOther</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>SomeServiceImpl</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.thorine.service.SomeService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeServiceImpl</span> <span class="keyword">implements</span> <span class="title">SomeService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSome</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//ServiceTools.doLog(); // 动态代理就是实现注释里的代码的</span></span><br><span class="line">        System.out.println(<span class="string">"执行doSome()..."</span>);</span><br><span class="line">        <span class="comment">//ServiceTools.doTrans();</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doOther</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//ServiceTools.doLog();</span></span><br><span class="line">        System.out.println(<span class="string">"执行doOther()..."</span>);</span><br><span class="line">        <span class="comment">//ServiceTools.doTrans();</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>MyInvocationHandler（代理类）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.handler;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.thorine.util.ServiceTools;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 目标对象</span></span><br><span class="line">    <span class="keyword">private</span> Object target; <span class="comment">// SomeServiceImpl类</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyInvocationHandler</span><span class="params">(Object target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"执行了MyInvocationHandler的invoke方法"</span>);</span><br><span class="line">        System.out.println(<span class="string">"Method方法名："</span> + method.getName());</span><br><span class="line"></span><br><span class="line">        Object result = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        ServiceTools.doLog(); <span class="comment">// 方法增强</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 执行目标类的方法，通过Method类实现，通过代理对象执行方法时，会调用这个invoke()</span></span><br><span class="line">        result = method.invoke(target, args); <span class="comment">// SomeServiceImpl.doOther,doSome()</span></span><br><span class="line"></span><br><span class="line">        ServiceTools.doTrans(); <span class="comment">// 方法增强</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 目标方法执行的结果</span></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.thorine.handler.MyInvocationHandler;</span><br><span class="line"><span class="keyword">import</span> com.thorine.service.impl.SomeServiceImpl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 使用JDK 的proxy创建代理对象</span></span><br><span class="line">        <span class="comment">// 创建目标对象</span></span><br><span class="line">        SomeService target = <span class="keyword">new</span> SomeServiceImpl();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建InvocationHandler对象</span></span><br><span class="line">        InvocationHandler handler = <span class="keyword">new</span> MyInvocationHandler(target);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用proxy创建代理</span></span><br><span class="line">        SomeService proxy = (SomeService) Proxy.newProxyInstance</span><br><span class="line">                (target.getClass().getClassLoader(), target.getClass().getInterfaces(),handler);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//通过代理执行方法，会调用handler中的invoke()</span></span><br><span class="line">        proxy.doSome();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="AOP简介"><a href="#AOP简介" class="headerlink" title="AOP简介"></a>AOP简介</h1><p>AOP (Aspect Orient Programming)，面向切面编程。面向切面编程是从动态角度考虑程序运行过程。</p>
+<p>AOP底层，就是采用<strong>动态代理模式</strong>实现的。采用了两种代理 : JDK的动态代理，与CGLIB的动态代理。</p>
+<blockquote>
+<p>AOP为Aspect Oriented Programming的缩写，意为 : 面向切面编程，可通过运行期动态代理实现程序功能的统一维护的一种技术。AOP是Spring框架中的一个重要内容。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
+</blockquote>
+<p>因为动态代理很灵活，实现方法复杂多样，为了统一规则，而出现的AOP。</p>
+<p>总之，AOP就是动态代理的规范化。</p>
+<h2 id="Aspect：切面"><a href="#Aspect：切面" class="headerlink" title="Aspect：切面"></a>Aspect：切面</h2><p>给目标类增加的功能，就是切面。像上面用的增加日志、事务功能 等都是切面。</p>
+<p><strong>特点：</strong>一般都是非业务方法，可以独立使用。</p>
+<blockquote>
+<p>业务方法：功能性的方法代码等。例如：数据库增删改查，逻辑运算（10+20）等。</p>
+</blockquote>
+<h2 id="怎么理解面向切面编程？"><a href="#怎么理解面向切面编程？" class="headerlink" title="怎么理解面向切面编程？"></a>怎么理解面向切面编程？</h2><h1 id="面向切片编程有什么好处？"><a href="#面向切片编程有什么好处？" class="headerlink" title="面向切片编程有什么好处？"></a>面向切片编程有什么好处？</h1><h1 id="AOP编程术语"><a href="#AOP编程术语" class="headerlink" title="AOP编程术语"></a>AOP编程术语</h1>]]></content>
       <tags>
         <tag>Web</tag>
       </tags>
@@ -332,7 +377,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Docker_01</title>
+    <title>Docker_01(入门及安装)</title>
     <url>/2020/10/29/Docker-01/</url>
     <content><![CDATA[<p>Docker 入门。</p>
 <a id="more"></a>
@@ -358,40 +403,56 @@
 
 <p>了解了Docker的组成，再来了解一下Docker的三个主要概念：</p>
 <ul>
-<li><strong>Docker image</strong>：镜像是只读的，镜像中包含有需要运行的文件。镜像用来创建container，一个镜像可以运行多个container；镜像可以通过Dockerfile创建，也可以从Docker hub/registry上下载。</li>
-<li><strong>Docker container</strong>：容器是Docker的运行组件，启动一个镜像就是一个容器，容器是一个隔离环境，多个容器之间不会相互影响，保证容器中的程序运行在一个相对安全的环境中。</li>
-<li><strong>Docker hub/registry</strong>: 共享和管理Docker镜像，用户可以上传或者下载上面的镜像，官方地址为<code>https://registry.hub.docker.com/</code>，也可以搭建自己私有的Docker registry。</li>
+<li><strong>Docker image(镜像)</strong>：镜像是只读的，镜像中包含有需要运行的文件。镜像用来创建container，一个镜像可以运行多个container；镜像可以通过DockerFile创建，也可以从Docker hub/registry上下载。</li>
+<li><strong>Docker container(容器)</strong>：容器是Docker的运行组件，启动一个镜像就是一个容器，容器是一个隔离环境，多个容器之间不会相互影响，保证容器中的程序运行在一个相对安全的环境中。</li>
+<li><strong>Docker hub/registry()</strong>: 共享和管理Docker镜像，用户可以上传或者下载上面的镜像，官方地址为<code>https://registry.hub.docker.com/</code>，也可以搭建自己私有的Docker registry。</li>
 </ul>
 <p>镜像就相当于打包好的版本，镜像启动之后运行在容器中，仓库就是装存储镜像的地方。</p>
-<h1 id="Docker安装配置"><a href="#Docker安装配置" class="headerlink" title="Docker安装配置"></a>Docker安装配置</h1><p>建议在linux环境下安装Docker，window环境搭建比较复杂且容易出错，使用Centos7+yum来安装Docker环境很方便。</p>
-<p>Docker 软件包已经包括在默认的 CentOS-Extras 软件源里。因此想要安装 docker，只需要运行下面的 yum 命令：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">yum install docker</span><br></pre></td></tr></table></figure>
+<h1 id="Docker安装配置"><a href="#Docker安装配置" class="headerlink" title="Docker安装配置"></a>Docker安装配置</h1><h2 id="Docker的入门安装"><a href="#Docker的入门安装" class="headerlink" title="Docker的入门安装"></a>Docker的入门安装</h2><p>建议在linux环境下安装Docker，window环境搭建比较复杂且容易出错，使用Centos7+yum来安装Docker环境很方便。</p>
+<p>以下安装过程参考 <a href="https://docs.docker.com/engine/install/centos/" target="_blank" rel="noopener">Docker官方文档</a></p>
+<h3 id="1、安装之前需要先卸载旧的docker（如果有）"><a href="#1、安装之前需要先卸载旧的docker（如果有）" class="headerlink" title="1、安装之前需要先卸载旧的docker（如果有）"></a>1、安装之前需要先卸载旧的docker（如果有）</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line">                  docker-client \</span><br><span class="line">                  docker-client-latest \</span><br><span class="line">                  docker-common \</span><br><span class="line">                  docker-latest \</span><br><span class="line">                  docker-latest-logrotate \</span><br><span class="line">                  docker-logrotate \</span><br><span class="line">                  docker-engine</span><br></pre></td></tr></table></figure>
 
-<p>安装完成后，使用下面的命令来启动 docker 服务，并将其设置为开机启动：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">service docker start</span><br><span class="line">chkconfig docker on</span><br></pre></td></tr></table></figure>
+<h3 id="2、下载yum-util-包"><a href="#2、下载yum-util-包" class="headerlink" title="2、下载yum-util 包"></a>2、下载yum-util 包</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y yum-utils</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>LCTT 译注：此处采用了旧式的 sysv 语法，如采用CentOS 7中支持的新式 systemd 语法，如下：</p>
-</blockquote>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">systemctl start docker.service</span><br><span class="line">systemctl <span class="built_in">enable</span> docker.service</span><br></pre></td></tr></table></figure>
+<h3 id="3、设置镜像仓库"><a href="#3、设置镜像仓库" class="headerlink" title="3、设置镜像仓库"></a>3、设置镜像仓库</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo # 默认是国外的，很慢，不推荐</span><br><span class="line">    </span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用阿里云镜像地址</span></span><br><span class="line">yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
 
-<h2 id="Hello-World-案例"><a href="#Hello-World-案例" class="headerlink" title="Hello World 案例"></a>Hello World 案例</h2><p>下面，我们通过最简单的 image 文件”hello world”，感受一下 Docker。</p>
-<p>因为国内连接 Docker 的官方仓库很慢，因此我们在日常使用中会使用Docker 中国加速器。通过 Docker  官方镜像加速，中国区用户能够快速访问最流行的 Docker  镜像。该镜像托管于中国大陆，本地用户现在将会享受到更快的下载速度和更强的稳定性，从而能够更敏捷地开发和交付 Docker 化应用。</p>
-<p>Docker 中国官方镜像加速可通过<code>registry.docker-cn.com</code>访问。该镜像库只包含流行的公有镜像，私有镜像仍需要从美国镜像库中拉取。</p>
-<p>修改系统中docker对应的配置文件即可，如下：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vi  /etc/docker/daemon.json</span><br><span class="line"><span class="comment">#添加后</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"registry-mirrors"</span>: [<span class="string">"https://registry.docker-cn.com"</span>],</span><br><span class="line">    <span class="string">"live-restore"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4、更新yum软件包索引"><a href="#4、更新yum软件包索引" class="headerlink" title="4、更新yum软件包索引"></a>4、更新yum软件包索引</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum makecache fast</span><br></pre></td></tr></table></figure>
 
-<p>运行下面的命令，将 image 文件从仓库抓取到本地。</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker pull library/hello-world</span><br></pre></td></tr></table></figure>
+<h3 id="5、安装docker"><a href="#5、安装docker" class="headerlink" title="5、安装docker"></a>5、安装docker</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker-ce社区版（推荐） ee企业版</span></span><br><span class="line">yum install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
 
-<p>上面代码中，docker image pull是抓取 image 文件的命令。library/hello-world是 image 文件在仓库里面的位置，其中library是 image 文件所在的组，hello-world是 image 文件的名字。</p>
-<p>抓取成功以后，就可以在本机看到这个 image 文件了。</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker images</span><br><span class="line"><span class="comment">#显示结果</span></span><br><span class="line">REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">docker.io/hello-world           latest              f2a91732366c        3 months ago        1.848 kB</span><br></pre></td></tr></table></figure>
+<h3 id="6、启动docker"><a href="#6、启动docker" class="headerlink" title="6、启动docker"></a>6、启动docker</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">systemctl start docker.service</span><br><span class="line">systemctl <span class="built_in">enable</span> docker.service</span><br></pre></td></tr></table></figure>
 
-<p>现在，运行这个 image 文件。</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示结果</span></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>使用 <code>docker version</code> 命令查看docker版本</p>
+<h3 id="7、Hello-World-案例"><a href="#7、Hello-World-案例" class="headerlink" title="7、Hello World 案例"></a>7、Hello World 案例</h3><p>下面，我们通过最简单的 image 文件”hello world”，感受一下 Docker。</p>
+<p>可以通过以下命令运行hello-world</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+
+<p>第一次时，docker未能在本地找到相应的hello-world镜像，便去远程仓库下载。</p>
+<p>完成后可以使用如下命令查看镜像。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker images</span><br><span class="line"><span class="meta">#</span><span class="bash">显示结果</span></span><br><span class="line">REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">docker.io/hello-world           latest              f2a91732366c        3 months ago        1.848 kB</span><br></pre></td></tr></table></figure>
 
 <p>输出这段提示以后，hello world就会停止运行，容器自动终止。有些容器不会自动终止，因为提供的是服务，比如Mysql镜像等。</p>
+<h3 id="8、卸载docker"><a href="#8、卸载docker" class="headerlink" title="8、卸载docker"></a>8、卸载docker</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1、卸载依赖</span></span><br><span class="line">yum remove docker-ce docker-ce-cli containerd.io</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2、删除资源 /var/lib/docker : docker的默认工作路径</span></span><br><span class="line">rm -rf /var/lib/docker</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置阿里云的镜像加速"><a href="#配置阿里云的镜像加速" class="headerlink" title="配置阿里云的镜像加速"></a>配置阿里云的镜像加速</h2><p>登录阿里云控制台，找到容器镜像服务，找到镜像加速器，选择centos</p>
+<img src="/2020/10/29/Docker-01/2.png" class>
+
+<p>按照下面的 命令提示，输入自己的阿里云镜像加速命令即可</p>
+<img src="/2020/10/29/Docker-01/3.png" class>
+
+<h2 id="底层原理"><a href="#底层原理" class="headerlink" title="底层原理"></a>底层原理</h2><h3 id="Docker是怎么工作的？"><a href="#Docker是怎么工作的？" class="headerlink" title="Docker是怎么工作的？"></a>Docker是怎么工作的？</h3><p>docker是一个 C-S结构的系统，docker的守护进程运行在主机上，通过socket从客户端访问。</p>
+<p>DockerServer 接受 DockerClient 的指令，就会执行这个命令。</p>
+<img src="/2020/10/29/Docker-01/4.png" class>
+
+<h3 id="Docker为什么比-VM-快-？"><a href="#Docker为什么比-VM-快-？" class="headerlink" title="Docker为什么比 VM 快 ？"></a>Docker为什么比 VM 快 ？</h3><p>1、Docker有着比虚拟机更少的抽象层。</p>
+<p>2、docker利用的是宿主机的内核，VM 需要是Guest OS。</p>
+<blockquote>
+<p>OS ：操作系统 </p>
+<p>VM(虚拟机)里的OS 称为   GuestOS  </p>
+<p>物理机里的OS 称为            HostOS</p>
+</blockquote>
+<p>所以说，新建一个容器的时候，docker不需要想虚拟机一样重新加载一个操作系统内核，避免引导。虚拟机是加载Guest OS,分钟级别的；而docker是利用宿主机的操作系统，省略了这个复杂的过程，秒级别!</p>
+<p>之后学习完毕所有的命令，再回过头来看这段理论，就会很清晰！</p>
 ]]></content>
       <categories>
         <category>大数据</category>
