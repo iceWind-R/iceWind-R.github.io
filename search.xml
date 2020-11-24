@@ -40,13 +40,221 @@
       </tags>
   </entry>
   <entry>
-    <title>Docker_02</title>
-    <url>/2020/11/22/Docker-02/</url>
-    <content><![CDATA[<p>Docker 的常用命令合集。</p>
-<a id="more"></a>
+    <title>Docker_05</title>
+    <url>/2020/11/24/Docker-05/</url>
+    <content><![CDATA[<p>Docker学习中断，视频教程地址：<a href="https://www.bilibili.com/video/BV1og4y1q7M4?p=20" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1og4y1q7M4?p=20</a> 还有上一篇文章的内容理解很浅，再次学习前需要加强巩固。</p>
+<a id="more"></a> 
 
 <hr>
 ]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker_04</title>
+    <url>/2020/11/24/Docker-04/</url>
+    <content><![CDATA[<p>Docker 的 镜像讲解。</p>
+<a id="more"></a> 
+
+<hr>
+<h1 id="镜像是什么？"><a href="#镜像是什么？" class="headerlink" title="镜像是什么？"></a>镜像是什么？</h1><p>镜像是一种轻量级、可执行的独立软件包，用来打包<strong>软件运行环境</strong>和<strong>基于运行环境开发的软件</strong>，它包含运行某个软件的所有内容，包括代码、运行时的库、环境变量 和 配置文件。</p>
+<p>所有的应用，直接打包成docker镜像，就可以直接部署！</p>
+<h2 id="如何得到镜像？"><a href="#如何得到镜像？" class="headerlink" title="如何得到镜像？"></a>如何得到镜像？</h2><ul>
+<li>从远程镜像下载</li>
+<li>从朋友拷贝</li>
+<li>自己制作一个 DockerFile</li>
+</ul>
+<h1 id="Docker镜像加载原理"><a href="#Docker镜像加载原理" class="headerlink" title="Docker镜像加载原理"></a>Docker镜像加载原理</h1><h2 id="UnionFS（联合文件系统）"><a href="#UnionFS（联合文件系统）" class="headerlink" title="UnionFS（联合文件系统）"></a>UnionFS（联合文件系统）</h2><p>UnionFS (联合文件系统)：Union文件系统( UnionFS )是一种分层、轻量级并且高性能的文件系统，它支持对文件系统的修改作为一次提交来一层层的叠加，同时可以将不同目录挂载到同一个虚拟文件系统下(unite several directories into a single virtualfilesystem)。</p>
+<p>Union文件系统是Docker镜像的基础。镜像可以通过分层来进行继承，基于基础镜像（没有父镜像），可以制作各种具体的应用镜像。</p>
+<p>特性:一次同时加载多个文件系统，但从外面看起来，只能看到一个文件系统，联合加载会把各层文件系统叠加起来，这样最终的文件系统会包含所有底层的文件和目录</p>
+<h2 id="Docker镜像加载原理-1"><a href="#Docker镜像加载原理-1" class="headerlink" title="Docker镜像加载原理"></a>Docker镜像加载原理</h2><p>docker的镜像实际上由一层一层的文件系统组成，这种层级的文件系统UnionFS。</p>
+<p><strong>bootfs(boot file system)</strong>主要包含bootloader和kernel，bootloader主要是引导加载kernel，Linux刚启动时会加载bootfs文件系统，在Docker镜像的最底层是bootfs。这一层与我们典型的LinuxlUnix系统是一样的，包含boot加载器和内核。当boot加载完成之后整个内核就都在内存中了，此时内存的使用权已由bootfs转交给内核，此时系统也会卸载bootfs。</p>
+<blockquote>
+<p>系统启动需要引导加载，bootfs所负责的，这一层是几乎不变的，所有发行版的Linux系统可以共用的。</p>
+</blockquote>
+<p><strong>rootfs (root file system)</strong>，在bootfs之上。包含的就是典型Linux系统中的/dev, /proc,/bin, /letc等标准目录和文件。rootfs就是各种不同的操作系统发行版，比如Ubuntu ,Centos等等。</p>
+<p>使用docker pull centos下载最新版本的Centos镜像也就200M左右，而我们平时下载一个原生的centos镜像都是4G，为什么差别这么大呢？对于 Docker 初学者都会有这个疑问。</p>
+<p>下面来了解下Linux 操作系统由内核空间和用户空间组成，如下图所示：</p>
+<img src="/2020/11/24/Docker-04/1.png" class>
+
+<blockquote>
+<p>可以看到 最底层是 bootfs，这层是linux 的内核，在这层之上的是rootfs，即提供linux 的标准目录文件等。</p>
+</blockquote>
+<h2 id="不同-Linux-发行版的区别主要就是-rootfs。"><a href="#不同-Linux-发行版的区别主要就是-rootfs。" class="headerlink" title="不同 Linux 发行版的区别主要就是 rootfs。"></a>不同 Linux 发行版的区别主要就是 rootfs。</h2><p>比如 Ubuntu 14.04 使用 upstart 管理服务，apt 管理软件包；而 CentOS 7 使用 systemd 和 yum。这些都是用户空间上的区别，Linux kernel 差别不大，即底层都是相同的bootfs。</p>
+<p>所以 Docker 可以同时支持多种 Linux 镜像，模拟出多种操作系统环境。</p>
+<img src="/2020/11/24/Docker-04/2.png" class>
+
+<p>上图 Debian 和 BusyBox上层提供各自的 rootfs，底层共用 Docker <strong>Host 的 kernel</strong>。</p>
+<blockquote>
+<p>对于一个精简的OS , rootfs可以很小，只需要包含最基本的命令，工具和程序库就可以了，因为底层直接用Host的kernel。</p>
+<p> 自己只需要提供rootfs就可以了。由此可见对于不同的linux发行版, bootfs基本是一致的, rootfs会有差别,因此不同的发行版可以公用bootfs。</p>
+</blockquote>
+<h1 id="分层理解"><a href="#分层理解" class="headerlink" title="分层理解"></a>分层理解</h1><h2 id="分层的镜像"><a href="#分层的镜像" class="headerlink" title="分层的镜像"></a>分层的镜像</h2><p>我们 docker pull 的时候，在下载的过程中我们可以看到docker的镜像好像是在一层一层的在下载。</p>
+<img src="/2020/11/24/Docker-04/3.png" class>
+
+<p><strong>思考</strong>：为什么Docker镜像要采用这种分层的结构呢?</p>
+<p>最大的好处，就是资源共享了！</p>
+<p>比如有多个镜像都从相同的Base镜像构建而来，那么宿主机只需在磁盘上保留一份base镜像，同时内存中也只需要加载一份base镜像，这样就可以为所有的容器服务了，而且镜像的每一层都可以被共享。</p>
+<blockquote>
+<p>什么是base镜像？</p>
+<ol>
+<li>不依赖其他镜像，从 scratch 构建。</li>
+<li>其他镜像可以使之作为基础进行扩展。</li>
+</ol>
+<p>base 镜像的通常都是各种 Linux 发行版的 Docker 镜像，比如 Ubuntu, Debian, CentOS 等。</p>
+</blockquote>
+<p>查看镜像分层的方式可以通过docker image inspect命令!</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# docker image inspect redis</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">"RootFS": &#123;</span><br><span class="line">            "Type": "layers",</span><br><span class="line">            "Layers": [</span><br><span class="line">                "sha256:f5600c6330da7bb112776ba067a32a9c20842d6ecc8ee3289f1a713b644092f8",</span><br><span class="line">                "sha256:c492b4fe510f674e04af29c5a8be4d0104a53e82e68ae98a3f9a0dd385263b7c",</span><br><span class="line">                "sha256:60f4b166131fd0c3b925a04e4976fbc43525e289e5edab72ffc4b7196085905f",</span><br><span class="line">                "sha256:4bc5e04ae88961aa002128a1873888ad4adf5ce11712d601fec6ad5f280c547d",</span><br><span class="line">                "sha256:06d5c35d63a8e4066ca996005b118a6051d2323c4af64c0fc2be014b4da7740e",</span><br><span class="line">                "sha256:d3fc9f08141a1377e718b8a29fd94a8c46793b88efdbed4ad02cbe3a3d91de10"   // 分层信息</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p><strong>理解：</strong></p>
+<p>所有的Docker镜像都起始于一个基础镜像层，当进行修改或增加新的内容时，就会在当前镜像层之上，创建新的镜像层。</p>
+<p>举一个简单的例子，假如基于Ubuntu Linux16.04创建一个新的镜像，这就是新镜像的第一层;如果在该镜像中添加Python包,就会在基础镜像层之上创建第二个镜像层;如果继续添加一个安全补丁，就会创建第三个镜像层。</p>
+<p>该镜像当前已经包含3个镜像层，如下图所示(这只是一个用于演示的很简单的例子)。</p>
+<img src="/2020/11/24/Docker-04/4.png" class>
+
+<h2 id="为什么docker镜像要采用这种分层结构呢？"><a href="#为什么docker镜像要采用这种分层结构呢？" class="headerlink" title="为什么docker镜像要采用这种分层结构呢？"></a>为什么docker镜像要采用这种分层结构呢？</h2><p>最大的一个好处就是<strong>共享资源</strong>。</p>
+<p>比如：有多个镜像都从相同的base镜像构建而来，那么宿主机只需在磁盘上保存一份base镜像，同时内存中也只需加载一份base镜像，就可以为所有容器服务了。而且镜像的每一层都可以被共享。</p>
+<img src="/2020/11/24/Docker-04/5.png" class>
+
+<h1 id="镜像的特点"><a href="#镜像的特点" class="headerlink" title="镜像的特点"></a>镜像的特点</h1><p>Docker镜像都是只读的。</p>
+<p>当容器启动时，一个新的可写层被加载到镜像的顶部。</p>
+<p>这一层通常被称作为”容器层”，“容器层”之下的都叫”镜像层”。</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker-03</title>
+    <url>/2020/11/23/Docker-03/</url>
+    <content><![CDATA[<p>Docker 的 实操练习。</p>
+<a id="more"></a> 
+
+<hr>
+<h1 id="Docker-安装-Nginx"><a href="#Docker-安装-Nginx" class="headerlink" title="Docker 安装 Nginx"></a>Docker 安装 Nginx</h1><p>步骤</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1、搜索镜像 建议到docker hub上下载</span></span><br><span class="line">docker search nginx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2、下载最新镜像</span></span><br><span class="line">docker pull nginx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3、启动镜像</span></span><br><span class="line">docker run -d --name nginx01 -p:3344:80 nginx </span><br><span class="line"><span class="meta">#</span><span class="bash"> -d 后台方式启动 --name 不写默认nginx，若有多个，指定名字，例如nginx01 </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -p:宿主机端口:docker容器端口 : 指定宿主机和nginx容器的端口对应关系</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 最后一个是镜像名字</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动成功后，可通过下面命令验证，得到nginx的欢迎界面即为成功</span></span><br><span class="line">curl localhost:3344</span><br></pre></td></tr></table></figure>
+
+<p>然后可以通过 ip:3344 访问，即可看到 nginx 欢迎界面。</p>
+<p>关于 -p3344:80 端口暴露的概念</p>
+<img src="/2020/11/23/Docker-03/1.png" class>
+
+<p><strong>思考问题：</strong>我们每次改动 nginx 配置文件，都需要进入容器内部？十分的麻烦，我要是可以在容器外部提供一个映射路径，达到在容器修改文件名，容器内部就可以自动修改?</p>
+<p>这里需要用到后期学习的<strong>数据卷</strong>的技术！</p>
+<h1 id="Docker-安装-Tomcat"><a href="#Docker-安装-Tomcat" class="headerlink" title="Docker 安装 Tomcat"></a>Docker 安装 Tomcat</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 官方的使用,会自动启动tomcat服务</span></span><br><span class="line">docker run -it --rm tomcat # --rm 代表用完即删，一般用于测试</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我们学习初期不使用以上方式，正常下载即可</span></span><br><span class="line">docker pull tomcat:9.0</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动镜像</span></span><br><span class="line">docker run -d -p:3355:8080 --name tomcat01 tomcat:9.0</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 以上便可根据ip:3355访问，可以分为tomcat 但是404 not found</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 容器的目录结构</span></span><br><span class="line">root@e4cdba7e5c42:/usr/local/tomcat# ls -al</span><br><span class="line">total 128</span><br><span class="line">drwxr-xr-x. 1 root root    30 Nov 19 06:16 .</span><br><span class="line">drwxr-xr-x. 1 root root    20 Nov 19 06:12 ..</span><br><span class="line">-rw-r--r--. 1 root root 18982 Nov 12 15:41 BUILDING.txt</span><br><span class="line">-rw-r--r--. 1 root root  5409 Nov 12 15:41 CONTRIBUTING.md</span><br><span class="line">-rw-r--r--. 1 root root 57092 Nov 12 15:41 LICENSE</span><br><span class="line">-rw-r--r--. 1 root root  2333 Nov 12 15:41 NOTICE</span><br><span class="line">-rw-r--r--. 1 root root  3257 Nov 12 15:41 README.md</span><br><span class="line">-rw-r--r--. 1 root root  6898 Nov 12 15:41 RELEASE-NOTES</span><br><span class="line">-rw-r--r--. 1 root root 16507 Nov 12 15:41 RUNNING.txt</span><br><span class="line">drwxr-xr-x. 2 root root  4096 Nov 19 06:16 bin</span><br><span class="line">drwxr-xr-x. 1 root root    22 Nov 23 11:43 conf</span><br><span class="line">drwxr-xr-x. 2 root root  4096 Nov 19 06:16 lib</span><br><span class="line">drwxrwxrwx. 1 root root   177 Nov 23 11:43 logs</span><br><span class="line">drwxr-xr-x. 2 root root   134 Nov 19 06:16 native-jni-lib</span><br><span class="line">drwxrwxrwx. 2 root root    30 Nov 19 06:16 temp</span><br><span class="line">drwxr-xr-x. 2 root root     6 Nov 19 06:16 webapps</span><br><span class="line">drwxr-xr-x. 7 root root    81 Nov 12 15:38 webapps.dist</span><br><span class="line">drwxrwxrwx. 2 root root     6 Nov 12 15:35 work</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入容器</span></span><br><span class="line">docker exec -it tomcat01 /bin/bash</span><br><span class="line"><span class="meta">#</span><span class="bash"> 发现问题，命令少了，webapps目录下没有内容，所以 404</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 解决:可以发现webapps.dist下有ROOT等文件，所以把webapps.dist里的内容复制进webapps下即可。</span></span><br><span class="line"></span><br><span class="line">cp -r webapps.dist/* webapps</span><br><span class="line"></span><br><span class="line">再次访问网页，成功。</span><br></pre></td></tr></table></figure>
+
+<p><strong>思考问题：</strong>我们以后要部署项目，如果每次都要进入容器是不是十分麻烦？我要是可以在容器外部提供一个映射路径，webapps ,我们在外部放置项目，就自动同步到内部就好了!</p>
+<h1 id="Docker安装MySQL"><a href="#Docker安装MySQL" class="headerlink" title="Docker安装MySQL"></a>Docker安装MySQL</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line"></span><br><span class="line">docker run -p 3306:3306 --name mysql01 -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql</span><br></pre></td></tr></table></figure>
+
+<p>此时，docker容器里的mysql服务启动，并且映射到宿主机的3306端口，可通过宿主机的ip:3306访问mysql服务。</p>
+<h1 id="Docker安装SQL-server（失败！！）"><a href="#Docker安装SQL-server（失败！！）" class="headerlink" title="Docker安装SQL server（失败！！）"></a>Docker安装SQL server（失败！！）</h1><p>使用命令下载镜像：docker pull mcr.microsoft.com/mssql/server:2017-latest</p>
+<p>使用命令创建并运行SQL server容器，密码root，容器名字sqlserver1</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=root"  -p 1433:1433 --name sqlserver1  -d mcr.microsoft.com/mssql/server:2017-latest</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Docker安装Oracle（失败）"><a href="#Docker安装Oracle（失败）" class="headerlink" title="Docker安装Oracle（失败）"></a>Docker安装Oracle（失败）</h1><p>使用命令下载镜像 docker pull registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g</p>
+<p><strong>没有足够空间下载</strong></p>
+<h1 id="Docker安装Redis"><a href="#Docker安装Redis" class="headerlink" title="Docker安装Redis"></a>Docker安装Redis</h1><p>使用命令docker pull redis 下载镜像</p>
+<p>运行redis容器：docker run -itd –name redis01 -p 6379:6379 redis</p>
+<p>使用命令行交互模式进入容器：docker exec -it redis01 /bin/bash </p>
+<p>然后用redis-cli连接容器的redis进行测试</p>
+<p>set test 1</p>
+<h1 id="Docker安装MongoDB"><a href="#Docker安装MongoDB" class="headerlink" title="Docker安装MongoDB"></a>Docker安装MongoDB</h1><h1 id="Docker-部署-ES-Kibana"><a href="#Docker-部署-ES-Kibana" class="headerlink" title="Docker 部署 ES + Kibana"></a>Docker 部署 ES + Kibana</h1><p>es是elasticsearch6搜索引擎，kibana是它的可视化操作界面</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ES 暴露的端口很多！</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ES 十分的耗内存</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ES 的数据一般需要放置到安全目录！挂载</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> --net somenetwork ? 网络配置</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动 es</span></span><br><span class="line">docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.9.3</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看CPU状态： docker stats </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 非常耗内存，占了大部分内存空间</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">测试es是否启动成功</span></span><br><span class="line">curl localhost:9200</span><br></pre></td></tr></table></figure>
+
+<h1 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h1><p>1、portainer（先用这个）： Docker图形化管理工具！提供一个后台面板供我们操作</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 使用命令</span></span><br><span class="line">docker run -d -p 8088:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock --privileged=true --name portainer01 portainer/portainer</span><br></pre></td></tr></table></figure>
+
+<p>访问测试：ip:8088</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker_02</title>
+    <url>/2020/11/22/Docker-02/</url>
+    <content><![CDATA[<p>Docker 的常用命令合集。</p>
+<a id="more"></a> 
+
+<hr>
+<h1 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h1><p>官方给出的概览图，很生动形象，学完下面命令后再看此图很有帮助。</p>
+<img src="/2020/11/22/Docker-02/1.png" class>
+
+<h2 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker version 		# 显示docker的版本信息</span><br><span class="line">docker info			# 显示docker的系统信息，包括镜像容器的数量</span><br><span class="line">docker 命令 -help	 # 帮助命令</span><br></pre></td></tr></table></figure>
+
+<p>还可以查看官方的命令 <a href="https://docs.docker.com/reference/" target="_blank" rel="noopener">帮助文档</a></p>
+<h2 id="镜像命令"><a href="#镜像命令" class="headerlink" title="镜像命令"></a>镜像命令</h2><p><strong>docker images</strong>：查看所有本地主机上的镜像</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@kuangshen /]# docker imagesREPOSITORY</span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">hello-world         latest              bf756fb1ae65        10 months ago       13.3kB</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">解释</span></span><br><span class="line">    REPOSITORY		镜像的仓库源</span><br><span class="line">    TAG				镜像的标签</span><br><span class="line">    IMAGE ID		镜像的id</span><br><span class="line">    CREATED			镜像的创建时间</span><br><span class="line">    SIZE			镜像的大小</span><br><span class="line"><span class="meta">#</span><span class="bash">可选项</span></span><br><span class="line">    -a, --a71		#列出所有镜像</span><br><span class="line">    -q, --quiet		#只显示镜像的id</span><br></pre></td></tr></table></figure>
+
+<p><strong>docker search (镜像名字)</strong>：搜索镜像</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root@localhost ~]# docker search mysql</span><br><span class="line">NAME                              DESCRIPTION                                     STARS               </span><br><span class="line">mysql                             MySQL is a widely used, open-source relation…   10196               [OK]   </span><br><span class="line">mariadb                           MariaDB is a community-developed fork of MyS…   3753                [OK]</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 可选项 通过过滤来搜索</span></span><br><span class="line">--filter=STARS=3000 # 搜索镜像的STARS数大于3000的</span><br></pre></td></tr></table></figure>
+
+<p><strong>docker pull</strong>：下载镜像</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载镜像 docker pull 镜像名[:tag]</span></span><br><span class="line">[root@localhost ~] # docker pull mysql</span><br><span class="line">Using default tag: latest # 如果不写 tag，默认是 latest</span><br><span class="line">latest: Pulling from library/mysql</span><br><span class="line">852e50cd189d: Pull complete  # 分层下载，docker image的核心 联合文件下载</span><br><span class="line">29969ddb0ffb: Pull complete </span><br><span class="line">a43f41a44c48: Pull complete </span><br><span class="line">5cdd802543a3: Pull complete </span><br><span class="line">b79b040de953: Pull complete </span><br><span class="line">938c64119969: Pull complete </span><br><span class="line">7689ec51a0d9: Pull complete </span><br><span class="line">a880ba7c411f: Pull complete </span><br><span class="line">984f656ec6ca: Pull complete</span><br><span class="line">9f497bce458a: Pull complete</span><br><span class="line">b9940f97694b: Pull complete</span><br><span class="line">2f069358dc96: Pull complete</span><br><span class="line">Digest: sha256:4bb2e81a40e9d0d59bd8e3dc2ba5e1f2197696f6de39a91e90798dd27299b093 # 唯一签名</span><br><span class="line">Status: Downloaded newer image for mysql:latest</span><br><span class="line">docker.io/library/mysql:latestdocker.io/library/mysql:latest	# 真实地址</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 以下两个命令相互等价</span></span><br><span class="line">docker pull mysql</span><br><span class="line">docker pull docker.io/library/mysql:latest  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 指定版本下载，可在docker hub上查阅版本信息</span></span><br><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
+
+<p><strong>docker rmi</strong>：删除镜像（rm image） </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker rmi -f 镜像id # 删除指定id的镜像</span><br><span class="line">docker rmi -f 镜像id 镜像id ... # 删除多个镜像</span><br><span class="line">docker rmi -f $(docker images -aq) # 删除全部镜像</span><br></pre></td></tr></table></figure>
+
+<h2 id="容器命令"><a href="#容器命令" class="headerlink" title="容器命令"></a>容器命令</h2><p>说明：我们有了镜像才可以创建容器，linux，下载一个 centos 镜像来测试学习</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull centos</span><br></pre></td></tr></table></figure>
+
+<p><strong>新建容器并启动</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run [可选参数] image(镜像名字)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 参数说明</span></span><br><span class="line">--name="Name" # 容器名字 tomcat1 tomcat2,用来区分容器</span><br><span class="line">-d 			  # 后台方式运行</span><br><span class="line">-it			  # 使用交互方式运行，进入容器查看内容</span><br><span class="line">-p			  # 指定容器的端口</span><br><span class="line">	-p 主机端口:容器端口（常用）</span><br><span class="line">	-p ip:主机端口:容器端口</span><br><span class="line">	-p 容器端口</span><br><span class="line">	容器端口</span><br><span class="line">-P			  # 随机指定端口</span><br></pre></td></tr></table></figure>
+
+<p><strong>退出当前容器</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">exit					# 停止容器并退出</span><br><span class="line"></span><br><span class="line">快捷键:Ctrl + P + Q	  # 容器不停止并退出</span><br></pre></td></tr></table></figure>
+
+<p>测试：启动并进入容器centos</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# docker run -it centos /bin/bash</span><br><span class="line">[root@1a52b837b77a /]# ls 	# 查看容器内的centos，基础版本，很多命令不完善</span><br><span class="line">bin  etc   lib    lost+found  mnt  proc  run   srv  tmp  var</span><br><span class="line">dev  home  lib64  media       opt  root  sbin  sys  usr</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 退出当前容器</span></span><br><span class="line">[root@1a52b837b77a /]# exit</span><br><span class="line">exit</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure>
+
+<p><strong>列出所有运行容器</strong></p>
+<p>docker ps 命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker ps # 列出当前正在运行的容器 （exit退出容器，容器不再运行）</span><br><span class="line">  参数:</span><br><span class="line">	-a	 # 列出 当前正在运行的容器 + 历史运行过的容器</span><br><span class="line">	-n=? # 显示最近创建的容器个数 </span><br><span class="line">	-q	 # 只显示容器的编号</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除容器</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker rm 容器id					# 删除指定id的容器，不能删除正在运行的容器</span><br><span class="line">docker rm -f $(docker ps -aq)	 # 删除所有的容器</span><br><span class="line">docker ps -a -q|xargs docker rm  # 删除所有容器</span><br></pre></td></tr></table></figure>
+
+<p><strong>启动和停止容器</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker start 容器id		# 启动容器</span><br><span class="line">docker restart 容器id		# 重启容器</span><br><span class="line">docker stop 容器id		# 停止当前正在运行的容器</span><br><span class="line">docker ki11 容器id		# 强制停止当前容器</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用其他重要命令"><a href="#常用其他重要命令" class="headerlink" title="常用其他重要命令"></a>常用其他重要命令</h2><p>以上命令是玩 docker 的基本命令，但这还远远不够。</p>
+<h3 id="后台启动容器"><a href="#后台启动容器" class="headerlink" title="后台启动容器"></a>后台启动容器</h3><p>命令 : <code>docker run -d 镜像名</code></p>
+<p><strong>问题</strong>：启动后，docker ps 发现该容器被自动停掉。</p>
+<p>原因：docker容器使用后台运行，就必须要有要一个<strong>前台进程</strong>，docker发现没有应用，就会自动停止</p>
+<p>​            安装nginx镜像，容器启动后，发现自己没有提供服务，就会立刻停止，就是没有程序了</p>
+<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><p>命令：<code>docker logs</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 自己编写一段shell脚本</span></span><br><span class="line">docker run -d centos /bin/bash -c "while true;do echo dongao;sleep 1;done"</span><br><span class="line"></span><br><span class="line">docker ps  # 查看创建的正在运行的容器</span><br><span class="line">CONTAINER ID        IMAGE </span><br><span class="line">6e703303ac9a        centos</span><br><span class="line"></span><br><span class="line">docker logs -tf --tail 10 6e703303ac9a # 查看该id的前10条日志</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看容器中进程信息"><a href="#查看容器中进程信息" class="headerlink" title="查看容器中进程信息"></a>查看容器中进程信息</h3><p>命令 <code>docker top 容器id</code></p>
+<h3 id="查看镜像的元数据"><a href="#查看镜像的元数据" class="headerlink" title="查看镜像的元数据"></a>查看镜像的元数据</h3><p>命令 <code>docker inspect 容器id</code></p>
+<p>包含非常多的容器的基本信息，很多信息值得探讨，在以后学习中会提及到。</p>
+<h3 id="进入当前正在运行的容器"><a href="#进入当前正在运行的容器" class="headerlink" title="进入当前正在运行的容器"></a>进入当前正在运行的容器</h3><p>我们通常容器都是使用后台方式运行，我们需要进入容器，修改一些配置</p>
+<p><strong>方式一</strong>：命令 <code>docker exec -it</code> 容器id bashShell</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# docker ps</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES</span><br><span class="line">6e703303ac9a        centos              "/bin/bash -c 'while…"   17 minutes ago      Up 17 minutes                           condescending_vaughan</span><br><span class="line">[root@localhost ~]# docker exec -it 6e703303ac9a /bin/bash</span><br><span class="line">[root@6e703303ac9a /]# ps -ef</span><br><span class="line">UID         PID   PPID  C STIME TTY          TIME CMD</span><br><span class="line">root          1      0  0 07:11 ?        00:00:00 /bin/bash -c while true;do echo dongao;sleep 1;done</span><br><span class="line">root       1086      0  0 07:29 pts/0    00:00:00 /bin/bash</span><br><span class="line">root       1110      1  0 07:29 ?        00:00:00 /usr/bin/coreutils --coreutils-prog-shebang=sleep /usr/bin/sleep 1</span><br><span class="line">root       1111   1086  0 07:29 pts/0    00:00:00 ps -ef</span><br></pre></td></tr></table></figure>
+
+<p><strong>方式二</strong>：<code>docker attach 容器id</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# docker attach 6e703303ac9a</span><br><span class="line">正在执行当前的代码...</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>docker exec</code> 和 <code>docker attach</code> 的 区别</strong></p>
+<p>docker exec：进入容器并开启一个新的终端，可以在里面操作（常用）</p>
+<p>docker attach：进入容器正在执行的终端，不会启动新的进程。</p>
+<h3 id="从容器内拷贝文件到主机上"><a href="#从容器内拷贝文件到主机上" class="headerlink" title="从容器内拷贝文件到主机上"></a>从容器内拷贝文件到主机上</h3><p>命令 ：<code>docker cp 容器id:容器内路径 主机的目的路径</code> </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# docker cp d737d4129453:/home/dongao.java /home</span><br></pre></td></tr></table></figure>
+
+<h1 id="所有命令（查阅）"><a href="#所有命令（查阅）" class="headerlink" title="所有命令（查阅）"></a>所有命令（查阅）</h1><img src="/2020/11/22/Docker-02/2.png" class>
+
+<img src="/2020/11/22/Docker-02/3.png" class>]]></content>
       <categories>
         <category>大数据</category>
       </categories>
