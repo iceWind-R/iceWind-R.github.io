@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>学习中断列表</title>
+    <url>/2020/11/30/%E5%AD%A6%E4%B9%A0%E4%B8%AD%E6%96%AD%E5%88%97%E8%A1%A8/</url>
+    <content><![CDATA[<p>一些知识学习中断的记录，供日后学习。</p>
+<a id="more"></a>
+
+<hr>
+<p>1、Docker学习中断，视频教程地址：<a href="https://www.bilibili.com/video/BV1og4y1q7M4?p=20" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1og4y1q7M4?p=20</a> </p>
+<p>2、Spring学习中断，<a href="https://www.bilibili.com/video/BV1nz4y1d7uy?p=46" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1nz4y1d7uy?p=46</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>我的考研必看</title>
     <url>/2020/09/13/%E6%88%91%E7%9A%84%E8%80%83%E7%A0%94%E5%BF%85%E7%9C%8B/</url>
     <content><![CDATA[<p>为什么考研？自己适合考研吗？这两个问题，想要考研的你，真的思考过吗？</p>
@@ -37,6 +48,18 @@
       </categories>
       <tags>
         <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring_05</title>
+    <url>/2020/11/30/Spring-05/</url>
+    <content><![CDATA[<p>Spring学习中断，<a href="https://www.bilibili.com/video/BV1nz4y1d7uy?p=46" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1nz4y1d7uy?p=46</a></p>
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>spring</tag>
       </tags>
   </entry>
   <entry>
@@ -265,7 +288,7 @@
   <entry>
     <title>Spring_04</title>
     <url>/2020/11/16/Spring-04/</url>
-    <content><![CDATA[<p>sd 本节介绍spring 的AOP——面向切片编程</p>
+    <content><![CDATA[<p>本节介绍spring 的AOP——面向切片编程。</p>
 <a id="more"></a>
 
 <hr>
@@ -305,8 +328,11 @@
 <p>业务方法：功能性的方法代码等。例如：数据库增删改查，逻辑运算（10+20）等。</p>
 </blockquote>
 <h2 id="怎么理解面向切面编程？"><a href="#怎么理解面向切面编程？" class="headerlink" title="怎么理解面向切面编程？"></a>怎么理解面向切面编程？</h2><h1 id="面向切片编程有什么好处？"><a href="#面向切片编程有什么好处？" class="headerlink" title="面向切片编程有什么好处？"></a>面向切片编程有什么好处？</h1><h1 id="AOP编程术语"><a href="#AOP编程术语" class="headerlink" title="AOP编程术语"></a>AOP编程术语</h1>]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
       <tags>
-        <tag>Web</tag>
+        <tag>spring</tag>
       </tags>
   </entry>
   <entry>
@@ -1877,7 +1903,8 @@
 <a id="more"></a>
 
 <hr>
-<h1 id="Hive-的交互方式"><a href="#Hive-的交互方式" class="headerlink" title="Hive 的交互方式"></a>Hive 的交互方式</h1><h2 id="第一种交互方式：-bin-hive"><a href="#第一种交互方式：-bin-hive" class="headerlink" title="第一种交互方式：./bin/hive"></a>第一种交互方式：./bin/hive</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">create database if not exists mytest;</span><br></pre></td></tr></table></figure>
+<h1 id="Hive-的交互方式"><a href="#Hive-的交互方式" class="headerlink" title="Hive 的交互方式"></a>Hive 的交互方式</h1><h2 id="第一种交互方式：-bin-hive"><a href="#第一种交互方式：-bin-hive" class="headerlink" title="第一种交互方式：./bin/hive"></a>第一种交互方式：./bin/hive</h2><p>进入 Hive 的安装目录，使用命令 ./bin/hive</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">create database if not exists mytest;</span><br></pre></td></tr></table></figure>
 
 <h2 id="第二种交互方式：使用-sql-语句或者-sql-脚本进行交互"><a href="#第二种交互方式：使用-sql-语句或者-sql-脚本进行交互" class="headerlink" title="第二种交互方式：使用 sql 语句或者 sql 脚本进行交互"></a>第二种交互方式：使用 sql 语句或者 sql 脚本进行交互</h2><p>不进入hive的客户端直接执行hive的hql语句</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./bin/hive -e "create database if not exists mytest;"</span><br></pre></td></tr></table></figure>
@@ -1885,14 +1912,17 @@
 <p>或者我们可以将我们的hql语句写成一个sql脚本执行，通过hive -f 来执行我们的sql脚本</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./bin/hive -f /export/servers/hive.sql</span><br></pre></td></tr></table></figure>
 
-<h1 id="Hive-的基本操作"><a href="#Hive-的基本操作" class="headerlink" title="Hive 的基本操作"></a>Hive 的基本操作</h1><h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><p><strong>创建数据库：</strong></p>
+<h1 id="Hive-的基本操作"><a href="#Hive-的基本操作" class="headerlink" title="Hive 的基本操作"></a>Hive 的基本操作</h1><h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><p><strong>查询所有数据库：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建数据库：</strong> 默认指定目录为HDFS上的 /user/hive/warehouse/目录下</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> myhive;</span><br></pre></td></tr></table></figure>
 
-<p><strong>创建数据库并指定位置：</strong></p>
+<p><strong>创建数据库并指定位置：</strong> 指定目录为 HDFS 的 /myhive</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> myhive location <span class="string">'/myhive'</span>;</span><br></pre></td></tr></table></figure>
 
 <p><strong>设置数据库键值对信息：</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> foo <span class="keyword">with</span> dbproperties (<span class="string">'owner'</span>=<span class="string">'itcast'</span>,<span class="string">'date'</span>=<span class="string">'20190120'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> jianmin <span class="keyword">with</span> dbproperties (<span class="string">'owner'</span>=<span class="string">'thorine'</span>,<span class="string">'date'</span>=<span class="string">'20201120'</span>);</span><br></pre></td></tr></table></figure>
 
 <p><strong>查看数据库更多详细信息：</strong></p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">desc database extended myhive;</span><br></pre></td></tr></table></figure>
@@ -2067,10 +2097,10 @@
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> myhive;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> stu(<span class="keyword">id</span> <span class="built_in">int</span>,<span class="keyword">name</span> <span class="keyword">string</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> stu <span class="keyword">values</span> (<span class="number">1</span>,<span class="string">"zhangsan"</span>);  <span class="comment">#插入数据</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> stu;</span><br></pre></td></tr></table></figure>
 
 <p>创建表并指定字段之间的分隔符，默认为 <code>\001</code></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span>  <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> stu2(<span class="keyword">id</span> <span class="built_in">int</span> ,<span class="keyword">name</span> <span class="keyword">string</span>) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> stu2(<span class="keyword">id</span> <span class="built_in">int</span> ,<span class="keyword">name</span> <span class="keyword">string</span>) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span>;</span><br></pre></td></tr></table></figure>
 
 <p><strong>创建表并指定表文件的存放路径</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span>  <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> stu2(<span class="keyword">id</span> <span class="built_in">int</span> ,<span class="keyword">name</span> <span class="keyword">string</span>) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span> location <span class="string">'/user/stu2'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> stu2(<span class="keyword">id</span> <span class="built_in">int</span> ,<span class="keyword">name</span> <span class="keyword">string</span>) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span> location <span class="string">'/user/stu2'</span>;</span><br></pre></td></tr></table></figure>
 
 <p><strong>根据查询结果创建表</strong></p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过复制表结构和表内容创建新表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> stu3 <span class="keyword">as</span> <span class="keyword">select</span> * <span class="keyword">from</span> stu2;</span><br></pre></td></tr></table></figure>
@@ -2089,7 +2119,7 @@
 <p>每天将收集到的网站日志定期流入HDFS文本文件。在外部表（原始日志表）的基础上做大量的统计分析，用到的中间表、结果表使用内部表存储，数据通过SELECT+INSERT进入内部表。</p>
 <h4 id="操作案例"><a href="#操作案例" class="headerlink" title="操作案例"></a>操作案例</h4><p>分别创建老师与学生外部表，并向表中加载数据。</p>
 <p><strong>创建老师表</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> teacher(t_id <span class="keyword">string</span>,t_name <span class="keyword">string</span>) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> teacher(t_id <span class="keyword">string</span>,t_name <span class="keyword">string</span>) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span>;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> nsrxx(hydm <span class="keyword">string</span>,nsr_id <span class="keyword">string</span>,djzclx_dm <span class="keyword">string</span>,kydjrq <span class="keyword">string</span>,xgrq <span class="keyword">string</span>,label <span class="keyword">string</span>) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> zzsfp(fp_nid <span class="keyword">string</span>,xf_id <span class="keyword">string</span>,gf_id <span class="keyword">string</span>,je <span class="keyword">double</span>,se <span class="keyword">double</span>,jshj <span class="keyword">double</span>, kpyf <span class="keyword">string</span> ,kprq <span class="keyword">string</span>, zfbz <span class="keyword">string</span>) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br></pre></td></tr></table></figure>
 
 <p><strong>创建学生表</strong></p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> student (s_id <span class="keyword">string</span>,s_name <span class="keyword">string</span>,s_birth <span class="keyword">string</span> , s_sex <span class="keyword">string</span> ) <span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span>;</span><br></pre></td></tr></table></figure>
