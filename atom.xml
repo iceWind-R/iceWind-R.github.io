@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://icewind-r.github.io/"/>
-  <updated>2020-11-30T04:51:41.134Z</updated>
+  <updated>2020-12-03T07:32:35.529Z</updated>
   <id>http://icewind-r.github.io/</id>
   
   <author>
@@ -17,13 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>学习中断列表</title>
+    <title>VSCode奇淫巧计</title>
+    <link href="http://icewind-r.github.io/2020/11/30/VSCode%E5%A5%87%E6%B7%AB%E5%B7%A7%E8%AE%A1/"/>
+    <id>http://icewind-r.github.io/2020/11/30/VSCode%E5%A5%87%E6%B7%AB%E5%B7%A7%E8%AE%A1/</id>
+    <published>2020-11-30T08:54:03.000Z</published>
+    <updated>2020-12-03T07:32:35.529Z</updated>
+    
+    <content type="html"><![CDATA[<p>VSCode太强大了，但平常使用又较少，一定要总结一篇，方便日后查阅使用。</p><a id="more"></a><hr><h1 id="VSCode-之-HTML"><a href="#VSCode-之-HTML" class="headerlink" title="VSCode 之 HTML"></a>VSCode 之 HTML</h1><p>1、新建 html 文件时，html的骨架代码可以通过 先输入一个 <code>!</code> ，然后TAB键一键生成。</p><p>2、为使调试时使用浏览器查看html界面效果，可以通过下载插件， <strong>open in browser</strong>，然后按快捷键 ALT + B，就可以在默认浏览器下打开你写的页面了。</p><img src="/2020/11/30/VSCode%E5%A5%87%E6%B7%AB%E5%B7%A7%E8%AE%A1/1.webp" class><p>3、很多快捷生成代码方式：</p><ul><li><p><code>div.box</code> 生成 <code>&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</code>    <code>div#main</code> 生成 <code>&lt;div id=&quot;main&quot;&gt;&lt;/div&gt;</code></p></li><li><p>h300，自动生成 height: 300px;  输入 bgc 自动生成 background-color: #fff;等</p></li></ul><p>4、</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;VSCode太强大了，但平常使用又较少，一定要总结一篇，方便日后查阅使用。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>寒假学习计划详情</title>
     <link href="http://icewind-r.github.io/2020/11/30/%E5%AD%A6%E4%B9%A0%E4%B8%AD%E6%96%AD%E5%88%97%E8%A1%A8/"/>
     <id>http://icewind-r.github.io/2020/11/30/%E5%AD%A6%E4%B9%A0%E4%B8%AD%E6%96%AD%E5%88%97%E8%A1%A8/</id>
     <published>2020-11-30T04:49:54.000Z</published>
-    <updated>2020-11-30T04:51:41.134Z</updated>
+    <updated>2020-12-15T02:35:59.184Z</updated>
     
-    <content type="html"><![CDATA[<p>一些知识学习中断的记录，供日后学习。</p><a id="more"></a><hr><p>1、Docker学习中断，视频教程地址：<a href="https://www.bilibili.com/video/BV1og4y1q7M4?p=20" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1og4y1q7M4?p=20</a> </p><p>2、Spring学习中断，<a href="https://www.bilibili.com/video/BV1nz4y1d7uy?p=46" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1nz4y1d7uy?p=46</a></p>]]></content>
+    <content type="html"><![CDATA[<p>一些知识学习中断的记录，供日后学习。</p><a id="more"></a><hr><h1 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h1><p>1、Docker学习中断，视频教程地址：<a href="https://www.bilibili.com/video/BV1og4y1q7M4?p=20" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1og4y1q7M4?p=20</a> </p><p>2、Spring学习中断，<a href="https://www.bilibili.com/video/BV1nz4y1d7uy?p=46" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1nz4y1d7uy?p=46</a></p><p>3、SpringBoot学习开始：<a href="https://www.bilibili.com/video/BV1Et411Y7tQ" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Et411Y7tQ</a></p><p>4、机器学习：</p><p>5、spark：</p><p>6、python爬虫：</p><p>7、数据可视化：</p><p>8、大数据分析：</p><h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1>]]></content>
     
     <summary type="html">
     
@@ -66,7 +85,7 @@
     <link href="http://icewind-r.github.io/2020/11/24/Docker-05/"/>
     <id>http://icewind-r.github.io/2020/11/24/Docker-05/</id>
     <published>2020-11-24T08:26:49.000Z</published>
-    <updated>2020-11-24T08:30:38.809Z</updated>
+    <updated>2020-11-30T04:50:25.697Z</updated>
     
     <content type="html"><![CDATA[<p>Docker学习中断，视频教程地址：<a href="https://www.bilibili.com/video/BV1og4y1q7M4?p=20" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1og4y1q7M4?p=20</a> 还有上一篇文章的内容理解很浅，再次学习前需要加强巩固。</p><a id="more"></a> <hr>]]></content>
     
@@ -452,29 +471,6 @@
     
     
       <category term="excel" scheme="http://iceWind-R.github.io/tags/excel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我的考研必看</title>
-    <link href="http://icewind-r.github.io/2020/09/13/%E6%88%91%E7%9A%84%E8%80%83%E7%A0%94%E5%BF%85%E7%9C%8B/"/>
-    <id>http://icewind-r.github.io/2020/09/13/%E6%88%91%E7%9A%84%E8%80%83%E7%A0%94%E5%BF%85%E7%9C%8B/</id>
-    <published>2020-09-13T11:45:17.000Z</published>
-    <updated>2020-09-21T14:07:10.807Z</updated>
-    
-    <content type="html"><![CDATA[<p>为什么考研？自己适合考研吗？这两个问题，想要考研的你，真的思考过吗？</p><a id="more"></a><hr><p>给自己定的初步目标：<strong>中下游211本专业</strong></p><p>说到需求，当然就是你考研是想要达到什么目的。我举几个例子，假如说你打算将来考选调生，那么985院校就是目标，专业视具体要求而定；假如你想回老家考个公务员，那选择一个匹配岗位的学校和专业即可；假如你想进入某些知名企业，那么应该调研清楚它的目标院校是什么档次，然后作出选择。</p><p>先说竞争对手方面的因素，这一方面主要从目标院校历年的考生和录取情况来评估。</p><p>1.初试科目是什么</p><p>2.专业课参考书是什么</p><p>3.最近三年的分数线（这一定要看地区，不要盲目对比，二区的380和北京上海的380完全不是一回事）</p><p>4.最近三年的报录比</p><p>5.报考学生的生源大概水平</p><p>6.复试什么形式，在总分中占比多少</p><p>7.最后实际录取学生的总分及单科分数分布（和其他院校对比，要对比同地区的学校公共课的分数，专业课不具可比性）</p><p>8.最后录取学生的本科背景</p><p>9.录取学生中二战以以上的学生比例</p><p>10.录取的跨校跨专业学生的比例</p><p>以上信息都不是能百度的，需要自己去搜集，像5、8、9、10这些问题不需要多么精准，知道大概水平即可。至于怎么搜集，最直接的就是找上一届录取的前辈。<strong>（最近很多人私信我去哪里找已经录取的前辈，大家可以下载一个APP叫做经验超市，这个APP是由北大的几位考研学长开发的，可以去上面看看有没有学长学姐，上面的学长学姐都是经过身份认证的。）</strong></p><p>自身因素方面：</p><p>1.高中学习状态及高考成绩（高中是否尽力学习，高考是正常发挥还是失常或者超常发挥。这一点可以衡量潜在的学习能力，毕竟高考和考研都是类似的应试）</p><p>2.本科院校及专业（正常录取还是填志愿失误造成滑档）</p><p>3.本科成绩（结合自己学习努力程度来看）</p><p>4.个人学习习惯和自制力（十几年的读书经历，想必自己心中应该有数。在考研这种靠自己自律的环境下，能够发生重大改变的人少之又少，不要高估自己的决心和毅力）</p><p>5.考研时间（自己有多少时间准备，本科课程能不能应付，学校的琐事会不会消耗太多时间）</p><p>6.自身心态（自己心态建设做的怎么样，是不是过于焦虑和敏感，是不是能够承压）</p><p>7.公共课基础如何</p><p>8.是否跨专业，专业课是否零基础</p><p><strong>人生终究是回归均值的一个过程，不要以为自己能够轻易的突破。考研之前请认真思考，把握好自己的定位、需求、成本和风险承担能力。每个人的天赋，成长过程，家庭环境都是不同的，即便要向命运挑战，也要结合自己的实际情况。</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;为什么考研？自己适合考研吗？这两个问题，想要考研的你，真的思考过吗？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="考研" scheme="http://iceWind-R.github.io/categories/%E8%80%83%E7%A0%94/"/>
-    
-    
-      <category term="idea" scheme="http://iceWind-R.github.io/tags/idea/"/>
     
   </entry>
   
