@@ -8,7 +8,7 @@
 
 <hr>
 <h1 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h1><p>1、Docker学习中断，视频教程地址：<a href="https://www.bilibili.com/video/BV1og4y1q7M4?p=20" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1og4y1q7M4?p=20</a> </p>
-<p>2、Spring学习中断，<a href="https://www.bilibili.com/video/BV1nz4y1d7uy?p=46" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1nz4y1d7uy?p=46</a></p>
+<p>2、Spring学习中断，<a href="https://www.bilibili.com/video/BV1nz4y1d7uy?p=50" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1nz4y1d7uy?p=50</a></p>
 <p>3、SpringBoot学习开始：<a href="https://www.bilibili.com/video/BV1Et411Y7tQ" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Et411Y7tQ</a></p>
 <p>4、机器学习：</p>
 <p>5、spark：</p>
@@ -162,7 +162,254 @@
 </li>
 </ul>
 <p>官网地址：<a href="https://scikit-learn.org/stable/" target="_blank" rel="noopener">https://scikit-learn.org/stable/</a></p>
-<h3 id="安装sklearn"><a href="#安装sklearn" class="headerlink" title="安装sklearn"></a>安装sklearn</h3>]]></content>
+<h3 id="安装sklearn"><a href="#安装sklearn" class="headerlink" title="安装sklearn"></a>安装sklearn</h3><p>anaconda里面安装十分容易，搜索scikits-learn，下载该包即可。</p>
+<h2 id="sklearn数据集"><a href="#sklearn数据集" class="headerlink" title="sklearn数据集"></a>sklearn数据集</h2><h3 id="1、scikits-learn数据集API介绍"><a href="#1、scikits-learn数据集API介绍" class="headerlink" title="1、scikits-learn数据集API介绍"></a>1、scikits-learn数据集API介绍</h3><p>sklearn.datasets</p>
+<ul>
+<li><p>加载获取流行数据集</p>
+</li>
+<li><p>datasets.load_*()</p>
+<ul>
+<li>获取小规模数据集，数据包含在datasets里</li>
+</ul>
+</li>
+<li><p>datasets.fetch_*(data_home=None)</p>
+<ul>
+<li>获取大规模数据集，需要从网络上下载，函数的第一个参数是data_home，表示数据集下载的目录，默认是~/scikit_learn_datal</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、sklearn小数据集"><a href="#2、sklearn小数据集" class="headerlink" title="2、sklearn小数据集"></a>2、sklearn小数据集</h3><ul>
+<li><p>sklearn.datasets.load_iris()</p>
+<p>加载并返回鸢尾花数据集</p>
+</li>
+<li><p>sklearn.datasets.load_boston()</p>
+<p>加载并返回波士顿房价数据集</p>
+</li>
+</ul>
+<h3 id="3、sklearn大数据集"><a href="#3、sklearn大数据集" class="headerlink" title="3、sklearn大数据集"></a>3、sklearn大数据集</h3><ul>
+<li>sklearn.datasets.fetch_20newsgroups(data_home=None,subset=’train’)<ul>
+<li>subset：可选参数 ‘train’，’test’，’all’，训练集的“训练”，测试集的“测试”，两者的全部 </li>
+</ul>
+</li>
+</ul>
+<h3 id="4、sklearn数据集的使用"><a href="#4、sklearn数据集的使用" class="headerlink" title="4、sklearn数据集的使用"></a>4、sklearn数据集的使用</h3><p>以鸢尾花数据集为例。</p>
+<ul>
+<li>特征值-4个：花瓣、花萼的长度、宽度</li>
+<li>目标值-3个：setosa，vericolor，virginica</li>
+</ul>
+<p><strong>sklearn数据集返回值介绍</strong></p>
+<p>load和fetch返回的数据类型datasets.base.Bunch(字典格式，继承自字典)</p>
+<blockquote>
+<p>两种取值方式，value = dict[“key”]  或  value = dict.key</p>
+</blockquote>
+<ul>
+<li>data:特征数据数组，是[n_samples * n_features]的二维 numpy.ndarray 数组</li>
+<li>target:标签数组，是n_samples的一维numpy.ndarray 数组</li>
+<li>DESCR:数据描述</li>
+<li>feature_names:特征名。新闻数据、手写数字、回归数据集没有</li>
+<li>target_names:标签名</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">datasets_demo</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    sklearn 数据集的使用</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取数据集</span></span><br><span class="line">    iris = load_iris()</span><br><span class="line">    <span class="comment"># print("鸢尾花数据集：\n", iris)</span></span><br><span class="line">    print(<span class="string">"查看数据集描述\n"</span>, iris.DESCR)</span><br><span class="line">    print(<span class="string">"查看特征值名字：\n"</span>, iris.feature_names)</span><br><span class="line">    print(<span class="string">"查看特征值：\n"</span>, iris.data, iris.data.shape)</span><br><span class="line">    print(<span class="string">"查看标签数组：\n"</span>, iris.target)</span><br><span class="line">    print(<span class="string">"查看标签名：\n"</span>, iris.target_names)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    datasets_demo()</span><br></pre></td></tr></table></figure>
+
+<p><strong>思考</strong>：拿到的数据是否全部用来训练一个模型？</p>
+<h2 id="数据集的划分"><a href="#数据集的划分" class="headerlink" title="数据集的划分"></a>数据集的划分</h2><p>机器学习一般的数据集会划分为两个部分：</p>
+<ul>
+<li><p>训练数据：用于训练，构建<strong>模型</strong></p>
+</li>
+<li><p>测试数据：在模型检验时使用，用于<strong>评估模型是否有效</strong></p>
+</li>
+</ul>
+<p>划分比例：</p>
+<ul>
+<li><p>训练集：70% 75% 80%</p>
+</li>
+<li><p>测试集：30% 25% 20%</p>
+</li>
+</ul>
+<h3 id="数据集划分API"><a href="#数据集划分API" class="headerlink" title="数据集划分API"></a>数据集划分API</h3><p>sklearn.model_selection.train_test_split(array, *options)</p>
+<ul>
+<li>x数据集的特征值</li>
+<li>y数据集的标签值</li>
+<li>test_size 测试集的大小，一般为float</li>
+<li>random_state 随机数种子,不同的种子会造成不同的随机采样结果。相同的种子采样结果相同。</li>
+<li>return结果：训练集特征值（x_train），测试集特征值（x_test），训练集目标值（y_train），测试集目标值（y_test）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">iris = load_iris()</span><br><span class="line"><span class="comment"># 数据集的划分 前两个参数为目标值和特征值</span></span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=<span class="number">0.2</span>, random_state=<span class="number">22</span>)</span><br><span class="line">print(<span class="string">"训练集的特征值：\n"</span>, x_train, x_train.shape)</span><br></pre></td></tr></table></figure>
+
+<h1 id="特征工程介绍"><a href="#特征工程介绍" class="headerlink" title="特征工程介绍"></a>特征工程介绍</h1><p>特征工程是使用专业背景知识和技巧处理数据，使得特征能在机器学习算法上发挥更好的作用的过程。</p>
+<blockquote>
+<p>业界广泛流产：数据和特征决定了机器学习的上限，而模型和算法只是逼近这个上限而已。</p>
+</blockquote>
+<h2 id="特征工程的位置和数据处理的比较"><a href="#特征工程的位置和数据处理的比较" class="headerlink" title="特征工程的位置和数据处理的比较"></a>特征工程的位置和数据处理的比较</h2><ul>
+<li>pandas：用于数据处理和数据清洗</li>
+<li>sklearn：用于特征工程</li>
+</ul>
+<p>特征工程包括三部分</p>
+<ul>
+<li>特征抽取</li>
+<li>特征预处理</li>
+<li>特征降维</li>
+</ul>
+<h1 id="特征抽取"><a href="#特征抽取" class="headerlink" title="特征抽取"></a>特征抽取</h1><p>目标：</p>
+<ul>
+<li>应用DictVectorizer实现对类别特征进行数值化、离散化</li>
+<li>应用CountVectorizer实现对文本特征进行数值化</li>
+<li>应用TfidVectorizer实现对文本特征进行数值化</li>
+<li>说出两种文本特征提取的方式区别</li>
+</ul>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="1、将任意数据（文本或图像）转换为可用于机器学习的数字特征"><a href="#1、将任意数据（文本或图像）转换为可用于机器学习的数字特征" class="headerlink" title="1、将任意数据（文本或图像）转换为可用于机器学习的数字特征"></a>1、将任意数据（文本或图像）转换为可用于机器学习的数字特征</h3><blockquote>
+<p>注意：特征值化 是为了计算机更好的去理解数据</p>
+</blockquote>
+<ul>
+<li>字典特征提取（特征离散化）</li>
+<li>文本特征提取</li>
+<li>图像特征提取（深度学习将介绍）</li>
+</ul>
+<h3 id="2、特征提取API"><a href="#2、特征提取API" class="headerlink" title="2、特征提取API"></a>2、特征提取API</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sklearn.feature_extraction</span><br></pre></td></tr></table></figure>
+
+<h2 id="字典特征提取"><a href="#字典特征提取" class="headerlink" title="字典特征提取"></a>字典特征提取</h2><p>作用：对字典数据进行特征值化</p>
+<p>应用场景：</p>
+<ul>
+<li>数据集当中类别特征比较多<ul>
+<li>将数据集的特征  – &gt; 字典类型</li>
+<li>DictVectorizer转换</li>
+</ul>
+</li>
+<li>本身拿到的数据就是字典类型</li>
+</ul>
+<p><strong>API</strong></p>
+<p>sklearn.feature_extraction.DictVectorizer(sparse=True,…)  sparse ： 是否采用稀疏矩阵</p>
+<ul>
+<li><p>DictVectorizer.fit_transform(X)     X：字典或者包含字典的迭代器。返回值：返回sparse矩阵</p>
+</li>
+<li><p>DictVectorizer.inverse_transform(X)    X：array数组或sparse（稀疏）矩阵。返回值：转换之间的数据格式</p>
+</li>
+<li><p>DictVectorizer.get_feature_names()  返回类别名称</p>
+</li>
+</ul>
+<blockquote>
+<p>字典特征提取 –&gt; 类别 –&gt; one-hot编码，当类别非常多时，矩阵会有非常多的 0，使用稀疏矩阵可以减少内存开销。</p>
+</blockquote>
+<p><strong>案例</strong>：</p>
+<p>我们对以下数据进行特征提取</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[&#123;<span class="string">'city'</span>:<span class="string">'北京'</span>, <span class="string">'temperature'</span>: <span class="number">10</span>&#125;, </span><br><span class="line"> &#123;<span class="string">'city'</span>:<span class="string">'上海'</span>, <span class="string">'temperature'</span>: <span class="number">20</span>&#125;, </span><br><span class="line"> &#123;<span class="string">'city'</span>:<span class="string">'深圳'</span>, <span class="string">'temperature'</span>: <span class="number">30</span>&#125;]</span><br></pre></td></tr></table></figure>
+
+<p>代码实现：</p>
+<ul>
+<li>实例化DictVectorizer</li>
+<li>调用fit_transform输入数据并转换（注意返回格式）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_extraction <span class="keyword">import</span> DictVectorizer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dict_demo</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    字典特征抽取</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    data = [&#123;<span class="string">'city'</span>:<span class="string">'北京'</span>, <span class="string">'temperature'</span>: <span class="number">10</span>&#125;, &#123;<span class="string">'city'</span>:<span class="string">'上海'</span>, <span class="string">'temperature'</span>: <span class="number">20</span>&#125;, &#123;<span class="string">'city'</span>:<span class="string">'深圳'</span>, <span class="string">'temperature'</span>: <span class="number">30</span>&#125;]</span><br><span class="line">    <span class="comment"># 1. 实例化一个转换器类</span></span><br><span class="line">    transfer = DictVectorizer(sparse=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2. 调用fit_transform()</span></span><br><span class="line">    data_new = transfer.fit_transform(data)</span><br><span class="line">    print(data_new)</span><br></pre></td></tr></table></figure>
+
+<p><strong>结果</strong></p>
+<p>稀疏矩阵：</p>
+<img src="/2020/12/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-02/1.png" class>
+
+<p>非稀疏矩阵：</p>
+<img src="/2020/12/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-02/2.png" class>
+
+<p><strong>总结</strong></p>
+<p>对于特征当中存在类别信息的我们都会做one-hot编码处理</p>
+<h2 id="文本特征提取"><a href="#文本特征提取" class="headerlink" title="文本特征提取"></a>文本特征提取</h2><p>作用：对文本数据进行特征值化</p>
+<p>对于一段文字，我们一般用<strong>单词</strong>作为特征，进行提取。</p>
+<ul>
+<li>sklearn.feature_extraction.text.CountVectorizer(stop_words=[])  <ul>
+<li>返回词频矩阵</li>
+<li>stop_words：停用词，使用后便不显示</li>
+</ul>
+</li>
+<li>CountVectorizer.inverse_transform(X)   X：array数组或者sparse矩阵    返回值：转换之前的数据格式</li>
+<li>CountVectorizer.get_feature_names()    返回值：单词列表</li>
+<li>sklearn.feature_extraction.text.TfidfVectorizer</li>
+</ul>
+<h3 id="英文分词实例"><a href="#英文分词实例" class="headerlink" title="英文分词实例"></a>英文分词实例</h3><p>对以下数据进行特征提取</p>
+<p>data = [“Life is short, I like python.”, “Life is too long, I don’t like python python.”]</p>
+<p><strong>流程分析</strong></p>
+<ul>
+<li>实例化类CountVectorizer类</li>
+<li>调用fit_transform方法输出数据并转换（注意返回格式，利用 toarray() 进行 sparse 矩阵转换为 array 数组）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> CountVectorizer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_demo</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    文本特征抽取</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    data = [<span class="string">"Life is short, I like python."</span>, <span class="string">"Life is too long, I don't like python python."</span>]</span><br><span class="line">    <span class="comment"># 1. 实例化一个转换器类</span></span><br><span class="line">    transfer = CountVectorizer() </span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2. 调用fit_transform</span></span><br><span class="line">    data_new = transfer.fit_transform(data)</span><br><span class="line">    print(<span class="string">"data_new:\n"</span>, data_new)</span><br><span class="line">    print(<span class="string">"data_new(数组形式):\n"</span>, data_new.toarray())</span><br><span class="line">    print(<span class="string">"特征名字:\n"</span>, transfer.get_feature_names())</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>结果</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">data_new:</span><br><span class="line">  (0, 2)	1</span><br><span class="line">  (0, 1)	1</span><br><span class="line">  (0, 6)	1</span><br><span class="line">  (0, 3)	1</span><br><span class="line">  (0, 5)	1</span><br><span class="line">  (1, 2)	1</span><br><span class="line">  (1, 1)	1</span><br><span class="line">  (1, 3)	1</span><br><span class="line">  (1, 5)	2</span><br><span class="line">  (1, 7)	1</span><br><span class="line">  (1, 4)	1</span><br><span class="line">  (1, 0)	1</span><br><span class="line">data_new(数组形式):</span><br><span class="line"> [[0 1 1 1 0 1 1 0]</span><br><span class="line"> [1 1 1 1 1 2 0 1]]</span><br><span class="line">特征名字:</span><br><span class="line"> ['don', 'is', 'life', 'like', 'long', 'python', 'short', 'too']</span><br></pre></td></tr></table></figure>
+
+<p><strong>拓展</strong>：</p>
+<p>若对中文进行特征提取，需要分词，可用结巴分词等等…</p>
+<h3 id="中文分词实例"><a href="#中文分词实例" class="headerlink" title="中文分词实例"></a>中文分词实例</h3><p>需要使用pip命令下载jieba包，在anaconda的navigator中搜索不到。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install jieba</span><br></pre></td></tr></table></figure>
+
+<p>实现：</p>
+<ul>
+<li>利用jieba包 ，定义分词方法cut_word()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction <span class="keyword">import</span> DictVectorizer</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> CountVectorizer</span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cut_word</span><span class="params">(text)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    进行中文分词：“我爱北京天安门” 转换为 “我 爱 北京 天安门”</span></span><br><span class="line"><span class="string">    :param text:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    a = jieba.cut(text)  <span class="comment"># 返回一个生成器对象</span></span><br><span class="line">    <span class="comment"># print(a)  # &lt;generator object Tokenizer.cut at 0x0000028FFE894C80&gt;</span></span><br><span class="line">    b = list(a)  <span class="comment"># 强转为列表类型</span></span><br><span class="line">    <span class="comment"># print(b)  # ['我', '爱', '北京', '天安门']</span></span><br><span class="line">    c = <span class="string">" "</span>.join(b)  <span class="comment"># 继续转换</span></span><br><span class="line">    <span class="comment"># print(c)  # 我 爱 北京 天安门</span></span><br><span class="line">    <span class="keyword">return</span> c</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_chinese</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    中文文本特征抽取，自动分词</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 1. 将中文文本进行分词</span></span><br><span class="line">    data = [<span class="string">"在分类中，机器被训练成将一个组划分为特定的类。分类的一个简单例子是电子邮件帐户上的垃圾邮件过滤器。"</span>,</span><br><span class="line">            <span class="string">"过滤器分析你以前标记为垃圾邮件的电子邮件，并将它们与新邮件进行比较。"</span>,</span><br><span class="line">            <span class="string">"如果它们匹配一定的百分比，这些新邮件将被标记为垃圾邮件并发送到适当的文件夹。"</span>,</span><br><span class="line">            <span class="string">"那些比较不相似的电子邮件被归类为正常邮件并发送到你的邮箱。"</span>]</span><br><span class="line"></span><br><span class="line">    data_new = []</span><br><span class="line">    <span class="keyword">for</span> sentence <span class="keyword">in</span> data:</span><br><span class="line">        data_new.append(cut_word(sentence))</span><br><span class="line">    <span class="comment"># print(data_new)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2. 实例化转换器类</span></span><br><span class="line">    transfer = CountVectorizer()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3. 调用fit_transform</span></span><br><span class="line">    data_final = transfer.fit_transform(data_new)</span><br><span class="line">    print(<span class="string">"data_final:\n"</span>, data_final.toarray())</span><br><span class="line">    print(<span class="string">"特征名字:\n"</span>, transfer.get_feature_names())</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>思考</strong></p>
+<p>关键词：在某一个类别的文章中，出现的次数很多，但是在其他类别的文章中出现次数很少</p>
+<p>所以，我们该如何处理某个词或短语在多篇文章中出现的次数高这一情况？</p>
+<h3 id="Tf-idf文本特征提取"><a href="#Tf-idf文本特征提取" class="headerlink" title="Tf-idf文本特征提取"></a>Tf-idf文本特征提取</h3><ul>
+<li>TF-IDF的主要思想是：如果某个词或短语在一篇文章中出现的概率高，并且在其他文章中很少出现，则认为此词或者短语具有很好的类别区分能力，适合用来分类。</li>
+<li>TF-IDF作用：用以评估一个字词对于一个文件集或一个语料库中的其中一份文件的重要程度。</li>
+<li>字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。</li>
+</ul>
+<p><strong>总结就是, 一个词语在一篇文章中出现次数越多, 同时在所有文档中出现次数越少, 越能够代表该文章。</strong></p>
+<h4 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h4><ul>
+<li><p>词频(term frequency，tf) 指的是某一个给定的词语在该文件中出现的频率</p>
+<img src="/2020/12/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-02/3.png" class>
+</li>
+<li><p>逆向文档频率(inverse document frequency,  idf) 是一个词语普遍重要性的度量。某一特定词语的idf，可以由总文件数目除以包含该词语之文件的数目，再<strong>将得到的商取以10为底的对数</strong>得到。</p>
+<img src="/2020/12/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-02/4.png" class>
+
+</li>
+</ul>
+<p>某一特定文件内的高词语频率，以及该词语在整个文件集合中的低文件频率，可以产生出高权重的TF-IDF。因此，TF-IDF倾向于过滤掉常见的词语，保留重要的词语。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TF−IDF &#x3D; TF*IDF</span><br></pre></td></tr></table></figure>
+
+<p><strong>实例</strong>：</p>
+<img src="/2020/12/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-02/5.png" class>
+
+<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><ul>
+<li>sklearn.feature_extraction.text.TfidfVectorizer(stop_words=None,…)<ul>
+<li>返回词的权重矩阵</li>
+<li>TfidfVectorizer.fit_transform(X)<ul>
+<li>X : 文本或者文本字符串的可迭代对象</li>
+<li>返回值：返回sparse矩阵</li>
+</ul>
+</li>
+<li>TfidfVectorizer.inverse_transform(X)<ul>
+<li>X：array数组或者sparse矩阵</li>
+<li>返回值：转换之前的数据格式</li>
+</ul>
+</li>
+<li>TfidfVectorizer.get_feature_names()<ul>
+<li>返回值：单词列表</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>实例</strong></p>
+<p>根据上个中文分词实例，使用TF-IDF进行特征提取。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction <span class="keyword">import</span> DictVectorizer</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> TfidfVectorizer  <span class="comment"># Tfidf的引入</span></span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cut_word</span><span class="params">(text)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    进行中文分词：“我爱北京天安门” 转换为 “我 爱 北京 天安门”</span></span><br><span class="line"><span class="string">    :param text:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    a = jieba.cut(text)  <span class="comment"># 返回一个生成器对象</span></span><br><span class="line">    <span class="comment"># print(a)  # &lt;generator object Tokenizer.cut at 0x0000028FFE894C80&gt;</span></span><br><span class="line">    b = list(a)  <span class="comment"># 强转为列表类型</span></span><br><span class="line">    <span class="comment"># print(b)  # ['我', '爱', '北京', '天安门']</span></span><br><span class="line">    c = <span class="string">" "</span>.join(b)  <span class="comment"># 继续转换</span></span><br><span class="line">    <span class="comment"># print(c)  # 我 爱 北京 天安门</span></span><br><span class="line">    <span class="keyword">return</span> c</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_chinese</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    用tfidf的方法进行文本特征抽取</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 1. 将中文文本进行分词</span></span><br><span class="line">    data = [<span class="string">"在分类中，机器被训练成将一个组划分为特定的类。分类的一个简单例子是电子邮件帐户上的垃圾邮件过滤器。"</span>,</span><br><span class="line">            <span class="string">"过滤器分析你以前标记为垃圾邮件的电子邮件，并将它们与新邮件进行比较。"</span>,</span><br><span class="line">            <span class="string">"如果它们匹配一定的百分比，这些新邮件将被标记为垃圾邮件并发送到适当的文件夹。"</span>,</span><br><span class="line">            <span class="string">"那些比较不相似的电子邮件被归类为正常邮件并发送到你的邮箱。"</span>]</span><br><span class="line"></span><br><span class="line">    data_new = []</span><br><span class="line">    <span class="keyword">for</span> sentence <span class="keyword">in</span> data:</span><br><span class="line">        data_new.append(cut_word(sentence))</span><br><span class="line">    <span class="comment"># print(data_new)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2. 实例化转换器类</span></span><br><span class="line">    transfer = TfidfVectorizer()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3. 调用fit_transform</span></span><br><span class="line">    data_final = transfer.fit_transform(data_new)</span><br><span class="line">    print(<span class="string">"data_final:\n"</span>, data_final.toarray())</span><br><span class="line">    print(<span class="string">"特征名字:\n"</span>, transfer.get_feature_names())</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<p>得到结果</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">data_final:</span><br><span class="line"> [[0.25452286 0.25452286 0.         0.         0.25452286 0.</span><br><span class="line">  0.50904573 0.25452286 0.         0.16245865 0.         0.</span><br><span class="line">  0.25452286 0.         0.         0.25452286 0.         0.</span><br><span class="line">  0.25452286 0.         0.         0.         0.25452286 0.16245865</span><br><span class="line">  0.         0.         0.25452286 0.25452286 0.20066875 0.</span><br><span class="line">  0.         0.         0.         0.         0.         0.        ]</span><br><span class="line"> [0.         0.         0.         0.38006651 0.         0.38006651</span><br><span class="line">  0.         0.         0.         0.24259153 0.         0.29964881</span><br><span class="line">  0.         0.         0.         0.         0.         0.29964881</span><br><span class="line">  0.         0.29964881 0.         0.29964881 0.         0.24259153</span><br><span class="line">  0.         0.         0.         0.         0.29964881 0.</span><br><span class="line">  0.38006651 0.         0.         0.         0.         0.        ]</span><br><span class="line"> [0.         0.         0.30838102 0.         0.         0.</span><br><span class="line">  0.         0.         0.30838102 0.19683561 0.30838102 0.24313114</span><br><span class="line">  0.         0.24313114 0.         0.         0.30838102 0.24313114</span><br><span class="line">  0.         0.24313114 0.         0.         0.         0.</span><br><span class="line">  0.30838102 0.         0.         0.         0.         0.30838102</span><br><span class="line">  0.         0.24313114 0.30838102 0.         0.         0.        ]</span><br><span class="line"> [0.         0.         0.         0.         0.         0.</span><br><span class="line">  0.         0.         0.         0.         0.         0.</span><br><span class="line">  0.         0.27412127 0.34768807 0.         0.         0.</span><br><span class="line">  0.         0.         0.34768807 0.27412127 0.         0.22192479</span><br><span class="line">  0.         0.34768807 0.         0.         0.         0.</span><br><span class="line">  0.         0.27412127 0.         0.34768807 0.34768807 0.34768807]]</span><br></pre></td></tr></table></figure>
+
+<h4 id="重要性"><a href="#重要性" class="headerlink" title="重要性"></a>重要性</h4><p>机器学习算法进行文章分类中 前期的数据处理方式</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>特征抽取</p>
+<ul>
+<li>字典特征抽取<ul>
+<li>sklearn.feature_extraction.DictVectorizer</li>
+</ul>
+</li>
+<li>文本特征抽取<ul>
+<li>sklearn.feature_extraction.text.CountVectorizer</li>
+<li>sklearn.feature_extraction.text.TfidfVectorizer</li>
+</ul>
+</li>
+</ul>
+]]></content>
       <categories>
         <category>机器学习</category>
       </categories>
@@ -250,18 +497,6 @@
 </ul>
 <p>4、</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Spring_05</title>
-    <url>/2020/11/30/Spring-05/</url>
-    <content><![CDATA[<p>Spring学习中断，<a href="https://www.bilibili.com/video/BV1nz4y1d7uy?p=46" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1nz4y1d7uy?p=46</a></p>
-]]></content>
-      <categories>
-        <category>Web</category>
-      </categories>
-      <tags>
-        <tag>spring</tag>
-      </tags>
   </entry>
   <entry>
     <title>Docker_05</title>
@@ -487,7 +722,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring_04</title>
+    <title>Spring_04(AOP&amp;AspectJ)</title>
     <url>/2020/11/16/Spring-04/</url>
     <content><![CDATA[<p>本节介绍spring 的AOP——面向切片编程。</p>
 <a id="more"></a>
@@ -502,7 +737,7 @@
 <p>1) 在目标类源代码不改变的情况下，增加功能。</p>
 <p>2) 减少代码的重复</p>
 <p>3) 专注业务逻辑代码</p>
-<p>4) 解耦合，让你的业务功能和日志，事务非业务功能分离。</p>
+<p>4) 解耦合，让你的业务功能和日志，事务和非业务的功能分离。</p>
 <h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>现有 SomeService 接口和它的实现类 SomeServiceImpl，要求使用动态代理，不改变SomeServiceImpl的源码，给类中的doSome 和 doOther() 类添加 时间 和 事务完成代码。具体代码如下</p>
 <p>SomeService 接口</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">SomeService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doSome</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doOther</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -528,7 +763,82 @@
 <blockquote>
 <p>业务方法：功能性的方法代码等。例如：数据库增删改查，逻辑运算（10+20）等。</p>
 </blockquote>
-<h2 id="怎么理解面向切面编程？"><a href="#怎么理解面向切面编程？" class="headerlink" title="怎么理解面向切面编程？"></a>怎么理解面向切面编程？</h2><h1 id="面向切片编程有什么好处？"><a href="#面向切片编程有什么好处？" class="headerlink" title="面向切片编程有什么好处？"></a>面向切片编程有什么好处？</h1><h1 id="AOP编程术语"><a href="#AOP编程术语" class="headerlink" title="AOP编程术语"></a>AOP编程术语</h1>]]></content>
+<h2 id="怎么理解面向切面编程？"><a href="#怎么理解面向切面编程？" class="headerlink" title="怎么理解面向切面编程？"></a>怎么理解面向切面编程？</h2><p>1、在分析项目功能时，找出切面。（最重要）</p>
+<p>2、合理的安排切面的执行时间（在目标方法前，还是目标方法后）</p>
+<p>3、合理的安全切面执行的位置，在哪个类，哪个方法增加增强方法。</p>
+<h2 id="AOP编程术语"><a href="#AOP编程术语" class="headerlink" title="AOP编程术语"></a>AOP编程术语</h2><p>1）Aspect（切面）：表示增强的非业务性功能，例如：日志，统计信息，参数检查，权限验证。</p>
+<p>2）JoinPoint（连接点）：连接业务方法和切面的位置，就是某类中的业务方法。（只有一个）</p>
+<p>3）PointCut（切入点）：指多个连接点的集合。（多个方法）</p>
+<p>4）目标对象：给哪个类的方法增加功能，该类便是目标对象。</p>
+<p>5）Active（通知）：表示切面功能执行的时间（在目标方法前，还是目标方法后）</p>
+<h2 id="AOP的实现"><a href="#AOP的实现" class="headerlink" title="AOP的实现"></a>AOP的实现</h2><p>aop是一个规范，是动态的一个规范化，一个标准。</p>
+<p>aop的技术实现框架：</p>
+<ol>
+<li><p><strong>spring</strong>: spring在内部实现了aop规范，能做aop的工作。spring主要在事务处理时使用aop。</p>
+<p>我们项目开发中很少使用spring的aop实现。因为spring的aop比较笨重。</p>
+</li>
+<li><p><strong>aspectJ</strong>（重点掌握） :一个开源的专门做aop的框架。</p>
+</li>
+</ol>
+<h1 id="AspectJ对AOP的实现（掌握）"><a href="#AspectJ对AOP的实现（掌握）" class="headerlink" title="AspectJ对AOP的实现（掌握）"></a>AspectJ对AOP的实现（掌握）</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>AspectJ是一个优秀面向切面的框架，它扩展了Java语言，提供了强大的切面实现。</p>
+<p>AspectJ实现了AOP的功能，且其实现方式更为简捷，使用更为方便，而且还支持注解式开发。所以，Spring将AspectJ的对于AOP的实现引入到了自己的框架中。</p>
+<p>官网地址：<a href="https://www.eclipse.org/aspectj/" target="_blank" rel="noopener">https://www.eclipse.org/aspectj/</a></p>
+<p>AspectJ框架实现aop有两种方式：</p>
+<ul>
+<li>使用xml配置文件：配置全局事务</li>
+<li>使用注解（常用），有5个注解</li>
+</ul>
+<h2 id="学习AspectJ框架的使用"><a href="#学习AspectJ框架的使用" class="headerlink" title="学习AspectJ框架的使用"></a>学习AspectJ框架的使用</h2><p>1、切面的执行时间，这个执行时间在规范中叫做Advice（通知）</p>
+<p>​        在AspectJ 框架中使用注解表示的。也可以使用xml配置文件中的标签</p>
+<p>​        1）@Before    </p>
+<p>​        2）@AfterReturning</p>
+<p>​        3）@Around</p>
+<p>​        4）@AfterThrowing</p>
+<p>​        5）@After</p>
+<h2 id="AspectJ的切入点表达式-掌握"><a href="#AspectJ的切入点表达式-掌握" class="headerlink" title="AspectJ的切入点表达式(掌握)"></a>AspectJ的切入点表达式(掌握)</h2><p>AspectJ定义了专门的表达式用于指定切入点。表达式的原型是:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">execution(modifiers-pattern? ret-type-pattern</span><br><span class="line">		  declaring-type-pattern?name-pattern(param-pattern)</span><br><span class="line">		  <span class="keyword">throws</span>-pattern?)</span><br></pre></td></tr></table></figure>
+
+<p><strong>解释</strong>:</p>
+<p>​    modifiers-pattern：访问权限类型（公有、私有）</p>
+<p>​    <font color="red">ret-type-pattern</font>：返回值类型</p>
+<p>​    declaring-type-pattern：包名类名</p>
+<p>​    <font color="red">name-pattern(param-pattern)</font>：方法名(参数类型和参数个数)</p>
+<p>​    throws-pattern：抛出异常类型</p>
+<p>​    <strong>?表示可选的部分</strong></p>
+<p>以上表达式共4个部分。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">execution(访问权限 方法返回值 方法声明(参数) 异常类型) <span class="comment">// 方法返回值 和 方法声明是必须的</span></span><br></pre></td></tr></table></figure>
+
+<p>切入点表达式要匹配的对象就是目标方法的方法名。所以，execution表达式中明显就是方法的签名。</p>
+<p>注意，表达式中第一项和第四项是可省略的部分，各部分间用空格分开。在其中可以使用以下符号:</p>
+<table>
+<thead>
+<tr>
+<th>符合</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>0至多个任意字符</td>
+</tr>
+<tr>
+<td>..</td>
+<td>用在方法参数中，表示任意多个参数<br>用在包名后，表示当前包及其子包路径</td>
+</tr>
+<tr>
+<td>+</td>
+<td>用在类名后，表示当前类及其子类<br>用在接口后，表示当前接口及其实现类</td>
+</tr>
+</tbody></table>
+<p><strong>举例（理解掌握）</strong>：</p>
+<ol>
+<li>execution(public * <em>(..)) ：指定切入点为所有的公有方法，括号里共有三个部分，第二个 * 表示方法返回值，第三个</em>表示表示方法声明，因为后紧跟括号。</li>
+<li>execution(* set*(..)) ：指定切入点为任意一个以“set”开始的方法。只有两个部分，所以一点是两个必须部分，返回值和方法声明。</li>
+<li>execution(* com.xyz.service.*.*(..))：指定切入点为：定义在service包里的任意类的任意方法。</li>
+<li>execution(* com.xyz.service..*.*(..))：指定切入点为：定义在 service包或者子包里的任意类的任意方法。“..”出现在类名中时，后面必须跟 “* ”，表示包、子包下的所有类。</li>
+<li>execution(* *..service.*.*(..))：指定所有包下的serivce子包下所有类（接口）中所有方法为切入点</li>
+</ol>
+]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -575,7 +885,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring_03</title>
+    <title>Spring_03(基于注解的DI)</title>
     <url>/2020/11/14/Spring-03/</url>
     <content><![CDATA[<p>基于上篇总结的第一种基于XML的DI，本篇总结DI的第二种，也是更为常见和应用更为广泛的基于<strong>注解</strong>的DI。</p>
 <hr>
@@ -630,7 +940,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring_02</title>
+    <title>Spring_02(基于XML的DI)</title>
     <url>/2020/11/10/Spring-02/</url>
     <content><![CDATA[<p>在上篇spring入门案例，本篇文章讲解如何给对象赋值，即DI操作。本篇总结第一种基于XML的DI。</p>
 <a id="more"></a>
@@ -644,7 +954,7 @@
 </ol>
 <p>di的语法分类:</p>
 <ol>
-<li><strong>set注入</strong>（设置注入） : spring调用类的set方法，在set方法可以实现属性的赋值。<br>80左右都是使用的set注入</li>
+<li><strong>set注入</strong>（设置注入） : spring调用类的set方法，在set方法可以实现属性的赋值。80%左右都是使用的set注入。（常用）</li>
 <li><strong>构造注入</strong>：spring调用类的有参数构造方法，创建对象。在构造方法中完成赋值。</li>
 </ol>
 <p>我们需要重点掌握后者。</p>
@@ -680,12 +990,11 @@
 
 <h2 id="3、为应用指定多个spring配置文件"><a href="#3、为应用指定多个spring配置文件" class="headerlink" title="3、为应用指定多个spring配置文件"></a>3、为应用指定多个spring配置文件</h2><img src="/2020/11/10/Spring-02/3.png" class>
 
-<p>1．<strong>多个配置优势</strong></p>
+<p><strong>多个配置优势</strong></p>
 <ol>
 <li><p>每个文件的大小比一个文件要小很多。效率高</p>
 </li>
-<li><p>避免多人竞争带来的冲突。<br>如果你的项目有多个模块（相关的功能在一起)，一个模块一个配置文件。</p>
-<p>​            学生考勤模块一个配置文件，张三<br>​            装生成绩一个配置文件，李四</p>
+<li><p>避免多人竞争带来的冲突。如果你的项目有多个模块（相关的功能在一起)，一个模块一个配置文件。</p>
 </li>
 </ol>
 <p>多文件的分配方式：</p>
@@ -711,7 +1020,82 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring_01</title>
+    <title>Spring_05(AspectJ具体实现)</title>
+    <url>/2020/11/09/Spring-05/</url>
+    <content><![CDATA[<p>AspectJ的Spring实现。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h1><p>使用AspectJ框架实现Aop。</p>
+<p>使用aop：目的是给已经存在的一些类和方法，增加额外的功能。前提是不改变原来的类的代码。</p>
+<p>使用AspectJ实现Aop的基本步骤：</p>
+<ol>
+<li><p>新建Maven项目</p>
+</li>
+<li><p>加入依赖</p>
+<ul>
+<li><p>spring依赖</p>
+</li>
+<li><p>aspectJ依赖</p>
+</li>
+<li><p>junit单元测试</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.11<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.2.9.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">&lt;!--  aspectj  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-aspects<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.2.9.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>创建目标类：接口和他的实现类。</p>
+<p> 要做的是给类中的方法增加功能。</p>
+</li>
+<li><p>创建切面类：就是一个普通类，有如下几个要求：</p>
+<ul>
+<li><p>在类的上面加上注解 @AspectJ</p>
+</li>
+<li><p>在类中定义方法，方法就是切面要执行的功能代码。</p>
+<p>在方法的上面加入AspectJ中的通知注解，例如@Before</p>
+<p>还需要指定切入点的表达式execution()</p>
+</li>
+</ul>
+</li>
+<li><p>创建spring的配置文件：声明对象，把对象交给容器统一管理(声明对象可以使用注解或者xml配置文件<bean>)</bean></p>
+<ul>
+<li><p>声明目标对象</p>
+</li>
+<li><p>声明切面类对象</p>
+</li>
+<li><p>声明AspectJ框架中的自动代理生成器标签。</p>
+<p>自动代理生成器：用来完成代理对象的自动创建功能的。</p>
+</li>
+</ul>
+</li>
+<li><p>创建测试类，从spring容器中获取目标对象（实际就是代理对象）</p>
+<p> 通过代理执行方法，实现aop的功能增强</p>
+</li>
+</ol>
+<h1 id="Before前置通知-方法有JoinPoint参数"><a href="#Before前置通知-方法有JoinPoint参数" class="headerlink" title="@Before前置通知-方法有JoinPoint参数"></a>@Before前置通知-方法有JoinPoint参数</h1><p>在目标方法执行之前执行。被注解为前置通知的方法，可以包含一个JoinPoint类型参数。该类型的对象本身就是切入点表达式。通过该参数，可获取切入点表达式、方法签名、目标对象等。</p>
+<p>不光前置通知的方法，可以包含一个JoinPoint类型参数，所有的通知方法均可包含该参数。</p>
+<h2 id="具体代码实现"><a href="#具体代码实现" class="headerlink" title="具体代码实现"></a>具体代码实现</h2><p>首先是目标类的实现代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.ba01;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 目标类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeServiceImpl</span> <span class="keyword">implements</span> <span class="title">SomeService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSome</span><span class="params">(String name, Integer age)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 给doSome方法增加一个功能，在doSome()执行之前，输出方法的执行时间</span></span><br><span class="line">        System.out.println(<span class="string">"=====目标方法doSome()执行====="</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>切面类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thorine.ba01;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Aspect;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Before;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Aspect</span> : 是AspectJ框架中的注解</span></span><br><span class="line"><span class="comment"> * 作用：表示当前类是切面类</span></span><br><span class="line"><span class="comment"> * 切面类：是用来给业务方法增加功能的类，在这个类中有切面的功能代码</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAspect</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 定义方法，方法是实现切面功能的。</span></span><br><span class="line"><span class="comment">     * 方法的定义要求：</span></span><br><span class="line"><span class="comment">     *  1、共有方法 public</span></span><br><span class="line"><span class="comment">     *  2、方法无返回值</span></span><br><span class="line"><span class="comment">     *  3、方法名称自定义</span></span><br><span class="line"><span class="comment">     *  4、可以有参数，可以无参数。若有参数，不是自定义的，是有几个参数类型可以使用</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Before</span>:前置通知注解</span></span><br><span class="line"><span class="comment">     *  属性：value，是切入点表达式，表达切面的功能执行的位置。</span></span><br><span class="line"><span class="comment">     *  特点：</span></span><br><span class="line"><span class="comment">     *      1.在目标方法前先执行</span></span><br><span class="line"><span class="comment">     *      2.不会改变目标方法的执行结果</span></span><br><span class="line"><span class="comment">     *      3.不会影响目标方法的执行</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Before</span>(value = <span class="string">"execution(public void com.thorine.ba01.SomeServiceImpl.doSome(String,Integer))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myBefore</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// 就是切面要执行的功能代码</span></span><br><span class="line">        System.out.println(<span class="string">"前置通知，切面功能：在目标方法之前输出执行时间："</span> + <span class="keyword">new</span> Date());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>spring配置文件 ApplicationContext.xml</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--  把对象交给spring容器，由spring容器统一创建，管理对象  --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--  声明目标对象  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"someService"</span> <span class="attr">class</span>=<span class="string">"com.thorine.ba01.SomeServiceImpl"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 声明切面类对象 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"myAspect"</span> <span class="attr">class</span>=<span class="string">"com.thorine.ba01.MyAspect"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        声明自动代理生成器：使用aspectJ框架内部的功能，创建目标对象的代理对象。</span></span><br><span class="line"><span class="comment">        创建代理对象是在内存中实现的，修改目标对象的内存中的结构。创建为代理对象</span></span><br><span class="line"><span class="comment">        所以目标对象就是被修改后的代理对象</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        aop:aspectj-autoproxy:会把spring容器中的所有的目标对象，一次性都生成代理对象</span></span><br><span class="line"><span class="comment">     --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在测试类中创建对象，测试目标方法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test01</span><span class="params">()</span></span>&#123;</span><br><span class="line">    String config = <span class="string">"applicationContext.xml"</span>;</span><br><span class="line">    ApplicationContext ctx = <span class="keyword">new</span> ClassPathXmlApplicationContext(config);</span><br><span class="line">    <span class="comment">// 从容器中获取目标对象</span></span><br><span class="line">    SomeService proxy = (SomeService) ctx.getBean(<span class="string">"someService"</span>);</span><br><span class="line">    <span class="comment">// 通过代理的对象执行方法，实现目标方法执行时，增强了功能</span></span><br><span class="line">    proxy.doSome(<span class="string">"zs"</span>,<span class="number">20</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果，得到增强功能了的目标方法。</p>
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring_01(Spring入门)</title>
     <url>/2020/11/09/Spring-01/</url>
     <content><![CDATA[<p>Spring 入门。</p>
 <a id="more"></a>
