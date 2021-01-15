@@ -24,7 +24,7 @@
 
   <meta name="description" content="tensorflow 的安装及入门。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tensorflow_01">
+<meta property="og:title" content="Tensorflow_01(安装及入门)">
 <meta property="og:url" content="http://icewind-r.github.io/2020/11/15/Tensorflow-01/index.html">
 <meta property="og:site_name" content="Thorine">
 <meta property="og:description" content="tensorflow 的安装及入门。">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://icewind-r.github.io/2020/11/15/Tensorflow-01/1.png">
 <meta property="og:image" content="http://icewind-r.github.io/2020/11/15/Tensorflow-01/3.png">
 <meta property="article:published_time" content="2020-11-15T08:11:21.000Z">
-<meta property="article:modified_time" content="2020-12-25T11:57:37.092Z">
+<meta property="article:modified_time" content="2021-01-06T03:56:32.990Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="tensorflow">
 <meta name="twitter:card" content="summary">
@@ -50,7 +50,7 @@
   };
 </script>
 
-  <title>Tensorflow_01 | Thorine</title>
+  <title>Tensorflow_01(安装及入门) | Thorine</title>
   
 
 
@@ -223,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Tensorflow_01
+          Tensorflow_01(安装及入门)
         </h1>
 
         <div class="post-meta">
@@ -246,7 +246,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-25 19:57:37" itemprop="dateModified" datetime="2020-12-25T19:57:37+08:00">2020-12-25</time>
+                <time title="修改时间：2021-01-06 11:56:32" itemprop="dateModified" datetime="2021-01-06T11:56:32+08:00">2021-01-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -259,7 +259,7 @@
             </span>
 
           
-            <span id="/2020/11/15/Tensorflow-01/" class="post-meta-item leancloud_visitors" data-flag-title="Tensorflow_01" title="阅读次数">
+            <span id="/2020/11/15/Tensorflow-01/" class="post-meta-item leancloud_visitors" data-flag-title="Tensorflow_01(安装及入门)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -292,14 +292,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>638</span>
+              <span>899</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
 
@@ -339,7 +339,25 @@
 <img src="/2020/11/15/Tensorflow-01/3.png" class>
 
 <p>完成！</p>
-<h2 id="二、navigator安装"><a href="#二、navigator安装" class="headerlink" title="二、navigator安装"></a>二、navigator安装</h2><p>这个则就非常容易了，只需在 All 包中搜索tensorflow，下载安装即可。</p>
+<h2 id="二、navigator安装"><a href="#二、navigator安装" class="headerlink" title="二、navigator安装"></a>二、navigator安装</h2><p>这个就非常容易了，只需在 All 包中搜索tensorflow，下载安装即可。</p>
+<h1 id="Tensorflow简介"><a href="#Tensorflow简介" class="headerlink" title="Tensorflow简介"></a>Tensorflow简介</h1><p>主要从三部分入手：</p>
+<p>1、tf.keras：这是构建和训练模型的<strong>核心高级</strong>API</p>
+<ul>
+<li>单输入单输出Sequential顺序模型</li>
+<li>函数式API</li>
+</ul>
+<p>2、Eager模式与自定义训练：直接迭代和直观调试，Eager模式下求解梯度与自定义训练</p>
+<ul>
+<li>Eager模式：直接迭代和直观调试</li>
+<li>tf.GradientTape：求解梯度，自定义训练逻辑</li>
+</ul>
+<p>3、tf.data：加载图片数据与结构化数据</p>
+<p>4、介绍tf.function：自动图运算</p>
+<p>5、卷积神经网络</p>
+<p>6、多输出卷积神经网络综合实例</p>
+<p>7、迁移学习</p>
+<p>8、模型保存与可视化</p>
+<p>9、TensorBoard可视化</p>
 
     </div>
 
@@ -451,7 +469,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tensorflow安装"><span class="nav-number">1.</span> <span class="nav-text">Tensorflow安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#说在前面"><span class="nav-number">1.1.</span> <span class="nav-text">说在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、命令行安装"><span class="nav-number">1.2.</span> <span class="nav-text">一、命令行安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">1.2.1.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、navigator安装"><span class="nav-number">1.3.</span> <span class="nav-text">二、navigator安装</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tensorflow安装"><span class="nav-number">1.</span> <span class="nav-text">Tensorflow安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#说在前面"><span class="nav-number">1.1.</span> <span class="nav-text">说在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、命令行安装"><span class="nav-number">1.2.</span> <span class="nav-text">一、命令行安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">1.2.1.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、navigator安装"><span class="nav-number">1.3.</span> <span class="nav-text">二、navigator安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tensorflow简介"><span class="nav-number">2.</span> <span class="nav-text">Tensorflow简介</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -467,14 +485,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">91</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -533,12 +551,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">134k</span>
+    <span title="站点总字数">136k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:25</span>
+    <span title="站点阅读时长">7:35</span>
 </div>
 
 <!--
