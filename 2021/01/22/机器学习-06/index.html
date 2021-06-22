@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <meta name="baidu-site-verification" content="OIvRHPtnvC">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-loading-bar.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"icewind-r.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本节总结分类算法中的 决策树 和 随机森林 算法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习_06">
+<meta property="og:url" content="http://icewind-r.github.io/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/index.html">
+<meta property="og:site_name" content="Thorine">
+<meta property="og:description" content="本节总结分类算法中的 决策树 和 随机森林 算法。">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/1.png">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/2.png">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/3.png">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/4.png">
+<meta property="article:published_time" content="2021-01-22T00:29:04.000Z">
+<meta property="article:modified_time" content="2021-01-23T04:57:37.857Z">
+<meta property="article:author" content="大雪初晴丶">
+<meta property="article:tag" content="大学生">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://icewind-r.github.io/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/1.png">
+
+<link rel="canonical" href="http://icewind-r.github.io/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>机器学习_06 | Thorine</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a170e4a05c3a0ce3f8d5a6919dae5d5e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Thorine" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    	<!-- 自己的Github地址 -->
+
+<a href="https://github.com/iceWind-R" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Thorine</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">凡是过往，皆为序章</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang01.jpg">
+      <meta itemprop="name" content="大雪初晴丶">
+      <meta itemprop="description" content="一个热爱编程的大二小白">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Thorine">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          机器学习_06
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+
+
+
+                
+                
+
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-22 08:29:04" itemprop="dateCreated datePublished" datetime="2021-01-22T08:29:04+08:00">2021-01-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-23 12:57:37" itemprop="dateModified" datetime="2021-01-23T12:57:37+08:00">2021-01-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/" class="post-meta-item leancloud_visitors" data-flag-title="机器学习_06" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本节总结分类算法中的 <strong>决策树</strong> 和 <strong>随机森林</strong> 算法。 </p>
+<a id="more"></a>
+
+<hr>
+<h1 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h1><p>决策树思想的来源非常朴素，程序设计中的条件分支结构就是if-then结构，最早的决策树就是利用这类结构分割数据的一种分类学习方法</p>
+<p><strong>决策树：是一种树形结构，其中每个内部节点表示一个属性上的判断，每个分支代表一个判断结果的输出，最后每个叶节点代表一种分类结果，本质是一颗由多个判断节点组成的树</strong>。</p>
+<img src="/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/1.png" class>
+
+<p>决策树涉及概念较多，不好理解，这里就先给出 API ，学会基本的调用即可。</p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>class sklearn.tree.DecisionTreeClassifier(criterion=’gini’, max_depth=None,random_state=None)</p>
+<ul>
+<li>criterion<ul>
+<li>特征选择标准</li>
+<li>“gini”或者”entropy”，前者代表基尼系数，后者代表信息增益。一默认”gini”，即CART算法。</li>
+</ul>
+</li>
+<li>min_samples_split<ul>
+<li>内部节点再划分所需最小样本数</li>
+<li>这个值限制了子树继续划分的条件，如果某节点的样本数少于min_samples_split，则不会继续再尝试选择最优特征来进行划分。 默认是2.如果样本量不大，不需要管这个值。如果样本量数量级非常大，则推荐增大这个值。我之前的一个项目例子，有大概10万样本，建立决策树时，我选择了min_samples_split=10。可以作为参考。</li>
+</ul>
+</li>
+<li>min_samples_leaf<ul>
+<li>叶子节点最少样本数</li>
+<li>这个值限制了叶子节点最少的样本数，如果某叶子节点数目小于样本数，则会和兄弟节点一起被剪枝。 默认是1,可以输入最少的样本数的整数，或者最少样本数占样本总数的百分比。如果样本量不大，不需要管这个值。如果样本量数量级非常大，则推荐增大这个值。之前的10万样本项目使用min_samples_leaf的值为5，仅供参考。</li>
+</ul>
+</li>
+<li>max_depth<ul>
+<li>决策树最大深度</li>
+<li>决策树的最大深度，默认可以不输入，如果不输入的话，决策树在建立子树的时候不会限制子树的深度。一般来说，数据少或者特征少的时候可以不管这个值。如果模型样本量多，特征也多的情况下，推荐限制这个最大深度，具体的取值取决于数据的分布。常用的可以取值10-100之间</li>
+</ul>
+</li>
+<li>random_state<ul>
+<li>随机数种子</li>
+</ul>
+</li>
+</ul>
+<h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><p>我们可以将训练好后的模型保存到本地，进行直观的可视化。</p>
+<p>使用的API如下：</p>
+<p>sklearn.tree.export_graphviz() 该函数能够导出DOT格式</p>
+<ul>
+<li>tree.export_graphviz(estimator,out_file=’tree.dot’,feature_names=[‘’,’’])</li>
+</ul>
+<p>但保存的 dot 文件是一堆数据，我们可以将数据放到网站上直观显示。</p>
+<ul>
+<li><a href="http://webgraphviz.com/" target="_blank" rel="noopener">http://webgraphviz.com/</a> </li>
+</ul>
+<img src="/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/2.png" class>
+
+<p>将dot文件内容复制到该网站当中显示</p>
+<img src="/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/3.png" class>
+
+<h2 id="决策树API使用"><a href="#决策树API使用" class="headerlink" title="决策树API使用"></a>决策树API使用</h2><h3 id="初步使用"><a href="#初步使用" class="headerlink" title="初步使用"></a>初步使用</h3><p>这里先给出一个小的鸢尾花实例，了解决策树的基本使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier, export_graphviz</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tree_iris</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    用决策树给鸢尾花数据集进行分类</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    iris = load_iris()</span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(iris.data, iris.target, random_state=<span class="number">22</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 决策树预估器, 决策树不用对数据进行标准化</span></span><br><span class="line">    estimator = DecisionTreeClassifier(criterion=<span class="string">"entropy"</span>)</span><br><span class="line">    estimator.fit(x_train, y_train)</span><br><span class="line"></span><br><span class="line">    y_pre = estimator.predict(x_test)</span><br><span class="line">    print(<span class="string">"预测值y_predict: "</span>, y_pre)</span><br><span class="line">    print(<span class="string">"直接对比真实值和预测值:\n"</span>, y_test == y_pre)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算准确率</span></span><br><span class="line">    score = estimator.score(x_test, y_test)</span><br><span class="line">    print(<span class="string">"准确率为: "</span>, score)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 可视化决策树, 指定feature_names, 使得树的结构更加清晰</span></span><br><span class="line">    export_graphviz(estimator, out_file=<span class="string">"./iris_tree.dot"</span>, feature_names=iris.feature_names)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="案例：泰坦尼克号生存预测"><a href="#案例：泰坦尼克号生存预测" class="headerlink" title="案例：泰坦尼克号生存预测"></a>案例：泰坦尼克号生存预测</h3><img src="/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/4.png" class>
+
+<p>经过观察数据得到:</p>
+<ul>
+<li><strong>1 乘坐班是指乘客班（1，2，3），是社会经济阶层的代表。</strong></li>
+<li><strong>2 其中age数据存在缺失。</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction <span class="keyword">import</span> DictVectorizer</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier,export_graphviz</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">titanic = pd.read_csv(<span class="string">"./titanic/titanic.csv"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1、筛选数据，得到特征值 和 目标值</span></span><br><span class="line">x = titanic[[<span class="string">'pclass'</span>, <span class="string">'age'</span>, <span class="string">'sex'</span>]]  <span class="comment"># 将地位等级, 年龄 和 性别 作为特征值</span></span><br><span class="line">y = titanic[<span class="string">'survived'</span>]  <span class="comment"># 将 是否活下来 作为目标值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2、数据处理，缺失值处理</span></span><br><span class="line">x[<span class="string">'age'</span>].fillna(x[<span class="string">'age'</span>].mean(), inplace=<span class="literal">True</span>)  <span class="comment"># 使用 age 的平均值 填充 age列的缺失位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换成字典，抽取字典格式更方便</span></span><br><span class="line">x = x.to_dict(orient=<span class="string">"records"</span>)  <span class="comment"># [&#123;'': ''&#125;,&#123;'': ''&#125;...] 最外层一个为列表</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3、数据集划分</span></span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=<span class="number">22</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典特征抽取</span></span><br><span class="line">transfer = DictVectorizer()</span><br><span class="line">x_train = transfer.fit_transform(x_train)</span><br><span class="line">x_test = transfer.transform(x_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 决策树预估器</span></span><br><span class="line">estimator = DecisionTreeClassifier(criterion=<span class="string">"entropy"</span>, max_depth=<span class="number">6</span>)</span><br><span class="line">estimator.fit(x_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 模型评估</span></span><br><span class="line">y_predict = estimator.predict(x_test)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"y_predict:"</span>, y_predict)</span><br><span class="line">print(<span class="string">"直接对比真实值和预估值:"</span>, y_test == y_predict)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2:计算准确率</span></span><br><span class="line">score = estimator.score(x_test, y_test)</span><br><span class="line">print(<span class="string">"准确率为: "</span>, score)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将树形结果导出</span></span><br><span class="line">export_graphviz(estimator, out_file=<span class="string">"./titanic.dot"</span>,feature_names=transfer.get_feature_names())</span><br></pre></td></tr></table></figure>
+
+<h2 id="决策树总结"><a href="#决策树总结" class="headerlink" title="决策树总结"></a>决策树总结</h2><ul>
+<li>优点：<ul>
+<li>简单的理解和解释，树木可视化。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li><strong>决策树学习者可以创建不能很好地推广数据的过于复杂的树，这被称为过拟合。</strong></li>
+</ul>
+</li>
+<li>改进：<ul>
+<li>减枝cart算法(决策树API当中已经实现，随机森林参数调优有相关介绍)</li>
+<li><strong>随机森林</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>注：企业重要决策，由于决策树很好的分析能力，在决策过程应用较多， 可以选择特征</strong></p>
+<h1 id="集成学习方法之随机森林"><a href="#集成学习方法之随机森林" class="headerlink" title="集成学习方法之随机森林"></a>集成学习方法之随机森林</h1><h2 id="什么是集成学习方法"><a href="#什么是集成学习方法" class="headerlink" title="什么是集成学习方法"></a>什么是集成学习方法</h2><p>集成学习通过建立几个模型组合的来解决单一预测问题。它的工作原理是<strong>生成多个分类器/模型</strong>，各自独立地学习和作出预测。<strong>这些预测最后结合成组合预测，因此优于任何一个单分类的做出预测。</strong></p>
+<h2 id="什么是随机森林"><a href="#什么是随机森林" class="headerlink" title="什么是随机森林"></a>什么是随机森林</h2><p>在机器学习中，<strong>随机森林是一个包含多个决策树的分类器</strong>，并且其输出的类别是由个别树输出的类别的众数而定。</p>
+<p>例如, 如果你训练了5个树, 其中有4个树的结果是True, 1个数的结果是False, 那么最终投票结果就是True</p>
+<h2 id="随机森林原理过程"><a href="#随机森林原理过程" class="headerlink" title="随机森林原理过程"></a>随机森林原理过程</h2><p>学习算法根据下列算法而建造每棵树：</p>
+<ul>
+<li>用N来表示训练用例（样本）的个数，M表示特征数目。<ul>
+<li>1、一次随机选出一个样本，重复N次， （有可能出现重复的样本）</li>
+<li>2、随机去选出m个特征, m &lt;&lt;M，建立决策树</li>
+</ul>
+</li>
+<li>采取bootstrap抽样 （随机有放回抽样）</li>
+</ul>
+<h3 id="为什么采用BootStrap抽样"><a href="#为什么采用BootStrap抽样" class="headerlink" title="为什么采用BootStrap抽样"></a>为什么采用BootStrap抽样</h3><ul>
+<li>为什么要随机抽样训练集？　　<ul>
+<li>如果不进行随机抽样，每棵树的训练集都一样，那么最终训练出的树分类结果也是完全一样的</li>
+</ul>
+</li>
+<li>为什么要有放回地抽样？<ul>
+<li>如果不是有放回的抽样，那么每棵树的训练样本都是不同的，都是没有交集的，这样每棵树都是“有偏的”，都是绝对“片面的”（当然这样说可能不对），也就是说每棵树训练出来都是有很大的差异的；而随机森林最后分类取决于多棵树（弱分类器）的投票表决。</li>
+</ul>
+</li>
+</ul>
+<h3 id="API-1"><a href="#API-1" class="headerlink" title="API"></a>API</h3><ul>
+<li><p>class sklearn.ensemble.RandomForestClassifier(n_estimators=10, criterion=’gini’, max_depth=None, bootstrap=True, random_state=None, min_samples_split=2)</p>
+<ul>
+<li>随机森林分类器</li>
+<li>n_estimators：integer，optional（default = 10）森林里的树木数量120,200,300,500,800,1200</li>
+<li>criteria：string，可选（default =“gini”）分割特征的测量方法</li>
+<li>max_depth：integer或None，可选（默认=无）树的最大深度 5,8,15,25,30</li>
+<li>max_features=”auto”,每个决策树的最大特征数量<ul>
+<li>If “auto”, then <code>max_features=sqrt(n_features)</code>.</li>
+<li>If “sqrt”, then <code>max_features=sqrt(n_features)</code> (same as “auto”).</li>
+<li>If “log2”, then <code>max_features=log2(n_features)</code>.</li>
+<li>If None, then <code>max_features=n_features</code>.</li>
+</ul>
+</li>
+<li>bootstrap：boolean，optional（default = True）是否在构建树时使用放回抽样</li>
+<li>min_samples_split:节点划分最少样本数</li>
+<li>min_samples_leaf:叶子节点的最小样本数</li>
+</ul>
+</li>
+<li><p>超参数：n_estimator, max_depth, min_samples_split,min_samples_leaf</p>
+</li>
+</ul>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>利用上面用决策树做过的泰坦尼克号案例来实现随机森林的算法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction <span class="keyword">import</span> DictVectorizer</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">titanic = pd.read_csv(<span class="string">"./titanic/titanic.csv"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1、筛选数据，得到特征值 和 目标值</span></span><br><span class="line">x = titanic[[<span class="string">'pclass'</span>, <span class="string">'age'</span>, <span class="string">'sex'</span>]]  <span class="comment"># 将地位等级, 年龄 和 性别 作为特征值</span></span><br><span class="line">y = titanic[<span class="string">'survived'</span>]  <span class="comment"># 将 是否活下来 作为目标值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2、数据处理，缺失值处理</span></span><br><span class="line">x[<span class="string">'age'</span>].fillna(x[<span class="string">'age'</span>].mean(), inplace=<span class="literal">True</span>)  <span class="comment"># 使用 age 的平均值 填充 age列的缺失位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换成字典，抽取字典格式更方便</span></span><br><span class="line">x = x.to_dict(orient=<span class="string">"records"</span>)  <span class="comment"># [&#123;'': ''&#125;,&#123;'': ''&#125;...] 最外层一个为列表</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3、数据集划分</span></span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=<span class="number">22</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典特征抽取</span></span><br><span class="line">transfer = DictVectorizer()</span><br><span class="line">x_train = transfer.fit_transform(x_train)</span><br><span class="line">x_test = transfer.transform(x_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机森林</span></span><br><span class="line">estimator = RandomForestClassifier()  <span class="comment"># 不指定参数，后面进行网格搜索</span></span><br><span class="line"></span><br><span class="line">param_dict = &#123;<span class="string">"n_estimators"</span>: [<span class="number">120</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">500</span>, <span class="number">800</span>, <span class="number">1200</span>], <span class="string">"max_depth"</span>: [<span class="number">5</span>, <span class="number">8</span>, <span class="number">15</span>, <span class="number">25</span>, <span class="number">30</span>]&#125;</span><br><span class="line">estimator = GridSearchCV(estimator, param_grid=param_dict, cv=<span class="number">3</span>)  <span class="comment"># 加入网格搜索与交叉验证</span></span><br><span class="line">estimator.fit(x_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 模型评估</span></span><br><span class="line">y_predict = estimator.predict(x_test)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"y_predict:"</span>, y_predict)</span><br><span class="line">print(<span class="string">"直接对比真实值和预估值:"</span>, y_test == y_predict)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2:计算准确率</span></span><br><span class="line">score = estimator.score(x_test, y_test)</span><br><span class="line">print(<span class="string">"准确率为: "</span>, score)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"在交叉验证中验证的最好结果：\n"</span>, estimator.best_score_)</span><br><span class="line">print(<span class="string">"最好的参数模型：\n"</span>, estimator.best_estimator_)</span><br><span class="line">print(<span class="string">"每次交叉验证后的准确率结果：\n"</span>, estimator.cv_results_)</span><br></pre></td></tr></table></figure>
+
+<h2 id="随机森林总结"><a href="#随机森林总结" class="headerlink" title="随机森林总结"></a>随机森林总结</h2><ul>
+<li>在当前所有算法中，具有极好的准确率</li>
+<li>能够有效地运行在大数据集上，处理具有高维特征的输入样本，而且不需要降维</li>
+<li>能够评估各个特征在分类问题上的重要性</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>~感谢你请我吃糖果~</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.JPG" alt="大雪初晴丶 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束，感谢您的阅读，欢迎评论留言！-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/" rel="prev" title="机器学习_05(线性回归 和 模型保存)">
+      <i class="fa fa-chevron-left"></i> 机器学习_05(线性回归 和 模型保存)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/22/What%EF%BC%9F%EF%BC%9F%E8%A6%81%E6%94%BE%E5%81%87%E4%BA%86%EF%BC%81/" rel="next" title="What？？要放假了！">
+      What？？要放假了！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#决策树"><span class="nav-number">1.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-number">1.1.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可视化"><span class="nav-number">1.2.</span> <span class="nav-text">可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树API使用"><span class="nav-number">1.3.</span> <span class="nav-text">决策树API使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初步使用"><span class="nav-number">1.3.1.</span> <span class="nav-text">初步使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例：泰坦尼克号生存预测"><span class="nav-number">1.3.2.</span> <span class="nav-text">案例：泰坦尼克号生存预测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树总结"><span class="nav-number">1.4.</span> <span class="nav-text">决策树总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集成学习方法之随机森林"><span class="nav-number">2.</span> <span class="nav-text">集成学习方法之随机森林</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是集成学习方法"><span class="nav-number">2.1.</span> <span class="nav-text">什么是集成学习方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是随机森林"><span class="nav-number">2.2.</span> <span class="nav-text">什么是随机森林</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机森林原理过程"><span class="nav-number">2.3.</span> <span class="nav-text">随机森林原理过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么采用BootStrap抽样"><span class="nav-number">2.3.1.</span> <span class="nav-text">为什么采用BootStrap抽样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">API</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例"><span class="nav-number">2.4.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机森林总结"><span class="nav-number">2.5.</span> <span class="nav-text">随机森林总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="大雪初晴丶"
+      src="/images/touxiang01.jpg">
+  <p class="site-author-name" itemprop="name">大雪初晴丶</p>
+  <div class="site-description" itemprop="description">一个热爱编程的大二小白</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/iceWind-R" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;iceWind-R" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:thorine612@gmail.com" title="E-Mail → mailto:thorine612@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/dongao/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;dongao&#x2F;" rel="noopener" target="_blank">博客园</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大雪初晴丶</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">144k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">8:01</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div> -->
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e59d7f2168413b5" async="async"></script>
+  </div>
+
+
+<!-- 网站运行时间 -->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("2/28/2020 8:00:00");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = " Runing "+dnum+" D "; 
+        document.getElementById("times").innerHTML = hnum + " H " + mnum + " M " + snum + " S"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,255,0' opacity='0.8' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'k9OjfFxvrej9ESLrFSCkSv0C-gzGzoHsz',
+      appKey     : '8MwswXHf6uKqdfpB6jYw1s5p',
+      placeholder: "Just go go",
+      avatar     : 'monsterid',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

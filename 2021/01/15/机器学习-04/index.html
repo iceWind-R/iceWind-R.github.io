@@ -22,17 +22,21 @@
     var CONFIG = {"hostname":"icewind-r.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="s">
+  <meta name="description" content="一些主要的分类算法介绍。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习_04">
+<meta property="og:title" content="机器学习_04(分类算法knn与bayes)">
 <meta property="og:url" content="http://icewind-r.github.io/2021/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04/index.html">
 <meta property="og:site_name" content="Thorine">
-<meta property="og:description" content="s">
+<meta property="og:description" content="一些主要的分类算法介绍。">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04/1.png">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04/2.png">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04/3.png">
 <meta property="article:published_time" content="2021-01-15T14:51:19.000Z">
-<meta property="article:modified_time" content="2021-01-15T14:54:00.523Z">
+<meta property="article:modified_time" content="2021-01-29T03:36:38.475Z">
 <meta property="article:author" content="大雪初晴丶">
 <meta property="article:tag" content="大学生">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://icewind-r.github.io/2021/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04/1.png">
 
 <link rel="canonical" href="http://icewind-r.github.io/2021/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04/">
 
@@ -46,7 +50,7 @@
   };
 </script>
 
-  <title>机器学习_04 | Thorine</title>
+  <title>机器学习_04(分类算法knn与bayes) | Thorine</title>
   
 
 
@@ -219,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          机器学习_04
+          机器学习_04(分类算法knn与bayes)
         </h1>
 
         <div class="post-meta">
@@ -234,10 +238,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-01-15 22:51:19 / 修改时间：22:54:00" itemprop="dateCreated datePublished" datetime="2021-01-15T22:51:19+08:00">2021-01-15</time>
+              <time title="创建时间：2021-01-15 22:51:19" itemprop="dateCreated datePublished" datetime="2021-01-15T22:51:19+08:00">2021-01-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-29 11:36:38" itemprop="dateModified" datetime="2021-01-29T11:36:38+08:00">2021-01-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -249,7 +259,7 @@
             </span>
 
           
-            <span id="/2021/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04/" class="post-meta-item leancloud_visitors" data-flag-title="机器学习_04" title="阅读次数">
+            <span id="/2021/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04/" class="post-meta-item leancloud_visitors" data-flag-title="机器学习_04(分类算法knn与bayes)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -282,14 +292,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>6 分钟</span>
             </span>
 
 
@@ -303,12 +313,95 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>s</p>
+        <p>一些主要的分类算法介绍。</p>
 <a id="more"></a>
 
 <hr>
-<p>s</p>
+<h1 id="sklearn转换器和估计器"><a href="#sklearn转换器和估计器" class="headerlink" title="sklearn转换器和估计器"></a>sklearn转换器和估计器</h1><h2 id="转换器"><a href="#转换器" class="headerlink" title="转换器"></a>转换器</h2><p>我们把特征工程的接口称之为转换器，其中转换器调用有这么几种形式 </p>
+<ul>
+<li>fit_transform </li>
+<li>fit —— 计算 </li>
+<li>transform —— 进行最终的转换 </li>
+</ul>
+<h2 id="估计器"><a href="#估计器" class="headerlink" title="估计器"></a>估计器</h2><p>在sklearn中，估计器(estimator)是一个重要的角色，是一类实现了算法的API</p>
+<ul>
+<li>1、用于分类的估计器：<ul>
+<li>sklearn.neighbors k-近邻算法</li>
+<li>sklearn.naive_bayes 贝叶斯</li>
+<li>sklearn.linear_model.LogisticRegression 逻辑回归</li>
+<li>sklearn.tree 决策树与随机森林</li>
+</ul>
+</li>
+<li>2、用于回归的估计器：<ul>
+<li>sklearn.linear_model.LinearRegression 线性回归</li>
+<li>sklearn.linear_model.Ridge 岭回归</li>
+</ul>
+</li>
+<li>3、用于无监督学习的估计器<ul>
+<li>sklearn.cluster.KMeans 聚类</li>
+</ul>
+</li>
+</ul>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1、实例化一个estimator（转换器）</p>
+<p>2、estimator.fit (x_train, y_train) 计算</p>
+<p>——调用完毕，生成模型</p>
+<p>3、模型评估：</p>
+<p>​    （1）直接对比真实值和预估值</p>
+<p>​                y_predict = estimator.predict(x_test)</p>
+<p>​                y_test == y_predict</p>
+<p>​    （2）计算准确率</p>
+<p>​                accuracy = extimator.score(x_test, y_test)</p>
+<img src="/2021/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04/1.png" class>
 
+<h1 id="K-近邻算法"><a href="#K-近邻算法" class="headerlink" title="K-近邻算法"></a>K-近邻算法</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>如果一个样本在特征空间中的<strong>k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别</strong>，则该样本也属于这个类别。</p>
+<blockquote>
+<p>来源：KNN算法最早是由Cover和Hart提出的一种分类算法</p>
+</blockquote>
+<h2 id="距离公式"><a href="#距离公式" class="headerlink" title="距离公式"></a>距离公式</h2><p>两个样本的距离可以通过如下公式计算，又叫欧式距离。</p>
+<img src="/2021/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04/2.png" class>
+
+<blockquote>
+<p>还有其他的距离公式，如：曼哈顿距离，明可夫斯基距离等。</p>
+</blockquote>
+<h2 id="K-近邻算法API"><a href="#K-近邻算法API" class="headerlink" title="K-近邻算法API"></a>K-近邻算法API</h2><p>sklearn.neighbors.KNeighborsClassifier(n_neighbors=5,algorithm=’auto’)</p>
+<ul>
+<li>n_neighbors：int,可选（默认= 5），k_neighbors查询默认使用的邻居数</li>
+<li>algorithm：{‘auto’，‘ball_tree’，‘kd_tree’，‘brute’}，可选用于计算最近邻居的算法：‘ball_tree’将会使用 BallTree，‘kd_tree’将使用 KDTree。‘auto’将尝试根据传递给fit方法的值来决定最合适的算法。 (不同实现方式影响效率)</li>
+</ul>
+<h2 id="案例：基于鸢尾花数据集的KNN算法实现"><a href="#案例：基于鸢尾花数据集的KNN算法实现" class="headerlink" title="案例：基于鸢尾花数据集的KNN算法实现"></a>案例：基于鸢尾花数据集的KNN算法实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">fit：原义指的是安装、使适合的意思，其实有点train的含义但是和train不同的是，</span></span><br><span class="line"><span class="string">    它并不是一个训练的过程，而是一个适配的过程，过程都是定死的，最后只是得到了一个统一的转换的规则模型。</span></span><br><span class="line"><span class="string">transform：是将数据进行转换，比如数据的归一化和标准化，将测试数据按照训练数据同样的模型进行转换，得到特征向量。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">fit_transform：可以看做是fit和transform的结合，</span></span><br><span class="line"><span class="string">    如果训练阶段使用fit_transform，则在测试阶段只需要对测试样本进行transform就行了。</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knn_iris</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    用 knn 算法对鸢尾花进行分类</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 1、获取数据</span></span><br><span class="line">    iris = load_iris()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2、划分数据集</span></span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(iris.data, iris.target, random_state=<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3、特征工程进行标准化</span></span><br><span class="line">    transfer = StandardScaler()</span><br><span class="line">    x_train = transfer.fit_transform(x_train) <span class="comment"># 训练阶段用fit_transform</span></span><br><span class="line">    x_test = transfer.transform(x_test)		  <span class="comment"># 测试阶段使用transform</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4、KNN算法预估器</span></span><br><span class="line">    estimator = KNeighborsClassifier(n_neighbors=<span class="number">3</span>)</span><br><span class="line">    estimator.fit(x_train, y_train)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 5、模型评估</span></span><br><span class="line">    <span class="comment"># 方法1：直接比对真实值和预估值</span></span><br><span class="line">    y_predict = estimator.predict(x_test)</span><br><span class="line">    print(<span class="string">"y_predict:"</span>, y_predict)</span><br><span class="line">    print(<span class="string">"直接对比真实值和预估值:"</span>, y_test == y_predict)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 方法2:计算准确率</span></span><br><span class="line">    score = estimator.score(x_test, y_test)</span><br><span class="line">    print(<span class="string">"准确率为: "</span>, score)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="交叉验证和网格搜索"><a href="#交叉验证和网格搜索" class="headerlink" title="交叉验证和网格搜索"></a>交叉验证和网格搜索</h1><h2 id="什么是交叉验证-cross-validation"><a href="#什么是交叉验证-cross-validation" class="headerlink" title="什么是交叉验证(cross validation)"></a>什么是交叉验证(cross validation)</h2><p>交叉验证，就是将拿到的训练数据，分为训练和验证集。</p>
+<p>即 <strong>为了让从训练得到模型结果更加准确。</strong>做以下处理</p>
+<ul>
+<li>训练集：训练集+验证集</li>
+<li>测试集：测试集</li>
+</ul>
+<p>以下图为例：将数据分成4份，其中一份作为验证集。然后经过4次(组)的测试，每次都更换不同的验证集。即得到4组模型的结果，取平均值作为最终结果。又称4折交叉验证。</p>
+<img src="/2021/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04/3.png" class>
+
+<p>交叉验证目的：<strong>为了让被评估的模型更加准确可信</strong></p>
+<h2 id="什么是网格搜索-Grid-Search"><a href="#什么是网格搜索-Grid-Search" class="headerlink" title="什么是网格搜索(Grid Search)"></a>什么是网格搜索(Grid Search)</h2><p>通常情况下，<strong>有很多参数是需要手动指定的（如k-近邻算法中的K值），这种叫超参数</strong>。但是手动过程繁杂，所以需要对模型预设几种超参数组合。<strong>每组超参数都采用交叉验证来进行评估。最后选出最优参数组合建立模型。</strong></p>
+<p>超参数是在机器开始学习之前设置，不是通过训练得到的。</p>
+<h2 id="交叉验证，网格搜索（模型选择与调优）API"><a href="#交叉验证，网格搜索（模型选择与调优）API" class="headerlink" title="交叉验证，网格搜索（模型选择与调优）API"></a>交叉验证，网格搜索（模型选择与调优）API</h2><p>sklearn.model_selection.GridSearchCV(estimator, param_grid=None,cv=None)</p>
+<ul>
+<li>对估计器的指定参数值进行详尽搜索</li>
+<li>estimator：估计器对象</li>
+<li>param_grid：估计器参数(dict){“n_neighbors”:[1,3,5]}</li>
+<li>cv：指定几折交叉验证</li>
+<li>fit：输入训练数据</li>
+<li>score：准确率</li>
+<li>结果分析：<ul>
+<li>bestscore__:在交叉验证中验证的最好结果</li>
+<li>bestestimator：最好的参数模型</li>
+<li>cvresults:每次交叉验证后的验证集准确率结果和训练集准确率结果</li>
+</ul>
+</li>
+</ul>
+<p>参考链接：<a href="https://blog.csdn.net/hohaizx/article/details/81013985" target="_blank" rel="noopener">https://blog.csdn.net/hohaizx/article/details/81013985</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split, GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">fit：原义指的是安装、使适合的意思，其实有点train的含义但是和train不同的是，</span></span><br><span class="line"><span class="string">    它并不是一个训练的过程，而是一个适配的过程，过程都是定死的，最后只是得到了一个统一的转换的规则模型。</span></span><br><span class="line"><span class="string">transform：是将数据进行转换，比如数据的归一化和标准化，将测试数据按照训练数据同样的模型进行转换，得到特征向量。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">fit_transform：可以看做是fit和transform的结合，</span></span><br><span class="line"><span class="string">    如果训练阶段使用fit_transform，则在测试阶段只需要对测试样本进行transform就行了。</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knn_iris</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 1、获取数据集</span></span><br><span class="line">    iris = load_iris()</span><br><span class="line">    <span class="comment"># 2、数据基本处理 -- 划分数据集</span></span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(iris.data, iris.target, random_state=<span class="number">22</span>)</span><br><span class="line">    <span class="comment"># 3、特征工程：标准化</span></span><br><span class="line">    <span class="comment"># 实例化一个转换器类</span></span><br><span class="line">    transfer = StandardScaler()</span><br><span class="line">    <span class="comment"># 调用fit_transform</span></span><br><span class="line">    x_train = transfer.fit_transform(x_train)</span><br><span class="line">    x_test = transfer.transform(x_test)</span><br><span class="line">    <span class="comment"># 4、KNN预估器流程</span></span><br><span class="line">    <span class="comment">#  4.1 实例化预估器类</span></span><br><span class="line">    estimator = KNeighborsClassifier()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4.2 模型选择与调优——网格搜索和交叉验证</span></span><br><span class="line">    <span class="comment"># 准备要调的超参数</span></span><br><span class="line">    param_dict = &#123;<span class="string">"n_neighbors"</span>: [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]&#125;</span><br><span class="line">    estimator = GridSearchCV(estimator, param_grid=param_dict, cv=<span class="number">5</span>)</span><br><span class="line">    <span class="comment"># 4.3 fit数据进行训练</span></span><br><span class="line">    estimator.fit(x_train, y_train)</span><br><span class="line">    <span class="comment"># 5、评估模型效果</span></span><br><span class="line">    <span class="comment"># 方法a：比对预测结果和真实值</span></span><br><span class="line">    y_predict = estimator.predict(x_test)</span><br><span class="line">    print(<span class="string">"比对预测结果和真实值：\n"</span>, y_predict == y_test)</span><br><span class="line">    <span class="comment"># 方法b：直接计算准确率</span></span><br><span class="line">    score = estimator.score(x_test, y_test)</span><br><span class="line">    print(<span class="string">"直接计算准确率：\n"</span>, score)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"在交叉验证中验证的最好结果：\n"</span>, estimator.best_score_)</span><br><span class="line">    print(<span class="string">"最好的参数模型：\n"</span>, estimator.best_estimator_)</span><br><span class="line">    print(<span class="string">"每次交叉验证后的准确率结果：\n"</span>, estimator.cv_results_)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    knn_iris()</span><br><span class="line">    <span class="comment"># plot_iris()</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="朴素贝叶斯算法"><a href="#朴素贝叶斯算法" class="headerlink" title="朴素贝叶斯算法"></a>朴素贝叶斯算法</h1><p>先初步给出代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> fetch_20newsgroups</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> TfidfVectorizer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nb_news</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    用 朴素贝叶斯 方法对新闻进行分类</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    news = fetch_20newsgroups(subset=<span class="string">'all'</span>)</span><br><span class="line">    </span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(news.data, news.target)</span><br><span class="line">    </span><br><span class="line">    transfer = TfidfVectorizer()</span><br><span class="line">    </span><br><span class="line">    x_train = transfer.fit_transform(x_train)</span><br><span class="line">    x_test = transfer.transform(x_test)</span><br><span class="line">    </span><br><span class="line">    estimator = MultinomialNB()</span><br><span class="line">    estimator.fit(x_train, y_train)</span><br><span class="line"></span><br><span class="line">    y_predict = estimator.predict(x_test)</span><br><span class="line">    print(y_predict)</span><br><span class="line">    print(y_predict == y_test)</span><br><span class="line"></span><br><span class="line">    score = estimator.score(x_test, y_test)</span><br><span class="line">    print(score)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    nb_news()</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -351,7 +444,10 @@
     <a href="/2021/01/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-03/" rel="prev" title="机器学习_03(特征预处理、特征降维、主成分分析)">
       <i class="fa fa-chevron-left"></i> 机器学习_03(特征预处理、特征降维、主成分分析)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/" rel="next" title="机器学习_05(线性回归 和 模型保存)">
+      机器学习_05(线性回归 和 模型保存) <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -412,6 +508,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sklearn转换器和估计器"><span class="nav-number">1.</span> <span class="nav-text">sklearn转换器和估计器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#转换器"><span class="nav-number">1.1.</span> <span class="nav-text">转换器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#估计器"><span class="nav-number">1.2.</span> <span class="nav-text">估计器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤"><span class="nav-number">1.2.1.</span> <span class="nav-text">步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K-近邻算法"><span class="nav-number">2.</span> <span class="nav-text">K-近邻算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#距离公式"><span class="nav-number">2.2.</span> <span class="nav-text">距离公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K-近邻算法API"><span class="nav-number">2.3.</span> <span class="nav-text">K-近邻算法API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例：基于鸢尾花数据集的KNN算法实现"><span class="nav-number">2.4.</span> <span class="nav-text">案例：基于鸢尾花数据集的KNN算法实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#交叉验证和网格搜索"><span class="nav-number">3.</span> <span class="nav-text">交叉验证和网格搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是交叉验证-cross-validation"><span class="nav-number">3.1.</span> <span class="nav-text">什么是交叉验证(cross validation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是网格搜索-Grid-Search"><span class="nav-number">3.2.</span> <span class="nav-text">什么是网格搜索(Grid Search)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉验证，网格搜索（模型选择与调优）API"><span class="nav-number">3.3.</span> <span class="nav-text">交叉验证，网格搜索（模型选择与调优）API</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯算法"><span class="nav-number">4.</span> <span class="nav-text">朴素贝叶斯算法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -427,7 +524,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -493,12 +590,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">136k</span>
+    <span title="站点总字数">144k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:35</span>
+    <span title="站点阅读时长">8:01</span>
 </div>
 
 <!--

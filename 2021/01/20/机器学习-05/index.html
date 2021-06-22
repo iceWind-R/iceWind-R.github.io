@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <meta name="baidu-site-verification" content="OIvRHPtnvC">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-loading-bar.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"icewind-r.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="线性回归的三种方法介绍，正规方程、梯度下降 和 岭回归。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习_05(线性回归 和 模型保存)">
+<meta property="og:url" content="http://icewind-r.github.io/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/index.html">
+<meta property="og:site_name" content="Thorine">
+<meta property="og:description" content="线性回归的三种方法介绍，正规方程、梯度下降 和 岭回归。">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/1.png">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/2.png">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/3.png">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/4.png">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/5.png">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/6.png">
+<meta property="og:image" content="http://icewind-r.github.io/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/7.png">
+<meta property="article:published_time" content="2021-01-20T01:31:31.000Z">
+<meta property="article:modified_time" content="2021-01-20T07:47:12.970Z">
+<meta property="article:author" content="大雪初晴丶">
+<meta property="article:tag" content="大学生">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://icewind-r.github.io/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/1.png">
+
+<link rel="canonical" href="http://icewind-r.github.io/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>机器学习_05(线性回归 和 模型保存) | Thorine</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a170e4a05c3a0ce3f8d5a6919dae5d5e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Thorine" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    	<!-- 自己的Github地址 -->
+
+<a href="https://github.com/iceWind-R" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Thorine</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">凡是过往，皆为序章</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://icewind-r.github.io/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang01.jpg">
+      <meta itemprop="name" content="大雪初晴丶">
+      <meta itemprop="description" content="一个热爱编程的大二小白">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Thorine">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          机器学习_05(线性回归 和 模型保存)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+
+
+
+                
+                
+
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-20 09:31:31 / 修改时间：15:47:12" itemprop="dateCreated datePublished" datetime="2021-01-20T09:31:31+08:00">2021-01-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/" class="post-meta-item leancloud_visitors" data-flag-title="机器学习_05(线性回归 和 模型保存)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>10 分钟</span>
+            </span>
+
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>线性回归的三种方法介绍，正规方程、梯度下降 和 岭回归。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="线性回归的原理"><a href="#线性回归的原理" class="headerlink" title="线性回归的原理"></a>线性回归的原理</h1><h2 id="1、什么是线性回归"><a href="#1、什么是线性回归" class="headerlink" title="1、什么是线性回归"></a>1、什么是线性回归</h2><h3 id="定义与公式"><a href="#定义与公式" class="headerlink" title="定义与公式"></a>定义与公式</h3><p>线性回归(Linear regression)是利用<strong>回归方程(函数)</strong>对一个或<strong>多个自变量(特征值)和因变量(目标值)之间</strong>关系进行建模的一种分析方式。</p>
+<ul>
+<li>特点：只有一个自变量的情况称为单变量回归，大于一个自变量情况的叫做多元回归</li>
+</ul>
+<img src="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/1.png" class>
+
+<h3 id="线性回归的特征与目标的关系分析"><a href="#线性回归的特征与目标的关系分析" class="headerlink" title="线性回归的特征与目标的关系分析"></a>线性回归的特征与目标的关系分析</h3><p>线性回归当中的关系有两种，一种是线性关系，另一种是非线性关系。</p>
+<p>即：如果在单特征与目标值的关系呈直线关系，或者两个特征与目标值呈现平面的关系，就是线性关系。</p>
+<p>​        如果是曲线，则是非线性关系。</p>
+<h2 id="2、线性回归的损失和优化原理"><a href="#2、线性回归的损失和优化原理" class="headerlink" title="2、线性回归的损失和优化原理"></a>2、线性回归的损失和优化原理</h2><p>例如这个例子，会存在误差</p>
+<img src="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/2.png" class>
+
+<p>如何衡量出来呢？</p>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>总损失定义为：</p>
+<img src="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/3.png" class>
+
+<ul>
+<li>y_i为第i个训练样本的真实值</li>
+<li>h(x_i)为第i个训练样本特征值组合预测函数</li>
+<li>又称最小二乘法</li>
+</ul>
+<p><strong>如何去减少这个损失，使我们预测的更加准确些？既然存在了这个损失，我们一直说机器学习有自动学习的功能，在线性回归这里更是能够体现。这里可以通过一些优化方法去优化（其实是数学当中的求导功能）回归的总损失！！！</strong></p>
+<h3 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h3><p><strong>如何去求模型当中的W，使得损失最小？（目的是找到最小损失对应的W值）</strong></p>
+<p>线性回归经常使用的两种优化算法</p>
+<ul>
+<li><p>正规方程</p>
+<img src="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/4.png" class>
+
+<blockquote>
+<p>理解：X为特征值矩阵，y为目标值矩阵。直接求到最好的结果</p>
+<p>缺点：当特征过多过复杂时，求解速度太慢并且得不到结果</p>
+</blockquote>
+<img src="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/5.png" class>
+</li>
+<li><p><strong>梯度下降(Gradient Descent)</strong></p>
+<img src="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/6.png" class>
+
+<blockquote>
+<p>理解：α为学习速率，需要手动指定（超参数），α旁边的整体表示方向</p>
+<p>沿着这个函数下降的方向找，最后就能找到山谷的最低点，然后更新W值</p>
+<p>使用：面对训练数据规模十分庞大的任务 ，能够找到较好的结果</p>
+</blockquote>
+<p><strong>所以有了梯度下降这样一个优化算法，回归就有了”自动学习”的能力</strong></p>
+</li>
+</ul>
+<h2 id="3、线性回归API"><a href="#3、线性回归API" class="headerlink" title="3、线性回归API"></a>3、线性回归API</h2><h3 id="（1）通过正规方程优化"><a href="#（1）通过正规方程优化" class="headerlink" title="（1）通过正规方程优化"></a>（1）通过正规方程优化</h3><ul>
+<li><p>sklearn.linear_model.LinearRegression(fit_intercept=True)</p>
+<ul>
+<li>fit_intercept：是否计算偏置</li>
+</ul>
+<p>属性：</p>
+<ul>
+<li>LinearRegression.coef_：回归系数</li>
+<li>LinearRegression.intercept_：偏置</li>
+</ul>
+</li>
+</ul>
+<h3 id="（2）梯度下降"><a href="#（2）梯度下降" class="headerlink" title="（2）梯度下降"></a>（2）梯度下降</h3><ul>
+<li><p>sklearn.linear_model.SGDRegressor(loss=”squared_loss”, fit_intercept=True, learning_rate =’invscaling’, eta0=0.01)</p>
+<ul>
+<li>SGDRegressor类实现了随机梯度下降学习，它支持不同的<strong>loss函数和正则化惩罚项</strong>来拟合线性回归模型。</li>
+<li>loss:损失类型<ul>
+<li><strong>loss=”squared_loss”: 普通最小二乘法</strong></li>
+</ul>
+</li>
+<li>fit_intercept：是否计算偏置</li>
+<li>learning_rate : string, optional<ul>
+<li>学习率填充</li>
+<li><strong>‘constant’: eta = eta0</strong></li>
+<li><strong>‘optimal’: eta = 1.0 / (alpha * (t + t0)) [default]</strong></li>
+<li>‘invscaling’: eta = eta0 / pow(t, power_t)<ul>
+<li><strong>power_t=0.25:存在父类当中</strong></li>
+</ul>
+</li>
+<li><strong>对于一个常数值的学习率来说，可以使用learning_rate=’constant’ ，并使用eta0来指定学习率。</strong></li>
+</ul>
+</li>
+</ul>
+<p>属性</p>
+<ul>
+<li>SGDRegressor.coef_：回归系数</li>
+<li>SGDRegressor.intercept_：偏置</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>sklearn提供给我们两种实现的API， 可以根据选择使用</p>
+</blockquote>
+<h2 id="4、波士顿房价案例"><a href="#4、波士顿房价案例" class="headerlink" title="4、波士顿房价案例"></a>4、波士顿房价案例</h2><p>首先我们需要知道如何评估。</p>
+<h3 id="回归性能评估"><a href="#回归性能评估" class="headerlink" title="回归性能评估"></a>回归性能评估</h3><p>均方误差(Mean Squared Error)MSE)评价机制：</p>
+<img src="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05/7.png" class>
+
+<blockquote>
+<p>注：y^i为预测值，¯y为真实值</p>
+</blockquote>
+<ul>
+<li>sklearn.metrics.mean_squared_error(y_true, y_pred)<ul>
+<li>均方误差回归损失</li>
+<li>y_true:真实值</li>
+<li>y_pred:预测值</li>
+<li>return:浮点数结果</li>
+</ul>
+</li>
+</ul>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_boston</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression, SGDRegressor</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">linear_model</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 获取 波士顿房价数据</span></span><br><span class="line">    boston = load_boston()</span><br><span class="line">    print(boston)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 分割数据</span></span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(boston.data, boston.target, test_size=<span class="number">0.2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 标准化</span></span><br><span class="line">    transfer = StandardScaler()</span><br><span class="line">    x_train = transfer.fit_transform(x_train)</span><br><span class="line">    x_test = transfer.fit_transform(x_test)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 线性回归</span></span><br><span class="line">    <span class="comment"># 方法1：正规方程</span></span><br><span class="line">    <span class="comment"># estimator = LinearRegression()</span></span><br><span class="line">    <span class="comment"># 方法2：梯度下降法</span></span><br><span class="line">    estimator = SGDRegressor()</span><br><span class="line">    <span class="comment"># estimator = SGDRegressor(max_iter=100, learning_rate='constant', eta0=0.001)  # 最大迭代次数,学习率,eta0</span></span><br><span class="line"></span><br><span class="line">    estimator.fit(x_train, y_train)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"这个模型的偏置是："</span>, estimator.intercept_)</span><br><span class="line">    print(<span class="string">"这个模型的系数："</span>, estimator.coef_)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 模型评估</span></span><br><span class="line">    y_predict = estimator.predict(x_test)</span><br><span class="line">    print(<span class="string">"预测值是："</span>, y_predict)</span><br><span class="line"></span><br><span class="line">    ret = mean_squared_error(y_test, y_predict)</span><br><span class="line">    print(<span class="string">"均方误差是："</span>, ret)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="欠拟合与过拟合"><a href="#欠拟合与过拟合" class="headerlink" title="欠拟合与过拟合"></a>欠拟合与过拟合</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul>
+<li>过拟合：一个假设在训练数据上能够获得比其他假设更好的拟合， 但是在测试数据集上却不能很好地拟合数据，此时认为这个假设出现了过拟合的现象。(模型过于复杂)</li>
+<li>欠拟合：一个假设在训练数据上不能获得更好的拟合，并且在测试数据集上也不能很好地拟合数据，此时认为这个假设出现了欠拟合的现象。(模型过于简单)</li>
+</ul>
+<h2 id="原因以及解决办法"><a href="#原因以及解决办法" class="headerlink" title="原因以及解决办法"></a>原因以及解决办法</h2><ul>
+<li>欠拟合原因以及解决办法<ul>
+<li>原因：学习到数据的特征过少</li>
+<li>解决办法：增加数据的特征数量</li>
+</ul>
+</li>
+<li>过拟合原因以及解决办法<ul>
+<li>原因：原始特征过多，存在一些嘈杂特征， 模型过于复杂是因为模型尝试去兼顾各个测试数据点</li>
+<li>解决办法：<ul>
+<li>正则化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>在这里针对回归，我们选择了正则化。但是对于其他机器学习算法如分类算法来说也会出现这样的问题，除了一些算法本身作用之外（决策树、神经网络），我们更多的也是去自己做特征选择，包括之前说的删除、合并一些特征</p>
+</blockquote>
+<p>在学习的时候，数据提供的特征有些影响模型复杂度或者这个特征的数据点异常较多，所以算法在学习的时候尽量减少这个特征的影响（甚至删除某个特征的影响），这就是<strong>正则化</strong></p>
+<blockquote>
+<p>注：调整时候，算法并不知道某个特征影响，而是去调整参数得出优化的结果</p>
+</blockquote>
+<h2 id="正则化类别"><a href="#正则化类别" class="headerlink" title="正则化类别"></a>正则化类别</h2><ul>
+<li>L2正则化<ul>
+<li>作用：可以使得其中一些W的都很小，都接近于0，削弱某个特征的影响</li>
+<li>优点：越小的参数说明模型越简单，越简单的模型则越不容易产生过拟合现象</li>
+<li>Ridge 回归 （岭回归）</li>
+</ul>
+</li>
+<li>L1正则化<ul>
+<li>作用：可以使得其中一些W的值直接为0，删除这个特征的影响</li>
+<li>LASSO回归</li>
+</ul>
+</li>
+</ul>
+<h1 id="线性回归的改进-岭回归"><a href="#线性回归的改进-岭回归" class="headerlink" title="线性回归的改进-岭回归"></a>线性回归的改进-岭回归</h1><p>岭回归，其实也是一种线性回归。只不过在算法建立回归方程时候，加上正则化的限制，从而达到解决过拟合的效果</p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>1、sklearn.linear_model.Ridge(alpha=1.0, fit_intercept=True,solver=”auto”, normalize=False)</p>
+<ul>
+<li>具有l2正则化的线性回归</li>
+<li>alpha:正则化力度，也叫 λ<ul>
+<li><strong>λ取值：0<del>1 1</del>10</strong></li>
+</ul>
+</li>
+<li>solver:会根据数据自动选择优化方法<ul>
+<li><strong>sag:如果数据集、特征都比较大，选择该随机梯度下降优化</strong></li>
+</ul>
+</li>
+<li>normalize:数据是否进行标准化<ul>
+<li>normalize=False:可以在fit之前调用preprocessing.StandardScaler标准化数据</li>
+</ul>
+</li>
+<li>Ridge.coef_:回归权重</li>
+<li>Ridge.intercept_:回归偏置</li>
+</ul>
+<p><strong>Ridge方法相当于SGDRegressor(penalty=’l2’, loss=”squared_loss”),只不过SGDRegressor实现了一个普通的随机梯度下降学习，推荐使用Ridge(实现了SAG)</strong></p>
+<p>2、sklearn.linear_model.RidgeCV(_BaseRidgeCV, RegressorMixin)</p>
+<ul>
+<li>具有l2正则化的线性回归，可以进行交叉验证</li>
+<li>coef_:回归系数</li>
+</ul>
+<p>对之前的代码进行岭回归的优化更改：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_boston</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Ridge, RidgeCV</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">linear_ridge_model</span><span class="params">()</span>:</span></span><br><span class="line">    boston = load_boston()</span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(boston.data, boston.target, test_size=<span class="number">0.2</span>)</span><br><span class="line">    transfer = StandardScaler()</span><br><span class="line">    x_train = transfer.fit_transform(x_train)</span><br><span class="line">    x_test = transfer.fit_transform(x_test)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 岭回归</span></span><br><span class="line">    <span class="comment"># estimator = Ridge(alpha=1.0)</span></span><br><span class="line">    estimator = RidgeCV(alphas=(<span class="number">0.01</span>, <span class="number">0.1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">100</span>))</span><br><span class="line">    estimator.fit(x_train, y_train)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"这个模型的偏置是："</span>, estimator.intercept_)</span><br><span class="line">    print(<span class="string">"这个模型的系数："</span>, estimator.coef_)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 模型评估</span></span><br><span class="line">    y_predict = estimator.predict(x_test)</span><br><span class="line">    print(<span class="string">"预测值是："</span>, y_predict)</span><br><span class="line"></span><br><span class="line">    ret = mean_squared_error(y_test, y_predict)</span><br><span class="line">    print(<span class="string">"均方误差是："</span>, ret)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="模型保存和加载"><a href="#模型保存和加载" class="headerlink" title="模型保存和加载"></a>模型保存和加载</h1><p>当训练或者计算好一个模型之后，那么如果别人需要我们提供结果预测，就需要保存模型（主要是保存算法的参数）</p>
+<h2 id="sklearn模型的保存和加载API"><a href="#sklearn模型的保存和加载API" class="headerlink" title="sklearn模型的保存和加载API"></a>sklearn模型的保存和加载API</h2><ul>
+<li><p>from sklearn.externals import joblib</p>
+<ul>
+<li>保存：joblib.dump(rf, ‘test.pkl’)</li>
+<li>加载：estimator = joblib.load(‘test.pkl’)</li>
+</ul>
+</li>
+<li><p>保存</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用线性模型进行预测</span></span><br><span class="line"><span class="comment"># 使用正规方程求解</span></span><br><span class="line">lr = LinearRegression()</span><br><span class="line"><span class="comment"># 此时在干什么？</span></span><br><span class="line">lr.fit(x_train, y_train)</span><br><span class="line"><span class="comment"># 保存训练完结束的模型</span></span><br><span class="line">joblib.dump(lr, <span class="string">"test.pkl"</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>加载</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过已有的模型去预测房价</span></span><br><span class="line">model = joblib.load(<span class="string">"test.pkl"</span>)</span><br><span class="line">print(<span class="string">"从文件加载进来的模型预测房价的结果："</span>, std_y.inverse_transform(model.predict(x_test)))</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>~感谢你请我吃糖果~</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.JPG" alt="大雪初晴丶 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束，感谢您的阅读，欢迎评论留言！-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04/" rel="prev" title="机器学习_04(分类算法knn与bayes)">
+      <i class="fa fa-chevron-left"></i> 机器学习_04(分类算法knn与bayes)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06/" rel="next" title="机器学习_06">
+      机器学习_06 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性回归的原理"><span class="nav-number">1.</span> <span class="nav-text">线性回归的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、什么是线性回归"><span class="nav-number">1.1.</span> <span class="nav-text">1、什么是线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义与公式"><span class="nav-number">1.1.1.</span> <span class="nav-text">定义与公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性回归的特征与目标的关系分析"><span class="nav-number">1.1.2.</span> <span class="nav-text">线性回归的特征与目标的关系分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、线性回归的损失和优化原理"><span class="nav-number">1.2.</span> <span class="nav-text">2、线性回归的损失和优化原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#损失函数"><span class="nav-number">1.2.1.</span> <span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化算法"><span class="nav-number">1.2.2.</span> <span class="nav-text">优化算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、线性回归API"><span class="nav-number">1.3.</span> <span class="nav-text">3、线性回归API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）通过正规方程优化"><span class="nav-number">1.3.1.</span> <span class="nav-text">（1）通过正规方程优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）梯度下降"><span class="nav-number">1.3.2.</span> <span class="nav-text">（2）梯度下降</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、波士顿房价案例"><span class="nav-number">1.4.</span> <span class="nav-text">4、波士顿房价案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#回归性能评估"><span class="nav-number">1.4.1.</span> <span class="nav-text">回归性能评估</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#欠拟合与过拟合"><span class="nav-number">2.</span> <span class="nav-text">欠拟合与过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原因以及解决办法"><span class="nav-number">2.2.</span> <span class="nav-text">原因以及解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化类别"><span class="nav-number">2.3.</span> <span class="nav-text">正则化类别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性回归的改进-岭回归"><span class="nav-number">3.</span> <span class="nav-text">线性回归的改进-岭回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-number">3.1.</span> <span class="nav-text">API</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模型保存和加载"><span class="nav-number">4.</span> <span class="nav-text">模型保存和加载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearn模型的保存和加载API"><span class="nav-number">4.1.</span> <span class="nav-text">sklearn模型的保存和加载API</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="大雪初晴丶"
+      src="/images/touxiang01.jpg">
+  <p class="site-author-name" itemprop="name">大雪初晴丶</p>
+  <div class="site-description" itemprop="description">一个热爱编程的大二小白</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/iceWind-R" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;iceWind-R" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:thorine612@gmail.com" title="E-Mail → mailto:thorine612@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/dongao/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;dongao&#x2F;" rel="noopener" target="_blank">博客园</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大雪初晴丶</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">144k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">8:01</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div> -->
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e59d7f2168413b5" async="async"></script>
+  </div>
+
+
+<!-- 网站运行时间 -->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("2/28/2020 8:00:00");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = " Runing "+dnum+" D "; 
+        document.getElementById("times").innerHTML = hnum + " H " + mnum + " M " + snum + " S"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,255,0' opacity='0.8' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'k9OjfFxvrej9ESLrFSCkSv0C-gzGzoHsz',
+      appKey     : '8MwswXHf6uKqdfpB6jYw1s5p',
+      placeholder: "Just go go",
+      avatar     : 'monsterid',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
